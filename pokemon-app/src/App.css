@@ -1,38 +1,57 @@
-.App {
-  text-align: center;
+#dex-left{
+  position: absolute;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#dex-right-open-opening{
+  width: 0px;
+  position: absolute;
+  top: 42px;
+  left: 424px;
+  animation-name: open-right;
+  animation-delay: 1s;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#dex-right-close-opening{
+  position: absolute;
+  top: 42px;
+  animation-name: open-left;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@keyframes open-left{
+  from {left: 0px; height: 471px; width: 366px;}
+  to {left: 390px; height: 471px; width: 0px;}
 }
-
-.App-link {
-  color: #61dafb;
+@keyframes open-right{
+  from {left: 390px; height: 471px; width: 0px;}
+  to {left: 416px; height: 471px; width: 353px;}
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#dex-right-open-closing{
+  position: absolute;
+  top: 42px;
+  left: 424px;
+  animation-name: close-right;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+}
+#dex-right-close-closing{
+  width: 0px;
+  position: absolute;
+  top: 42px;
+  animation-name: close-left;
+  animation-delay: 1s;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+@keyframes close-left{
+  from {left: 390px; height: 471px; width: 0px;}
+  to {left: 0px; height: 471px; width: 366px;}
+}
+@keyframes close-right{
+  from {left: 416px; height: 471px; width: 353px;}
+  to {left: 390px; height: 471px; width: 0px;}
 }
