@@ -3,7 +3,7 @@ import React from "react";
 const PokemonEvolutions = ({ evolutions }) => (
   <div className="pokemon-evolutions">
     <div className="pokemon-evolutions__title">
-      <p>Evolutions</p>
+      <p className="paragraph">Evolutions</p>
     </div>
 
     <div className="pokemon-evolutions__card-wrapper">
