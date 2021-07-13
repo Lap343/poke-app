@@ -14,7 +14,7 @@ const fetchData = async (url) => {
     .then((data) => data);
 };
 
-export const getPokeByName = async (pokemon) => {
+export const getPokeByNameOrId = async (pokemon) => {
   try {
     const url = `${process.env.REACT_APP_POKE_API_URL}/${pokemon}`;
 
