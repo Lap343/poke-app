@@ -11,26 +11,30 @@ const PokemonEvolutions = ({ evolutions }) => (
         ? null
         : evolutions.map((evolve) => (
             <div key={evolve?.id} className="pokemon-evolutions__card">
-              <div className="pokemon-evolutions__img">
+              <div className="pokemon-evolutions__card-img">
                 <img
                   src={`${evolve?.sprites?.front_default}`}
                   alt={`${evolve?.name}`}
                 />
               </div>
 
-              <div className="pokemon-evolutions__name-id">
-                <span className="pokemon-evolutions__name">{evolve?.name}</span>
+              <div className="pokemon-evolutions__card-name-id-wrapper">
+                <span className="pokemon-evolutions__card-name">
+                  {evolve?.name}
+                </span>
 
-                <span className="pokemon-evolutions__id">{evolve?.id}</span>
+                <span className="pokemon-evolutions__card-id">
+                  {evolve?.id}
+                </span>
               </div>
 
-              <div className="pokemon-evolutions__type">
+              <div className="pokemon-evolutions__card-type">
                 {!evolve?.types.length
                   ? null
                   : evolve?.types.map((type, typeIndex) => (
                       <span
                         key={`${evolve?.id}-${typeIndex}`}
-                        className="pokemon-evolutions__type-name"
+                        className="pokemon-evolutions__card-type-name"
                       >
                         {type?.type?.name}
                       </span>
