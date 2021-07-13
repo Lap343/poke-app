@@ -1,4 +1,4 @@
-import './App.css';
+import './styles/App.css';
 import dexLeft from "./assets/dex-left.png";
 import dexRightOpen from "./assets/dex-right-open.png";
 import dexRightClose from "./assets/dex-right-close.png";

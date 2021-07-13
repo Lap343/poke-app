@@ -1,0 +1,8 @@
+.type-check{
+    height: 100%;
+    width: 100%;
+    border: solid black 1px;
+    z-index: 1;
+    position: absolute;
+    padding: 2%;
+}
