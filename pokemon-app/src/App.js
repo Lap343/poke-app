@@ -13,12 +13,12 @@ function App() {
         alt="classic pokedex from the Pokemon series"/>
       <Main />
       <img 
-        id="dex-right-open-opening" 
-        src={dexRightOpen} 
+        id="dex-right-closed-opening" 
+        src={dexRightClose}
         alt=""/>
       <img 
-        id="dex-right-close-opening" 
-        src={dexRightClose}
+        id="dex-right-open-opening" 
+        src={dexRightOpen} 
         alt=""/>
     </div>
   );
