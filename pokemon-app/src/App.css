@@ -1,7 +1,7 @@
-#dex-left{
+#dex-left {
   position: absolute;
 }
-#dex-right-open-opening{
+#dex-right-open-opening {
   width: 0px;
   position: absolute;
   top: 42px;
@@ -12,7 +12,7 @@
   animation-fill-mode: forwards;
   animation-timing-function: ease-out;
 }
-#dex-right-close-opening{
+#dex-right-close-opening {
   position: absolute;
   top: 42px;
   animation-name: open-left;
@@ -20,15 +20,31 @@
   animation-fill-mode: forwards;
   animation-timing-function: ease-in;
 }
-@keyframes open-left{
-  from {left: 0px; height: 471px; width: 366px;}
-  to {left: 390px; height: 471px; width: 0px;}
+@keyframes open-left {
+  from {
+    left: 0px;
+    height: 471px;
+    width: 366px;
+  }
+  to {
+    left: 390px;
+    height: 471px;
+    width: 0px;
+  }
 }
-@keyframes open-right{
-  from {left: 390px; height: 471px; width: 0px;}
-  to {left: 416px; height: 471px; width: 353px;}
+@keyframes open-right {
+  from {
+    left: 390px;
+    height: 471px;
+    width: 0px;
+  }
+  to {
+    left: 416px;
+    height: 471px;
+    width: 353px;
+  }
 }
-#dex-right-open-closing{
+#dex-right-open-closing {
   position: absolute;
   top: 42px;
   left: 424px;
@@ -37,7 +53,7 @@
   animation-fill-mode: forwards;
   animation-timing-function: ease-in;
 }
-#dex-right-close-closing{
+#dex-right-close-closing {
   width: 0px;
   position: absolute;
   top: 42px;
@@ -47,15 +63,31 @@
   animation-fill-mode: forwards;
   animation-timing-function: ease-out;
 }
-@keyframes close-left{
-  from {left: 390px; height: 471px; width: 0px;}
-  to {left: 0px; height: 471px; width: 366px;}
+@keyframes close-left {
+  from {
+    left: 390px;
+    height: 471px;
+    width: 0px;
+  }
+  to {
+    left: 0px;
+    height: 471px;
+    width: 366px;
+  }
 }
-@keyframes close-right{
-  from {left: 416px; height: 471px; width: 353px;}
-  to {left: 390px; height: 471px; width: 0px;}
+@keyframes close-right {
+  from {
+    left: 416px;
+    height: 471px;
+    width: 353px;
+  }
+  to {
+    left: 390px;
+    height: 471px;
+    width: 0px;
+  }
 }
-.main{
+.main {
   position: absolute;
   z-index: -1;
   top: 156px;
@@ -63,12 +95,12 @@
   height: 279px;
   width: 261px;
 }
-.splash-background{
+.splash-background {
   position: absolute;
   height: 100%;
   width: 100%;
 }
-.splash-star{
+.splash-star {
   position: absolute;
   height: 0%;
   width: 0%;
@@ -76,7 +108,7 @@
   animation-delay: 1s;
   animation-fill-mode: forwards;
 }
-.splash-title{
+.splash-title {
   position: absolute;
   height: 0%;
   width: 0%;
@@ -84,7 +116,114 @@
   animation-delay: 1.5s;
   animation-fill-mode: forwards;
 }
-@keyframes pop{
-  from{height: 0%; width: 0%; padding: 100%;}
-  to{height: 90%; width: 90%; padding: 5%;}
+@keyframes pop {
+  from {
+    height: 0%;
+    width: 0%;
+    padding: 100%;
+  }
+  to {
+    height: 90%;
+    width: 90%;
+    padding: 5%;
+  }
+}
+
+.pokemon-evolutions {
+  width: 90%;
+  padding: 10px;
+  background-color: grey;
+  border: 4px solid black;
+  border-radius: 25px;
+}
+.pokemon-evolutions__title {
+  display: inline-block;
+  padding: 1px 4px;
+  border: 1.5px solid white;
+  border-radius: 15px;
+}
+.pokemon-evolutions__title p {
+  color: white;
+}
+.pokemon-evolutions__card-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+.pokemon-evolutions__card {
+  position: relative;
+  text-align: center;
+}
+.pokemon-evolutions__card:not(:last-child)::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 6.5px;
+  height: 28.28px;
+  background-color: white;
+  transform: translate(20px, 50px) rotate(135deg);
+}
+.pokemon-evolutions__card:not(:last-child)::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 6.5px;
+  height: 28.28px;
+  background-color: white;
+  transform: translate(20px, 66px) rotate(45deg);
+}
+.pokemon-evolutions__card-img {
+  width: 143px;
+  height: 143px;
+  margin-bottom: 10px;
+  background-color: #616161;
+  border: 4px solid white;
+  border-radius: 50%;
+}
+.pokemon-evolutions__card-img img {
+  width: 100%;
+}
+.pokemon-evolutions__card-name-id-wrapper {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 1px 4px;
+  background-color: transparent;
+  border: 1.5px solid white;
+  border-radius: 15px;
+}
+.pokemon-evolutions__card-name {
+  color: white;
+  margin-right: 1px;
+  text-transform: capitalize;
+}
+.pokemon-evolutions__card-id {
+  color: #8ca5af;
+  margin-left: 1px;
+}
+.pokemon-evolutions__card-id::before {
+  content: "#";
+}
+.pokemon-evolutions__card-type {
+  display: flex;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  background-color: #efd636;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+}
+.pokemon-evolutions__card-type-name {
+  font-size: 11px;
+  color: black;
+  text-transform: capitalize;
+}
+
+.paragraph {
+  margin: 0;
 }
