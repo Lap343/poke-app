@@ -1,6 +1,6 @@
 import React from "react";
 
-const Versus = () => {
+const PokemonVersus = () => {
   return (
     <div className="pokemon-versus">
       <div className="pokemon-versus__left">
@@ -14,4 +14,4 @@ const Versus = () => {
   );
 };
 
-export default Versus;
+export default PokemonVersus;
