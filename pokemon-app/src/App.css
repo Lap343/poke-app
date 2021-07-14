@@ -76,3 +76,9 @@
   from{height: 0%; width: 0%; padding: 100%;}
   to{height: 80%; width: 90%; padding: 5%;}
 }
+
+.searchbar {
+  border: 1px solid black;
+  position: fixed;
+  bottom: 0;
+}
