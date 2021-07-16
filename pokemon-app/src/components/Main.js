@@ -2,6 +2,7 @@ import splashBackground from "../assets/splash-background.png"
 import splashStar from "../assets/splash-star.png"
 import splashTitle from "../assets/splash-title.png"
 
+
 const Main = () => {
     return <div className="main">
         <img className="splash-background" src={splashBackground} alt=""/>

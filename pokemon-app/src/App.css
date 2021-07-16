@@ -1,4 +1,4 @@
-.App{
+.App {
   position: relative;
   animation-duration: 1.3s;
   animation-fill-mode: forwards;
@@ -6,15 +6,21 @@
   animation-name: increase;
   margin-left: 20vw;
 }
-@keyframes increase{
-  from{height: 0vh; width: 0vw;}
-  to{height: 130vh; width: 64em;}
+@keyframes increase {
+  from {
+    height: 0vh;
+    width: 0vw;
+  }
+  to {
+    height: 130vh;
+    width: 64em;
+  }
 }
-#dex-left{
+#dex-left {
   position: absolute;
   height: 100%;
 }
-#dex-right-closed-opening{
+#dex-right-closed-opening {
   position: absolute;
   height: 91.8%;
   top: 8.2%;
@@ -24,11 +30,17 @@
   animation-fill-mode: forwards;
   animation-timing-function: ease-in;
 }
-@keyframes open-left{
-  from {left: 0%; width: 88%;}
-  to {left: 94%; width: 0%;}
+@keyframes open-left {
+  from {
+    left: 0%;
+    width: 88%;
+  }
+  to {
+    left: 94%;
+    width: 0%;
+  }
 }
-#dex-right-open-opening{
+#dex-right-open-opening {
   position: absolute;
   top: 8.2%;
   left: 94%;
@@ -40,12 +52,18 @@
   animation-fill-mode: forwards;
   animation-timing-function: ease-out;
 }
-@keyframes open-right{
-  from {left: 94%; width: 0%;}
-  to {left: 99.5%; width: 88%;}
+@keyframes open-right {
+  from {
+    left: 94%;
+    width: 0%;
+  }
+  to {
+    left: 99.5%;
+    width: 88%;
+  }
 }
 
-.main{
+.main {
   position: absolute;
   z-index: -1;
   top: 30.3%;
@@ -53,32 +71,313 @@
   height: 54.6%;
   width: 62.7%;
 }
-.splash-background{
+.splash-background {
   position: absolute;
   height: 100%;
   width: 100%;
 }
-.splash-star{
+.splash-star {
   position: absolute;
   height: 0%;
   animation: pop 1s;
   animation-delay: 2s;
   animation-fill-mode: forwards;
 }
-.splash-title{
+.splash-title {
   position: absolute;
   height: 0%;
   animation: pop 1s;
   animation-delay: 2.4s;
   animation-fill-mode: forwards;
 }
-@keyframes pop{
-  from{height: 0%; width: 0%; padding: 100%;}
-  to{height: 80%; width: 90%; padding: 5%;}
+
+@keyframes pop {
+  from {
+    height: 0%;
+    width: 0%;
+    padding: 100%;
+  }
+  to {
+    height: 80%;
+    width: 90%;
+    padding: 5%;
+  }
+}
+
+.pokemon-evolutions {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 53%;
+  padding: 10px;
+  background-color: grey;
+  border: 4px solid black;
+  border-radius: 25px;
+  transform: translate(185px, 550px);
+}
+.pokemon-evolutions__title {
+  display: inline-block;
+  margin-bottom: 4px;
+  padding: 1px 4px;
+  border: 1.5px solid white;
+  border-radius: 15px;
+}
+.pokemon-evolutions__title p {
+  color: white;
+}
+.pokemon-evolutions__card-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  overflow-x: auto;
+}
+.pokemon-evolutions__card-wrapper.eevee {
+  justify-content: space-between;
+}
+.pokemon-evolutions__card-wrapper.eevee {
+  /* For Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: black transparent;
+}
+.pokemon-evolutions__card-wrapper.eevee::-webkit-scrollbar {
+  width: 1.6px;
+  height: 7.6px;
+}
+.pokemon-evolutions__card-wrapper.eevee::-webkit-scrollbar-track {
+  background: transparent;
+}
+.pokemon-evolutions__card-wrapper.eevee::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.18);
+  border-radius: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+.pokemon-evolutions__card {
+  position: relative;
+  text-align: center;
+}
+.pokemon-evolutions__card.eevee {
+  padding-bottom: 7px;
+}
+.pokemon-evolutions__card:not(:last-child) {
+  margin-right: 50px;
+}
+.pokemon-evolutions__card.eevee:not(:last-child) {
+  margin-right: 57px;
+}
+.pokemon-evolutions__card.eevee:last-child {
+  padding-right: 10px;
+}
+.pokemon-evolutions__card:not(:last-child)::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 6.5px;
+  height: 28.28px;
+  background-color: white;
+  transform: translate(20px, 45px) rotate(135deg);
+}
+.pokemon-evolutions__card:not(:last-child)::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 6.5px;
+  height: 28.28px;
+  background-color: white;
+  transform: translate(20px, 61px) rotate(45deg);
+}
+.pokemon-evolutions__card.eevee-chain:not(:last-child)::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 6.5px;
+  height: 33.28px;
+  background-color: white;
+  transform: translate(30px, 50px) rotate(90deg);
+}
+.pokemon-evolutions__card.eevee-chain:not(:last-child)::after {
+  display: none;
+}
+.pokemon-evolutions__card-img {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 10px;
+  background-color: #616161;
+  border: 4px solid white;
+  border-radius: 50%;
+}
+.pokemon-evolutions__card-img img {
+  width: 100%;
+}
+.pokemon-evolutions__card-name-id-wrapper {
+  display: inline-block;
+  font-size: 14px;
+  margin-bottom: 10px;
+  padding: 1px 4px;
+  background-color: transparent;
+  border: 1.5px solid white;
+  border-radius: 15px;
+}
+.pokemon-evolutions__card-name {
+  color: white;
+  margin-right: 1px;
+  text-transform: capitalize;
+}
+.pokemon-evolutions__card-id {
+  color: #8ca5af;
+  margin-left: 1px;
+}
+.pokemon-evolutions__card-id::before {
+  content: "#";
+}
+.pokemon-evolutions__card-type {
+  display: flex;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  background-color: #efd636;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+}
+.pokemon-evolutions__card-type-name {
+  font-size: 11px;
+  color: black;
+  text-transform: capitalize;
+}
+
+.paragraph {
+  margin: 0;
+}
+
+/*Styling for One page Pokemon*/
+.mainBackground {
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-41px, 50px) scale(0.63);
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.Poke-display-container {
+  margin-top: 23%;
+  margin-left: 13%;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.poke-name {
+  text-transform: capitalize;
+  padding-bottom: 10px;
+  padding: 5px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15%;
+  width: 110%;
+  font-size: 40px;
+  border: 6px solid black;
+  border-radius: 15px;
+  background-color: #fdf0c4;
+  transform: translate(-23px, 0px)
+}
+
+.poke-image {
+  transform: scale(1.25);
+}
+
+.poke-pad {
+  height: 50%;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: -99;
+  position: relative;
+  right: 50%;
+  bottom: 33%;
+  transform: scale(1.2);
 }
 
 .searchbar {
+  position: absolute;
+  bottom: 8%;
+  right: 51%;
+  transform: scale(1.25);
+}
+
+.searchbar > input[type=text] {
+  border: 2px solid black;
+  border-radius: 3px;
+  padding: 3px;
+  background-color: white;
+}
+
+.searchbar > input[type=text]:focus {
+  outline: none;
+}
+
+.stats-box {
+  box-sizing: border-box;
+  height: 24%;
+  width: 45%;
+  display: flex;
+  justify-content: flex-end;
+  display: inline-block;
+  border: 6px solid black;
+  border-radius: 15px;
+  background-color: #fdf0c4;
+  position: absolute;
+  right: 1%;
+  margin-right: 3%;
+  margin-top: 34%;
+}
+
+.moves-title {
+  font-size: xx-large;
+  margin: 10px;
+  margin-left: 15px;
+}
+
+#moves-list {
+  font-size: xx-large;
+  margin: 5px;
+
+}
+
+#moves-list > li {
+  margin: 10px;
+}
+
+#moves-list > li > p {
+  margin: 0 0 0 0;
+}
+
+#searchButton {
   border: 1px solid black;
-  position: fixed;
-  bottom: 0;
+  border-radius: 50%;
+  height: 65px;
+  width: 65px;
+  transform: translate(-10%, 21%);
+  background: rgb(188,12,12);
+  background: linear-gradient(90deg, rgba(188,12,12,1) 0%, rgba(156,10,10,1) 35%, rgba(103,6,6,1) 100%);
+  -webkit-box-shadow: 1px 2.5px 0px;
+}
+
+#searchbar > input[type=text]:focus {
+  outline: none;
 }
