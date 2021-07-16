@@ -1,4 +1,4 @@
-return {
+const pokeCries = {
   "abomasnow-mega":
     "https://play.pokemonshowdown.com/audio/cries/abomasnow-mega.mp3",
   abomasnow: "https://play.pokemonshowdown.com/audio/cries/abomasnow.mp3",
@@ -1126,3 +1126,5 @@ return {
     "https://play.pokemonshowdown.com/audio/cries/zygarde-complete.mp3",
   zygarde: "https://play.pokemonshowdown.com/audio/cries/zygarde.mp3",
 };
+
+export default pokeCries;
