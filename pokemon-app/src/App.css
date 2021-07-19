@@ -255,3 +255,129 @@
 .paragraph {
   margin: 0;
 }
+
+/*Styling for One page Pokemon*/
+.mainBackground {
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-41px, 50px) scale(0.63);
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.Poke-display-container {
+  margin-top: 23%;
+  margin-left: 13%;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.poke-name {
+  text-transform: capitalize;
+  padding-bottom: 10px;
+  padding: 5px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15%;
+  width: 110%;
+  font-size: 40px;
+  border: 6px solid black;
+  border-radius: 15px;
+  background-color: #fdf0c4;
+  transform: translate(-23px, 0px)
+}
+
+.poke-image {
+  transform: scale(1.25);
+}
+
+.poke-pad {
+  height: 50%;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: -99;
+  position: relative;
+  right: 50%;
+  bottom: 33%;
+  transform: scale(1.2);
+}
+
+.searchbar {
+  position: absolute;
+  bottom: 8%;
+  right: 51%;
+  transform: scale(1.25);
+}
+
+.searchbar > input[type=text] {
+  border: 2px solid black;
+  border-radius: 3px;
+  padding: 3px;
+  background-color: white;
+}
+
+.searchbar > input[type=text]:focus {
+  outline: none;
+}
+
+.stats-box {
+  box-sizing: border-box;
+  height: 24%;
+  width: 45%;
+  display: flex;
+  justify-content: flex-end;
+  display: inline-block;
+  border: 6px solid black;
+  border-radius: 15px;
+  background-color: #fdf0c4;
+  position: absolute;
+  right: 1%;
+  margin-right: 3%;
+  margin-top: 34%;
+}
+
+.moves-title {
+  font-size: xx-large;
+  margin: 10px;
+  margin-left: 15px;
+}
+
+#moves-list {
+  font-size: xx-large;
+  margin: 5px;
+
+}
+
+#moves-list > li {
+  margin: 10px;
+}
+
+#moves-list > li > p {
+  margin: 0 0 0 0;
+}
+
+#searchButton {
+  border: 1px solid black;
+  border-radius: 50%;
+  height: 65px;
+  width: 65px;
+  transform: translate(-10%, 21%);
+  background: rgb(188,12,12);
+  background: linear-gradient(90deg, rgba(188,12,12,1) 0%, rgba(156,10,10,1) 35%, rgba(103,6,6,1) 100%);
+  -webkit-box-shadow: 1px 2.5px 0px;
+}
+
+#searchbar > input[type=text]:focus {
+  outline: none;
+}
