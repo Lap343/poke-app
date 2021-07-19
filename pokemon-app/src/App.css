@@ -385,3 +385,56 @@
 #searchbar > input[type="text"]:focus {
   outline: none;
 }
+
+/* ************* */
+/* ENEMY POKEMON */
+/* ************* */
+.enemy-pokemon {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+}
+.enemy-pokemon__display {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(50%, 50%);
+}
+
+/* ********** */
+/* TWO-SEARCH */
+/* ********** */
+.twosearch-pokemon {
+  position: absolute;
+  right: 30.9%;
+  bottom: 6%;
+}
+.twosearch-pokemon__title {
+  text-align: center;
+}
+.twosearch-pokemon__friendly-enemy-container {
+  display: flex;
+  justify-content: space-between;
+}
+.twosearch-pokemon__friendly {
+  margin-right: 5px;
+}
+.twosearch-pokemon__enemy {
+  margin-left: 5px;
+}
+.twosearch-pokemon__friendly button,
+.twosearch-pokemon__enemy button {
+  border: 1px solid black;
+  height: 75.5px;
+  width: 75.5px;
+  background: linear-gradient(
+    90deg,
+    rgba(188, 12, 12, 1) 0%,
+    rgba(156, 10, 10, 1) 35%,
+    rgba(103, 6, 6, 1) 100%
+  );
+  -webkit-box-shadow: 1px 2.5px 0px;
+  box-shadow: 1px 2.5px 0px;
+}
