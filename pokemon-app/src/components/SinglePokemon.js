@@ -1,9 +1,10 @@
 import fightPad from "../assets/fightpad.png"
 import mainBackground from "../assets/mainBackground.png"
+import PokemonEvolutions from "./PokemonEvolutions";
 
 
 
-function SinglePokemon({ pokemon }) {
+function SinglePokemon({ pokemon, evolutions }) {
     const randomMovesGenerator = (moves) => {
         // Initialize empty array
         const movesArray = [];
@@ -35,13 +36,11 @@ function SinglePokemon({ pokemon }) {
             <div className="main-container">
                 <div className="Poke-display-container">
                     <h1 className="poke-name">{pokemon.name}</h1>
-                        <img className="poke-image" src={`${pokemon.sprites.front_default}`} alt="pokemon"/>
+                    <img className="poke-image" src={`${pokemon.sprites.front_default}`} alt="pokemon"/>
                 </div>
-                    
                 <div className="stats-box">
                     <div className="moves-title">Moves:</div>
-
-                    <ol id="moves-list">{randomMovesGenerator(pokemon.moves)}</ol>
+                        <ol id="moves-list">{randomMovesGenerator(pokemon.moves)}</ol>
                     {/* {pokemon.moves.map((moveData, moveIndex) => {
                         // 
                         const movesArray = [];
@@ -61,6 +60,7 @@ function SinglePokemon({ pokemon }) {
         </div>
             </>
           ) : null}
+          {evolutions.length && <PokemonEvolutions evolutions={evolutions} />}
         </>
     )
 }

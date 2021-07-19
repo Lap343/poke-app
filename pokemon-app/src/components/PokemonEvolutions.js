@@ -1,7 +1,7 @@
 import React from "react";
 
 const PokemonEvolutions = ({ evolutions }) => (
-  <div className={`pokemon-evolutions ${evolutions.length > 3 ? "eevee" : ""}`}>
+  <div className={`pokemon-evolutions`}>
     <div className="pokemon-evolutions__title">
       <p className="paragraph">Evolutions</p>
     </div>
