@@ -113,7 +113,7 @@
   background-color: grey;
   border: 4px solid black;
   border-radius: 25px;
-  transform: translate(185px, 550px);
+  transform: translate(185px, 710px);
 }
 .pokemon-evolutions__title {
   display: inline-block;
@@ -295,7 +295,7 @@
   border: 6px solid black;
   border-radius: 15px;
   background-color: #fdf0c4;
-  transform: translate(-23px, 0px)
+  transform: translate(-23px, 0px);
 }
 
 .poke-image {
@@ -320,14 +320,14 @@
   transform: scale(1.25);
 }
 
-.searchbar > input[type=text] {
+.searchbar > input[type="text"] {
   border: 2px solid black;
   border-radius: 3px;
   padding: 3px;
   background-color: white;
 }
 
-.searchbar > input[type=text]:focus {
+.searchbar > input[type="text"]:focus {
   outline: none;
 }
 
@@ -356,7 +356,6 @@
 #moves-list {
   font-size: xx-large;
   margin: 5px;
-
 }
 
 #moves-list > li {
@@ -373,11 +372,16 @@
   height: 65px;
   width: 65px;
   transform: translate(-10%, 21%);
-  background: rgb(188,12,12);
-  background: linear-gradient(90deg, rgba(188,12,12,1) 0%, rgba(156,10,10,1) 35%, rgba(103,6,6,1) 100%);
+  background: rgb(188, 12, 12);
+  background: linear-gradient(
+    90deg,
+    rgba(188, 12, 12, 1) 0%,
+    rgba(156, 10, 10, 1) 35%,
+    rgba(103, 6, 6, 1) 100%
+  );
   -webkit-box-shadow: 1px 2.5px 0px;
 }
 
-#searchbar > input[type=text]:focus {
+#searchbar > input[type="text"]:focus {
   outline: none;
 }

@@ -16,9 +16,9 @@ export const getPokeByNameOrId = async (pokemon) => {
   }
 };
 
-export const getEvolutionChain = async (pokemon) => {
+export const getEvolutionChain = async (pokemonName) => {
   try {
-    const pokemonData = await getPokeByNameOrId(pokemon);
+    const pokemonData = await getPokeByNameOrId(pokemonName);
     const pokemonSpeciesData = await fetchData(pokemonData.species.url);
     const pokemonEvolutionData = await fetchData(
       pokemonSpeciesData.evolution_chain.url
