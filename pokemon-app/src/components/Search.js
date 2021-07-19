@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const SearchPokemon = ({ getPokeByNameOrIdAPI }) => {
+const Search = ({ getPokeByNameOrIdAPI }) => {
   const [pokemonSearchValue, setPokemonSearchValue] = useState('');
 
   const onChange = (e) => {
@@ -24,4 +24,4 @@ const SearchPokemon = ({ getPokeByNameOrIdAPI }) => {
   )
 }
 
-export default SearchPokemon;
+export default Search;
