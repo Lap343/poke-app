@@ -5,6 +5,7 @@ import { getPokeByNameOrId } from "../utils/api"
 // import splashTitle from "../assets/splash-title.png"
 import TwoSearched from "./TwoSearched"
 
+
 const Main = () => {
     let pokemon = getPokeByNameOrId("ditto");
 
