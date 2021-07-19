@@ -7,16 +7,19 @@ import Main from "./components/Main";
 import PokemonEvolutions from "./components/PokemonEvolutions";
 import SearchPokemon from "./components/SearchPokemon";
 import SinglePokemon from "./components/SinglePokemon";
+import TwoSearchPokemon from "./components/TwoSearchPokemon";
 import { getEvolutionChain, getPokeByNameOrId } from "./utils/api";
 
 function App() {
   const [pokemon, setPokemon] = useState(null);
   const [evolutions, setEvolutions] = useState([]);
+  const [enemyPokemon, setEnemyPokemon] = useState(null);
+  const [isEnemy, setIsEnemy] = useState(false);
 
   const getPokeByNameOrIdAPI = async (pokemonAPI) => {
     try {
       const pokeData = await getPokeByNameOrId(pokemonAPI);
-      setPokemon(pokeData);
+      !isEnemy ? setPokemon(pokeData) : setEnemyPokemon(pokeData);
     } catch (error) {
       console.error(error);
     }
@@ -32,10 +35,12 @@ function App() {
   };
 
   useEffect(() => {
-    if (pokemon) {
+    if (pokemon && !isEnemy) {
       getEvolutionChainAPI(pokemon?.name);
     }
-  }, [pokemon]);
+  }, [pokemon, isEnemy]);
+
+  console.log("enemy pokemon: ", enemyPokemon);
 
   return (
     <div className="App">
@@ -50,6 +55,7 @@ function App() {
       <SinglePokemon pokemon={pokemon} />
       {evolutions.length && <PokemonEvolutions evolutions={evolutions} />}
       <SearchPokemon getPokeByNameOrIdAPI={getPokeByNameOrIdAPI} />
+      <TwoSearchPokemon setIsEnemy={setIsEnemy} />
     </div>
   );
 }
