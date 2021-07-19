@@ -23,10 +23,8 @@ function SinglePokemon({ pokemon, evolutions }) {
                 }
             }
         });
-
         return movesArray;
     }
-
     return (
         <>
           {pokemon ? (
@@ -41,19 +39,6 @@ function SinglePokemon({ pokemon, evolutions }) {
                 <div className="stats-box">
                     <div className="moves-title">Moves:</div>
                         <ol id="moves-list">{randomMovesGenerator(pokemon.moves)}</ol>
-                    {/* {pokemon.moves.map((moveData, moveIndex) => {
-                        // 
-                        const movesArray = [];
-                        // Generate a random move based on its index
-                        let randomMoveIndex = Math.floor(Math.random() * pokemon.moves.length);
-                        // If moves are not in the 
-                        if (!pokemon.moves[randomMoveIndex]) {
-                            // Return only 4 moves
-                            if (moveIndex <= 3) {
-                                return (<p>{pokemon.moves[randomMoveIndex].move.name}</p>);
-                            }
-                        }
-                    })} */}
                 </div>
             </div>
                     <img className="poke-pad" src={fightPad} alt="lily pad from pokemon game"/>
