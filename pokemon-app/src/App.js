@@ -37,8 +37,6 @@ function App() {
     }
   }, [pokemon, isEnemy]);
 
-  console.log("enemy pokemon: ", enemyPokemon);
-
   return (
     <div className="App">
       <img
@@ -46,10 +44,17 @@ function App() {
         src={dexLeft}
         alt="classic pokedex from the Pokemon series"
       />
-      <Main pokemon={pokemon} evolutions={evolutions} />
+      <Main
+        pokemon={pokemon}
+        evolutions={evolutions}
+        enemyPokemon={enemyPokemon}
+      />
       <img id="dex-right-closed-opening" src={dexRightClose} alt="" />
       <img id="dex-right-open-opening" src={dexRightOpen} alt="" />
-      <Search getPokeByNameOrIdAPI={getPokeByNameOrIdAPI} />
+      <Search
+        getPokeByNameOrIdAPI={getPokeByNameOrIdAPI}
+        setIsEnemy={setIsEnemy}
+      />
     </div>
   );
 }
