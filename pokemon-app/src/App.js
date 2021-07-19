@@ -4,9 +4,7 @@ import dexLeft from "./assets/dex-left.png";
 import dexRightOpen from "./assets/dex-right-open.png";
 import dexRightClose from "./assets/dex-right-close.png";
 import Main from "./components/Main";
-import PokemonEvolutions from "./components/PokemonEvolutions";
-import SearchPokemon from "./components/SearchPokemon";
-import SinglePokemon from "./components/SinglePokemon";
+import Search from "./components/Search";
 import { getEvolutionChain, getPokeByNameOrId } from "./utils/api";
 
 function App() {
@@ -44,12 +42,10 @@ function App() {
         src={dexLeft}
         alt="classic pokedex from the Pokemon series"
       />
-      <Main />
+      <Main pokemon={pokemon} evolutions={evolutions}/>
       <img id="dex-right-closed-opening" src={dexRightClose} alt="" />
       <img id="dex-right-open-opening" src={dexRightOpen} alt="" />
-      <SinglePokemon pokemon={pokemon} />
-      {evolutions.length && <PokemonEvolutions evolutions={evolutions} />}
-      <SearchPokemon getPokeByNameOrIdAPI={getPokeByNameOrIdAPI} />
+      <Search getPokeByNameOrIdAPI={getPokeByNameOrIdAPI} />
     </div>
   );
 }
