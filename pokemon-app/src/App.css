@@ -1,3 +1,9 @@
+body {
+  background-image: url(/src/assets/tree-background.png);
+  background-size: cover;
+  background-repeat:no-repeat;
+}
+
 .App {
   position: relative;
   animation-duration: 1.3s;
