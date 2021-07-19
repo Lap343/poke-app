@@ -41,7 +41,7 @@ function SinglePokemon({ pokemon }) {
                 <div className="stats-box">
                     <div className="moves-title">Moves:</div>
 
-                    <ol id="moves-list">{randomMovesGenerator(pokemon.moves)}</ol>
+                        <ol id="moves-list">{randomMovesGenerator(pokemon.moves)}</ol>
                 </div>
             </div>
                     <img className="poke-pad" src={fightPad} alt="lily pad from pokemon game"/>
