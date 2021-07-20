@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 const Search = ({ getPokeByNameOrIdAPI, isEnemy, setIsEnemy }) => {
   const [pokemonSearchValue, setPokemonSearchValue] = useState("");
+  // This is more on the UI functionalities like adding a className,
+  // handling the onClick for buttons, and disabling buttons
   const [hasSelected, setHasSelected] = useState(false);
 
   const onChange = (e) => {
@@ -45,7 +47,7 @@ const Search = ({ getPokeByNameOrIdAPI, isEnemy, setIsEnemy }) => {
             <button
               type="click"
               onClick={() => setIsEnemy(false)}
-              disabled={!isEnemy}
+              disabled={hasSelected && !isEnemy}
             >
               Your's
             </button>
@@ -57,6 +59,8 @@ const Search = ({ getPokeByNameOrIdAPI, isEnemy, setIsEnemy }) => {
             <button
               type="click"
               onClick={() => {
+                // If the user has not began their initial selection,
+                // then don't run
                 if (hasSelected) {
                   setIsEnemy(true);
                 }
