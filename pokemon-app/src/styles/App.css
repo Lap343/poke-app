@@ -198,6 +198,22 @@
   border-radius: 15px;
   background-color: #fdf0c4;
   position: absolute;
+  overflow-y: auto;
+}
+.stats-box::-webkit-scrollbar,
+.enemy-pokemon__stats::-webkit-scrollbar {
+  width: 8.6px;
+  height: 7.6px;
+}
+.stats-box::-webkit-scrollbar-track,
+.enemy-pokemon__stats::-webkit-scrollbar-track {
+  background: transparent;
+}
+.stats-box::-webkit-scrollbar-thumb,
+.enemy-pokemon__stats::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.18);
+  border-radius: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 .moves-title,
@@ -213,6 +229,7 @@
 
 #moves-list > li,
 .enemy-pokemon__stats-list > li {
+  font-size: 15px;
   margin: 10px;
 }
 
