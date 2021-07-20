@@ -1,15 +1,15 @@
 .type-check{
     position: absolute;
-    top: 50%;
-    height: 20%;
+    top: 64.5%;
+    height: 15%;
     width: 98%;
+    font-size: 0.8em;
 }
 .type-title{
     position: absolute;
     background-color: #5D5D5D;
     color: white;
-    font-size: 1.2em;
-    height: 45%;
+    height: 40%;
     width: 98%;
     left: 1%;
     border: solid black 0.2em;
@@ -22,7 +22,7 @@
     position: absolute;
     background-color: white;
     height: 44%;
-    top: 50%;
+    top: 41%;
     left: 1%;
     width: 98%;
     border: solid black 0.22em;
@@ -30,12 +30,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    overflow-y: hidden;
+    overflow-y: auto;
 }
 .type-details-0 > div, .type-details-1 > div{
     width: 20%;
     text-align: center;
 }
 .type-details-1{
-    top: 98%;
+    top: 87%;
 }

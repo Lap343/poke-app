@@ -1,6 +1,7 @@
 import fightPad from "../assets/fightpad.png"
 import mainBackground from "../assets/mainBackground.png"
 import PokemonEvolutions from "./PokemonEvolutions";
+import TypeCheck from "./TypeCheck";
 
 
 
@@ -46,6 +47,7 @@ function SinglePokemon({ pokemon, evolutions }) {
             </>
           ) : null}
           {evolutions.length && <PokemonEvolutions evolutions={evolutions} />}
+          <TypeCheck pokemon={pokemon} />
         </>
     )
 }

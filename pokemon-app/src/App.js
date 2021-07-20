@@ -1,15 +1,11 @@
-<<<<<<< HEAD
-import './styles/App.css';
-=======
 import { useState, useEffect } from "react";
-import "./App.css";
->>>>>>> 8d0320aaf17fcb2630f298b8b769ae5304f20a17
 import dexLeft from "./assets/dex-left.png";
 import dexRightOpen from "./assets/dex-right-open.png";
 import dexRightClose from "./assets/dex-right-close.png";
 import Main from "./components/Main";
 import Search from "./components/Search";
 import { getEvolutionChain, getPokeByNameOrId } from "./utils/api";
+import './styles/App.css';
 
 function App() {
   const [pokemon, setPokemon] = useState(null);

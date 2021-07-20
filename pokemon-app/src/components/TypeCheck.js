@@ -1,7 +1,12 @@
 import { typeJson } from "./typeMatchups";
 
-const TypeCheck = () => {
-    let type = ["Fire", "Steel"]
+const TypeCheck = ({ pokemon }) => {
+    let type = []
+    
+    for(let i = 0; i < pokemon.types.length; i++){
+        type.push(pokemon.types[i].type.name)
+    }
+    console.log(type)
 
     const typeReturn = (type) => {
         let typeArray = []
