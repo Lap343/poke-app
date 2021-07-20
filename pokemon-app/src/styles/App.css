@@ -1,9 +1,3 @@
-body {
-  background-image: url(/src/assets/tree-background.png);
-  background-size: cover;
-  background-repeat:no-repeat;
-}
-
 .App {
   position: relative;
   animation-duration: 1.3s;
@@ -112,21 +106,19 @@ body {
     padding: 5%;
   }
 }
-/*Styling for User and Enemy Pokemons*/
+/*Styling for One page Pokemon*/
 .mainBackground {
   position: absolute;
   height: 100%;
   width: 100%;
 }
 
-.main-container,
-.enemy-pokemon {
+.main-container {
   display: flex;
   flex-direction: row;
 }
 
-.Poke-display-container,
-.enemy-pokemon__display {
+.Poke-display-container {
   position: absolute;
   width: 30%;
   left: 5%;
@@ -149,34 +141,13 @@ body {
   border-radius: 15px;
   background-color: #fdf0c4;
 }
-.enemy-pokemon__display-name {
-  padding: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 15%;
-  width: 135%;
-  border: 6px solid black;
-  border-radius: 15px;
-  background-color: #fdf0c4;
-}
 
-.enemy-pokemon__display-name p {
-  font-size: 2em;
-  text-transform: capitalize;
-}
-
-.poke-image,
-.enemy-pokemon__display-image {
+.poke-image {
   margin-left: 30%;
   transform: scale(1.6);
 }
-.enemy-pokemon__display-image img {
-  width: 100%;
-}
 
-.poke-pad,
-.poke-pad--enemy {
+.poke-pad {
   height: 20%;
   width: 50%;
   top: 22%;
@@ -184,50 +155,7 @@ body {
   position: absolute;
   z-index: 0;
 }
-.poke-pad--enemy img {
-  width: 100%;
-}
 
-.stats-box,
-.enemy-pokemon__stats {
-  z-index: 1;
-  box-sizing: border-box;
-  font-size: 1.5em;
-  height: 32%;
-  width: 47%;
-  top: 3%;
-  right: 3%;
-  display: flex;
-  justify-content: flex-end;
-  display: inline-block;
-  border: 6px solid black;
-  border-radius: 15px;
-  background-color: #fdf0c4;
-  position: absolute;
-}
-
-.moves-title,
-.enemy-pokemon__stats-title {
-  margin: 10px;
-  margin-left: 15px;
-}
-
-#moves-list,
-.enemy-pokemon__stats-list {
-  margin: 5px;
-}
-
-#moves-list > li,
-.enemy-pokemon__stats-list > li {
-  margin: 10px;
-}
-
-#moves-list > li > p,
-.enemy-pokemon__stats-list > li > p {
-  margin: 0 0 0 0;
-}
-
-/* TWO-SEARCH and ONE-SEARCH */
 .searchbar {
   position: absolute;
   bottom: 8%;
@@ -246,6 +174,40 @@ body {
   outline: none;
 }
 
+.stats-box {
+  z-index: 1;
+  box-sizing: border-box;
+  font-size: 1.5em;
+  height: 32%;
+  width: 47%;
+  top: 3%;
+  right: 3%;
+  display: flex;
+  justify-content: flex-end;
+  display: inline-block;
+  border: 6px solid black;
+  border-radius: 15px;
+  background-color: #fdf0c4;
+  position: absolute;
+}
+
+.moves-title {
+  margin: 10px;
+  margin-left: 15px;
+}
+
+#moves-list {
+  margin: 5px;
+}
+
+#moves-list > li {
+  margin: 10px;
+}
+
+#moves-list > li > p {
+  margin: 0 0 0 0;
+}
+
 #searchButton {
   border: 1px solid black;
   border-radius: 50%;
@@ -261,81 +223,9 @@ body {
   );
   -webkit-box-shadow: 1px 2.5px 0px;
 }
-#searchButton:hover {
-  cursor: pointer;
-}
-#searchButton:active {
-  height: 63px;
-  width: 63px;
-  background: linear-gradient(
-    95deg,
-    rgba(188, 12, 12, 1) 0%,
-    rgba(156, 10, 10, 1) 25%,
-    rgba(103, 6, 6, 1) 100%
-  );
-  -webkit-box-shadow: 1px 2px 0px;
-}
 
 #searchbar > input[type="text"]:focus {
   outline: none;
-}
-
-.twosearch-pokemon {
-  position: absolute;
-  right: 30.9%;
-  bottom: 6%;
-}
-.twosearch-pokemon__title {
-  margin-bottom: 10px;
-  text-align: center;
-}
-.twosearch-pokemon__friendly-enemy-container {
-  display: flex;
-  justify-content: space-between;
-}
-.twosearch-pokemon__friendly {
-  margin-right: 5px;
-}
-.twosearch-pokemon__enemy {
-  margin-left: 5px;
-}
-.twosearch-pokemon__friendly button,
-.twosearch-pokemon__enemy button {
-  border: 1px solid black;
-  border-radius: 15px;
-  height: 75.5px;
-  width: 75.5px;
-  background: linear-gradient(
-    90deg,
-    rgba(188, 12, 12, 1) 0%,
-    rgba(156, 10, 10, 1) 35%,
-    rgba(103, 6, 6, 1) 100%
-  );
-  -webkit-box-shadow: 1px 2.5px 0px;
-  box-shadow: 1px 2.5px 0px;
-}
-.twosearch-pokemon__friendly:not(.picked) button:enabled:hover,
-.twosearch-pokemon__enemy:not(.picked) button:enabled:hover {
-  cursor: pointer;
-}
-.twosearch-pokemon__friendly.picked button,
-.twosearch-pokemon__enemy.picked button {
-  cursor: default;
-}
-.twosearch-pokemon__friendly.picked button,
-.twosearch-pokemon__enemy.picked button,
-.twosearch-pokemon__friendly button:active,
-.twosearch-pokemon__enemy button:active {
-  height: 74.5px;
-  width: 74.5px;
-  background: linear-gradient(
-    95deg,
-    rgba(188, 12, 12, 1) 0%,
-    rgba(156, 10, 10, 1) 25%,
-    rgba(103, 6, 6, 1) 100%
-  );
-  -webkit-box-shadow: 1px 2px 0px;
-  box-shadow: 1px 2px 0px;
 }
 
 /*Pokemon Evolutions Block*/
