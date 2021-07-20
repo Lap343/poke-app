@@ -1,6 +1,6 @@
 import React from "react";
 import fightPad from "../assets/fightpad.png";
-
+import "../styles/EnemyPokemon.css";
 const EnemyPokemon = ({ enemyPokemon }) =>
   !enemyPokemon ? null : (
     <>
