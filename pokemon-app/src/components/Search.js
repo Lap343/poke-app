@@ -35,7 +35,7 @@ const Search = ({ getPokeByNameOrIdAPI, isEnemy, setIsEnemy }) => {
 
       <div className="twosearch-pokemon">
         <div className="twosearch-pokemon__title">
-          <p className="paragraph">Versus</p>
+          <p className="paragraph-versus">Versus</p>
         </div>
 
         <div className="twosearch-pokemon__friendly-enemy-container">

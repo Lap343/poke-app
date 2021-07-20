@@ -252,12 +252,12 @@ body {
   height: 65px;
   width: 65px;
   transform: translate(-10%, 21%);
-  background: rgb(188, 12, 12);
+  background: rgb(73, 133, 189);
   background: linear-gradient(
     90deg,
-    rgba(188, 12, 12, 1) 0%,
-    rgba(156, 10, 10, 1) 35%,
-    rgba(103, 6, 6, 1) 100%
+    rgb(123, 176, 211) 0%,
+    rgb(65, 176, 204) 25%,
+    rgb(41, 109, 173) 100%
   );
   -webkit-box-shadow: 1px 2.5px 0px;
 }
@@ -269,9 +269,9 @@ body {
   width: 63px;
   background: linear-gradient(
     95deg,
-    rgba(188, 12, 12, 1) 0%,
-    rgba(156, 10, 10, 1) 25%,
-    rgba(103, 6, 6, 1) 100%
+    rgb(123, 176, 211) 0%,
+    rgb(65, 176, 204) 25%,
+    rgb(41, 109, 173) 100%
   );
   -webkit-box-shadow: 1px 2px 0px;
 }
