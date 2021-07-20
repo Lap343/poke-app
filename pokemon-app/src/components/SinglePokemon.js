@@ -3,7 +3,7 @@ import mainBackground from "../assets/mainBackground.png";
 import PokemonEvolutions from "./PokemonEvolutions";
 import TypeCheck from "./TypeCheck";
 
-const SinglePokemon = ({ pokemon, evolutions }) => (
+const SinglePokemon = ({ pokemon, evolutions, hasEnemy }) => (
   <>
     {!pokemon ? null : (
       <>
@@ -12,7 +12,11 @@ const SinglePokemon = ({ pokemon, evolutions }) => (
           style={{ backgroundImage: `url(${mainBackground})` }}
         >
           <div className="main-container">
-            <div className="Poke-display-container">
+            <div
+              className={`Poke-display-container ${
+                hasEnemy ? "has-enemy" : ""
+              }`}
+            >
               <h1 className="poke-name">{pokemon.name}</h1>
               <img
                 className="poke-image"
@@ -20,7 +24,7 @@ const SinglePokemon = ({ pokemon, evolutions }) => (
                 alt="pokemon"
               />
             </div>
-            <div className="stats-box">
+            <div className={`stats-box ${hasEnemy ? "has-enemy" : ""}`}>
               <div className="moves-title">Moves:</div>
               <ol id="moves-list">
                 {!pokemon?.moves
@@ -32,7 +36,7 @@ const SinglePokemon = ({ pokemon, evolutions }) => (
             </div>
           </div>
           <img
-            className="poke-pad"
+            className={`poke-pad ${hasEnemy ? "has-enemy" : ""}`}
             src={fightPad}
             alt="lily pad from pokemon game"
           />
@@ -40,8 +44,11 @@ const SinglePokemon = ({ pokemon, evolutions }) => (
       </>
     )}
 
-    {evolutions.length && <PokemonEvolutions evolutions={evolutions} />}
-    <TypeCheck pokemon={pokemon} />
+    {!evolutions.length ? null : hasEnemy ? null : (
+      <PokemonEvolutions evolutions={evolutions} />
+    )}
+
+    {hasEnemy ? null : <TypeCheck pokemon={pokemon} />}
   </>
 );
 

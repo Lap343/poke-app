@@ -5,7 +5,7 @@ import SinglePokemon from "./SinglePokemon";
 import EnemyPokemon from "./EnemyPokemon";
 import "../styles/TypeCheck.css";
 
-const Main = ({ pokemon, evolutions, enemyPokemon }) => {
+const Main = ({ pokemon, evolutions, enemyPokemon, hasEnemySubmit }) => {
   return (
     <div className="main">
       {pokemon === null ? (
@@ -16,7 +16,11 @@ const Main = ({ pokemon, evolutions, enemyPokemon }) => {
         </div>
       ) : (
         <>
-          <SinglePokemon pokemon={pokemon} evolutions={evolutions} />
+          <SinglePokemon
+            pokemon={pokemon}
+            evolutions={evolutions}
+            hasEnemy={hasEnemySubmit}
+          />
           {!enemyPokemon ? null : <EnemyPokemon enemyPokemon={enemyPokemon} />}
         </>
       )}
