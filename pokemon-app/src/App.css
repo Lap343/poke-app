@@ -1,7 +1,7 @@
 body {
   background-image: url(/src/assets/tree-background.png);
   background-size: cover;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
 }
 
 .App {
