@@ -53,6 +53,7 @@ function App() {
       <img id="dex-right-open-opening" src={dexRightOpen} alt="" />
       <Search
         getPokeByNameOrIdAPI={getPokeByNameOrIdAPI}
+        isEnemy={isEnemy}
         setIsEnemy={setIsEnemy}
       />
     </div>

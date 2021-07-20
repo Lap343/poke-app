@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 
-const Search = ({ getPokeByNameOrIdAPI, setIsEnemy }) => {
+const Search = ({ getPokeByNameOrIdAPI, isEnemy, setIsEnemy }) => {
   const [pokemonSearchValue, setPokemonSearchValue] = useState("");
+  const [hasSelected, setHasSelected] = useState(false);
 
   const onChange = (e) => {
     const { value } = e.target;
@@ -13,40 +14,61 @@ const Search = ({ getPokeByNameOrIdAPI, setIsEnemy }) => {
 
     const pokeLowerCase = pokemonSearchValue.toLowerCase();
 
+    setHasSelected(true);
     getPokeByNameOrIdAPI(pokeLowerCase);
   };
 
   return (
-    <form className="searchbar" onSubmit={onSubmit}>
-      <button type="submit" id="searchButton"></button>
-      <input
-        type="text"
-        name="pokemonsearch"
-        placeholder="Search for a pokemon"
-        value={pokemonSearchValue}
-        onChange={onChange}
-      />
+    <>
+      <form className="searchbar" onSubmit={onSubmit}>
+        <button type="submit" id="searchButton"></button>
+        <input
+          type="text"
+          name="pokemonsearch"
+          placeholder="Search for a pokemon"
+          value={pokemonSearchValue}
+          onChange={onChange}
+        />
+      </form>
 
       <div className="twosearch-pokemon">
         <div className="twosearch-pokemon__title">
-          <p className="paragrap">Versus</p>
+          <p className="paragraph">Versus</p>
         </div>
 
         <div className="twosearch-pokemon__friendly-enemy-container">
-          <div className="twosearch-pokemon__friendly">
-            <button type="click" onClick={() => setIsEnemy(false)}>
+          <div
+            className={`twosearch-pokemon__friendly ${
+              !isEnemy && hasSelected ? "picked" : ""
+            }`}
+          >
+            <button
+              type="click"
+              onClick={() => setIsEnemy(false)}
+              disabled={!isEnemy}
+            >
               Your's
             </button>
           </div>
 
-          <div className="twosearch-pokemon__enemy">
-            <button type="click" onClick={() => setIsEnemy(true)}>
+          <div
+            className={`twosearch-pokemon__enemy ${isEnemy ? "picked" : ""}`}
+          >
+            <button
+              type="click"
+              onClick={() => {
+                if (hasSelected) {
+                  setIsEnemy(true);
+                }
+              }}
+              disabled={!hasSelected || isEnemy}
+            >
               Enemy
             </button>
           </div>
         </div>
       </div>
-    </form>
+    </>
   );
 };
 
