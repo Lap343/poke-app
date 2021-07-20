@@ -1,0 +1,108 @@
+.App {
+    position: relative;
+    animation-duration: 1.3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    animation-name: increase;
+    margin-left: 20vw;
+  }
+  @keyframes increase {
+    from {
+      height: 0vh;
+      width: 0vw;
+    }
+    to {
+      height: 140vh;
+      width: 69em;
+    }
+  }
+  #dex-left {
+    position: absolute;
+    height: 100%;
+  }
+  #dex-right-closed-opening {
+    position: absolute;
+    height: 91.8%;
+    top: 8.2%;
+    z-index: 20;
+    animation-name: open-left;
+    animation-delay: 1.3s;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+  }
+  @keyframes open-left {
+    from {
+      left: 0%;
+      width: 88%;
+    }
+    to {
+      left: 94%;
+      width: 0%;
+    }
+  }
+  #dex-right-open-opening {
+    position: absolute;
+    top: 8.2%;
+    left: 94%;
+    height: 91.8%;
+    width: 0%;
+    animation-name: open-right;
+    animation-delay: 2.3s;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+  }
+  @keyframes open-right {
+    from {
+      left: 94%;
+      width: 0%;
+    }
+    to {
+      left: 99.5%;
+      width: 88%;
+    }
+  }
+  
+  .main {
+    position: absolute;
+    z-index: 1;
+    border: solid black 7px;
+    border-radius: 15px;
+    top: 30.3%;
+    left: 14.5%;
+    height: 54.6%;
+    width: 62.7%;
+  }
+  .splash-background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+  .splash-star {
+    position: absolute;
+    height: 0%;
+    animation: pop 1s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+  }
+  .splash-title {
+    position: absolute;
+    height: 0%;
+    animation: pop 1s;
+    animation-delay: 2.4s;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes pop {
+    from {
+      height: 0%;
+      width: 0%;
+      padding: 100%;
+    }
+    to {
+      height: 80%;
+      width: 90%;
+      padding: 5%;
+    }
+  }
