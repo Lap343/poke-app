@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import "./App.css";
 import dexLeft from "./assets/dex-left.png";
 import dexRightOpen from "./assets/dex-right-open.png";
 import dexRightClose from "./assets/dex-right-close.png";
 import Main from "./components/Main";
 import Search from "./components/Search";
 import { getEvolutionChain, getPokeByNameOrId } from "./utils/api";
+import './styles/App.css';
 
 function App() {
   const [pokemon, setPokemon] = useState(null);
