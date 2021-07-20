@@ -113,12 +113,14 @@
   width: 100%;
 }
 
-.main-container {
+.main-container,
+.enemy-pokemon {
   display: flex;
   flex-direction: row;
 }
 
-.Poke-display-container {
+.Poke-display-container,
+.enemy-pokemon__diplay {
   position: absolute;
   width: 30%;
   left: 5%;
