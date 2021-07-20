@@ -5,7 +5,8 @@ import dexRightClose from "./assets/dex-right-close.png";
 import Main from "./components/Main";
 import Search from "./components/Search";
 import { getEvolutionChain, getPokeByNameOrId } from "./utils/api";
-import './styles/App.css';
+import './App.css';
+import './styles/Pokedex-model.css';
 
 function App() {
   const [pokemon, setPokemon] = useState(null);
