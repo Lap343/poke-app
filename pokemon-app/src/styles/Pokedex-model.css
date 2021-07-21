@@ -105,36 +105,16 @@
   }
 }
 /* TWO-SEARCH and ONE-SEARCH */
-.searchbar {
-  display: flex;
-  align-items: flex-end;
+/* Remove Button */
+#removeButton {
   position: absolute;
-  bottom: 7.4%;
-  right: 45%;
-  transform: scale(1.25);
-}
-.searchbar > input[type="text"] {
-  border: 2px solid black;
-  border-radius: 3px;
-  padding: 2%;
-  background-color: white;
-  font-family: myFirstFont;
-  width: 60%;
-  height: 50%;
-}
-.searchbar > input[type="text"]:focus {
-  outline: none;
-}
-.searchbar > input[type="text"]::placeholder {
-  font-family: myFirstFont;
-  font-size: 0.8em;
-}
-#searchButton {
+  bottom: 20%;
   border: 1px solid rgb(121, 76, 76);
   border-radius: 50%;
-  height: 5em;
-  width: 5em;
-  transform: translate(-10%, 21%);
+  height: 3em;
+  width: 3em;
+  font-family: myFirstFont;
+  font-size: 1em;
   background: rgb(188, 12, 12);
   background: linear-gradient(
     90deg,
@@ -144,12 +124,12 @@
   );
   -webkit-box-shadow: 1px 2.5px 0px;
 }
-#searchButton:hover {
+#removeButton:hover {
   cursor: pointer;
 }
-#searchButton:active {
-  height: 4.8em;
-  width: 4.8em;
+#removeButton:active {
+  height: 2.9em;
+  width: 2.9em;
   background: linear-gradient(
     95deg,
     rgba(188, 12, 12, 1) 0%,
@@ -158,17 +138,61 @@
   );
   -webkit-box-shadow: 1px 2px 0px;
 }
+/* Search Bar */
+.searchbar {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 5%;
+  left: 20%;
+  height: 6%;
+  width: 60%;
+}
+.searchbar > input[type="text"] {
+  position: absolute;
+  left: 9%;
+  border: 3px solid black;
+  box-shadow: 0.2em 0.2em grey;
+  border-radius: 10px;
+  padding: 2%;
+  background-color: white;
+  font-family: myFirstFont;
+  width: 50%;
+  height: 40%;
+}
+.searchbar > input[type="text"]:focus {
+  outline: none;
+}
+.searchbar > input[type="text"]::placeholder {
+  font-family: myFirstFont;
+  font-size: 0.8em;
+}
 #searchbar > input[type="text"]:focus {
   outline: none;
 }
-.twosearch-pokemon {
+/* Search button */
+.search-button{
   position: absolute;
-  right: 30.9%;
-  bottom: 5.4%;
+  left: 49%;
+  font-family: myFirstFont;
+  border: solid black 1px;
+  border-radius: 10px;
+  padding: 0.5%;
+  box-shadow: 0.1em 0.1em grey;
 }
-.twosearch-pokemon__title {
-  margin-bottom: 10px;
-  text-align: center;
+.search-button:hover {
+  cursor: pointer;
+}
+.search-button:active{
+  height: 1.6em;
+  width: 5.9em;
+}
+/* Pokemon search toggle buttons */
+.twosearch-pokemon {
+  font-size: 0.8em;
+  position: absolute;
+  right: 10%;
+  bottom: 5.4%;
 }
 .twosearch-pokemon__friendly-enemy-container {
   display: flex;
@@ -222,4 +246,17 @@
   );
   -webkit-box-shadow: 1px 2px 0px;
   box-shadow: 1px 2px 0px;
+}
+.remove-poke-title{
+  position: absolute;
+  border: solid black 3px;
+  border-radius: 15px;
+  padding: 0.8%;
+  width: 12%;
+  top: -40%;
+  left: -4%;
+  font-size: 0.8em;
+  text-align: center;
+  background-color: lightgrey;
+  box-shadow: 0.2em 0.2em grey;
 }
