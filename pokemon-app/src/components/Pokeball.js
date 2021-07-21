@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/Pokeball.css";
 
 const Pokeball = () => (
   <div className="pokeball-container">
