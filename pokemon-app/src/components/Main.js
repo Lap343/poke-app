@@ -14,7 +14,6 @@ const Main = ({
   hasEnemySubmit,
   isVersus,
   isPokeball,
-  setIsPokeball,
 }) => {
   return (
     <div className="main">
@@ -26,7 +25,7 @@ const Main = ({
         </div>
       ) : (
         <>
-          <Pokeball isPokeball={isPokeball} setIsPokeball={setIsPokeball} />
+          <Pokeball isPokeball={isPokeball} />
 
           <SinglePokemon
             pokemon={pokemon}
