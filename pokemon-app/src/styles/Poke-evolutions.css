@@ -152,10 +152,3 @@
 .paragraph {
   margin: 0;
 }
-.paragraph-versus {
-  margin: 0 auto;
-  border: solid black 2px;
-  border-radius: 10px;
-  background-color: grey;
-  width: 75%;
-}
