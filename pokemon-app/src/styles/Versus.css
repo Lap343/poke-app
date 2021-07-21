@@ -4,11 +4,6 @@
   left: 62%;
   transform: translate(-130%, 30%) scale(1);
   opacity: 1;
-  /* animation-duration: 0.1s;
-  animation-delay: 0.9s;
-  animation-timing-function: cubic-bezier(1, -0.18, 1, 0.41);
-  animation-name: versusexpand;
-  animation-fill-mode: forwards; */
   z-index: 100;
 }
 .pokemon-versus__left,
@@ -191,17 +186,6 @@
   to {
     transform: skewX(-36deg) scale(1);
     opacity: 1;
-  }
-}
-@keyframes versusexpand {
-  from {
-    transform: translate(-130%, 30%) scale(1);
-    opacity: 1;
-  }
-
-  to {
-    transform: translate(-130%, -50%) scale(5);
-    opacity: 0;
   }
 }
 @keyframes versusleftbgmove {
