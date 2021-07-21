@@ -21,7 +21,7 @@ const Search = ({ getPokeByNameOrIdAPI, isEnemy, setIsEnemy }) => {
   };
 
   return (
-    <>
+    <div id="search">
       <form className="searchbar" onSubmit={onSubmit}>
         <button type="submit" id="searchButton"></button>
         <input
@@ -72,7 +72,7 @@ const Search = ({ getPokeByNameOrIdAPI, isEnemy, setIsEnemy }) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

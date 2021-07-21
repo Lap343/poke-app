@@ -109,7 +109,7 @@
   display: flex;
   align-items: flex-end;
   position: absolute;
-  bottom: 7.4%;
+  bottom:7.4%;
   right: 45%;
   transform: scale(1.25);
 }
@@ -222,4 +222,15 @@
   );
   -webkit-box-shadow: 1px 2px 0px;
   box-shadow: 1px 2px 0px;
+}
+
+#search {
+  animation-duration: 1.3s;
+  animation-fill-mode: forwards;
+  animation-name: hideSearch;
+}
+@keyframes hideSearch {
+  0% {visibility: hidden;}
+  99% {visibility: hidden;}
+  100% {visibility: visible;}
 }
