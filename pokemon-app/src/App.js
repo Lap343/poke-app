@@ -15,6 +15,7 @@ function App() {
   const [isEnemy, setIsEnemy] = useState(false);
   const [hasEnemySubmit, setHasEnemySubmit] = useState(false);
   const [isVersus, setIsVersus] = useState(false);
+  const [isPokeball, setIsPokeball] = useState(false);
 
   const getPokeByNameOrIdAPI = async (pokemonAPI) => {
     try {
@@ -57,6 +58,8 @@ function App() {
         enemyPokemon={enemyPokemon}
         hasEnemySubmit={hasEnemySubmit}
         isVersus={isVersus}
+        isPokeball={isPokeball}
+        setIsPokeball={setIsPokeball}
       />
       <img id="dex-right-closed-opening" src={dexRightClose} alt="" />
       <img id="dex-right-open-opening" src={dexRightOpen} alt="" />
