@@ -105,7 +105,7 @@ export const typeJson = [
     },
   },
   {
-    physic: {
+    psychic: {
       strongAgainst: "Fighting, Poison",
       weakAgainst: "Steel, Psychic, Dark",
       resistantTo: "Fighting, Psychic",

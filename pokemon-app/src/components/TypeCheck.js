@@ -6,7 +6,6 @@ const TypeCheck = ({ pokemon }) => {
     for(let i = 0; i < pokemon.types.length; i++){
         type.push(pokemon.types[i].type.name)
     }
-    console.log(type)
 
     const typeReturn = (type) => {
         let typeArray = []
