@@ -1,13 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/Versus.css";
 
-const Versus = ({ isVersus, setIsVersus }) => {
+const Versus = ({ isVersus }) => {
+  const [isDisplay, setIsDisplay] = useState(false);
+
   useEffect(() => {
     if (isVersus) {
-      const timer = setTimeout(() => setIsVersus(false), 1000);
+      setIsDisplay(true);
+      const timer = setTimeout(() => setIsDisplay(false), 1000);
       return () => clearTimeout(timer);
     }
-  }, [isVersus, setIsVersus]);
+  }, [isVersus]);
 
   return (
     <>
@@ -29,8 +32,12 @@ const Versus = ({ isVersus, setIsVersus }) => {
             </p>
           </div>
 
-          <div className="pokemon-versus__left-background"></div>
-          <div className="pokemon-versus__right-background"></div>
+          {isDisplay && (
+            <>
+              <div className="pokemon-versus__left-background"></div>
+              <div className="pokemon-versus__right-background"></div>
+            </>
+          )}
         </div>
       )}
     </>

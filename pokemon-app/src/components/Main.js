@@ -30,7 +30,7 @@ const Main = ({
             hasEnemy={hasEnemySubmit}
           />
 
-          <Versus isVersus={isVersus} setIsVersus={setIsVersus} />
+          <Versus isVersus={isVersus} />
 
           {!enemyPokemon ? null : <EnemyPokemon enemyPokemon={enemyPokemon} />}
         </>
