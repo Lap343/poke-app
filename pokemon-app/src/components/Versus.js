@@ -4,7 +4,7 @@ import "../styles/Versus.css";
 const Versus = ({ isVersus, setIsVersus }) => {
   useEffect(() => {
     if (isVersus) {
-      const timer = setTimeout(() => setIsVersus(false), 2600);
+      const timer = setTimeout(() => setIsVersus(false), 1400);
       return () => clearTimeout(timer);
     }
   }, [isVersus, setIsVersus]);
@@ -28,6 +28,9 @@ const Versus = ({ isVersus, setIsVersus }) => {
               <span data-text="S">S</span>
             </p>
           </div>
+
+          <div className="pokemon-versus__left-background"></div>
+          <div className="pokemon-versus__right-background"></div>
         </div>
       )}
     </>

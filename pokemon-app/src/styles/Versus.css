@@ -115,6 +115,38 @@
   border-right: 2px solid #8e643a;
   border-bottom: 2px solid #8e643a;
 }
+.pokemon-versus__left-background {
+  background-color: white;
+  height: 738.4px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-165.4%, -33.5%);
+  width: 331%;
+  z-index: -1;
+  opacity: 0;
+  animation-duration: 0.8s;
+  animation-delay: 0.4s;
+  animation-timing-function: cubic-bezier(1, 0.05, 1, -0.29);
+  animation-name: versusleftbgmove;
+  animation-fill-mode: forwards;
+}
+.pokemon-versus__right-background {
+  background-color: white;
+  height: 738.4px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(163.6%, -33.5%);
+  width: 331%;
+  z-index: -1;
+  opacity: 0;
+  animation-duration: 0.8s;
+  animation-delay: 0.4s;
+  animation-timing-function: cubic-bezier(1, 0.05, 1, -0.29);
+  animation-name: versusrightbgmove;
+  animation-fill-mode: forwards;
+}
 
 @keyframes versusleftmove {
   from {
@@ -169,6 +201,38 @@
 
   to {
     transform: translate(-130%, -50%) scale(5);
+    opacity: 0;
+  }
+}
+@keyframes versusleftbgmove {
+  from {
+    transform: translate(-165.4%, -33.5%);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translate(-84.3%, -33.5%);
+    opacity: 1;
+  }
+
+  to {
+    transform: translate(-84.3%, -33.5%);
+    opacity: 0;
+  }
+}
+@keyframes versusrightbgmove {
+  from {
+    transform: translate(163.6%, -33.5%);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translate(84.6%, -33.5%);
+    opacity: 1;
+  }
+
+  to {
+    transform: translate(84.6%, -33.5%);
     opacity: 0;
   }
 }
