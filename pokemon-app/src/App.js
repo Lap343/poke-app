@@ -5,17 +5,21 @@ import dexRightClose from "./assets/dex-right-close.png";
 import Main from "./components/Main";
 import Search from "./components/Search";
 import { getEvolutionChain, getPokeByNameOrId } from "./utils/api";
-import './App.css';
-import './styles/Pokedex-model.css';
+import "./App.css";
+import "./styles/Pokedex-model.css";
 
 function App() {
   const [pokemon, setPokemon] = useState(null);
   const [evolutions, setEvolutions] = useState([]);
+  const [enemyPokemon, setEnemyPokemon] = useState(null);
+  const [isEnemy, setIsEnemy] = useState(false);
+  const [hasEnemySubmit, setHasEnemySubmit] = useState(false);
 
   const getPokeByNameOrIdAPI = async (pokemonAPI) => {
     try {
       const pokeData = await getPokeByNameOrId(pokemonAPI);
-      setPokemon(pokeData);
+      !isEnemy ? setPokemon(pokeData) : setEnemyPokemon(pokeData);
+      isEnemy && setHasEnemySubmit(true);
     } catch (error) {
       console.error(error);
     }
@@ -31,10 +35,10 @@ function App() {
   };
 
   useEffect(() => {
-    if (pokemon) {
+    if (pokemon && !isEnemy) {
       getEvolutionChainAPI(pokemon?.name);
     }
-  }, [pokemon]);
+  }, [pokemon, isEnemy]);
 
   return (
     <div className="App">
@@ -43,10 +47,19 @@ function App() {
         src={dexLeft}
         alt="classic pokedex from the Pokemon series"
       />
-      <Main pokemon={pokemon} evolutions={evolutions}/>
+      <Main
+        pokemon={pokemon}
+        evolutions={evolutions}
+        enemyPokemon={enemyPokemon}
+        hasEnemySubmit={hasEnemySubmit}
+      />
       <img id="dex-right-closed-opening" src={dexRightClose} alt="" />
       <img id="dex-right-open-opening" src={dexRightOpen} alt="" />
-      <Search getPokeByNameOrIdAPI={getPokeByNameOrIdAPI} />
+      <Search
+        getPokeByNameOrIdAPI={getPokeByNameOrIdAPI}
+        isEnemy={isEnemy}
+        setIsEnemy={setIsEnemy}
+      />
     </div>
   );
 }

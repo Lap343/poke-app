@@ -1,108 +1,225 @@
 .App {
-    position: relative;
-    animation-duration: 1.3s;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-in-out;
-    animation-name: increase;
-    margin-left: 20vw;
+  position: relative;
+  animation-duration: 1.3s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  animation-name: increase;
+  margin-left: 20vw;
+}
+@keyframes increase {
+  from {
+    height: 0vh;
+    width: 0vw;
   }
-  @keyframes increase {
-    from {
-      height: 0vh;
-      width: 0vw;
-    }
-    to {
-      height: 140vh;
-      width: 69em;
-    }
+  to {
+    height: 140vh;
+    width: 69em;
   }
-  #dex-left {
-    position: absolute;
-    height: 100%;
+}
+#dex-left {
+  position: absolute;
+  height: 100%;
+}
+#dex-right-closed-opening {
+  position: absolute;
+  height: 91.8%;
+  top: 8.2%;
+  z-index: 20;
+  animation-name: open-left;
+  animation-delay: 1.3s;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+}
+@keyframes open-left {
+  from {
+    left: 0%;
+    width: 88%;
   }
-  #dex-right-closed-opening {
-    position: absolute;
-    height: 91.8%;
-    top: 8.2%;
-    z-index: 20;
-    animation-name: open-left;
-    animation-delay: 1.3s;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-in;
-  }
-  @keyframes open-left {
-    from {
-      left: 0%;
-      width: 88%;
-    }
-    to {
-      left: 94%;
-      width: 0%;
-    }
-  }
-  #dex-right-open-opening {
-    position: absolute;
-    top: 8.2%;
+  to {
     left: 94%;
-    height: 91.8%;
     width: 0%;
-    animation-name: open-right;
-    animation-delay: 2.3s;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-out;
   }
-  @keyframes open-right {
-    from {
-      left: 94%;
-      width: 0%;
-    }
-    to {
-      left: 99.5%;
-      width: 88%;
-    }
+}
+#dex-right-open-opening {
+  position: absolute;
+  top: 8.2%;
+  left: 94%;
+  height: 91.8%;
+  width: 0%;
+  animation-name: open-right;
+  animation-delay: 2.3s;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+@keyframes open-right {
+  from {
+    left: 94%;
+    width: 0%;
   }
-  
-  .main {
-    position: absolute;
-    z-index: 1;
-    border: solid black 7px;
-    border-radius: 15px;
-    top: 30.3%;
-    left: 14.5%;
-    height: 54.6%;
-    width: 62.7%;
+  to {
+    left: 99.5%;
+    width: 88%;
   }
-  .splash-background {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-  }
-  .splash-star {
-    position: absolute;
+}
+.main {
+  position: absolute;
+  z-index: 1;
+  border: solid black 7px;
+  border-radius: 15px;
+  top: 30.3%;
+  left: 14.5%;
+  height: 54.6%;
+  width: 62.7%;
+}
+.splash-background {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+.splash-star {
+  position: absolute;
+  height: 0%;
+  animation: pop 1s;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+}
+.splash-title {
+  position: absolute;
+  height: 0%;
+  animation: pop 1s;
+  animation-delay: 2.4s;
+  animation-fill-mode: forwards;
+}
+@keyframes pop {
+  from {
     height: 0%;
-    animation: pop 1s;
-    animation-delay: 2s;
-    animation-fill-mode: forwards;
+    width: 0%;
+    padding: 100%;
   }
-  .splash-title {
-    position: absolute;
-    height: 0%;
-    animation: pop 1s;
-    animation-delay: 2.4s;
-    animation-fill-mode: forwards;
+  to {
+    height: 80%;
+    width: 90%;
+    padding: 5%;
   }
-  
-  @keyframes pop {
-    from {
-      height: 0%;
-      width: 0%;
-      padding: 100%;
-    }
-    to {
-      height: 80%;
-      width: 90%;
-      padding: 5%;
-    }
-  }
+}
+/* TWO-SEARCH and ONE-SEARCH */
+.searchbar {
+  display: flex;
+  align-items: flex-end;
+  position: absolute;
+  bottom: 7.4%;
+  right: 45%;
+  transform: scale(1.25);
+}
+.searchbar > input[type="text"] {
+  border: 2px solid black;
+  border-radius: 3px;
+  padding: 2%;
+  background-color: white;
+  font-family: myFirstFont;
+  width: 60%;
+  height: 50%;
+}
+.searchbar > input[type="text"]:focus {
+  outline: none;
+}
+.searchbar > input[type="text"]::placeholder {
+  font-family: myFirstFont;
+  font-size: 0.8em;
+}
+#searchButton {
+  border: 1px solid rgb(121, 76, 76);
+  border-radius: 50%;
+  height: 5em;
+  width: 5em;
+  transform: translate(-10%, 21%);
+  background: rgb(188, 12, 12);
+  background: linear-gradient(
+    90deg,
+    rgba(188, 12, 12, 1) 0%,
+    rgba(156, 10, 10, 1) 35%,
+    rgba(103, 6, 6, 1) 100%
+  );
+  -webkit-box-shadow: 1px 2.5px 0px;
+}
+#searchButton:hover {
+  cursor: pointer;
+}
+#searchButton:active {
+  height: 4.8em;
+  width: 4.8em;
+  background: linear-gradient(
+    95deg,
+    rgba(188, 12, 12, 1) 0%,
+    rgba(156, 10, 10, 1) 25%,
+    rgba(103, 6, 6, 1) 100%
+  );
+  -webkit-box-shadow: 1px 2px 0px;
+}
+#searchbar > input[type="text"]:focus {
+  outline: none;
+}
+.twosearch-pokemon {
+  position: absolute;
+  right: 30.9%;
+  bottom: 5.4%;
+}
+.twosearch-pokemon__title {
+  margin-bottom: 10px;
+  text-align: center;
+}
+.twosearch-pokemon__friendly-enemy-container {
+  display: flex;
+  justify-content: space-between;
+}
+.twosearch-pokemon__friendly {
+  margin-right: 5px;
+}
+.twosearch-pokemon__enemy {
+  margin-left: 5px;
+}
+.twosearch-pokemon__friendly button,
+.twosearch-pokemon__enemy button {
+  font-family: myFirstFont;
+  font-size: 0.8em;
+  font-weight: bold;
+  border: 1px solid black;
+  color: black;
+  border-radius: 15px;
+  height: 75.5px;
+  width: 75.5px;
+  background: linear-gradient(
+    90deg,
+    rgb(120, 157, 226) 0%,
+    rgb(71, 104, 211) 25%,
+    rgb(77, 86, 218) 100%
+  );
+  -webkit-box-shadow: 1px 2.5px 0px;
+  box-shadow: 1px 2.5px 0px;
+}
+.twosearch-pokemon__friendly:not(.picked) button:enabled:hover,
+.twosearch-pokemon__enemy:not(.picked) button:enabled:hover {
+  cursor: pointer;
+}
+.twosearch-pokemon__friendly.picked button,
+.twosearch-pokemon__enemy.picked button {
+  cursor: default;
+}
+.twosearch-pokemon__friendly.picked button,
+.twosearch-pokemon__enemy.picked button,
+.twosearch-pokemon__friendly button:active,
+.twosearch-pokemon__enemy button:active {
+  height: 74.5px;
+  width: 74.5px;
+  color: rgba(0, 0, 0, 0.356);
+  background: linear-gradient(
+    95deg,
+    rgb(93, 122, 175) 0%,
+    rgb(54, 80, 165) 25%,
+    rgb(39, 47, 161) 100%
+  );
+  -webkit-box-shadow: 1px 2px 0px;
+  box-shadow: 1px 2px 0px;
+}
