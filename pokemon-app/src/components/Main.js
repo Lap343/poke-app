@@ -12,7 +12,6 @@ const Main = ({
   enemyPokemon,
   hasEnemySubmit,
   isVersus,
-  setIsVersus,
 }) => {
   return (
     <div className="main">

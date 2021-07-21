@@ -57,7 +57,6 @@ function App() {
         enemyPokemon={enemyPokemon}
         hasEnemySubmit={hasEnemySubmit}
         isVersus={isVersus}
-        setIsVersus={setIsVersus}
       />
       <img id="dex-right-closed-opening" src={dexRightClose} alt="" />
       <img id="dex-right-open-opening" src={dexRightOpen} alt="" />
@@ -70,6 +69,7 @@ function App() {
         enemyPokemon={enemyPokemon}
         setIsEnemy={setIsEnemy}
         setHasEnemySubmit={setHasEnemySubmit}
+        setIsVersus={setIsVersus}
       />
     </div>
   );
