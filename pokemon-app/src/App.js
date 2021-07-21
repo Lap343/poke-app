@@ -14,12 +14,16 @@ function App() {
   const [enemyPokemon, setEnemyPokemon] = useState(null);
   const [isEnemy, setIsEnemy] = useState(false);
   const [hasEnemySubmit, setHasEnemySubmit] = useState(false);
+  const [isVersus, setIsVersus] = useState(false);
 
   const getPokeByNameOrIdAPI = async (pokemonAPI) => {
     try {
       const pokeData = await getPokeByNameOrId(pokemonAPI);
       !isEnemy ? setPokemon(pokeData) : setEnemyPokemon(pokeData);
-      isEnemy && setHasEnemySubmit(true);
+      if (isEnemy) {
+        setHasEnemySubmit(true);
+        setIsVersus(true);
+      }
     } catch (error) {
       console.error(error);
     }
@@ -52,6 +56,8 @@ function App() {
         evolutions={evolutions}
         enemyPokemon={enemyPokemon}
         hasEnemySubmit={hasEnemySubmit}
+        isVersus={isVersus}
+        setIsVersus={setIsVersus}
       />
       <img id="dex-right-closed-opening" src={dexRightClose} alt="" />
       <img id="dex-right-open-opening" src={dexRightOpen} alt="" />
