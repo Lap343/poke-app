@@ -11,8 +11,7 @@ const Search = ({ getPokeByNameOrIdAPI, pokemon, setPokemon, setEnemyPokemon, is
     setPokemonSearchValue(value);
   };
 
-  const onSubmit = (e) => {
-    e.preventDefault();
+  const onSubmit = () => {
     const pokeLowerCase = pokemonSearchValue.toLowerCase();
 
     setHasSelected(true);
@@ -32,7 +31,7 @@ const Search = ({ getPokeByNameOrIdAPI, pokemon, setPokemon, setEnemyPokemon, is
 
   return (
     <>
-      <form className="searchbar" onSubmit={onSubmit}>
+      <div className="searchbar">
         <div className="remove-poke-title">Remove Pokemon</div>
         <button type="button" id="removeButton" onClick={() => removePokemon()}>x</button>
         <input
@@ -43,7 +42,7 @@ const Search = ({ getPokeByNameOrIdAPI, pokemon, setPokemon, setEnemyPokemon, is
           onChange={onChange}
         />
 
-        <button type="submit" className="search-button">Search</button>
+        <button onClick={onSubmit} className="search-button">Search</button>
 
         <div className="twosearch-pokemon">
           <div className="twosearch-pokemon__friendly-enemy-container">
@@ -76,7 +75,7 @@ const Search = ({ getPokeByNameOrIdAPI, pokemon, setPokemon, setEnemyPokemon, is
 
           </div>
         </div>
-      </form>
+      </div>
     </>
   );
 };
