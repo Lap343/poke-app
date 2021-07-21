@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "../styles/Versus.css";
 
 const PokemonVersus = () => {
   const [displayVS, setDisplayVS] = useState(false);
