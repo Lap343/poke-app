@@ -3,9 +3,16 @@ import splashStar from "../assets/splash-star.png";
 import splashTitle from "../assets/splash-title.png";
 import SinglePokemon from "./SinglePokemon";
 import EnemyPokemon from "./EnemyPokemon";
+import Versus from "./Versus";
 import "../styles/TypeCheck.css";
 
-const Main = ({ pokemon, evolutions, enemyPokemon, hasEnemySubmit }) => {
+const Main = ({
+  pokemon,
+  evolutions,
+  enemyPokemon,
+  hasEnemySubmit,
+  isVersus,
+}) => {
   return (
     <div className="main">
       {pokemon === null ? (
@@ -21,6 +28,9 @@ const Main = ({ pokemon, evolutions, enemyPokemon, hasEnemySubmit }) => {
             evolutions={evolutions}
             hasEnemy={hasEnemySubmit}
           />
+
+          <Versus isVersus={isVersus} />
+
           {!enemyPokemon ? null : <EnemyPokemon enemyPokemon={enemyPokemon} />}
         </>
       )}
