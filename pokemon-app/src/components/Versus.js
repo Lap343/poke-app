@@ -1,18 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "../styles/Versus.css";
 
-const PokemonVersus = () => {
-  const [displayVS, setDisplayVS] = useState(false);
-
+const Versus = ({ isVersus, setIsVersus }) => {
   useEffect(() => {
-    setDisplayVS(true);
-    const timer = setTimeout(() => setDisplayVS(false), 2600);
+    const timer = setTimeout(() => setIsVersus(false), 2600);
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <>
-      {displayVS && (
+      {isVersus && (
         <div className="pokemon-versus">
           <div className="pokemon-versus__left">
             <p className="paragraph pokemon-versus__left-main" data-text="V">
@@ -35,4 +32,4 @@ const PokemonVersus = () => {
   );
 };
 
-export default PokemonVersus;
+export default Versus;
