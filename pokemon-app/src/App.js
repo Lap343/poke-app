@@ -12,7 +12,7 @@ function App() {
   const [evolutions, setEvolutions] = useState([]);
 
   const getPokeByNameOrIdAPI = async (pokemonAPI) => {
-    try {
+    try {   
       const pokeData = await getPokeByNameOrId(pokemonAPI);
       setPokemon(pokeData);
     } catch (error) {
