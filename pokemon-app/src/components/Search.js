@@ -31,7 +31,7 @@ const Search = ({ getPokeByNameOrIdAPI, pokemon, setPokemon, setEnemyPokemon, is
 
   return (
     <>
-      <div className="searchbar">
+      <div id="search" className="searchbar">
         <div className="remove-poke-title">Remove Pokemon</div>
         <button type="button" id="removeButton" onClick={() => removePokemon()}>x</button>
         <input
