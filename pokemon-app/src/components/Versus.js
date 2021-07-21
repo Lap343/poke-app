@@ -3,13 +3,15 @@ import "../styles/Versus.css";
 
 const Versus = ({ isVersus, setIsVersus }) => {
   useEffect(() => {
-    const timer = setTimeout(() => setIsVersus(false), 2600);
-    return () => clearTimeout(timer);
-  }, []);
+    if (isVersus) {
+      const timer = setTimeout(() => setIsVersus(false), 2600);
+      return () => clearTimeout(timer);
+    }
+  }, [isVersus, setIsVersus]);
 
   return (
     <>
-      {isVersus && (
+      {!isVersus ? null : (
         <div className="pokemon-versus">
           <div className="pokemon-versus__left">
             <p className="paragraph pokemon-versus__left-main" data-text="V">
