@@ -4,7 +4,7 @@ import "../styles/Versus.css";
 const Versus = ({ isVersus, setIsVersus }) => {
   useEffect(() => {
     if (isVersus) {
-      const timer = setTimeout(() => setIsVersus(false), 1400);
+      const timer = setTimeout(() => setIsVersus(false), 1000);
       return () => clearTimeout(timer);
     }
   }, [isVersus, setIsVersus]);
