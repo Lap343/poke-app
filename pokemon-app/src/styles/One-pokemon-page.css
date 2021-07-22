@@ -32,6 +32,7 @@
   border: 6px solid black;
   border-radius: 15px;
   background-color: #fdf0c4;
+  box-shadow: 0.3em 0.3em rgba(0, 0, 0, 0.3);
 }
 .poke-image {
   margin-left: 30%;
@@ -87,6 +88,7 @@
   position: absolute;
   overflow-y: auto;
   padding-top: 2%;
+  box-shadow: 0.3em 0.3em rgba(0, 0, 0, 0.3);
 }
 .stats-box{
   background-color: rgb(160, 212, 212);
@@ -118,7 +120,7 @@
   margin: 5px;
 }
 
-#stats-list > li , .moves-list > li {
+#stats-list > li , #moves-list > li {
   font-size: 1em;
   margin: 10px;
 }

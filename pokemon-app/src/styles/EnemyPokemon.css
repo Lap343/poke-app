@@ -21,6 +21,7 @@
   border: 6px solid black;
   border-radius: 15px;
   background-color: #fdf0c4;
+  box-shadow: 0.3em 0.3em rgba(0, 0, 0, 0.3);
 }
 .enemy-pokemon__display-name p {
   font-size: 2em;
@@ -56,7 +57,7 @@
   padding: 0.2em;
   background-color: #fdf0c4;
   left: 3%;
-  top: 4%;
+  top: 3%;
   z-index: 2;
 }
 .enemy-pokemon__stats-title{
@@ -68,19 +69,18 @@
 .enemy-pokemon__stats, .enemy-pokemon__moves {
   z-index: 1;
   box-sizing: border-box;
-  font-size: 1.5em;
+  font-size: 1em;
   height: 32%;
   width: 47%;
-  top: 10%;
+  top: 9%;
   left: 3%;
-  display: flex;
-  justify-content: flex-end;
-  display: inline-block;
   border: 6px solid black;
   border-radius: 15px;
   background-color: #fdf0c4;
   position: absolute;
   overflow-y: auto;
+  padding-top: 2%;
+  box-shadow: 0.3em 0.3em rgba(0, 0, 0, 0.3);
 }
 .enemy-pokemon__stats{
   background-color: rgb(160, 212, 212);
@@ -105,14 +105,11 @@
   z-index: 3;
 }
 
-
-.enemy-pokemon__stats-list {
+.enemy-pokemon__stats-list, .enemy-pokemon__moves-list{
   margin: 5px;
 }
-.enemy-pokemon__stats-list > li {
-  font-size: 15px;
+
+.enemy-pokemon__stats-list > li , .enemy-pokemon__moves-list > li {
+  font-size: 1em;
   margin: 10px;
-}
-.enemy-pokemon__stats-list > li > p {
-  margin: 0 0 0 0;
 }
