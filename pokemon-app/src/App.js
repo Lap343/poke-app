@@ -7,6 +7,7 @@ import Search from "./components/Search";
 import { getEvolutionChain, getPokeByNameOrId } from "./utils/api";
 import "./App.css";
 import "./styles/Pokedex-model.css";
+import Toad from "./components/toad";
 
 function App() {
   const [pokemon, setPokemon] = useState(null);
@@ -31,8 +32,12 @@ function App() {
 
   const getEvolutionChainAPI = async (pokemonNameAPI) => {
     try {
-      const evolutionData = await getEvolutionChain(pokemonNameAPI);
-      setEvolutions(evolutionData);
+      if(pokemonNameAPI === "Reactoad"){
+        setEvolutions([Toad])
+      } else {
+        const evolutionData = await getEvolutionChain(pokemonNameAPI);
+        setEvolutions(evolutionData);
+      }
     } catch (error) {
       console.error(error);
     }
