@@ -4,6 +4,7 @@ import splashTitle from "../assets/splash-title.png";
 import SinglePokemon from "./SinglePokemon";
 import EnemyPokemon from "./EnemyPokemon";
 import Versus from "./Versus";
+import Pokeball from "./Pokeball";
 import "../styles/TypeCheck.css";
 
 const Main = ({
@@ -12,6 +13,8 @@ const Main = ({
   enemyPokemon,
   hasEnemySubmit,
   isVersus,
+  isPokeball,
+  setIsPokeball,
 }) => {
   return (
     <div className="main">
@@ -23,6 +26,8 @@ const Main = ({
         </div>
       ) : (
         <>
+          <Pokeball isPokeball={isPokeball} setIsPokeball={setIsPokeball} />
+
           <SinglePokemon
             pokemon={pokemon}
             evolutions={evolutions}
