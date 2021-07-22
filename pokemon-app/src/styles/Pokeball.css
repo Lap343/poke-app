@@ -1,6 +1,12 @@
 .pokeball-container {
-  position: relative;
-  height: 100vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 100;
 }
 
 .pokeball {
@@ -11,7 +17,7 @@
   width: 300px;
   height: 300px;
   margin: 0;
-  animation-duration: 1.7s;
+  animation-duration: 1s;
   animation-timing-function: ease-in-out;
   animation-name: pokeballmove;
 }
@@ -24,8 +30,8 @@
   border-top-left-radius: 165px;
   border-top-right-radius: 165px;
   border-bottom: 0;
-  animation-duration: 0.5s;
-  animation-delay: 1.7s;
+  animation-duration: 0.2s;
+  animation-delay: 1s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
   animation-name: openupperpoke;
@@ -50,8 +56,8 @@
   border-radius: 30px;
   width: 330px;
   height: 15px;
-  animation-duration: 0.5s;
-  animation-delay: 1.7s;
+  animation-duration: 0.2s;
+  animation-delay: 1s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
   animation-name: openequator;
@@ -69,8 +75,8 @@
   height: 50px;
   margin: 0;
   z-index: 1;
-  animation-duration: 0.5s;
-  animation-delay: 1.7s;
+  animation-duration: 0.2s;
+  animation-delay: 1s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
   animation-name: opencirclebutton;
@@ -103,8 +109,8 @@
   border-bottom-left-radius: 170px;
   border-bottom-right-radius: 170px;
   border-top: 0;
-  animation-duration: 0.5s;
-  animation-delay: 1.7s;
+  animation-duration: 0.2s;
+  animation-delay: 1s;
   animation-timing-function: ease-in-out;
   animation-name: openlowerequator;
   animation-fill-mode: forwards;
@@ -112,8 +118,8 @@
 
 .pokeball-whiteout {
   position: absolute;
-  top: 54.3%;
-  left: 51%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   width: 0;
   height: 0;
@@ -121,8 +127,8 @@
   filter: blur(10px);
   border-radius: 50%;
   margin: 0;
-  animation-delay: 2.1s;
-  animation-duration: 0.5s;
+  animation-delay: 1.05s;
+  animation-duration: 0.2s;
   animation-timing-function: ease-in-out;
   animation-name: releasewhiteout;
   animation-fill-mode: forwards;
@@ -232,7 +238,7 @@
   }
 
   to {
-    width: 100vh;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
   }
 }
