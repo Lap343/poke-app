@@ -7,12 +7,12 @@ const Pokeball = ({ isPokeball }) => {
   useEffect(() => {
     if (isPokeball) {
       setIsDisplay(true);
-      const timer = setTimeout(() => setIsDisplay(false), 1270);
+      const timer = setTimeout(() => setIsDisplay(false), 1700);
       return () => clearTimeout(timer);
     }
   }, [isPokeball]);
 
-  return !isPokeball ? null : (
+  return !isPokeball ? null : isDisplay ? (
     <div className="pokeball-container">
       <div className="pokeball">
         <div className="pokeball__upper"></div>
@@ -30,7 +30,7 @@ const Pokeball = ({ isPokeball }) => {
 
       <div className="pokeball-whiteout"></div>
     </div>
-  );
+  ) : null;
 };
 
 export default Pokeball;
