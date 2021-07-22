@@ -72,6 +72,7 @@ function App() {
         enemyPokemon={enemyPokemon}
         setIsEnemy={setIsEnemy}
         setHasEnemySubmit={setHasEnemySubmit}
+        isVersus={isVersus}
         setIsVersus={setIsVersus}
         setIsPokeball={setIsPokeball}
       />
