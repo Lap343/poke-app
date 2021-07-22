@@ -1,18 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "../styles/Pokeball.css";
 
-const Pokeball = ({ isPokeball }) => {
-  const [isDisplay, setIsDisplay] = useState(false);
-
+const Pokeball = ({ isPokeball, setIsPokeball }) => {
   useEffect(() => {
     if (isPokeball) {
-      setIsDisplay(true);
-      const timer = setTimeout(() => setIsDisplay(false), 1700);
+      const timer = setTimeout(() => setIsPokeball(false), 1700);
       return () => clearTimeout(timer);
     }
-  }, [isPokeball]);
+  }, [isPokeball, setIsPokeball]);
 
-  return !isPokeball ? null : isDisplay ? (
+  return !isPokeball ? null : (
     <div className="pokeball-container">
       <div className="pokeball">
         <div className="pokeball__upper"></div>
@@ -30,7 +27,7 @@ const Pokeball = ({ isPokeball }) => {
 
       <div className="pokeball-whiteout"></div>
     </div>
-  ) : null;
+  );
 };
 
 export default Pokeball;

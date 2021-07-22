@@ -27,9 +27,9 @@ const Search = ({
 
     setHasSelected(true);
 
-    // If this is the user's first selection,
+    // If the user has not selected an enemy pokemon,
     // then render pokeball animation
-    !hasSelected && setIsPokeball(true);
+    !isEnemy && setIsPokeball(true);
 
     getPokeByNameOrIdAPI(pokeLowerCase);
   };
