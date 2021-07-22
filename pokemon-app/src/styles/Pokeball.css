@@ -19,7 +19,7 @@
   margin: 0;
   animation-duration: 0.3s, 1s;
   animation-delay: 0s, 0.37s;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: cubic-bezier(1, 0.31, 1, 0.44), ease-in-out;
   animation-name: pokeballdrop, pokeballmove;
 }
 
