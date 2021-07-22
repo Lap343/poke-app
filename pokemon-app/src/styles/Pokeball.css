@@ -17,9 +17,10 @@
   width: 100px;
   height: 100px;
   margin: 0;
-  animation-duration: 1s;
+  animation-duration: 0.3s, 1s;
+  animation-delay: 0s, 0.37s;
   animation-timing-function: ease-in-out;
-  animation-name: pokeballmove;
+  animation-name: pokeballdrop, pokeballmove;
 }
 
 .pokeball__upper {
@@ -31,7 +32,7 @@
   border-top-right-radius: 65px;
   border-bottom: 0;
   animation-duration: 0.2s;
-  animation-delay: 1s;
+  animation-delay: 1.37s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
   animation-name: openupperpoke;
@@ -57,7 +58,7 @@
   width: 109px;
   height: 5px;
   animation-duration: 0.2s;
-  animation-delay: 1s;
+  animation-delay: 1.37s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
   animation-name: openequator;
@@ -76,7 +77,7 @@
   margin: 0;
   z-index: 1;
   animation-duration: 0.2s;
-  animation-delay: 1s;
+  animation-delay: 1.37s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
   animation-name: opencirclebutton;
@@ -110,7 +111,7 @@
   border-bottom-right-radius: 70px;
   border-top: 0;
   animation-duration: 0.2s;
-  animation-delay: 1s;
+  animation-delay: 1.37s;
   animation-timing-function: ease-in-out;
   animation-name: openlowerequator;
   animation-fill-mode: forwards;
@@ -127,7 +128,7 @@
   filter: blur(10px);
   border-radius: 50%;
   margin: 0;
-  animation-delay: 1.11s;
+  animation-delay: 1.49s;
   animation-duration: 0.2s;
   animation-timing-function: ease-in-out;
   animation-name: releasewhiteout;
@@ -137,6 +138,33 @@
 /**************/
 /* ANIMATIONS */
 /**************/
+
+/* POKEBALL DROPS */
+@keyframes pokeballdrop {
+  from {
+    top: 6%;
+  }
+
+  20% {
+    top: 50%;
+  }
+
+  40% {
+    top: 25%;
+  }
+
+  60% {
+    top: 50%;
+  }
+
+  80% {
+    top: 37.5%;
+  }
+
+  to {
+    top: 50%;
+  }
+}
 
 /* POKEBALL MOVES */
 @keyframes pokeballmove {
@@ -209,7 +237,6 @@
 
   to {
     top: 45%;
-    /* 3.2px less */
     width: 21.8px;
     height: 21.8px;
   }
@@ -218,7 +245,6 @@
 @keyframes openlowerequator {
   from {
     top: 55%;
-    /* was 303px */
     width: 100px;
     height: 5px;
     transform: translate(-50%, -50%) matrix(1, 0, 0, 1, 0, 0);
