@@ -5,8 +5,13 @@ import TypeCheck from "./TypeCheck";
 import "../styles/One-pokemon-page.css";
 import { useState } from "react";
 
-const SinglePokemon = ({ pokemon, evolutions, hasEnemy }) => {
-  const [ statsOnTop, setStatsOnTop ] = useState(true)
+const SinglePokemon = ({
+  pokemon,
+  evolutions,
+  hasEnemy,
+  getPokeByNameOrIdAPI,
+}) => {
+  const [statsOnTop, setStatsOnTop] = useState(true);
 
   return (
     <>
@@ -30,25 +35,29 @@ const SinglePokemon = ({ pokemon, evolutions, hasEnemy }) => {
                 />
               </div>
 
-              <div 
+              <div
                 onClick={() => setStatsOnTop(true)}
-                className={
-                  `stats-title 
+                className={`stats-title 
                   ${hasEnemy ? "has-enemy" : ""} 
-                  ${statsOnTop ? "on-tip-top" : ""}`
-                }
-              >Stats:</div>
-              
-              <div 
-                onClick={() => setStatsOnTop(false)}
-                className={
-                  `moves-title 
-                  ${hasEnemy ? "has-enemy" : ""} 
-                  ${statsOnTop ? "" : "on-tip-top"}`
-                }
-              >Moves:</div>
+                  ${statsOnTop ? "on-tip-top" : ""}`}
+              >
+                Stats:
+              </div>
 
-              <div className={`stats-box ${hasEnemy ? "has-enemy" : ""} ${statsOnTop ? "on-top" : ""}`}>
+              <div
+                onClick={() => setStatsOnTop(false)}
+                className={`moves-title 
+                  ${hasEnemy ? "has-enemy" : ""} 
+                  ${statsOnTop ? "" : "on-tip-top"}`}
+              >
+                Moves:
+              </div>
+
+              <div
+                className={`stats-box ${hasEnemy ? "has-enemy" : ""} ${
+                  statsOnTop ? "on-top" : ""
+                }`}
+              >
                 <ol id="stats-list">
                   {!pokemon?.stats
                     ? null
@@ -57,22 +66,23 @@ const SinglePokemon = ({ pokemon, evolutions, hasEnemy }) => {
                           <li>{statData.stat.name}:</li>
                           <div>{statData.base_stat}</div>
                         </div>
-                    ))
-                  }
+                      ))}
                 </ol>
               </div>
 
-              <div className={`moves-box ${hasEnemy ? "has-enemy" : ""} ${statsOnTop ? "" : "on-top"}`}>
+              <div
+                className={`moves-box ${hasEnemy ? "has-enemy" : ""} ${
+                  statsOnTop ? "" : "on-top"
+                }`}
+              >
                 <ol id="moves-list">
                   {!pokemon?.moves
                     ? null
                     : pokemon?.moves.map((moveData, moveIndex) => (
                         <li key={moveIndex}>{moveData.move.name}</li>
-                      ))
-                  }
+                      ))}
                 </ol>
               </div>
-
             </div>
             <img
               className={`poke-pad ${hasEnemy ? "has-enemy" : ""}`}
@@ -83,11 +93,16 @@ const SinglePokemon = ({ pokemon, evolutions, hasEnemy }) => {
         </>
       )}
 
-      {(evolutions.length && hasEnemy) && ( <PokemonEvolutions evolutions={evolutions} /> )}
+      {evolutions.length && !hasEnemy && (
+        <PokemonEvolutions
+          evolutions={evolutions}
+          getPokeByNameOrIdAPI={getPokeByNameOrIdAPI}
+        />
+      )}
 
       {hasEnemy ? null : <TypeCheck pokemon={pokemon} />}
     </>
-  )
+  );
 };
 
 export default SinglePokemon;

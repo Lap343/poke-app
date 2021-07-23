@@ -33,8 +33,8 @@ function App() {
 
   const getEvolutionChainAPI = async (pokemonNameAPI) => {
     try {
-      if(pokemonNameAPI === "Reactoad"){
-        setEvolutions([Toad])
+      if (pokemonNameAPI === "Reactoad") {
+        setEvolutions([Toad]);
       } else {
         const evolutionData = await getEvolutionChain(pokemonNameAPI);
         setEvolutions(evolutionData);
@@ -65,6 +65,7 @@ function App() {
         isVersus={isVersus}
         isPokeball={isPokeball}
         setIsPokeball={setIsPokeball}
+        getPokeByNameOrIdAPI={getPokeByNameOrIdAPI}
       />
       <img id="dex-right-closed-opening" src={dexRightClose} alt="" />
       <img id="dex-right-open-opening" src={dexRightOpen} alt="" />

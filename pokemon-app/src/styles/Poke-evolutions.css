@@ -109,6 +109,16 @@
   border: 4px solid white;
   border-radius: 50%;
 }
+.pokemon-evolutions__card-img--btn {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+}
+.pokemon-evolutions__card-img--btn:hover {
+  cursor: pointer;
+}
 .pokemon-evolutions__card-img img {
   width: 100%;
 }

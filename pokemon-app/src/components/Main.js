@@ -15,6 +15,7 @@ const Main = ({
   isVersus,
   isPokeball,
   setIsPokeball,
+  getPokeByNameOrIdAPI,
 }) => {
   return (
     <div className="main">
@@ -32,6 +33,7 @@ const Main = ({
             pokemon={pokemon}
             evolutions={evolutions}
             hasEnemy={hasEnemySubmit}
+            getPokeByNameOrIdAPI={getPokeByNameOrIdAPI}
           />
 
           <Versus isVersus={isVersus} />
