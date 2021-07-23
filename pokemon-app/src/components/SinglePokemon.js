@@ -83,9 +83,7 @@ const SinglePokemon = ({ pokemon, evolutions, hasEnemy }) => {
         </>
       )}
 
-      {!evolutions.length ? null : hasEnemy ? null : (
-        <PokemonEvolutions evolutions={evolutions} />
-      )}
+      {(evolutions.length && hasEnemy) && ( <PokemonEvolutions evolutions={evolutions} /> )}
 
       {hasEnemy ? null : <TypeCheck pokemon={pokemon} />}
     </>
