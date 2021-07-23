@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import fightPad from "../assets/fightpad.png";
 import "../styles/EnemyPokemon.css";
+import Types from "./Types";
 
 const EnemyPokemon = ({ enemyPokemon }) => {
   const [enemyStatsOnTop, setEnemyStatsOnTop] = useState(true);
@@ -21,6 +22,10 @@ const EnemyPokemon = ({ enemyPokemon }) => {
                   alt={`Front default of ${enemyPokemon?.name} sprite`}
                 />
               </div>
+            </div>
+
+            <div className="enemy-pokemon-types">
+              <Types pokemon={enemyPokemon} />
             </div>
 
             <div

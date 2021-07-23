@@ -4,6 +4,7 @@ import PokemonEvolutions from "./PokemonEvolutions";
 import TypeCheck from "./TypeCheck";
 import "../styles/One-pokemon-page.css";
 import { useState } from "react";
+import Types from "./Types";
 
 const SinglePokemon = ({
   pokemon,
@@ -83,6 +84,9 @@ const SinglePokemon = ({
                       ))}
                 </ol>
               </div>
+            </div>
+            <div className={`pokemon-types ${hasEnemy ? "has-enemy" : ""}`}>
+              <Types pokemon={pokemon} />
             </div>
             <img
               className={`poke-pad ${hasEnemy ? "has-enemy" : ""}`}

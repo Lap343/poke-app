@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/Poke-evolutions.css";
+import Types from "./Types";
 
 const PokemonEvolutions = ({ evolutions, getPokeByNameOrIdAPI }) => (
   <div className={`pokemon-evolutions`}>
@@ -50,14 +51,7 @@ const PokemonEvolutions = ({ evolutions, getPokeByNameOrIdAPI }) => (
               <div className="pokemon-evolutions__card-type">
                 {!evolve?.types.length
                   ? null
-                  : evolve?.types.map((type, typeIndex) => (
-                      <span
-                        key={`${evolve?.id}-${typeIndex}`}
-                        className="pokemon-evolutions__card-type-name"
-                      >
-                        {type?.type?.name}
-                      </span>
-                    ))}
+                  : <Types pokemon={evolve} />}
               </div>
             </div>
           ))}
