@@ -1,7 +1,7 @@
 import React from "react";
-import '../styles/Poke-evolutions.css';
+import "../styles/Poke-evolutions.css";
 
-const PokemonEvolutions = ({ evolutions }) => (
+const PokemonEvolutions = ({ evolutions, getPokeByNameOrIdAPI }) => (
   <div className={`pokemon-evolutions`}>
     <div className="pokemon-evolutions__title">
       <p className="paragraph">Evolutions</p>
@@ -26,10 +26,15 @@ const PokemonEvolutions = ({ evolutions }) => (
               }`}
             >
               <div className="pokemon-evolutions__card-img">
-                <img
-                  src={`${evolve?.sprites?.front_default}`}
-                  alt={`${evolve?.name}`}
-                />
+                <button
+                  className="pokemon-evolutions__card-img--btn"
+                  onClick={() => getPokeByNameOrIdAPI(evolve?.name)}
+                >
+                  <img
+                    src={`${evolve?.sprites?.front_default}`}
+                    alt={`${evolve?.name}`}
+                  />
+                </button>
               </div>
 
               <div className="pokemon-evolutions__card-name-id-wrapper">

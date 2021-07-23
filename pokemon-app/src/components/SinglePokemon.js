@@ -2,9 +2,14 @@ import fightPad from "../assets/fightpad.png";
 import mainBackground from "../assets/mainBackground.png";
 import PokemonEvolutions from "./PokemonEvolutions";
 import TypeCheck from "./TypeCheck";
-import '../styles/One-pokemon-page.css';
+import "../styles/One-pokemon-page.css";
 
-const SinglePokemon = ({ pokemon, evolutions, hasEnemy }) => (
+const SinglePokemon = ({
+  pokemon,
+  evolutions,
+  hasEnemy,
+  getPokeByNameOrIdAPI,
+}) => (
   <>
     {!pokemon ? null : (
       <>
@@ -46,7 +51,10 @@ const SinglePokemon = ({ pokemon, evolutions, hasEnemy }) => (
     )}
 
     {!evolutions.length ? null : hasEnemy ? null : (
-      <PokemonEvolutions evolutions={evolutions} />
+      <PokemonEvolutions
+        evolutions={evolutions}
+        getPokeByNameOrIdAPI={getPokeByNameOrIdAPI}
+      />
     )}
 
     {hasEnemy ? null : <TypeCheck pokemon={pokemon} />}
