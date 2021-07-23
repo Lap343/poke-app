@@ -150,7 +150,7 @@
 }
 .searchbar > input[type="text"] {
   position: absolute;
-  left: 9%;
+  left: 10%;
   border: 3px solid black;
   box-shadow: 0.2em 0.2em grey;
   border-radius: 10px;
