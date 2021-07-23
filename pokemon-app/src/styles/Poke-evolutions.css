@@ -1,0 +1,157 @@
+.pokemon-evolutions {
+  z-index: 10;
+  position: absolute;
+  top: 40%;
+  left: 1.5%;
+  width: 95%;
+}
+.pokemon-evolutions__title {
+  display: inline-block;
+  margin-bottom: 4px;
+  padding: 1px 4px;
+  border: 1.5px solid white;
+  border-radius: 15px;
+  background-color: grey;
+  border: 5px solid black;
+  border-radius: 25px;
+  padding: 0.4% 1.3%;
+  font-size: 1em;
+}
+.pokemon-evolutions__title p {
+  color: white;
+}
+.pokemon-evolutions__card-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  overflow-x: auto;
+  padding: 0.8em 0 0.2em 0.5em;
+  background-color: grey;
+  border: 5px solid black;
+  border-radius: 25px;
+}
+.pokemon-evolutions__card-wrapper.eevee {
+  justify-content: space-between;
+}
+.pokemon-evolutions__card-wrapper.eevee {
+  /* For Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: black transparent;
+}
+.pokemon-evolutions__card-wrapper.eevee::-webkit-scrollbar {
+  width: 1.6px;
+  height: 7.6px;
+}
+.pokemon-evolutions__card-wrapper.eevee::-webkit-scrollbar-track {
+  background: transparent;
+}
+.pokemon-evolutions__card-wrapper.eevee::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.18);
+  border-radius: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+.pokemon-evolutions__card {
+  position: relative;
+  text-align: center;
+}
+.pokemon-evolutions__card.eevee {
+  padding-bottom: 2px;
+}
+.pokemon-evolutions__card:not(:last-child) {
+  margin-right: 50px;
+}
+.pokemon-evolutions__card.eevee:not(:last-child) {
+  margin-right: 57px;
+}
+.pokemon-evolutions__card.eevee:last-child {
+  padding-right: 10px;
+}
+.pokemon-evolutions__card:not(:last-child)::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 6.5px;
+  height: 28.28px;
+  background-color: white;
+  transform: translate(20px, 45px) rotate(135deg);
+}
+.pokemon-evolutions__card:not(:last-child)::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 6.5px;
+  height: 28.28px;
+  background-color: white;
+  transform: translate(20px, 61px) rotate(45deg);
+}
+.pokemon-evolutions__card.eevee-chain:not(:last-child)::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 6.5px;
+  height: 33.28px;
+  background-color: white;
+  transform: translate(30px, 50px) rotate(90deg);
+}
+.pokemon-evolutions__card.eevee-chain:not(:last-child)::after {
+  display: none;
+}
+.pokemon-evolutions__card-img {
+  width: 7em;
+  height: 7em;
+  margin-bottom: 3%;
+  background-color: #616161;
+  border: 4px solid white;
+  border-radius: 50%;
+}
+.pokemon-evolutions__card-img--btn {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+}
+.pokemon-evolutions__card-img--btn:hover {
+  cursor: pointer;
+}
+.pokemon-evolutions__card-img img {
+  width: 100%;
+}
+.pokemon-evolutions__card-name-id-wrapper {
+  display: inline-block;
+  font-size: 0.8em;
+  margin-bottom: 4%;
+  padding: 1%;
+  background-color: transparent;
+  border: 1.5px solid white;
+  border-radius: 15px;
+}
+.pokemon-evolutions__card-name {
+  color: white;
+  margin-right: 1px;
+  text-transform: capitalize;
+}
+.pokemon-evolutions__card-id {
+  color: rgb(23, 38, 78);
+  margin-left: 1px;
+}
+.pokemon-evolutions__card-id::before {
+  content: "#";
+}
+.pokemon-evolutions__card-type {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1%;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+}
+.paragraph {
+  margin: 0;
+}

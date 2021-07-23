@@ -1,7 +1,9 @@
 import React from "react";
+import "../styles/Poke-evolutions.css";
+import Types from "./Types";
 
-const PokemonEvolutions = ({ evolutions }) => (
-  <div className={`pokemon-evolutions ${evolutions.length > 3 ? "eevee" : ""}`}>
+const PokemonEvolutions = ({ evolutions, getPokeByNameOrIdAPI }) => (
+  <div className={`pokemon-evolutions`}>
     <div className="pokemon-evolutions__title">
       <p className="paragraph">Evolutions</p>
     </div>
@@ -25,10 +27,15 @@ const PokemonEvolutions = ({ evolutions }) => (
               }`}
             >
               <div className="pokemon-evolutions__card-img">
-                <img
-                  src={`${evolve?.sprites?.front_default}`}
-                  alt={`${evolve?.name}`}
-                />
+                <button
+                  className="pokemon-evolutions__card-img--btn"
+                  onClick={() => getPokeByNameOrIdAPI(evolve?.name)}
+                >
+                  <img
+                    src={`${evolve?.sprites?.front_default}`}
+                    alt={`${evolve?.name}`}
+                  />
+                </button>
               </div>
 
               <div className="pokemon-evolutions__card-name-id-wrapper">
@@ -44,14 +51,7 @@ const PokemonEvolutions = ({ evolutions }) => (
               <div className="pokemon-evolutions__card-type">
                 {!evolve?.types.length
                   ? null
-                  : evolve?.types.map((type, typeIndex) => (
-                      <span
-                        key={`${evolve?.id}-${typeIndex}`}
-                        className="pokemon-evolutions__card-type-name"
-                      >
-                        {type?.type?.name}
-                      </span>
-                    ))}
+                  : <Types pokemon={evolve} />}
               </div>
             </div>
           ))}

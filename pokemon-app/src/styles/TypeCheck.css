@@ -1,0 +1,41 @@
+.type-check{
+    position: absolute;
+    top: 72%;
+    height: 15%;
+    width: 98%;
+    font-size: 0.8em;
+}
+.type-title{
+    position: absolute;
+    background-color: #5D5D5D;
+    color: white;
+    height: 40%;
+    width: 98%;
+    left: 1%;
+    border: solid black 0.2em;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 15px;
+}
+.type-details-0, .type-details-1{
+    position: absolute;
+    background-color: white;
+    height: 44%;
+    top: 41%;
+    left: 1%;
+    width: 98%;
+    border: solid black 0.22em;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow-y: auto;
+}
+.type-details-0 > div, .type-details-1 > div{
+    width: 20%;
+    text-align: center;
+}
+.type-details-1{
+    top: 87%;
+}

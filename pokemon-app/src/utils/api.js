@@ -1,3 +1,5 @@
+import Toad from "../components/toad"
+
 const fetchData = async (url) => {
   return await fetch(url)
     .then((data) => data.json())
@@ -7,18 +9,17 @@ const fetchData = async (url) => {
 export const getPokeByNameOrId = async (pokemon) => {
   try {
     const url = `${process.env.REACT_APP_POKE_API_URL}/${pokemon}`;
-    const { id, name, weight, moves, sprites, stats, species, types } =
-      await fetchData(url);
+    const { id, name, weight, moves, sprites, stats, species, types } = await fetchData(url);
 
     return { id, name, weight, moves, sprites, stats, species, types };
   } catch (error) {
-    console.error(error);
+    return Toad;
   }
 };
 
-export const getEvolutionChain = async (pokemon) => {
+export const getEvolutionChain = async (pokemonName) => {
   try {
-    const pokemonData = await getPokeByNameOrId(pokemon);
+    const pokemonData = await getPokeByNameOrId(pokemonName);
     const pokemonSpeciesData = await fetchData(pokemonData.species.url);
     const pokemonEvolutionData = await fetchData(
       pokemonSpeciesData.evolution_chain.url
