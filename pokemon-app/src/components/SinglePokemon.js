@@ -54,8 +54,8 @@ const SinglePokemon = ({ pokemon, evolutions, hasEnemy }) => {
                     ? null
                     : pokemon?.stats.map((statData, statIndex) => (
                         <div key={statIndex}>
-                          <li key={`${statIndex}a`}>{statData.stat.name}:</li>
-                          <div key={`${statIndex}b`}>{statData.base_stat}</div>
+                          <li>{statData.stat.name}:</li>
+                          <div>{statData.base_stat}</div>
                         </div>
                     ))
                   }
