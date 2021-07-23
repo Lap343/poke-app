@@ -113,3 +113,11 @@
   font-size: 1em;
   margin: 10px;
 }
+
+.enemy-pokemon-types{
+  z-index: 2;
+  position: absolute;
+  top: 34%;
+  right: 23%;
+  transform: scale(1.4);
+}
