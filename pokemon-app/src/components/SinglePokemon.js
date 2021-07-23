@@ -93,7 +93,7 @@ const SinglePokemon = ({
         </>
       )}
 
-      {evolutions.length && hasEnemy && (
+      {evolutions.length && !hasEnemy && (
         <PokemonEvolutions
           evolutions={evolutions}
           getPokeByNameOrIdAPI={getPokeByNameOrIdAPI}
