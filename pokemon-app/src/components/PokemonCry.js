@@ -24,7 +24,7 @@ const PokemonCry = ({ pokeName }) => {
 
   return (
     isPokemonsCries && (
-      <audio autoPlay className="pokemon-cry" controls>
+      <audio autoPlay className="pokemon-cry">
         <source type="audio/mp3" src={pokeSoundUrl} />
       </audio>
     )
