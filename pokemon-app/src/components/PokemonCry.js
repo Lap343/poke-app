@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import pokeCries from "../utils/pokeCries";
 
-const PokemonsCries = ({ pokeName }) => {
+const PokemonCry = ({ pokeName }) => {
   const [isPokemonsCries, setIsPokemonsCries] = useState(false);
   const [pokeSoundUrl, setPokeSoundUrl] = useState("");
 
@@ -31,4 +31,4 @@ const PokemonsCries = ({ pokeName }) => {
   );
 };
 
-export default PokemonsCries;
+export default PokemonCry;

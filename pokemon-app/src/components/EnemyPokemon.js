@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import fightPad from "../assets/fightpad.png";
 import "../styles/EnemyPokemon.css";
 import Types from "./Types";
-import PokemonsCries from "./PokemonsCries";
+import PokemonCry from "./PokemonCry";
 
 const EnemyPokemon = ({ enemyPokemon }) => {
   const [enemyStatsOnTop, setEnemyStatsOnTop] = useState(true);
@@ -83,7 +83,7 @@ const EnemyPokemon = ({ enemyPokemon }) => {
             <img src={fightPad} alt="Lily pad from Pokemon game" />
           </div>
 
-          <PokemonsCries pokeName={enemyPokemon?.name} />
+          <PokemonCry pokeName={enemyPokemon?.name} />
         </>
       )}
     </>

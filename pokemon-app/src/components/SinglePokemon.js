@@ -5,7 +5,7 @@ import TypeCheck from "./TypeCheck";
 import "../styles/One-pokemon-page.css";
 import { useState } from "react";
 import Types from "./Types";
-import PokemonsCries from "./PokemonsCries";
+import PokemonCry from "./PokemonCry";
 
 const SinglePokemon = ({
   pokemon,
@@ -108,7 +108,7 @@ const SinglePokemon = ({
 
       {hasEnemy ? null : <TypeCheck pokemon={pokemon} />}
 
-      {!isPokeballRendering && <PokemonsCries pokeName={pokemon?.name} />}
+      {!isPokeballRendering && <PokemonCry pokeName={pokemon?.name} />}
     </>
   );
 };
