@@ -5,12 +5,14 @@ import TypeCheck from "./TypeCheck";
 import "../styles/One-pokemon-page.css";
 import { useState } from "react";
 import Types from "./Types";
+import PokemonsCries from "./PokemonsCries";
 
 const SinglePokemon = ({
   pokemon,
   evolutions,
   hasEnemy,
   getPokeByNameOrIdAPI,
+  isPokeballRendering,
 }) => {
   const [statsOnTop, setStatsOnTop] = useState(true);
 
@@ -105,6 +107,8 @@ const SinglePokemon = ({
       )}
 
       {hasEnemy ? null : <TypeCheck pokemon={pokemon} />}
+
+      {!isPokeballRendering && <PokemonsCries pokeName={pokemon?.name} />}
     </>
   );
 };

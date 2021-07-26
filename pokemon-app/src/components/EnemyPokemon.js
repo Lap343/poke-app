@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import fightPad from "../assets/fightpad.png";
 import "../styles/EnemyPokemon.css";
 import Types from "./Types";
+import PokemonsCries from "./PokemonsCries";
 
 const EnemyPokemon = ({ enemyPokemon }) => {
   const [enemyStatsOnTop, setEnemyStatsOnTop] = useState(true);
@@ -81,6 +82,8 @@ const EnemyPokemon = ({ enemyPokemon }) => {
           <div className="poke-pad--enemy">
             <img src={fightPad} alt="Lily pad from Pokemon game" />
           </div>
+
+          <PokemonsCries pokeName={enemyPokemon?.name} />
         </>
       )}
     </>
