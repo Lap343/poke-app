@@ -5,18 +5,12 @@ const PokemonsCries = ({ pokeName }) => {
   const [isPokemonsCries, setIsPokemonsCries] = useState(false);
   const [pokeSoundUrl, setPokeSoundUrl] = useState("");
 
-  const getPokemonsCriesUrl = (chosenPokeName) => {
-    if (pokeCries[chosenPokeName]) {
-      setIsPokemonsCries(true);
-      setPokeSoundUrl(pokeCries[chosenPokeName]);
-    }
-  };
-
   // useEffect when a pokemon's name is present
   useEffect(() => {
-    // if (pokeName) {
-    getPokemonsCriesUrl(pokeName);
-    // }
+    if (pokeCries[pokeName]) {
+      setIsPokemonsCries(true);
+      setPokeSoundUrl(pokeCries[pokeName]);
+    }
   }, [pokeName]);
 
   // useEffect for not displaying the audio
@@ -30,12 +24,7 @@ const PokemonsCries = ({ pokeName }) => {
 
   return (
     isPokemonsCries && (
-      <audio
-        autoPlay
-        className="pokemons-cries"
-        controls
-        onPlay={(e) => console.log(e)}
-      >
+      <audio autoPlay className="pokemons-cries" controls>
         <source type="audio/mp3" src={pokeSoundUrl} />
       </audio>
     )
