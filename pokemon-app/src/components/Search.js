@@ -24,17 +24,19 @@ const Search = ({
   };
 
   const onSubmit = () => {
-    const pokeLowerCase = pokemonSearchValue.toLowerCase();
+    if(pokemonSearchValue !== ""){
+      const pokeLowerCase = pokemonSearchValue.toLowerCase();
 
-    setHasSelected(true);
+      setHasSelected(true);
 
-    // If the user has not selected an enemy pokemon,
-    // then render pokeball animation
-    if (!isEnemy && !isVersus) {
-      setIsPokeball(true);
+      // If the user has not selected an enemy pokemon,
+      // then render pokeball animation
+      if (!isEnemy && !isVersus) {
+        setIsPokeball(true);
+      }
+
+      getPokeByNameOrIdAPI(pokeLowerCase)
     }
-
-    getPokeByNameOrIdAPI(pokeLowerCase);
   };
   const removePokemon = () => {
     if (enemyPokemon === null) {
