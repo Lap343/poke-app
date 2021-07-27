@@ -1,7 +1,7 @@
 export const typeJson = [
   {
     normal: {
-      strongAgainst: "",
+      strongAgainst: "NONE",
       weakAgainst: "Rock, Ghost, Steel",
       resistantTo: "Ghost",
       vulnerableTo: "Fighting",
@@ -144,4 +144,12 @@ export const typeJson = [
       vulnerableTo: "Fighting, Bug, Fairy",
     },
   },
+  {
+    toad: {
+      strongAgainst: "Normal, Fighting, Flying, Poison, Ground, Rock, Bug, Ghost, Steel, Fire, Water, Grass, Electric, Psychic, Ice, Dragon, Fairy, Dark",
+      weakAgainst: "NONE",
+      resistantTo: "Normal, Fighting, Flying, Poison, Ground, Rock, Bug, Ghost, Steel, Fire, Water, Grass, Electric, Psychic, Ice, Dragon, Fairy, Dark",
+      vulnerableTo: "NONE",
+    }
+  }
 ];

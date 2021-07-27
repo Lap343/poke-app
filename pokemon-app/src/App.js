@@ -7,6 +7,7 @@ import Search from "./components/Search";
 import { getEvolutionChain, getPokeByNameOrId } from "./utils/api";
 import "./App.css";
 import "./styles/Pokedex-model.css";
+import Toad from "./components/toad";
 
 function App() {
   const [pokemon, setPokemon] = useState(null);
@@ -15,6 +16,7 @@ function App() {
   const [isEnemy, setIsEnemy] = useState(false);
   const [hasEnemySubmit, setHasEnemySubmit] = useState(false);
   const [isVersus, setIsVersus] = useState(false);
+  const [isPokeball, setIsPokeball] = useState(false);
 
   const getPokeByNameOrIdAPI = async (pokemonAPI) => {
     try {
@@ -31,8 +33,12 @@ function App() {
 
   const getEvolutionChainAPI = async (pokemonNameAPI) => {
     try {
-      const evolutionData = await getEvolutionChain(pokemonNameAPI);
-      setEvolutions(evolutionData);
+      if (pokemonNameAPI === "Reactoad") {
+        setEvolutions([Toad]);
+      } else {
+        const evolutionData = await getEvolutionChain(pokemonNameAPI);
+        setEvolutions(evolutionData);
+      }
     } catch (error) {
       console.error(error);
     }
@@ -58,6 +64,9 @@ function App() {
         enemyPokemon={enemyPokemon}
         hasEnemySubmit={hasEnemySubmit}
         isVersus={isVersus}
+        isPokeball={isPokeball}
+        setIsPokeball={setIsPokeball}
+        getPokeByNameOrIdAPI={getPokeByNameOrIdAPI}
       />
       <img id="dex-right-closed-opening" src={dexRightClose} alt="" />
       <img id="dex-right-open-opening" src={dexRightOpen} alt="" />
@@ -71,7 +80,9 @@ function App() {
         enemyPokemon={enemyPokemon}
         setIsEnemy={setIsEnemy}
         setHasEnemySubmit={setHasEnemySubmit}
+        isVersus={isVersus}
         setIsVersus={setIsVersus}
+        setIsPokeball={setIsPokeball}
       />
     </div>
     </>

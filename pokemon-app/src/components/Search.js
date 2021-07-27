@@ -10,6 +10,8 @@ const Search = ({
   setIsEnemy,
   setHasEnemySubmit,
   setIsVersus,
+  setIsPokeball,
+  isVersus,
 }) => {
   const [pokemonSearchValue, setPokemonSearchValue] = useState("");
   // This is more on the UI functionalities like adding a className,
@@ -22,15 +24,26 @@ const Search = ({
   };
 
   const onSubmit = () => {
-    const pokeLowerCase = pokemonSearchValue.toLowerCase();
+    if(pokemonSearchValue !== ""){
+      const pokeLowerCase = pokemonSearchValue.toLowerCase();
 
-    setHasSelected(true);
-    getPokeByNameOrIdAPI(pokeLowerCase);
+      setHasSelected(true);
+
+      // If the user has not selected an enemy pokemon,
+      // then render pokeball animation
+      if (!isEnemy && !isVersus) {
+        setIsPokeball(true);
+      }
+
+      getPokeByNameOrIdAPI(pokeLowerCase)
+    }
   };
   const removePokemon = () => {
     if (enemyPokemon === null) {
       if (pokemon !== null) {
         setPokemon(null);
+        setHasSelected(false);
+        setIsPokeball(false);
       }
     } else {
       setIsVersus(false);

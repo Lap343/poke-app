@@ -32,6 +32,7 @@
   border: 6px solid black;
   border-radius: 15px;
   background-color: #fdf0c4;
+  box-shadow: 0.3em 0.3em rgba(0, 0, 0, 0.3);
 }
 .poke-image {
   margin-left: 30%;
@@ -51,53 +52,87 @@
 .poke-pad.has-enemy {
   top: 76%;
 }
-.stats-box {
+.moves-title, .stats-title{
+  position: absolute;
+  font-size: 1.8em;
+  border: solid black 6px;
+  border-radius: 15px;
+  padding: 0.2em;
+  background-color: #fdf0c4;
+  right: 27%;
+  top: 4%;
+  z-index: 2;
+}
+.stats-title{
+  right: 3%;
+  background-color: rgb(160, 212, 212);
+  z-index: 0;
+}
+.moves-title.has-enemy, .stats-title.has-enemy{
+  top: 55%;
+}
+.moves-title:hover, .stats-title:hover {
+  cursor: pointer;
+}
+.stats-box, .moves-box{
   z-index: 1;
   box-sizing: border-box;
-  font-size: 1.5em;
+  font-size: 1em;
   height: 32%;
   width: 47%;
-  top: 3%;
+  top: 10%;
   right: 3%;
-  display: flex;
-  justify-content: flex-end;
-  display: inline-block;
   border: 6px solid black;
   border-radius: 15px;
   background-color: #fdf0c4;
   position: absolute;
   overflow-y: auto;
+  padding-top: 2%;
+  box-shadow: 0.3em 0.3em rgba(0, 0, 0, 0.3);
 }
-.stats-box.has-enemy {
+.stats-box{
+  background-color: rgb(160, 212, 212);
+  z-index: 0;
+}
+.on-tip-top{
+  z-index: 4;
+}
+.on-top{
+  z-index: 3;
+}
+.stats-box.has-enemy, .moves-box.has-enemy {
   top: 61%;
 }
-.stats-box::-webkit-scrollbar {
+.stats-box::-webkit-scrollbar, .moves-box::-webkit-scrollbar {
   width: 8.6px;
   height: 7.6px;
 }
-.stats-box::-webkit-scrollbar-track {
+.stats-box::-webkit-scrollbar-track, .moves-box::-webkit-scrollbar-track {
   background: transparent;
 }
-.stats-box::-webkit-scrollbar-thumb {
+.stats-box::-webkit-scrollbar-thumb, .moves-box::-webkit-scrollbar-thumb {
   background-color: rgba(0, 0, 0, 0.18);
   border-radius: 50px;
   border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
-.moves-title {
-  margin: 10px;
-  margin-left: 15px;
-}
-
-#moves-list {
+#stats-list, #moves-list{
   margin: 5px;
 }
 
-#moves-list > li {
-  font-size: 15px;
+#stats-list > li , #moves-list > li {
+  font-size: 1em;
   margin: 10px;
 }
 
-#moves-list > li > p {
-  margin: 0 0 0 0;
+.pokemon-types{
+  z-index: 2;
+  position: absolute;
+  top: 35%;
+  left: 18%;
+  transform: scale(1.4);
+}
+.pokemon-types.has-enemy{
+  top: 90%;
+  left: 18%;
 }
