@@ -1,8 +1,10 @@
 import React from "react";
 import fightPad from "../assets/fightpad.png";
 import "../styles/EnemyPokemon.css";
+import ThemeSongs from "./ThemeSongs";
+import fightSong from "../assets/fightSong.mp3"
 
-const EnemyPokemon = ({ enemyPokemon }) =>
+const EnemyPokemon = ({ enemyPokemon, hasEnemy }) =>
   !enemyPokemon ? null : (
     <>
       <div className="enemy-pokemon">
@@ -35,6 +37,7 @@ const EnemyPokemon = ({ enemyPokemon }) =>
       <div className="poke-pad--enemy">
         <img src={fightPad} alt="Lily pad from Pokemon game" />
       </div>
+      {hasEnemy && <ThemeSongs src={fightSong} />}
     </>
   );
 

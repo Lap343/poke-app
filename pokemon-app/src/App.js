@@ -45,6 +45,7 @@ function App() {
   }, [pokemon, isEnemy]);
 
   return (
+    <>
     <div className="App">
       <img
         id="dex-left"
@@ -60,6 +61,7 @@ function App() {
       />
       <img id="dex-right-closed-opening" src={dexRightClose} alt="" />
       <img id="dex-right-open-opening" src={dexRightOpen} alt="" />
+
       <Search
         getPokeByNameOrIdAPI={getPokeByNameOrIdAPI}
         pokemon={pokemon}
@@ -72,6 +74,7 @@ function App() {
         setIsVersus={setIsVersus}
       />
     </div>
+    </>
   );
 }
 

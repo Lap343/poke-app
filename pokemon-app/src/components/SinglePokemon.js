@@ -3,8 +3,10 @@ import mainBackground from "../assets/mainBackground.png";
 import PokemonEvolutions from "./PokemonEvolutions";
 import TypeCheck from "./TypeCheck";
 import '../styles/One-pokemon-page.css';
+import ThemeSongs from "./ThemeSongs";
+import homeSong from "../assets/homeSong.mp3";
 
-const SinglePokemon = ({ pokemon, evolutions, hasEnemy }) => (
+const SinglePokemon = ({ pokemon, evolutions, hasEnemy, }) => (
   <>
     {!pokemon ? null : (
       <>
@@ -42,6 +44,8 @@ const SinglePokemon = ({ pokemon, evolutions, hasEnemy }) => (
             alt="lily pad from pokemon game"
           />
         </div>
+
+        {!hasEnemy && <ThemeSongs src={homeSong} />}
       </>
     )}
 
