@@ -35,7 +35,7 @@ const PokemonCry = ({ pokeName }) => {
       // and if it does then continue.
       if (audioRef.current) {
         // Decrease the audio volume.
-        audioRef.current.volume = 0.1;
+        audioRef.current.volume = 0.15;
         // Play the audio.
         audioRef.current.play();
       }
