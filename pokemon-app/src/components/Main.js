@@ -39,7 +39,7 @@ const Main = ({
 
           <Versus isVersus={isVersus} />
 
-          {!enemyPokemon ? null : <EnemyPokemon enemyPokemon={enemyPokemon} />}
+          {!enemyPokemon ? null : <EnemyPokemon enemyPokemon={enemyPokemon} hasEnemy={hasEnemySubmit} />}
         </>
       )}
     </div>
