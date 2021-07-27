@@ -121,3 +121,7 @@
   right: 23%;
   transform: scale(1.4);
 }
+
+.enemy-pokemon__moves-title:hover, .enemy-pokemon__stats-title:hover {
+  cursor: pointer;
+}

@@ -53,37 +53,37 @@ function App() {
   return (
     <>
     <div className="App">
-      <img
+      <div
         id="dex-left"
         src={dexLeft}
         alt="classic pokedex from the Pokemon series"
-      />
-      <Main
-        pokemon={pokemon}
-        evolutions={evolutions}
-        enemyPokemon={enemyPokemon}
-        hasEnemySubmit={hasEnemySubmit}
-        isVersus={isVersus}
-        isPokeball={isPokeball}
-        setIsPokeball={setIsPokeball}
-        getPokeByNameOrIdAPI={getPokeByNameOrIdAPI}
-      />
-      <img id="dex-right-closed-opening" src={dexRightClose} alt="" />
-      <img id="dex-right-open-opening" src={dexRightOpen} alt="" />
-
-      <Search
-        getPokeByNameOrIdAPI={getPokeByNameOrIdAPI}
-        pokemon={pokemon}
-        setPokemon={setPokemon}
-        setEnemyPokemon={setEnemyPokemon}
-        isEnemy={isEnemy}
-        enemyPokemon={enemyPokemon}
-        setIsEnemy={setIsEnemy}
-        setHasEnemySubmit={setHasEnemySubmit}
-        isVersus={isVersus}
-        setIsVersus={setIsVersus}
-        setIsPokeball={setIsPokeball}
-      />
+      >
+        <Main
+          pokemon={pokemon}
+          evolutions={evolutions}
+          enemyPokemon={enemyPokemon}
+          hasEnemySubmit={hasEnemySubmit}
+          isVersus={isVersus}
+          isPokeball={isPokeball}
+          setIsPokeball={setIsPokeball}
+          getPokeByNameOrIdAPI={getPokeByNameOrIdAPI}
+        />
+        <Search
+          getPokeByNameOrIdAPI={getPokeByNameOrIdAPI}
+          pokemon={pokemon}
+          setPokemon={setPokemon}
+          setEnemyPokemon={setEnemyPokemon}
+          isEnemy={isEnemy}
+          enemyPokemon={enemyPokemon}
+          setIsEnemy={setIsEnemy}
+          setHasEnemySubmit={setHasEnemySubmit}
+          isVersus={isVersus}
+          setIsVersus={setIsVersus}
+          setIsPokeball={setIsPokeball}
+        />
+      </div>
+      <img id="dex-right-closed" src={dexRightClose} alt="" />
+      <img id="dex-right-open" src={dexRightOpen} alt="" />
     </div>
     </>
   );

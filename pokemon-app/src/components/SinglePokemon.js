@@ -16,7 +16,7 @@ const SinglePokemon = ({
   getPokeByNameOrIdAPI,
   isPokeballRendering,
 }) => {
-  const [statsOnTop, setStatsOnTop] = useState(true);
+  const [statsOnTop, setStatsOnTop] = useState(false);
 
   return (
     <>
