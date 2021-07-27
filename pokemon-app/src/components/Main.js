@@ -34,6 +34,7 @@ const Main = ({
             evolutions={evolutions}
             hasEnemy={hasEnemySubmit}
             getPokeByNameOrIdAPI={getPokeByNameOrIdAPI}
+            isPokeballRendering={isPokeball}
           />
 
           <Versus isVersus={isVersus} />
