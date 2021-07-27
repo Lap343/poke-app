@@ -2,9 +2,11 @@ import fightPad from "../assets/fightpad.png";
 import mainBackground from "../assets/mainBackground.png";
 import PokemonEvolutions from "./PokemonEvolutions";
 import TypeCheck from "./TypeCheck";
-import "../styles/One-pokemon-page.css";
-import { useState } from "react";
+import '../styles/One-pokemon-page.css';
+import ThemeSongs from "./ThemeSongs";
+import homeSong from "../assets/homeSong.mp3";
 import Types from "./Types";
+import { useState } from "react";
 
 const SinglePokemon = ({
   pokemon,
@@ -105,6 +107,8 @@ const SinglePokemon = ({
       )}
 
       {hasEnemy ? null : <TypeCheck pokemon={pokemon} />}
+
+      {!hasEnemy && <ThemeSongs src={homeSong} />}
     </>
   );
 };
