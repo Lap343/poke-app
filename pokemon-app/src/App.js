@@ -51,10 +51,12 @@ function App() {
   }, [pokemon, isEnemy]);
 
   return (
+    <>
     <div className="App">
       <div
         id="dex-left"
         src={dexLeft}
+        alt="classic pokedex from the Pokemon series"
       >
         <Main
           pokemon={pokemon}
@@ -83,6 +85,7 @@ function App() {
       <img id="dex-right-closed" src={dexRightClose} alt="" />
       <img id="dex-right-open" src={dexRightOpen} alt="" />
     </div>
+    </>
   );
 }
 

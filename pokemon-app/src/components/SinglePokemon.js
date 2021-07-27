@@ -3,14 +3,18 @@ import mainBackground from "../assets/mainBackground.png";
 import PokemonEvolutions from "./PokemonEvolutions";
 import TypeCheck from "./TypeCheck";
 import "../styles/One-pokemon-page.css";
-import { useState } from "react";
+import ThemeSongs from "./ThemeSongs";
+import homeSong from "../assets/homeSong.mp3";
 import Types from "./Types";
+import PokemonCry from "./PokemonCry";
+import { useState } from "react";
 
 const SinglePokemon = ({
   pokemon,
   evolutions,
   hasEnemy,
   getPokeByNameOrIdAPI,
+  isPokeballRendering,
 }) => {
   const [statsOnTop, setStatsOnTop] = useState(false);
 
@@ -105,6 +109,9 @@ const SinglePokemon = ({
       )}
 
       {hasEnemy ? null : <TypeCheck pokemon={pokemon} />}
+
+      {!isPokeballRendering && <PokemonCry pokeName={pokemon?.name} />}
+      {!hasEnemy && <ThemeSongs src={homeSong} />}
     </>
   );
 };
