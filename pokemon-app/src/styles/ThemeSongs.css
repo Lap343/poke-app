@@ -1,20 +1,15 @@
  .soundButton {
      position: relative;
-     transform: translate(597px,705px);
+     transform: translate(597px,710px);
      z-index: 99;
-     border: 3px solid black;
+     border: 2px solid black;
     border-radius: 10px;
     font-family: myFirstFont;
     z-index: 99;
     padding: 5px 5px;
     cursor: pointer;
     background: rgba(175, 10, 10, 1);
-    /* background: linear-gradient(
-        95deg,
-        rgba(188, 12, 12, 1) 0%,
-        rgba(175, 10, 10, 1) 25%,
-        rgba(120, 6, 6, 1) 100%
-      ); */
+    color:white;
  }
 
  .soundButton:disabled {
