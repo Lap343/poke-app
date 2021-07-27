@@ -1,29 +1,21 @@
-.App {
-  position: relative;
-  animation-duration: 1.3s;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-in-out;
-  animation-name: increase;
-  margin-left: 20vw;
-}
-@keyframes increase {
-  from {
-    height: 0vh;
-    width: 0vw;
-  }
-  to {
-    height: 140vh;
-    width: 69em;
-  }
-}
 #dex-left {
-  position: absolute;
-  height: 100%;
+  position: fixed;
+  background-image: url("../assets/dex-left.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: solid black 0px;
+  top: -22em;
+  left: 13em;
+  height: 84em;
+  width: 68.4em;
 }
-#dex-right-closed-opening {
-  position: absolute;
-  height: 91.8%;
-  top: 8.2%;
+
+#dex-right-closed {
+  position: fixed;
+  height: 77.2em;
+  width: 60.2em;
+  top: -15.1em;
+  left: 13em;
   z-index: 20;
   animation-name: open-left;
   animation-delay: 1.3s;
@@ -33,20 +25,21 @@
 }
 @keyframes open-left {
   from {
-    left: 0%;
-    width: 88%;
+    left: 13em;
+    width: 60.2em;
   }
   to {
-    left: 94%;
-    width: 0%;
+    left: 77.5em;
+    width: 0em;
   }
 }
-#dex-right-open-opening {
-  position: absolute;
-  top: 8.2%;
-  left: 94%;
-  height: 91.8%;
-  width: 0%;
+
+#dex-right-open {
+  position: fixed;
+  top: -15.1em;
+  left: 81.4em;
+  height: 77.2em;
+  width: 0em;
   animation-name: open-right;
   animation-delay: 2.3s;
   animation-duration: 1s;
@@ -55,24 +48,29 @@
 }
 @keyframes open-right {
   from {
-    left: 94%;
-    width: 0%;
+    left: 77.5em;
+    width: 0em;
   }
   to {
-    left: 99.5%;
-    width: 88%;
+    left: 81.4em;
+    width: 64em;
   }
 }
+
 .main {
   position: absolute;
   z-index: 1;
-  border: solid black 7px;
-  border-radius: 15px;
-  top: 30.3%;
-  left: 14.5%;
-  height: 54.6%;
-  width: 62.7%;
+  border: solid rgb(87, 87, 87) 7px;
+  border-radius: 2%;
+  top: 30%;
+  left: 14%;
+  height: 46em;
+  width: 43em;
+  animation-duration: 1.3s;
+  animation-fill-mode: forwards;
+  animation-name: hideSearch;
 }
+
 .splash-background {
   position: absolute;
   height: 100%;
@@ -104,6 +102,7 @@
     padding: 5%;
   }
 }
+
 /* TWO-SEARCH and ONE-SEARCH */
 /* Remove Button */
 #removeButton {
@@ -145,8 +144,8 @@
   position: absolute;
   bottom: 5%;
   left: 20%;
-  height: 6%;
-  width: 60%;
+  height: 3.5em;
+  width: 42em;
 }
 .searchbar > input[type="text"] {
   position: absolute;
@@ -191,7 +190,7 @@
 .twosearch-pokemon {
   font-size: 0.8em;
   position: absolute;
-  right: 10%;
+  left: 68%;
   bottom: 5.4%;
 }
 .twosearch-pokemon__friendly-enemy-container {
@@ -264,7 +263,7 @@
   border-radius: 15px;
   padding: 0.8%;
   width: 12%;
-  top: -40%;
+  top: -100%;
   left: -4%;
   font-size: 0.8em;
   text-align: center;

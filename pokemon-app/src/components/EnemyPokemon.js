@@ -4,7 +4,7 @@ import "../styles/EnemyPokemon.css";
 import Types from "./Types";
 
 const EnemyPokemon = ({ enemyPokemon }) => {
-  const [enemyStatsOnTop, setEnemyStatsOnTop] = useState(true);
+  const [enemyStatsOnTop, setEnemyStatsOnTop] = useState(false);
 
   return (
     <>

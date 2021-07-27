@@ -1,6 +1,6 @@
 .type-check{
     position: absolute;
-    top: 72%;
+    top: 75%;
     height: 15%;
     width: 98%;
     font-size: 0.8em;
@@ -21,7 +21,7 @@
 .type-details-0, .type-details-1{
     position: absolute;
     background-color: white;
-    height: 44%;
+    height: 50%;
     top: 41%;
     left: 1%;
     width: 98%;
@@ -37,5 +37,5 @@
     text-align: center;
 }
 .type-details-1{
-    top: 87%;
+    top: 92%;
 }
