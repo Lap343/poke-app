@@ -135,6 +135,32 @@
   margin: 10px;
 }
 
+.moves-list--up-arrow {
+  position: fixed;
+  top: 13.6%;
+  right: 26.5%;
+  transform: rotate(-90deg);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+.moves-list--up-arrow::before {
+  content: "";
+  display: block;
+  width: 1.5px;
+  height: 10.5px;
+  background-color: black;
+  transform: translate(10%, 20%) rotate(135deg);
+}
+.moves-list--up-arrow::after {
+  content: "";
+  display: block;
+  width: 1.5px;
+  height: 10.5px;
+  background-color: black;
+  transform: translate(10%, -20%) rotate(45deg);
+}
+
 .moves-list--down-arrow {
   position: fixed;
   top: 36.2%;
