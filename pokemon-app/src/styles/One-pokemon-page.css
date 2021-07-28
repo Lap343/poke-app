@@ -137,54 +137,32 @@
 
 .moves-list--up-arrow {
   position: fixed;
-  top: 13.6%;
+  top: 14.7%;
   right: 26.5%;
-  transform: rotate(-90deg);
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-}
-.moves-list--up-arrow::before {
-  content: "";
-  display: block;
-  width: 1.5px;
-  height: 10.5px;
-  background-color: black;
-  transform: translate(10%, 20%) rotate(135deg);
-}
-.moves-list--up-arrow::after {
-  content: "";
-  display: block;
-  width: 1.5px;
-  height: 10.5px;
-  background-color: black;
-  transform: translate(10%, -20%) rotate(45deg);
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #b11501;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-name: uparrowmoves;
 }
 
 .moves-list--down-arrow {
   position: fixed;
-  top: 36.2%;
-  right: 26.2%;
-  transform: rotate(90deg);
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-}
-.moves-list--down-arrow::before {
-  content: "";
-  display: block;
-  width: 1.5px;
-  height: 10.5px;
-  background-color: black;
-  transform: translate(10%, 20%) rotate(135deg);
-}
-.moves-list--down-arrow::after {
-  content: "";
-  display: block;
-  width: 1.5px;
-  height: 10.5px;
-  background-color: black;
-  transform: translate(10%, -20%) rotate(45deg);
+  top: 36%;
+  right: 26.5%;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #b11501;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-name: downarrowmoves;
 }
 
 .pokemon-types {
@@ -197,4 +175,29 @@
 .pokemon-types.has-enemy {
   top: 90%;
   left: 18%;
+}
+
+/**************/
+/* ANIMATIONS */
+/**************/
+
+/* MOVES-LIST ARROWS MOVES */
+@keyframes uparrowmoves {
+  from {
+    top: 14.7%;
+  }
+
+  to {
+    top: 14.3%;
+  }
+}
+
+@keyframes downarrowmoves {
+  from {
+    top: 36%;
+  }
+
+  to {
+    top: 36.4%;
+  }
 }
