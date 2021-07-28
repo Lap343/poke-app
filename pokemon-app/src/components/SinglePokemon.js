@@ -86,6 +86,12 @@ const SinglePokemon = ({
                     : pokemon?.moves.map((moveData, moveIndex) => (
                         <li key={moveIndex}>{moveData.move.name}</li>
                       ))}
+
+                  {!pokemon?.moves ? null : !(
+                      pokemon?.moves.length > 7
+                    ) ? null : (
+                    <span className="moves-list--down-arrow"></span>
+                  )}
                 </ol>
               </div>
             </div>
