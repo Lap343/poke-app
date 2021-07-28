@@ -7,7 +7,7 @@ import ThemeSongs from "./ThemeSongs";
 import homeSong from "../assets/homeSong.mp3";
 import Types from "./Types";
 import PokemonCry from "./PokemonCry";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const SinglePokemon = ({
   pokemon,
@@ -17,6 +17,29 @@ const SinglePokemon = ({
   isPokeballRendering,
 }) => {
   const [statsOnTop, setStatsOnTop] = useState(false);
+  const [scrollTop, setScrollTop] = useState(0);
+  const [isScrollBottom, setIsScrollBottom] = useState(false);
+  // This reference would be used for the moves-list scrollbar
+  // in order to get the scrollTop and calculate the bottom scroll.
+  const scrollRef = useRef();
+
+  const onScroll = () => {
+    // Always check if current exists before doing anything.
+    if (scrollRef.current) {
+      // Destructure these bad boys.
+      const { clientHeight, scrollHeight, scrollTop } = scrollRef.current;
+
+      // Set the integer value on how far the scrollbar is from the top,
+      // and this would be used to render the up-arrow for moves-list.
+      setScrollTop(scrollTop);
+
+      // Calculate if the scrollbar is at the bottom,
+      // and if it is then truthy; else, faslsy
+      scrollHeight - scrollTop === clientHeight
+        ? setIsScrollBottom(true)
+        : setIsScrollBottom(false);
+    }
+  };
 
   return (
     <>
@@ -79,6 +102,8 @@ const SinglePokemon = ({
                 className={`moves-box ${hasEnemy ? "has-enemy" : ""} ${
                   statsOnTop ? "" : "on-top"
                 }`}
+                ref={scrollRef}
+                onScroll={onScroll}
               >
                 <ol id="moves-list">
                   {!pokemon?.moves
@@ -87,9 +112,12 @@ const SinglePokemon = ({
                         <li key={moveIndex}>{moveData.move.name}</li>
                       ))}
 
-                  {!pokemon?.moves ? null : !(
-                      pokemon?.moves.length > 7
-                    ) ? null : (
+                  {!pokemon?.moves ? null : !(scrollTop > 0) ? null : (
+                    <span className="moves-list--up-arrow"></span>
+                  )}
+
+                  {!pokemon?.moves ? null : !(pokemon?.moves.length > 7) ||
+                    isScrollBottom ? null : (
                     <span className="moves-list--down-arrow"></span>
                   )}
                 </ol>
