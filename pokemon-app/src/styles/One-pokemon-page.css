@@ -149,6 +149,20 @@
   animation-timing-function: ease-in-out;
   animation-name: uparrowmoves;
 }
+.moves-list--up-arrow.has-enemy {
+  position: fixed;
+  top: 53.5%;
+  right: 26.5%;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #b11501;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-name: uparrowmoves2;
+}
 
 .moves-list--down-arrow {
   position: fixed;
@@ -163,6 +177,20 @@
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
   animation-name: downarrowmoves;
+}
+.moves-list--down-arrow.has-enemy {
+  position: fixed;
+  top: 74.8%;
+  right: 26.5%;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #b11501;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-name: downarrowmoves2;
 }
 
 .pokemon-types {
@@ -191,6 +219,15 @@
     top: 14.3%;
   }
 }
+@keyframes uparrowmoves2 {
+  from {
+    top: 53.5%;
+  }
+
+  to {
+    top: 53.1%;
+  }
+}
 
 @keyframes downarrowmoves {
   from {
@@ -199,5 +236,14 @@
 
   to {
     top: 36.4%;
+  }
+}
+@keyframes downarrowmoves2 {
+  from {
+    top: 74.8%;
+  }
+
+  to {
+    top: 75.2%;
   }
 }

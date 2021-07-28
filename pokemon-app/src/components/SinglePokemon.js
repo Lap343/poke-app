@@ -113,12 +113,20 @@ const SinglePokemon = ({
                       ))}
 
                   {!pokemon?.moves ? null : !(scrollTop > 0) ? null : (
-                    <span className="moves-list--up-arrow"></span>
+                    <span
+                      className={`moves-list--up-arrow ${
+                        hasEnemy ? "has-enemy" : ""
+                      }`}
+                    ></span>
                   )}
 
                   {!pokemon?.moves ? null : !(pokemon?.moves.length > 7) ||
                     isScrollBottom ? null : (
-                    <span className="moves-list--down-arrow"></span>
+                    <span
+                      className={`moves-list--down-arrow ${
+                        hasEnemy ? "has-enemy" : ""
+                      }`}
+                    ></span>
                   )}
                 </ol>
               </div>
