@@ -19,7 +19,7 @@ const EnemyPokemon = ({ enemyPokemon, hasEnemy }) => {
 
       setScrollTop(scrollTop);
 
-      scrollHeight - scrollTop === clientHeight
+      scrollHeight - scrollTop <= 1 + clientHeight
         ? setIsScrollBottom(true)
         : setIsScrollBottom(false);
     }
