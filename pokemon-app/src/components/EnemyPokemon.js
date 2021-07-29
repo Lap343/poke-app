@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import fightPad from "../assets/fightpad.png";
 import "../styles/EnemyPokemon.css";
 import ThemeSongs from "./ThemeSongs";
@@ -8,6 +8,22 @@ import PokemonCry from "./PokemonCry";
 
 const EnemyPokemon = ({ enemyPokemon, hasEnemy }) => {
   const [enemyStatsOnTop, setEnemyStatsOnTop] = useState(true);
+  const [scrollTop, setScrollTop] = useState(0);
+  const [isScrollBottom, setIsScrollBottom] = useState(false);
+
+  const scrollRef = useRef();
+
+  const onScroll = () => {
+    if (scrollRef.current) {
+      const { clientHeight, scrollHeight, scrollTop } = scrollRef.current;
+
+      setScrollTop(scrollTop);
+
+      scrollHeight - scrollTop === clientHeight
+        ? setIsScrollBottom(true)
+        : setIsScrollBottom(false);
+    }
+  };
 
   return (
     <>
@@ -70,6 +86,8 @@ const EnemyPokemon = ({ enemyPokemon, hasEnemy }) => {
               className={`enemy-pokemon__moves ${
                 enemyStatsOnTop ? "" : "on-top"
               }`}
+              ref={scrollRef}
+              onScroll={onScroll}
             >
               <ol className="enemy-pokemon__moves-list">
                 {!enemyPokemon?.moves
@@ -77,6 +95,16 @@ const EnemyPokemon = ({ enemyPokemon, hasEnemy }) => {
                   : enemyPokemon?.moves.map((moveData, moveIndex) => (
                       <li key={moveIndex}>{moveData.move.name}</li>
                     ))}
+
+                {!enemyPokemon?.moves ? null : !(scrollTop > 0) ? null : (
+                  <span className="enemy-moves-list--up-arrow"></span>
+                )}
+
+                {!enemyPokemon?.moves ? null : !(
+                    enemyPokemon?.moves.length > 7
+                  ) || isScrollBottom ? null : (
+                  <span className="enemy-moves-list--down-arrow"></span>
+                )}
               </ol>
             </div>
           </div>
