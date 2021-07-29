@@ -76,7 +76,9 @@ const SinglePokemon = ({
                       ))}
                 </ol>
               </div>
-              <div className={hasEnemy ? "user-poke" : "user-poke-none"} >Your Pokemon</div>
+              <div className={hasEnemy ? "user-poke" : "user-poke-none"}>
+                Your Pokemon
+              </div>
 
               <div
                 className={`moves-box ${hasEnemy ? "has-enemy" : ""} ${
@@ -91,25 +93,25 @@ const SinglePokemon = ({
                     : pokemon?.moves.map((moveData, moveIndex) => (
                         <li key={moveIndex}>{moveData.move.name}</li>
                       ))}
-
-                  {!pokemon?.moves ? null : !(scrollTop > 0) ? null : (
-                    <span
-                      className={`moves-list--up-arrow ${
-                        hasEnemy ? "has-enemy" : ""
-                      }`}
-                    ></span>
-                  )}
-
-                  {!pokemon?.moves ? null : !(pokemon?.moves.length > 7) ||
-                    isScrollBottom ? null : (
-                    <span
-                      className={`moves-list--down-arrow ${
-                        hasEnemy ? "has-enemy" : ""
-                      }`}
-                    ></span>
-                  )}
                 </ol>
               </div>
+
+              {!pokemon?.moves ? null : !(scrollTop > 0) ? null : (
+                <span
+                  className={`moves-list--up-arrow ${
+                    hasEnemy ? "has-enemy" : ""
+                  }`}
+                ></span>
+              )}
+
+              {!pokemon?.moves ? null : !(pokemon?.moves.length > 7) ||
+                isScrollBottom ? null : (
+                <span
+                  className={`moves-list--down-arrow ${
+                    hasEnemy ? "has-enemy" : ""
+                  }`}
+                ></span>
+              )}
             </div>
             <div className={`pokemon-types ${hasEnemy ? "has-enemy" : ""}`}>
               <Types pokemon={pokemon} />

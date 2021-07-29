@@ -136,28 +136,30 @@
 }
 
 .moves-list--up-arrow {
-  position: fixed;
-  top: 14.7%;
-  right: 26.5%;
+  position: absolute;
+  top: 12%;
+  right: 5.5%;
   width: 0;
   height: 0;
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
   border-bottom: 7px solid #b11501;
+  z-index: 100;
   animation-duration: 0.8s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
   animation-name: uparrowmoves;
 }
 .moves-list--up-arrow.has-enemy {
-  position: fixed;
-  top: 53.5%;
-  right: 26.5%;
+  position: absolute;
+  top: 63%;
+  right: 5.5%;
   width: 0;
   height: 0;
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
   border-bottom: 7px solid #b11501;
+  z-index: 100;
   animation-duration: 0.8s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
@@ -165,28 +167,30 @@
 }
 
 .moves-list--down-arrow {
-  position: fixed;
-  top: 36%;
-  right: 26.5%;
+  position: absolute;
+  top: 39%;
+  right: 5.5%;
   width: 0;
   height: 0;
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
   border-top: 7px solid #b11501;
+  z-index: 100;
   animation-duration: 0.8s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
   animation-name: downarrowmoves;
 }
 .moves-list--down-arrow.has-enemy {
-  position: fixed;
-  top: 74.8%;
-  right: 26.5%;
+  position: absolute;
+  top: 90%;
+  right: 5.5%;
   width: 0;
   height: 0;
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
   border-top: 7px solid #b11501;
+  z-index: 100;
   animation-duration: 0.8s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
@@ -212,38 +216,38 @@
 /* MOVES-LIST ARROWS MOVES */
 @keyframes uparrowmoves {
   from {
-    top: 14.7%;
+    top: 12%;
   }
 
   to {
-    top: 14.3%;
+    top: 11.6%;
   }
 }
 @keyframes uparrowmoves2 {
   from {
-    top: 53.5%;
+    top: 63%;
   }
 
   to {
-    top: 53.1%;
+    top: 62.6%;
   }
 }
 
 @keyframes downarrowmoves {
   from {
-    top: 36%;
+    top: 39%;
   }
 
   to {
-    top: 36.4%;
+    top: 39.4%;
   }
 }
 @keyframes downarrowmoves2 {
   from {
-    top: 74.8%;
+    top: 90%;
   }
 
   to {
-    top: 75.2%;
+    top: 90.4%;
   }
 }
