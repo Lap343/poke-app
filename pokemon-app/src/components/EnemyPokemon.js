@@ -93,6 +93,7 @@ const EnemyPokemon = ({ enemyPokemon, hasEnemy }) => {
                 )}
               </ol>
             </div>
+            <div className="enemy-poke">Enemy Pokemon</div>
           </div>
 
           <div className="poke-pad--enemy">

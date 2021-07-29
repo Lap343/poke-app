@@ -134,6 +134,39 @@
   cursor: pointer;
 }
 
+.enemy-poke {
+  border: 3px solid black;
+  border-radius: 10px;
+  width: 25%;
+  text-align: center;
+  color: #fefefe;
+  font-size: small;
+  background-color: grey;
+  padding: 3px 0px;
+  position: absolute;
+  top: 39%;
+  right: 14%;
+  z-index: 99;
+}
+
+.user-poke {
+  border: 3px solid black;
+  border-radius: 10px;
+  width: 25%;
+  text-align: center;
+  color: #fefefe;
+  font-size: small;
+  background-color: grey;
+  padding: 3px 0px;
+  position: absolute;
+  bottom: 44%;
+  left: 15%;
+}
+
+.user-poke-none {
+  display: none;
+}
+
 .enemy-moves-list--up-arrow {
   position: fixed;
   top: 14%;
