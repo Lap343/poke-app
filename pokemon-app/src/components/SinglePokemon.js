@@ -7,7 +7,8 @@ import ThemeSongs from "./ThemeSongs";
 import homeSong from "../assets/homeSong.mp3";
 import Types from "./Types";
 import PokemonCry from "./PokemonCry";
-import { useState, useRef } from "react";
+import { useState } from "react";
+import { useScroll } from "../hooks";
 
 const SinglePokemon = ({
   pokemon,
@@ -17,29 +18,7 @@ const SinglePokemon = ({
   isPokeballRendering,
 }) => {
   const [statsOnTop, setStatsOnTop] = useState(false);
-  const [scrollTop, setScrollTop] = useState(0);
-  const [isScrollBottom, setIsScrollBottom] = useState(false);
-  // This reference would be used for the moves-list scrollbar
-  // in order to get the scrollTop and calculate the bottom scroll.
-  const scrollRef = useRef();
-
-  const onScroll = () => {
-    // Always check if current exists before doing anything.
-    if (scrollRef.current) {
-      // Destructure these bad boys.
-      const { clientHeight, scrollHeight, scrollTop } = scrollRef.current;
-
-      // Set the integer value on how far the scrollbar is from the top,
-      // and this would be used to render the up-arrow for moves-list.
-      setScrollTop(scrollTop);
-
-      // Calculate if the scrollbar is at the bottom,
-      // and if it is then truthy; else, falsy
-      scrollHeight - scrollTop <= 1 + clientHeight
-        ? setIsScrollBottom(true)
-        : setIsScrollBottom(false);
-    }
-  };
+  const [isScrollBottom, onScroll, scrollRef, scrollTop] = useScroll();
 
   return (
     <>

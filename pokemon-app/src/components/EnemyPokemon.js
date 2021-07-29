@@ -1,29 +1,15 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import fightPad from "../assets/fightpad.png";
 import "../styles/EnemyPokemon.css";
 import ThemeSongs from "./ThemeSongs";
 import fightSong from "../assets/fightSong.mp3";
 import Types from "./Types";
 import PokemonCry from "./PokemonCry";
+import { useScroll } from "../hooks";
 
 const EnemyPokemon = ({ enemyPokemon, hasEnemy }) => {
   const [enemyStatsOnTop, setEnemyStatsOnTop] = useState(true);
-  const [scrollTop, setScrollTop] = useState(0);
-  const [isScrollBottom, setIsScrollBottom] = useState(false);
-
-  const scrollRef = useRef();
-
-  const onScroll = () => {
-    if (scrollRef.current) {
-      const { clientHeight, scrollHeight, scrollTop } = scrollRef.current;
-
-      setScrollTop(scrollTop);
-
-      scrollHeight - scrollTop <= 1 + clientHeight
-        ? setIsScrollBottom(true)
-        : setIsScrollBottom(false);
-    }
-  };
+  const [isScrollBottom, onScroll, scrollRef, scrollTop] = useScroll();
 
   return (
     <>
