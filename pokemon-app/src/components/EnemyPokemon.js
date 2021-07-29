@@ -81,18 +81,18 @@ const EnemyPokemon = ({ enemyPokemon, hasEnemy }) => {
                   : enemyPokemon?.moves.map((moveData, moveIndex) => (
                       <li key={moveIndex}>{moveData.move.name}</li>
                     ))}
-
-                {!enemyPokemon?.moves ? null : !(scrollTop > 0) ? null : (
-                  <span className="enemy-moves-list--up-arrow"></span>
-                )}
-
-                {!enemyPokemon?.moves ? null : !(
-                    enemyPokemon?.moves.length > 7
-                  ) || isScrollBottom ? null : (
-                  <span className="enemy-moves-list--down-arrow"></span>
-                )}
               </ol>
             </div>
+
+            {!enemyPokemon?.moves ? null : !(scrollTop > 0) ? null : (
+              <span className="enemy-moves-list--up-arrow"></span>
+            )}
+
+            {!enemyPokemon?.moves ? null : !(enemyPokemon?.moves.length > 7) ||
+              isScrollBottom ? null : (
+              <span className="enemy-moves-list--down-arrow"></span>
+            )}
+
             <div className="enemy-poke">Enemy Pokemon</div>
           </div>
 
