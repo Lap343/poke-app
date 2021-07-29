@@ -74,6 +74,7 @@ const SinglePokemon = ({
                       ))}
                 </ol>
               </div>
+              <div className={hasEnemy ? "user-poke" : "user-poke-none"} >Your Pokemon</div>
 
               <div
                 className={`moves-box ${hasEnemy ? "has-enemy" : ""} ${
