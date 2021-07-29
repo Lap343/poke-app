@@ -146,7 +146,7 @@
   animation-duration: 0.8s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
-  animation-name: uparrowmoves;
+  animation-name: uparrowmovesenemy;
 }
 
 .enemy-moves-list--down-arrow {
@@ -161,7 +161,7 @@
   animation-duration: 0.8s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
-  animation-name: downarrowmoves;
+  animation-name: downarrowmovesenemy;
 }
 
 /**************/
@@ -169,7 +169,7 @@
 /**************/
 
 /* ENEMY-MOVES-LIST ARROWS MOVES */
-@keyframes uparrowmoves {
+@keyframes uparrowmovesenemy {
   from {
     top: 14%;
   }
@@ -179,7 +179,7 @@
   }
 }
 
-@keyframes downarrowmoves {
+@keyframes downarrowmovesenemy {
   from {
     top: 35.3%;
   }
