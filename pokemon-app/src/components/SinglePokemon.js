@@ -35,7 +35,7 @@ const SinglePokemon = ({
 
       // Calculate if the scrollbar is at the bottom,
       // and if it is then truthy; else, falsy
-      scrollHeight - scrollTop === clientHeight
+      scrollHeight - scrollTop <= 1 + clientHeight
         ? setIsScrollBottom(true)
         : setIsScrollBottom(false);
     }
