@@ -5,9 +5,11 @@ import ThemeSongs from "./ThemeSongs";
 import fightSong from "../assets/fightSong.mp3";
 import Types from "./Types";
 import PokemonCry from "./PokemonCry";
+import { useScroll } from "../hooks";
 
 const EnemyPokemon = ({ enemyPokemon, hasEnemy }) => {
   const [enemyStatsOnTop, setEnemyStatsOnTop] = useState(true);
+  const [isScrollBottom, onScroll, scrollRef, scrollTop] = useScroll();
 
   return (
     <>
@@ -70,6 +72,8 @@ const EnemyPokemon = ({ enemyPokemon, hasEnemy }) => {
               className={`enemy-pokemon__moves ${
                 enemyStatsOnTop ? "" : "on-top"
               }`}
+              ref={scrollRef}
+              onScroll={onScroll}
             >
               <ol className="enemy-pokemon__moves-list">
                 {!enemyPokemon?.moves
@@ -77,6 +81,16 @@ const EnemyPokemon = ({ enemyPokemon, hasEnemy }) => {
                   : enemyPokemon?.moves.map((moveData, moveIndex) => (
                       <li key={moveIndex}>{moveData.move.name}</li>
                     ))}
+
+                {!enemyPokemon?.moves ? null : !(scrollTop > 0) ? null : (
+                  <span className="enemy-moves-list--up-arrow"></span>
+                )}
+
+                {!enemyPokemon?.moves ? null : !(
+                    enemyPokemon?.moves.length > 7
+                  ) || isScrollBottom ? null : (
+                  <span className="enemy-moves-list--down-arrow"></span>
+                )}
               </ol>
             </div>
             <div className="enemy-poke">Enemy Pokemon</div>

@@ -8,6 +8,7 @@ import homeSong from "../assets/homeSong.mp3";
 import Types from "./Types";
 import PokemonCry from "./PokemonCry";
 import { useState } from "react";
+import { useScroll } from "../hooks";
 
 const SinglePokemon = ({
   pokemon,
@@ -17,6 +18,7 @@ const SinglePokemon = ({
   isPokeballRendering,
 }) => {
   const [statsOnTop, setStatsOnTop] = useState(false);
+  const [isScrollBottom, onScroll, scrollRef, scrollTop] = useScroll();
 
   return (
     <>
@@ -80,6 +82,8 @@ const SinglePokemon = ({
                 className={`moves-box ${hasEnemy ? "has-enemy" : ""} ${
                   statsOnTop ? "" : "on-top"
                 }`}
+                ref={scrollRef}
+                onScroll={onScroll}
               >
                 <ol id="moves-list">
                   {!pokemon?.moves
@@ -87,6 +91,23 @@ const SinglePokemon = ({
                     : pokemon?.moves.map((moveData, moveIndex) => (
                         <li key={moveIndex}>{moveData.move.name}</li>
                       ))}
+
+                  {!pokemon?.moves ? null : !(scrollTop > 0) ? null : (
+                    <span
+                      className={`moves-list--up-arrow ${
+                        hasEnemy ? "has-enemy" : ""
+                      }`}
+                    ></span>
+                  )}
+
+                  {!pokemon?.moves ? null : !(pokemon?.moves.length > 7) ||
+                    isScrollBottom ? null : (
+                    <span
+                      className={`moves-list--down-arrow ${
+                        hasEnemy ? "has-enemy" : ""
+                      }`}
+                    ></span>
+                  )}
                 </ol>
               </div>
             </div>

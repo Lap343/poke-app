@@ -52,7 +52,8 @@
 .poke-pad.has-enemy {
   top: 76%;
 }
-.moves-title, .stats-title{
+.moves-title,
+.stats-title {
   position: absolute;
   font-size: 1.8em;
   border: solid black 6px;
@@ -63,18 +64,21 @@
   top: 4.5%;
   z-index: 2;
 }
-.stats-title{
+.stats-title {
   right: 3%;
   background-color: rgb(160, 212, 212);
   z-index: 0;
 }
-.moves-title.has-enemy, .stats-title.has-enemy{
+.moves-title.has-enemy,
+.stats-title.has-enemy {
   top: 55%;
 }
-.moves-title:hover, .stats-title:hover {
+.moves-title:hover,
+.stats-title:hover {
   cursor: pointer;
 }
-.stats-box, .moves-box{
+.stats-box,
+.moves-box {
   z-index: 1;
   box-sizing: border-box;
   font-size: 1em;
@@ -90,49 +94,156 @@
   padding-top: 2%;
   box-shadow: 0.3em 0.3em rgba(0, 0, 0, 0.3);
 }
-.stats-box{
+.stats-box {
   background-color: rgb(160, 212, 212);
   z-index: 0;
 }
-.on-tip-top{
+.on-tip-top {
   z-index: 4;
 }
-.on-top{
+.on-top {
   z-index: 3;
 }
-.stats-box.has-enemy, .moves-box.has-enemy {
+.stats-box.has-enemy,
+.moves-box.has-enemy {
   top: 61%;
 }
-.stats-box::-webkit-scrollbar, .moves-box::-webkit-scrollbar {
+.stats-box::-webkit-scrollbar,
+.moves-box::-webkit-scrollbar {
   width: 8.6px;
   height: 7.6px;
 }
-.stats-box::-webkit-scrollbar-track, .moves-box::-webkit-scrollbar-track {
+.stats-box::-webkit-scrollbar-track,
+.moves-box::-webkit-scrollbar-track {
   background: transparent;
 }
-.stats-box::-webkit-scrollbar-thumb, .moves-box::-webkit-scrollbar-thumb {
+.stats-box::-webkit-scrollbar-thumb,
+.moves-box::-webkit-scrollbar-thumb {
   background-color: rgba(0, 0, 0, 0.18);
   border-radius: 50px;
   border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
-#stats-list, #moves-list{
+#stats-list,
+#moves-list {
   margin: 5px;
 }
 
-#stats-list > li , #moves-list > li {
+#stats-list > li,
+#moves-list > li {
   font-size: 1em;
   margin: 10px;
 }
 
-.pokemon-types{
+.moves-list--up-arrow {
+  position: fixed;
+  top: 14.7%;
+  right: 26.5%;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #b11501;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-name: uparrowmoves;
+}
+.moves-list--up-arrow.has-enemy {
+  position: fixed;
+  top: 53.5%;
+  right: 26.5%;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #b11501;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-name: uparrowmoves2;
+}
+
+.moves-list--down-arrow {
+  position: fixed;
+  top: 36%;
+  right: 26.5%;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #b11501;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-name: downarrowmoves;
+}
+.moves-list--down-arrow.has-enemy {
+  position: fixed;
+  top: 74.8%;
+  right: 26.5%;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #b11501;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-name: downarrowmoves2;
+}
+
+.pokemon-types {
   z-index: 2;
   position: absolute;
   top: 35%;
   left: 18%;
   transform: scale(1.4);
 }
-.pokemon-types.has-enemy{
+.pokemon-types.has-enemy {
   top: 90%;
   left: 18%;
+}
+
+/**************/
+/* ANIMATIONS */
+/**************/
+
+/* MOVES-LIST ARROWS MOVES */
+@keyframes uparrowmoves {
+  from {
+    top: 14.7%;
+  }
+
+  to {
+    top: 14.3%;
+  }
+}
+@keyframes uparrowmoves2 {
+  from {
+    top: 53.5%;
+  }
+
+  to {
+    top: 53.1%;
+  }
+}
+
+@keyframes downarrowmoves {
+  from {
+    top: 36%;
+  }
+
+  to {
+    top: 36.4%;
+  }
+}
+@keyframes downarrowmoves2 {
+  from {
+    top: 74.8%;
+  }
+
+  to {
+    top: 75.2%;
+  }
 }
