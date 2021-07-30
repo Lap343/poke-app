@@ -168,14 +168,15 @@
 }
 
 .enemy-moves-list--up-arrow {
-  position: fixed;
-  top: 14%;
-  left: 49%;
+  position: absolute;
+  top: 11%;
+  left: 45.5%;
   width: 0;
   height: 0;
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
   border-bottom: 7px solid #b11501;
+  z-index: 3;
   animation-duration: 0.8s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
@@ -183,14 +184,15 @@
 }
 
 .enemy-moves-list--down-arrow {
-  position: fixed;
-  top: 35.3%;
-  left: 49%;
+  position: absolute;
+  top: 38%;
+  left: 45.5%;
   width: 0;
   height: 0;
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
   border-top: 7px solid #b11501;
+  z-index: 3;
   animation-duration: 0.8s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
@@ -204,20 +206,20 @@
 /* ENEMY-MOVES-LIST ARROWS MOVES */
 @keyframes uparrowmovesenemy {
   from {
-    top: 14%;
+    top: 11%;
   }
 
   to {
-    top: 13.7%;
+    top: 10.6%;
   }
 }
 
 @keyframes downarrowmovesenemy {
   from {
-    top: 35.3%;
+    top: 38%;
   }
 
   to {
-    top: 35.7%;
+    top: 38.4%;
   }
 }
