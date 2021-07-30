@@ -52,7 +52,6 @@
 .poke-pad.has-enemy {
   top: 76%;
 }
-.moves-title,
 .stats-title {
   position: absolute;
   font-size: 1.8em;
@@ -69,16 +68,13 @@
   background-color: rgb(160, 212, 212);
   z-index: 0;
 }
-.moves-title.has-enemy,
 .stats-title.has-enemy {
   top: 55%;
 }
-.moves-title:hover,
 .stats-title:hover {
   cursor: pointer;
 }
-.stats-box,
-.moves-box {
+.stats-box {
   z-index: 1;
   box-sizing: border-box;
   font-size: 1em;
@@ -104,97 +100,29 @@
 .on-top {
   z-index: 3;
 }
-.stats-box.has-enemy,
-.moves-box.has-enemy {
+.stats-box.has-enemy {
   top: 61%;
 }
-.stats-box::-webkit-scrollbar,
-.moves-box::-webkit-scrollbar {
+.stats-box::-webkit-scrollbar {
   width: 8.6px;
   height: 7.6px;
 }
-.stats-box::-webkit-scrollbar-track,
-.moves-box::-webkit-scrollbar-track {
+.stats-box::-webkit-scrollbar-track {
   background: transparent;
 }
-.stats-box::-webkit-scrollbar-thumb,
-.moves-box::-webkit-scrollbar-thumb {
+.stats-box::-webkit-scrollbar-thumb {
   background-color: rgba(0, 0, 0, 0.18);
   border-radius: 50px;
   border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
-#stats-list,
-#moves-list {
+#stats-list {
   margin: 5px;
 }
 
-#stats-list > li,
-#moves-list > li {
+#stats-list > li {
   font-size: 1em;
   margin: 10px;
-}
-
-.moves-list--up-arrow {
-  position: absolute;
-  top: 12%;
-  right: 5.5%;
-  width: 0;
-  height: 0;
-  border-left: 7px solid transparent;
-  border-right: 7px solid transparent;
-  border-bottom: 7px solid #b11501;
-  z-index: 3;
-  animation-duration: 0.8s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-  animation-name: uparrowmoves;
-}
-.moves-list--up-arrow.has-enemy {
-  position: absolute;
-  top: 63%;
-  right: 5.5%;
-  width: 0;
-  height: 0;
-  border-left: 7px solid transparent;
-  border-right: 7px solid transparent;
-  border-bottom: 7px solid #b11501;
-  z-index: 3;
-  animation-duration: 0.8s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-  animation-name: uparrowmoves2;
-}
-
-.moves-list--down-arrow {
-  position: absolute;
-  top: 39%;
-  right: 5.5%;
-  width: 0;
-  height: 0;
-  border-left: 7px solid transparent;
-  border-right: 7px solid transparent;
-  border-top: 7px solid #b11501;
-  z-index: 3;
-  animation-duration: 0.8s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-  animation-name: downarrowmoves;
-}
-.moves-list--down-arrow.has-enemy {
-  position: absolute;
-  top: 90%;
-  right: 5.5%;
-  width: 0;
-  height: 0;
-  border-left: 7px solid transparent;
-  border-right: 7px solid transparent;
-  border-top: 7px solid #b11501;
-  z-index: 3;
-  animation-duration: 0.8s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-  animation-name: downarrowmoves2;
 }
 
 .pokemon-types {
@@ -207,47 +135,4 @@
 .pokemon-types.has-enemy {
   top: 90%;
   left: 18%;
-}
-
-/**************/
-/* ANIMATIONS */
-/**************/
-
-/* MOVES-LIST ARROWS MOVES */
-@keyframes uparrowmoves {
-  from {
-    top: 12%;
-  }
-
-  to {
-    top: 11.6%;
-  }
-}
-@keyframes uparrowmoves2 {
-  from {
-    top: 63%;
-  }
-
-  to {
-    top: 62.6%;
-  }
-}
-
-@keyframes downarrowmoves {
-  from {
-    top: 39%;
-  }
-
-  to {
-    top: 39.4%;
-  }
-}
-@keyframes downarrowmoves2 {
-  from {
-    top: 90%;
-  }
-
-  to {
-    top: 90.4%;
-  }
 }
