@@ -1,0 +1,246 @@
+.moves-title {
+  position: absolute;
+  font-size: 1.8em;
+  border: solid black 6px;
+  border-radius: 15px;
+  padding: 0.1em;
+  background-color: #fdf0c4;
+  right: 27%;
+  top: 4.5%;
+  z-index: 2;
+}
+.enemy-moves-title {
+  position: absolute;
+  font-size: 1.8em;
+  border: solid black 6px;
+  border-radius: 15px;
+  padding: 0.2em;
+  background-color: #fdf0c4;
+  left: 3%;
+  top: 3%;
+  z-index: 2;
+}
+.moves-title.has-enemy {
+  top: 55%;
+}
+.moves-title:hover,
+.enemy-moves-title:hover {
+  cursor: pointer;
+}
+.moves-box {
+  z-index: 1;
+  box-sizing: border-box;
+  font-size: 1em;
+  height: 32%;
+  width: 47%;
+  top: 10%;
+  right: 3%;
+  border: 6px solid black;
+  border-radius: 15px;
+  background-color: #fdf0c4;
+  position: absolute;
+  overflow-y: auto;
+  padding-top: 2%;
+  box-shadow: 0.3em 0.3em rgba(0, 0, 0, 0.3);
+}
+.enemy-moves-box {
+  z-index: 1;
+  box-sizing: border-box;
+  font-size: 1em;
+  height: 32%;
+  width: 47%;
+  top: 9%;
+  left: 3%;
+  border: 6px solid black;
+  border-radius: 15px;
+  background-color: #fdf0c4;
+  position: absolute;
+  overflow-y: auto;
+  padding-top: 2%;
+  box-shadow: 0.3em 0.3em rgba(0, 0, 0, 0.3);
+}
+.moves-box.has-enemy {
+  top: 61%;
+}
+.moves-box::-webkit-scrollbar,
+.enemy-moves-box::-webkit-scrollbar {
+  width: 8.6px;
+  height: 7.6px;
+}
+.moves-box::-webkit-scrollbar-track,
+.enemy-moves-box::-webkit-scrollbar-track {
+  background: transparent;
+}
+.moves-box::-webkit-scrollbar-thumb,
+.enemy-moves-box::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.18);
+  border-radius: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+#moves-list,
+#enemy-moves-list {
+  margin: 5px;
+}
+
+#moves-list > li,
+#enemy-moves-list > li {
+  font-size: 1em;
+  margin: 10px;
+}
+
+.moves-list--up-arrow {
+  position: absolute;
+  top: 12%;
+  right: 5.5%;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #b11501;
+  z-index: 3;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-name: uparrowmoves;
+}
+.moves-list--up-arrow.has-enemy {
+  position: absolute;
+  top: 63%;
+  right: 5.5%;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #b11501;
+  z-index: 3;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-name: uparrowmoves2;
+}
+.enemy-moves-list--up-arrow {
+  position: absolute;
+  top: 11%;
+  left: 45.5%;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #b11501;
+  z-index: 3;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-name: uparrowmovesenemy;
+}
+
+.moves-list--down-arrow {
+  position: absolute;
+  top: 39%;
+  right: 5.5%;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #b11501;
+  z-index: 3;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-name: downarrowmoves;
+}
+.moves-list--down-arrow.has-enemy {
+  position: absolute;
+  top: 90%;
+  right: 5.5%;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #b11501;
+  z-index: 3;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-name: downarrowmoves2;
+}
+.enemy-moves-list--down-arrow {
+  position: absolute;
+  top: 38%;
+  left: 45.5%;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #b11501;
+  z-index: 3;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-name: downarrowmovesenemy;
+}
+
+/**************/
+/* ANIMATIONS */
+/**************/
+
+/* NON-ENEMY MOVES-LIST ARROWS MOVES */
+@keyframes uparrowmoves {
+  from {
+    top: 12%;
+  }
+
+  to {
+    top: 11.6%;
+  }
+}
+@keyframes uparrowmoves2 {
+  from {
+    top: 63%;
+  }
+
+  to {
+    top: 62.6%;
+  }
+}
+
+@keyframes downarrowmoves {
+  from {
+    top: 39%;
+  }
+
+  to {
+    top: 39.4%;
+  }
+}
+@keyframes downarrowmoves2 {
+  from {
+    top: 90%;
+  }
+
+  to {
+    top: 90.4%;
+  }
+}
+
+/* ENEMY-MOVES-LIST ARROWS MOVES */
+@keyframes uparrowmovesenemy {
+  from {
+    top: 11%;
+  }
+
+  to {
+    top: 10.6%;
+  }
+}
+
+@keyframes downarrowmovesenemy {
+  from {
+    top: 38%;
+  }
+
+  to {
+    top: 38.4%;
+  }
+}
