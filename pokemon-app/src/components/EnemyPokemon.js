@@ -11,6 +11,45 @@ const EnemyPokemon = ({ enemyPokemon, hasEnemy }) => {
   const [enemyStatsOnTop, setEnemyStatsOnTop] = useState(true);
   const [isScrollBottom, onScroll, scrollRef, scrollTop] = useScroll();
 
+  // This checks if the moves property exist in pokemon object.
+  const checkDoesMovesKeyExistInObject = () =>
+    Object.prototype.hasOwnProperty.call(enemyPokemon, "moves");
+  // This checks if the moves list length is less than or equal to 7.
+  const checkIsMovesListLengthSevenOrLess = () =>
+    enemyPokemon?.moves.length <= 7;
+  // This checks if the stats list has been selected.
+  const checkIsStatsListSelected = () => enemyStatsOnTop;
+  // This checks if the scrollbar is at the top.
+  const checkIsScrollbarAtTop = () => scrollTop < 1;
+  // This checks if the scrollbar is at the bottom.
+  const checkIsScrollbarAtBottom = () => isScrollBottom;
+
+  /**
+   * To render the top-arrow, this function checks to see if the pokemon moves exist AND the scrollbar is not at the top AND the stats list has not been selected.
+   * @returns {boolean} A boolean.
+   */
+  const renderMovesListTopArrow = () =>
+    // True if the moves property exist in pokemon object.
+    checkDoesMovesKeyExistInObject() &&
+    // True if the scrollbar is not at the top.
+    !checkIsScrollbarAtTop() &&
+    // True if the stats list has not been selected.
+    !checkIsStatsListSelected();
+
+  /**
+   * To render the bottom-arrow, this function checks to see if the pokemon moves exist AND its moves length is not seven or less AND the scrollbar is not at the bottom AND the stats list has not been selected.
+   * @returns {boolean} A boolean.
+   */
+  const renderMovesListBottomArrow = () =>
+    // True if the moves property exist in pokemon object.
+    checkDoesMovesKeyExistInObject() &&
+    // True if the moves length is greater than seven.
+    !checkIsMovesListLengthSevenOrLess() &&
+    // True if the scrollbar is not at the bottom.
+    !checkIsScrollbarAtBottom() &&
+    // True if the stats list has not been selected.
+    !checkIsStatsListSelected();
+
   return (
     <>
       {!enemyPokemon ? null : (
@@ -84,14 +123,11 @@ const EnemyPokemon = ({ enemyPokemon, hasEnemy }) => {
               </ol>
             </div>
 
-            {!enemyPokemon?.moves ? null : !(scrollTop > 0) ||
-              enemyStatsOnTop ? null : (
+            {renderMovesListTopArrow() && (
               <span className="enemy-moves-list--up-arrow"></span>
             )}
 
-            {!enemyPokemon?.moves ? null : !(enemyPokemon?.moves.length > 7) ||
-              isScrollBottom ||
-              enemyStatsOnTop ? null : (
+            {renderMovesListBottomArrow() && (
               <span className="enemy-moves-list--down-arrow"></span>
             )}
 
