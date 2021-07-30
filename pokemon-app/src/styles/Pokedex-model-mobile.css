@@ -1,0 +1,79 @@
+@media screen and (max-width: 700px), (max-height: 820px){
+    #dex-left {
+      background-image: none;
+    }
+    #dex-right-closed{
+      display: none;
+      animation-name: none;
+    }
+    #dex-right-open{
+      animation-name: none;
+    }
+    .main{
+      position: fixed;
+      top: 9.5%;
+      left: 6%;
+      height: 70%;
+      width: 76%;
+    }
+    .searchbar{
+      position: fixed;
+      top: 85%;
+      left: 10%;
+      width: 73%;
+    }
+    .remove-poke-title{
+        position: fixed;
+        left: 7%;
+        top: 84%;
+        height: 2%;
+        width: 9.6%;
+        font-size: 1.6vw;
+        border: 2px solid black;
+    }
+    #removeButton{
+        position: fixed;
+        left: 10%;
+        top: 89%;
+        height: 3.5%;
+        width: 5%;
+        font-size: 1.6vw;
+    }
+    #removeButton:active{
+        height: 3%;
+        width: 4.5%;
+    }
+    .searchbar > input[type="text"] {
+        position: fixed;
+        height: 3%;
+        width: 40%;
+        top: 88%;
+        left: 18%;
+        border: 2px solid black;
+    }
+    .searchbar > input[type="text"]::placeholder {
+        font-size: 0.6em;
+    }
+    .search-button{
+      position: fixed;
+      left: 67%;
+      top: 92%;
+      height: 3%;
+      font-size: 2.6vw;
+      z-index: 1;
+      background-color: white;
+      box-shadow: 1px 2.5px 0px;
+    }
+    .twosearch-pokemon {
+        position: fixed;
+        top: 84%;
+        left: 64%;
+        bottom: 5.4%;
+        font-size: 2.2vw;
+    }
+    .twosearch-pokemon__enemy {
+        position: fixed;
+        left: 75%;
+        top: 84%;
+    }
+  }

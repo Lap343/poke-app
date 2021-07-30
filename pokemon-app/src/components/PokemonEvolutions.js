@@ -1,6 +1,6 @@
 import React from "react";
-import "../styles/Poke-evolutions.css";
 import Types from "./Types";
+import "../styles/Poke-evolutions.css";
 
 const PokemonEvolutions = ({ evolutions, getPokeByNameOrIdAPI }) => (
   <div className={`pokemon-evolutions`}>

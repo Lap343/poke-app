@@ -1,8 +1,7 @@
 .pokemon-versus {
   position: absolute;
-  top: 28%;
-  left: 62%;
-  transform: translate(-130%, 30%) scale(1);
+  height: 100%;
+  width: 100%;
   opacity: 1;
   z-index: 100;
 }
@@ -11,11 +10,10 @@
   display: inline-block;
 }
 .pokemon-versus__left {
-  position: relative;
-  top: -10px;
-  transform: translate(-523%, 0);
-  margin-right: -5px;
+  position: absolute;
   opacity: 0;
+  top: 43%;
+  left: 40%;
   animation-duration: 0.2s;
   animation-delay: 0.1s;
   animation-timing-function: cubic-bezier(1, 0.05, 1, -0.29);
@@ -23,11 +21,10 @@
   animation-fill-mode: forwards;
 }
 .pokemon-versus__right {
-  position: relative;
-  bottom: -10px;
-  transform: translate(523%, 0);
-  margin-left: -5px;
+  position: absolute;
   opacity: 0;
+  top: 43%;
+  right: 39%;
   animation-duration: 0.2s;
   animation-delay: 0.1s;
   animation-timing-function: cubic-bezier(1, 0.05, 1, -0.29);
@@ -37,7 +34,7 @@
 .pokemon-versus__left-main,
 .pokemon-versus__right-main {
   position: relative;
-  font-size: 55px;
+  font-size: 3.5em;
   font-weight: 900;
   color: #b61f43;
   transform: skewX(-23deg);
@@ -81,7 +78,7 @@
 .pokemon-versus__right-main span::after {
   content: attr(data-text);
   position: absolute;
-  top: 2px;
+  top: 0.1em;
   left: 1px;
   font-size: 98.18%;
   color: transparent;
@@ -90,11 +87,13 @@
   z-index: 1;
 }
 .pokemon-versus__middle-line {
-  position: relative;
-  top: 37px;
-  left: -4.9px;
-  transform: skewX(-36deg) scale(5);
+  position: absolute;
+  transform: skewX(-36deg) scale(1);
   display: inline-block;
+  height: 2%;
+  width: 2%;
+  top: 38%;
+  left: 55%;
   opacity: 0;
   animation-duration: 0.2s;
   animation-delay: 0.5s;
@@ -110,113 +109,58 @@
   border-right: 2px solid #8e643a;
   border-bottom: 2px solid #8e643a;
 }
-.pokemon-versus__left-background {
+.pokemon-versus-background {
   background-color: white;
-  height: 738.4px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: translate(-165.4%, -33.5%);
-  width: 331%;
-  z-index: -1;
-  opacity: 0;
-  animation-duration: 0.8s;
-  animation-delay: 0s;
-  animation-timing-function: cubic-bezier(1, 0.05, 1, -0.29);
-  animation-name: versusleftbgmove;
-  animation-fill-mode: forwards;
-}
-.pokemon-versus__right-background {
-  background-color: white;
-  height: 738.4px;
+  height: 100%;
+  width: 100%;
   position: absolute;
   top: 0;
   right: 0;
-  transform: translate(163.6%, -33.5%);
-  width: 331%;
   z-index: -1;
   opacity: 0;
   animation-duration: 0.8s;
   animation-delay: 0s;
   animation-timing-function: cubic-bezier(1, 0.05, 1, -0.29);
-  animation-name: versusrightbgmove;
+  animation-name: versusbgmove;
   animation-fill-mode: forwards;
 }
 
 @keyframes versusleftmove {
   from {
-    transform: translate(-523%, 0);
     opacity: 0;
   }
-
-  65% {
-    opacity: 1;
-  }
-
   to {
-    transform: translate(0, 0);
     opacity: 1;
   }
 }
 @keyframes versusrightmove {
   from {
-    transform: translate(523%, 0);
+    right: 0%;
     opacity: 0;
   }
-
-  65% {
-    opacity: 1;
-  }
-
   to {
-    transform: translate(0, 0);
+    right: 40%;
     opacity: 1;
   }
 }
 @keyframes versusmiddlepopup {
   from {
-    transform: skewX(-36deg) scale(5);
     opacity: 0;
   }
-
-  65% {
-    opacity: 1;
-  }
-
   to {
-    transform: skewX(-36deg) scale(1);
     opacity: 1;
   }
 }
-@keyframes versusleftbgmove {
+@keyframes versusbgmove {
   from {
-    transform: translate(-165.4%, -33.5%);
     opacity: 0;
   }
 
   50% {
-    transform: translate(-84.3%, -33.5%);
     opacity: 1;
   }
 
   to {
-    transform: translate(-84.3%, -33.5%);
-    opacity: 0;
-  }
-}
-@keyframes versusrightbgmove {
-  from {
-    transform: translate(163.6%, -33.5%);
-    opacity: 0;
-  }
-
-  50% {
-    transform: translate(84.6%, -33.5%);
-    opacity: 1;
-  }
-
-  to {
-    transform: translate(84.6%, -33.5%);
     opacity: 0;
   }
 }

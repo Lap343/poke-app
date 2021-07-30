@@ -56,7 +56,7 @@ const Search = ({
   return (
     <>
       <div id="search" className="searchbar">
-        <div className="remove-poke-title">Remove Pokemon</div>
+        <div className="remove-poke-title">Remove<br/>Pokemon</div>
         <button type="button" id="removeButton" onClick={() => removePokemon()}>
           x
         </button>

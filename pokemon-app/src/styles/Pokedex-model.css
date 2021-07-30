@@ -18,7 +18,6 @@
   left: 13em;
   z-index: 20;
   animation-name: open-left;
-  animation-delay: 1.3s;
   animation-duration: 1s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-in;
@@ -41,7 +40,7 @@
   height: 77.2em;
   width: 0em;
   animation-name: open-right;
-  animation-delay: 2.3s;
+  animation-delay: 1s;
   animation-duration: 1s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-out;
@@ -80,14 +79,14 @@
   position: absolute;
   height: 0%;
   animation: pop 1s;
-  animation-delay: 2s;
+  animation-delay: 1s;
   animation-fill-mode: forwards;
 }
 .splash-title {
   position: absolute;
   height: 0%;
   animation: pop 1s;
-  animation-delay: 2.4s;
+  animation-delay: 1.4s;
   animation-fill-mode: forwards;
 }
 @keyframes pop {
@@ -211,8 +210,8 @@
   border: 1px solid black;
   color: black;
   border-radius: 15px;
-  height: 75.5px;
-  width: 75.5px;
+  height: 7em;
+  width: 7em;
   background: linear-gradient(
     90deg,
     rgb(120, 157, 226) 0%,
@@ -234,8 +233,8 @@
 .twosearch-pokemon__enemy.picked button,
 .twosearch-pokemon__friendly button:active,
 .twosearch-pokemon__enemy button:active {
-  height: 74.5px;
-  width: 74.5px;
+  height: 6.9em;
+  width: 6.9em;
   color: rgba(0, 0, 0, 0.356);
   background: linear-gradient(
     95deg,
@@ -246,27 +245,88 @@
   -webkit-box-shadow: 1px 2px 0px;
   box-shadow: 1px 2px 0px;
 }
-
-#search {
-  animation-duration: 1.3s;
-  animation-fill-mode: forwards;
-  animation-name: hideSearch;
-}
-@keyframes hideSearch {
-  0% {visibility: hidden;}
-  99% {visibility: hidden;}
-  100% {visibility: visible;}
-} 
 .remove-poke-title{
   position: absolute;
   border: solid black 3px;
   border-radius: 15px;
   padding: 0.8%;
-  width: 12%;
+  width: auto;
   top: -100%;
   left: -4%;
-  font-size: 0.8em;
+  font-size: 70%;
   text-align: center;
   background-color: lightgrey;
   box-shadow: 0.2em 0.2em grey;
+}
+
+@media screen and (max-width: 1200px) {
+  #dex-left{
+    left: 0em;
+  }
+  #dex-right-closed{
+    left: 0em;
+  }
+  @keyframes open-left {
+    from {
+      left: 0em;
+      width: 60.2em;
+    }
+    to {
+      left: 65em;
+      width: 0em;
+    }
+  }
+  #dex-right-open{
+    left: 0em;
+  }
+  @keyframes open-right {
+    from {
+      left: 65em;
+      width: 0em;
+    }
+    to {
+      left: 68.4em;
+      width: 64em;
+    }
+  }
+}
+@media screen and (max-width: 900px) {
+  #dex-left{
+    left: -6em;
+  }
+}
+@media screen and (max-width: 800px) {
+  #dex-left{
+    left: -9.4em;
+  }
+}
+@media screen and (max-height: 930px) {
+  #dex-left{
+    top: -25em;
+  }
+  .searchbar{
+    bottom: 9%;
+  }
+  .remove-poke-title{
+    font-size: 0.5em;
+    width: 8%;
+    left: -2%;
+    top: -24%;
+  }
+  #removeButton {
+    height: 2em;
+    width: 2em;
+    font-size: 0.8em;
+    bottom: 10%;
+    left: 2%;
+  }
+  #removeButton:active {
+    height: 1.9em;
+    width: 1.9em;
+  }
+  .twosearch-pokemon__friendly button, .twosearch-pokemon__enemy button {
+    height: 7em;
+    width: 7em;
+    font-size: 0.7em;
+  }
 }

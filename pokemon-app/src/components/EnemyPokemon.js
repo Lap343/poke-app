@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import fightPad from "../assets/fightpad.png";
-import "../styles/EnemyPokemon.css";
-import ThemeSongs from "./ThemeSongs";
 import fightSong from "../assets/fightSong.mp3";
-import Types from "./Types";
+import fightPad from "../assets/fightpad.png";
 import PokemonCry from "./PokemonCry";
+import ThemeSongs from "./ThemeSongs";
+import Types from "./Types";
+import "../styles/EnemyPokemon.css";
+import "../styles/EnemyPokemon-mobile.css";
+
 
 const EnemyPokemon = ({ enemyPokemon, hasEnemy }) => {
-  const [enemyStatsOnTop, setEnemyStatsOnTop] = useState(true);
+  const [enemyStatsOnTop, setEnemyStatsOnTop] = useState(false);
 
   return (
     <>

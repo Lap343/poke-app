@@ -1,13 +1,14 @@
-import fightPad from "../assets/fightpad.png";
+import { useState } from "react";
 import mainBackground from "../assets/mainBackground.png";
 import PokemonEvolutions from "./PokemonEvolutions";
-import TypeCheck from "./TypeCheck";
-import "../styles/One-pokemon-page.css";
-import ThemeSongs from "./ThemeSongs";
 import homeSong from "../assets/homeSong.mp3";
-import Types from "./Types";
+import fightPad from "../assets/fightpad.png";
+import ThemeSongs from "./ThemeSongs";
 import PokemonCry from "./PokemonCry";
-import { useState } from "react";
+import TypeCheck from "./TypeCheck";
+import Types from "./Types";
+import "../styles/One-pokemon-page.css";
+import "../styles/One-pokemon-page-mobile.css";
 
 const SinglePokemon = ({
   pokemon,
