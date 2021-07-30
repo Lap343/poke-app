@@ -84,12 +84,14 @@ const EnemyPokemon = ({ enemyPokemon, hasEnemy }) => {
               </ol>
             </div>
 
-            {!enemyPokemon?.moves ? null : !(scrollTop > 0) ? null : (
+            {!enemyPokemon?.moves ? null : !(scrollTop > 0) ||
+              enemyStatsOnTop ? null : (
               <span className="enemy-moves-list--up-arrow"></span>
             )}
 
             {!enemyPokemon?.moves ? null : !(enemyPokemon?.moves.length > 7) ||
-              isScrollBottom ? null : (
+              isScrollBottom ||
+              enemyStatsOnTop ? null : (
               <span className="enemy-moves-list--down-arrow"></span>
             )}
 
