@@ -20,6 +20,44 @@ const SinglePokemon = ({
   const [statsOnTop, setStatsOnTop] = useState(false);
   const [isScrollBottom, onScroll, scrollRef, scrollTop] = useScroll();
 
+  // This checks if the moves property exist in pokemon object.
+  const checkDoesMovesKeyExistInObject = () =>
+    Object.prototype.hasOwnProperty.call(pokemon, "moves");
+  // This checks if the moves list length is less than or equal to 7.
+  const checkIsMovesListLengthSevenOrLess = () => pokemon?.moves.length <= 7;
+  // This checks if the stats list has been selected.
+  const checkIsStatsListSelected = () => statsOnTop;
+  // This checks if the scrollbar is at the top.
+  const checkIsScrollbarAtTop = () => scrollTop < 1;
+  // This checks if the scrollbar is at the bottom.
+  const checkIsScrollbarAtBottom = () => isScrollBottom;
+
+  /**
+   * To render the top-arrow, this function checks to see if the pokemon moves exist AND the scrollbar is not at the top AND the stats list has not been selected.
+   * @returns {boolean} A boolean.
+   */
+  const renderMovesListTopArrow = () =>
+    // True if the moves property exist in pokemon object.
+    checkDoesMovesKeyExistInObject() &&
+    // True if the scrollbar is not at the top.
+    !checkIsScrollbarAtTop() &&
+    // True if the stats list has not been selected.
+    !checkIsStatsListSelected();
+
+  /**
+   * To render the bottom-arrow, this function checks to see if the pokemon moves exist AND its moves length is not seven or less AND the scrollbar is not at the bottom AND the stats list has not been selected.
+   * @returns {boolean} A boolean.
+   */
+  const renderMovesListBottomArrow = () =>
+    // True if the moves property exist in pokemon object.
+    checkDoesMovesKeyExistInObject() &&
+    // True if the moves length is greater than seven.
+    !checkIsMovesListLengthSevenOrLess() &&
+    // True if the scrollbar is not at the bottom.
+    !checkIsScrollbarAtBottom() &&
+    // True if the stats list has not been selected.
+    !checkIsStatsListSelected();
+
   return (
     <>
       {!pokemon ? null : (
@@ -96,8 +134,7 @@ const SinglePokemon = ({
                 </ol>
               </div>
 
-              {!pokemon?.moves ? null : !(scrollTop > 0) ||
-                statsOnTop ? null : (
+              {renderMovesListTopArrow() && (
                 <span
                   className={`moves-list--up-arrow ${
                     hasEnemy ? "has-enemy" : ""
@@ -105,9 +142,7 @@ const SinglePokemon = ({
                 ></span>
               )}
 
-              {!pokemon?.moves ? null : !(pokemon?.moves.length > 7) ||
-                isScrollBottom ||
-                statsOnTop ? null : (
+              {renderMovesListBottomArrow() && (
                 <span
                   className={`moves-list--down-arrow ${
                     hasEnemy ? "has-enemy" : ""
