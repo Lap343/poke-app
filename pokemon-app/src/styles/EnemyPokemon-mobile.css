@@ -1,10 +1,4 @@
 @media screen and (max-width: 700px), (max-height: 820px){
-    .pokemon-versus {
-        position: fixed;
-        top: 20%;
-        left: 62%;
-        transform: translate(0%, 0%) scale(0.10);
-    }
     .enemy-pokemon__display-name {
         font-size: 1.7vw;
         width: 110%;
@@ -50,5 +44,35 @@
         border: solid black 4px;
         border-radius: 10px;
         padding: 0.3em;
+    }
+    .enemy-pokemon__stats, 
+    .enemy-moves-box {
+        font-size: 2vw;
+    }
+    .enemy-pokemon__stats-list{
+        padding-left: 16%;
+    }
+    #enemy-moves-list{
+        padding-left: 16%;
+        margin: 0;
+    }
+    #enemy-moves-list > li{
+        margin: 0;
+    }
+    .enemy-poke{
+        position: fixed;
+        top: 38%;
+        left: 52%;
+        height: 1%;
+        width: 20%;
+        font-size: 1.5vw;
+    }
+    .user-poke{
+        position: fixed;
+        top: 49%;
+        left: 18%;
+        height: 1%;
+        width: 20%;
+        font-size: 1.5vw;
     }
 }

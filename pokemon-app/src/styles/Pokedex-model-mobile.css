@@ -28,20 +28,20 @@
         top: 84%;
         height: 2%;
         width: 9.6%;
-        font-size: 1.6vw;
+        font-size: 1.3vw;
         border: 2px solid black;
     }
     #removeButton{
         position: fixed;
         left: 10%;
         top: 89%;
-        height: 3.5%;
-        width: 5%;
+        height: 4.5%;
+        width: 6%;
         font-size: 1.6vw;
     }
     #removeButton:active{
-        height: 3%;
-        width: 4.5%;
+        height: 4%;
+        width: 5.5%;
     }
     .searchbar > input[type="text"] {
         position: fixed;
@@ -56,24 +56,42 @@
     }
     .search-button{
       position: fixed;
-      left: 67%;
-      top: 92%;
+      left: 48%;
+      top: 90%;
       height: 3%;
-      font-size: 2.6vw;
+      font-size: 2vw;
       z-index: 1;
       background-color: white;
       box-shadow: 1px 2.5px 0px;
     }
-    .twosearch-pokemon {
-        position: fixed;
-        top: 84%;
-        left: 64%;
-        bottom: 5.4%;
-        font-size: 2.2vw;
+    .search-button:active{
+      height: 2.8%;
+    }
+    .twosearch-pokemon__friendly{
+      position: fixed;
+      top: 86%;
+      left: 64%;
+      font-size: 2.2vw;
     }
     .twosearch-pokemon__enemy {
-        position: fixed;
-        left: 75%;
-        top: 84%;
+      position: fixed;
+      left: 75%;
+      top: 86%;
+      font-size: 2.2vw;
+    }
+    .twosearch-pokemon__friendly > button{
+      height: 8vh;
+      width: 11vw;
+    }
+    .twosearch-pokemon__enemy > button{
+      height: 8vh;
+      width: 11vw;
+    }
+    .twosearch-pokemon__friendly.picked button,
+    .twosearch-pokemon__enemy.picked button,
+    .twosearch-pokemon__friendly button:active,
+    .twosearch-pokemon__enemy button:active{
+      height: 7.8vh;
+      width: 10.8vw;
     }
   }

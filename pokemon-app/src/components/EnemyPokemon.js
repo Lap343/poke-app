@@ -15,6 +15,8 @@ const EnemyPokemon = ({ enemyPokemon, hasEnemy }) => {
   const checkDoesMovesKeyExistInObject = () =>
     Object.prototype.hasOwnProperty.call(enemyPokemon, "moves");
 
+  console.log(enemyStatsOnTop)
+
   return (
     <>
       {!enemyPokemon ? null : (

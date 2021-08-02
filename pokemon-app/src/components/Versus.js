@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../styles/Versus.css";
+import "../styles/Versus-mobile.css";
 
 const Versus = ({ isVersus }) => {
   const [isDisplay, setIsDisplay] = useState(false);
@@ -38,9 +39,7 @@ const Versus = ({ isVersus }) => {
             </p>
           </div>
 
-          {isDisplay && (
             <div className="pokemon-versus-background"></div>
-          )}
         </div>
       )}
     </>

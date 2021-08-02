@@ -65,7 +65,7 @@
 .stats-title {
   right: 3%;
   background-color: rgb(160, 212, 212);
-  z-index: 0;
+  z-index: 1;
 }
 .stats-title.has-enemy {
   top: 55%;
