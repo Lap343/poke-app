@@ -7,7 +7,7 @@ import Types from "./Types";
 import PokemonCry from "./PokemonCry";
 import MovesList from "./MovesList";
 
-const EnemyPokemon = ({ enemyPokemon, hasEnemy }) => {
+const EnemyPokemon = ({ enemyPokemon, hasEnemy, enemyPokeSoundUrl }) => {
   const [enemyStatsOnTop, setEnemyStatsOnTop] = useState(true);
 
   // This checks if the moves property exist in pokemon object.
@@ -86,7 +86,7 @@ const EnemyPokemon = ({ enemyPokemon, hasEnemy }) => {
             <img src={fightPad} alt="Lily pad from Pokemon game" />
           </div>
 
-          <PokemonCry pokeName={enemyPokemon?.name} />
+          <PokemonCry pokeSoundUrl={enemyPokeSoundUrl} />
           {hasEnemy && <ThemeSongs src={fightSong} />}
         </>
       )}

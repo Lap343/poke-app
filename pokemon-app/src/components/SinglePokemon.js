@@ -16,6 +16,7 @@ const SinglePokemon = ({
   hasEnemy,
   getPokeByNameOrIdAPI,
   isPokeballRendering,
+  pokeSoundUrl,
 }) => {
   const [statsOnTop, setStatsOnTop] = useState(false);
 
@@ -112,7 +113,10 @@ const SinglePokemon = ({
 
       {hasEnemy ? null : <TypeCheck pokemon={pokemon} />}
 
-      {!isPokeballRendering && <PokemonCry pokeName={pokemon?.name} />}
+      <PokemonCry
+        pokeSoundUrl={pokeSoundUrl}
+        isPokeballRendering={isPokeballRendering}
+      />
       {!hasEnemy && <ThemeSongs src={homeSong} />}
     </>
   );
