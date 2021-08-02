@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../styles/ThemeSongs.css";
 
-function ThemeSongs({ src }) {
+function ThemeSongs({ src, pokemon }) {
   const [isPlaying, setIsPlaying] = useState(true);
 
   const audioPlayer = useRef(); //reference for audio component
@@ -28,8 +28,7 @@ function ThemeSongs({ src }) {
   return (
     <div>
       <audio ref={audioPlayer} loop src={src}></audio>
-      <button className="soundButton" onClick={togglePlay}>
-        Sound
+      <button type="button" onClick={togglePlay} className={`muteButton ${isPlaying ? "" : "muteButton-pressed"}`} enabled>
       </button>
     </div>
   );
