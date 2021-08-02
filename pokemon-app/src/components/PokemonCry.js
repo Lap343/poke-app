@@ -10,9 +10,7 @@ const PokemonCry = ({ pokeSoundUrl, isPokeballRendering }) => {
   const audioPlay = async (targetAudio) => {
     try {
       await targetAudio.play();
-      console.log("Hello");
     } catch (error) {
-      alert(error);
       console.error(error);
       targetAudio.pause();
     }
