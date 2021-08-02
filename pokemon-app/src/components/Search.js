@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import "../styles/ThemeSongs.css";
+import ThemeSongs from "./ThemeSongs";
 
 const Search = ({
   getPokeByNameOrIdAPI,
@@ -86,7 +88,7 @@ const Search = ({
                 Search Your's
               </button>
             </div>
-
+            <button className={!pokemon ? "splashScreen-mute" : "user-poke-none"}></button>
             <div
               className={`twosearch-pokemon__enemy ${isEnemy ? "picked" : ""}`}
             >
