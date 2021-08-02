@@ -6,6 +6,7 @@ import fightPad from "../assets/fightpad.png";
 import ThemeSongs from "./ThemeSongs";
 import PokemonCry from "./PokemonCry";
 import TypeCheck from "./TypeCheck";
+import MovesList from "./MovesList";
 import Types from "./Types";
 import "../styles/One-pokemon-page.css";
 import "../styles/One-pokemon-page-mobile.css";
@@ -18,6 +19,10 @@ const SinglePokemon = ({
   isPokeballRendering,
 }) => {
   const [statsOnTop, setStatsOnTop] = useState(false);
+
+  // This checks if the moves property exist in pokemon object.
+  const checkDoesMovesKeyExistInObject = () =>
+    Object.prototype.hasOwnProperty.call(pokemon, "moves");
 
   return (
     <>
@@ -75,20 +80,17 @@ const SinglePokemon = ({
                       ))}
                 </ol>
               </div>
-
-              <div
-                className={`moves-box ${hasEnemy ? "has-enemy" : ""} ${
-                  statsOnTop ? "" : "on-top"
-                }`}
-              >
-                <ol id="moves-list">
-                  {!pokemon?.moves
-                    ? null
-                    : pokemon?.moves.map((moveData, moveIndex) => (
-                        <li key={moveIndex}>{moveData.move.name}</li>
-                      ))}
-                </ol>
+              <div className={hasEnemy ? "user-poke" : "user-poke-none"}>
+                Your Pokemon
               </div>
+
+              {checkDoesMovesKeyExistInObject() && (
+                <MovesList
+                  pokemonMoves={pokemon?.moves}
+                  hasEnemy={hasEnemy}
+                  statsOnTop={statsOnTop}
+                />
+              )}
             </div>
             <div className={`pokemon-types ${hasEnemy ? "has-enemy" : ""}`}>
               <Types pokemon={pokemon} />

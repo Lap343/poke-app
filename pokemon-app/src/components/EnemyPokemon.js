@@ -6,10 +6,14 @@ import ThemeSongs from "./ThemeSongs";
 import Types from "./Types";
 import "../styles/EnemyPokemon.css";
 import "../styles/EnemyPokemon-mobile.css";
-
+import MovesList from "./MovesList";
 
 const EnemyPokemon = ({ enemyPokemon, hasEnemy }) => {
   const [enemyStatsOnTop, setEnemyStatsOnTop] = useState(false);
+
+  // This checks if the moves property exist in pokemon object.
+  const checkDoesMovesKeyExistInObject = () =>
+    Object.prototype.hasOwnProperty.call(enemyPokemon, "moves");
 
   return (
     <>
@@ -44,7 +48,7 @@ const EnemyPokemon = ({ enemyPokemon, hasEnemy }) => {
 
             <div
               onClick={() => setEnemyStatsOnTop(false)}
-              className={`enemy-pokemon__moves-title ${
+              className={`enemy-moves-title ${
                 enemyStatsOnTop ? "" : "on-tip-top"
               }`}
             >
@@ -68,19 +72,15 @@ const EnemyPokemon = ({ enemyPokemon, hasEnemy }) => {
               </ol>
             </div>
 
-            <div
-              className={`enemy-pokemon__moves ${
-                enemyStatsOnTop ? "" : "on-top"
-              }`}
-            >
-              <ol className="enemy-pokemon__moves-list">
-                {!enemyPokemon?.moves
-                  ? null
-                  : enemyPokemon?.moves.map((moveData, moveIndex) => (
-                      <li key={moveIndex}>{moveData.move.name}</li>
-                    ))}
-              </ol>
-            </div>
+            {checkDoesMovesKeyExistInObject() && (
+              <MovesList
+                pokemonMoves={enemyPokemon?.moves}
+                statsOnTop={enemyStatsOnTop}
+                isEnemyPokemon
+              />
+            )}
+
+            <div className="enemy-poke">Enemy Pokemon</div>
           </div>
 
           <div className="poke-pad--enemy">

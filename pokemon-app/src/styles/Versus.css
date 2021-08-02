@@ -2,8 +2,11 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  opacity: 1;
-  z-index: 100;
+  opacity: 0;
+  z-index: 0;
+  animation-name: vsFrontToBack;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
 }
 .pokemon-versus__left,
 .pokemon-versus__right {
@@ -16,7 +19,7 @@
   left: 40%;
   animation-duration: 0.2s;
   animation-delay: 0.1s;
-  animation-timing-function: cubic-bezier(1, 0.05, 1, -0.29);
+  animation-timing-function: ease-in-out;
   animation-name: versusleftmove;
   animation-fill-mode: forwards;
 }
@@ -27,7 +30,7 @@
   right: 39%;
   animation-duration: 0.2s;
   animation-delay: 0.1s;
-  animation-timing-function: cubic-bezier(1, 0.05, 1, -0.29);
+  animation-timing-function: ease-in-out;
   animation-name: versusrightmove;
   animation-fill-mode: forwards;
 }
@@ -119,36 +122,70 @@
   z-index: -1;
   opacity: 0;
   animation-duration: 0.8s;
-  animation-delay: 0s;
   animation-timing-function: cubic-bezier(1, 0.05, 1, -0.29);
   animation-name: versusbgmove;
   animation-fill-mode: forwards;
 }
 
+@keyframes vsFrontToBack {
+  from{
+    opacity: 0;
+    z-index: 200;
+  }
+  0.1%{
+    opacity: 1;
+    z-index: 200;
+  }
+  99%{
+    opacity: 1;
+    z-index: 200;
+  }
+  to{
+    opacity: 1;
+    z-index: 1;
+  }
+}
 @keyframes versusleftmove {
   from {
     opacity: 0;
+    left: 0%;
+  }
+  10% {
+    opacity: 1;
   }
   to {
     opacity: 1;
+    left: 40%;
   }
 }
 @keyframes versusrightmove {
   from {
-    right: 0%;
     opacity: 0;
+    right: 0%;
+  }
+  10% {
+    opacity: 1;
   }
   to {
-    right: 40%;
     opacity: 1;
+    right: 39%;
   }
 }
 @keyframes versusmiddlepopup {
   from {
     opacity: 0;
+    top: 5%;
+    left: 84%;
+    transform: skewX(-36deg) scale(5.5);
+  }
+  10% {
+    opacity: 1;
   }
   to {
     opacity: 1;
+    top: 38%;
+    left: 55%;
+    transform: skewX(-36deg) scale(1);
   }
 }
 @keyframes versusbgmove {
@@ -156,7 +193,7 @@
     opacity: 0;
   }
 
-  50% {
+  0.1% {
     opacity: 1;
   }
 

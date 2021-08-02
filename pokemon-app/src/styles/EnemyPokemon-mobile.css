@@ -34,4 +34,21 @@
         font-size: 1em;
         margin: 0px;
     }
+    .enemy-pokemon__display-image {
+        position: fixed;
+        top: 14%;
+        left: 49%;
+        height: 20vh;
+        width: 20%;
+    }
+    .enemy-pokemon__display-image > img{
+        height: 120%;
+        width: 140%;
+    }
+    .enemy-pokemon__stats-title, .enemy-moves-title{
+        font-size: 3vw;
+        border: solid black 4px;
+        border-radius: 10px;
+        padding: 0.3em;
+    }
 }
