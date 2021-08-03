@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { audioPlayAsync } from "../utils";
 
 const PokemonCry = ({ pokeSoundUrl, isPokeballRendering }) => {
   // Set the initial state for rendering the false.
@@ -6,13 +7,20 @@ const PokemonCry = ({ pokeSoundUrl, isPokeballRendering }) => {
   // Initialize the audio reference.
   const audioRef = useRef();
 
-  // This function is used to check if there are no errors on autoplay.
+  // This function is used to check if there are no errors on audio play.
   const audioPlay = async (targetAudio) => {
     try {
-      await targetAudio.play();
+      // Destructure the status and message.
+      const { status, message } = await audioPlayAsync(targetAudio);
+
+      // Check if the status had an error.
+      if (status === "error") {
+        // Send the error message for the catch block.
+        throw new Error(message);
+      }
     } catch (error) {
+      // Display the error to the console.
       console.error(error);
-      targetAudio.pause();
     }
   };
 
