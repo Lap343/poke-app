@@ -8,9 +8,13 @@ import { getEvolutionChain, getPokeByNameOrId } from "./utils/api";
 import "./App.css";
 import "./styles/Pokedex-model.css";
 import Toad from "./components/toad";
+import pokeCries from "./utils/pokeCries";
+import reactoadSound from "./assets/sounds/reactoad.mp3";
 
 function App() {
   const [pokemon, setPokemon] = useState(null);
+  const [pokeSoundUrl, setPokeSoundUrl] = useState("");
+  const [enemyPokeSoundUrl, setEnemyPokeSoundUrl] = useState("");
   const [evolutions, setEvolutions] = useState([]);
   const [enemyPokemon, setEnemyPokemon] = useState(null);
   const [isEnemy, setIsEnemy] = useState(false);
@@ -18,11 +22,29 @@ function App() {
   const [isVersus, setIsVersus] = useState(false);
   const [isPokeball, setIsPokeball] = useState(false);
 
+  const getPokeSoundUrl = (pokeName) => {
+    let pokeSoundUrlPath = "";
+
+    if (pokeName === "Reactoad" || pokeCries[pokeName]) {
+      pokeSoundUrlPath =
+        pokeName === "Reactoad" ? reactoadSound : pokeCries[pokeName];
+    }
+
+    return pokeSoundUrlPath;
+  };
+
   const getPokeByNameOrIdAPI = async (pokemonAPI) => {
     try {
       const pokeData = await getPokeByNameOrId(pokemonAPI);
-      !isEnemy ? setPokemon(pokeData) : setEnemyPokemon(pokeData);
+
+      if (!isEnemy) {
+        setPokemon(pokeData);
+        setPokeSoundUrl(getPokeSoundUrl(pokeData.name));
+      }
+
       if (isEnemy) {
+        setEnemyPokemon(pokeData);
+        setEnemyPokeSoundUrl(getPokeSoundUrl(pokeData.name));
         setHasEnemySubmit(true);
         setIsVersus(true);
       }
@@ -52,39 +74,41 @@ function App() {
 
   return (
     <>
-    <div className="App">
-      <div
-        id="dex-left"
-        src={dexLeft}
-        alt="classic pokedex from the Pokemon series"
-      >
-        <Main
-          pokemon={pokemon}
-          evolutions={evolutions}
-          enemyPokemon={enemyPokemon}
-          hasEnemySubmit={hasEnemySubmit}
-          isVersus={isVersus}
-          isPokeball={isPokeball}
-          setIsPokeball={setIsPokeball}
-          getPokeByNameOrIdAPI={getPokeByNameOrIdAPI}
-        />
-        <Search
-          getPokeByNameOrIdAPI={getPokeByNameOrIdAPI}
-          pokemon={pokemon}
-          setPokemon={setPokemon}
-          setEnemyPokemon={setEnemyPokemon}
-          isEnemy={isEnemy}
-          enemyPokemon={enemyPokemon}
-          setIsEnemy={setIsEnemy}
-          setHasEnemySubmit={setHasEnemySubmit}
-          isVersus={isVersus}
-          setIsVersus={setIsVersus}
-          setIsPokeball={setIsPokeball}
-        />
+      <div className="App">
+        <div
+          id="dex-left"
+          src={dexLeft}
+          alt="classic pokedex from the Pokemon series"
+        >
+          <Main
+            pokemon={pokemon}
+            evolutions={evolutions}
+            enemyPokemon={enemyPokemon}
+            hasEnemySubmit={hasEnemySubmit}
+            isVersus={isVersus}
+            isPokeball={isPokeball}
+            setIsPokeball={setIsPokeball}
+            getPokeByNameOrIdAPI={getPokeByNameOrIdAPI}
+            pokeSoundUrl={pokeSoundUrl}
+            enemyPokeSoundUrl={enemyPokeSoundUrl}
+          />
+          <Search
+            getPokeByNameOrIdAPI={getPokeByNameOrIdAPI}
+            pokemon={pokemon}
+            setPokemon={setPokemon}
+            setEnemyPokemon={setEnemyPokemon}
+            isEnemy={isEnemy}
+            enemyPokemon={enemyPokemon}
+            setIsEnemy={setIsEnemy}
+            setHasEnemySubmit={setHasEnemySubmit}
+            isVersus={isVersus}
+            setIsVersus={setIsVersus}
+            setIsPokeball={setIsPokeball}
+          />
+        </div>
+        <img id="dex-right-closed" src={dexRightClose} alt="" />
+        <img id="dex-right-open" src={dexRightOpen} alt="" />
       </div>
-      <img id="dex-right-closed" src={dexRightClose} alt="" />
-      <img id="dex-right-open" src={dexRightOpen} alt="" />
-    </div>
     </>
   );
 }

@@ -16,6 +16,8 @@ const Main = ({
   isPokeball,
   setIsPokeball,
   getPokeByNameOrIdAPI,
+  pokeSoundUrl,
+  enemyPokeSoundUrl,
 }) => {
   return (
     <div className="main">
@@ -35,11 +37,19 @@ const Main = ({
             hasEnemy={hasEnemySubmit}
             getPokeByNameOrIdAPI={getPokeByNameOrIdAPI}
             isPokeballRendering={isPokeball}
+            pokeSoundUrl={pokeSoundUrl}
           />
 
           <Versus isVersus={isVersus} />
 
-          {!enemyPokemon ? null : <EnemyPokemon enemyPokemon={enemyPokemon} hasEnemy={hasEnemySubmit} />}
+          {!enemyPokemon ? null : (
+            <EnemyPokemon
+              enemyPokemon={enemyPokemon}
+              hasEnemy={hasEnemySubmit}
+              pokeSoundUrl={pokeSoundUrl}
+              enemyPokeSoundUrl={enemyPokeSoundUrl}
+            />
+          )}
         </>
       )}
     </div>
