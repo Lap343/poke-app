@@ -1,30 +1,37 @@
 import React, { useState, useEffect, useRef } from "react";
-import pokeCries from "../utils/pokeCries";
-import reactoadSound from "../assets/sounds/reactoad.mp3";
+import { audioPlayAsync } from "../utils";
 
-const PokemonCry = ({ pokeName }) => {
+const PokemonCry = ({ pokeSoundUrl, isPokeballRendering }) => {
   // Set the initial state for rendering the false.
   const [isPokemonsCries, setIsPokemonsCries] = useState(false);
-  // Set the sound url to an empty string
-  const [pokeSoundUrl, setPokeSoundUrl] = useState("");
   // Initialize the audio reference.
   const audioRef = useRef();
 
-  // First useEffect sets the rendering to true, and sets the sound url
-  // which depends on the pokemon's name.
-  useEffect(() => {
-    // If either names exist, continue.
-    if (pokeName === "Reactoad" || pokeCries[pokeName]) {
-      // Set the sound url path depending on the pokemon's name.
-      const pokeSoundUrlPath =
-        pokeName === "Reactoad" ? reactoadSound : pokeCries[pokeName];
+  // This function is used to check if there are no errors on audio play.
+  const audioPlay = async (targetAudio) => {
+    try {
+      // Destructure the status and message.
+      const { status, message } = await audioPlayAsync(targetAudio);
 
-      // Set the rendering to true.
-      setIsPokemonsCries(true);
-      // Set the sound url path.
-      setPokeSoundUrl(pokeSoundUrlPath);
+      // Check if the status had an error.
+      if (status === "error") {
+        // Send the error message for the catch block.
+        throw new Error(message);
+      }
+    } catch (error) {
+      // Display the error to the console.
+      console.error(error);
     }
-  }, [pokeName]);
+  };
+
+  useEffect(() => {
+    // If sound url exists and the pokeball animation is not rendering,
+    // continue.
+    if (pokeSoundUrl.length && !isPokeballRendering) {
+      // Set the cries to true in order to trigger the second useEffect.
+      setIsPokemonsCries(true);
+    }
+  }, [pokeSoundUrl, isPokeballRendering]);
 
   // Second useEffect changes the audio reference, and resets the rendering
   // which depends on the rendering boolean state.
@@ -37,7 +44,8 @@ const PokemonCry = ({ pokeName }) => {
         // Decrease the audio volume.
         audioRef.current.volume = 0.15;
         // Play the audio.
-        audioRef.current.play();
+        // audioRef.current.play();
+        audioPlay(audioRef.current);
       }
 
       // Whether or not the current audio reference exists,
@@ -47,11 +55,7 @@ const PokemonCry = ({ pokeName }) => {
     }
   }, [isPokemonsCries]);
 
-  return (
-    isPokemonsCries && (
-      <audio ref={audioRef} className="pokemon-cry" src={pokeSoundUrl} />
-    )
-  );
+  return <audio ref={audioRef} className="pokemon-cry" src={pokeSoundUrl} />;
 };
 
 export default PokemonCry;

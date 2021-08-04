@@ -37,8 +37,7 @@ const Search = ({
   };
 
   const onSubmit = () => {
-    if(pokemonSearchValue !== ""){
-
+    if (pokemonSearchValue !== "") {
       const pokeLowerCase = pokemonSearchValue.toLowerCase();
 
       setHasSelected(true);
@@ -48,8 +47,7 @@ const Search = ({
       if (!isEnemy && !isVersus) {
         setIsPokeball(true);
       }
-
-      getPokeByNameOrIdAPI(pokeLowerCase)
+      getPokeByNameOrIdAPI(pokeLowerCase);
     }
   };
 

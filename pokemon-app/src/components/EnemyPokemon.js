@@ -6,8 +6,8 @@ import Types from "./Types";
 import "../styles/EnemyPokemon.css";
 import "../styles/EnemyPokemon-mobile.css";
 
-const EnemyPokemon = ({ enemyPokemon }) => {
-  const [enemyStatsOnTop, setEnemyStatsOnTop] = useState(false);
+const EnemyPokemon = ({ enemyPokemon, hasEnemy, enemyPokeSoundUrl }) => {
+  const [enemyStatsOnTop, setEnemyStatsOnTop] = useState(true);
 
   // This checks if the moves property exist in pokemon object.
   const checkDoesMovesKeyExistInObject = () =>
@@ -85,7 +85,7 @@ const EnemyPokemon = ({ enemyPokemon }) => {
             <img src={fightPad} alt="Lily pad from Pokemon game" />
           </div>
 
-          <PokemonCry pokeName={enemyPokemon?.name} />
+          <PokemonCry pokeSoundUrl={enemyPokeSoundUrl} />
         </>
       )}
     </>
