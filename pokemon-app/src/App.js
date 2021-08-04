@@ -11,6 +11,7 @@ import {
 } from "./utils/api";
 import "./App.css";
 import "./styles/Pokedex-model.css";
+import "./styles/Pokedex-model-mobile.css";
 import Toad from "./components/toad";
 import pokeCries from "./utils/pokeCries";
 import reactoadSound from "./assets/sounds/reactoad.mp3";

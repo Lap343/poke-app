@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import fightPad from "../assets/fightpad.png";
-import "../styles/EnemyPokemon.css";
-import ThemeSongs from "./ThemeSongs";
-import fightSong from "../assets/fightSong.mp3";
-import Types from "./Types";
 import PokemonCry from "./PokemonCry";
 import MovesList from "./MovesList";
 import { typeJson } from "./typeMatchups";
 import { capitalize } from "../utils";
+import Types from "./Types";
+import "../styles/EnemyPokemon.css";
+import "../styles/EnemyPokemon-mobile.css";
 
 /**
  * Checks to see if the moves of the enemy are super effective, ineffective, or neutral to the friendly pokemon based on the friendly's type(s).
@@ -173,7 +172,6 @@ const EnemyPokemon = ({
           </div>
 
           <PokemonCry pokeSoundUrl={enemyPokeSoundUrl} />
-          {hasEnemy && <ThemeSongs src={fightSong} />}
         </>
       )}
     </>

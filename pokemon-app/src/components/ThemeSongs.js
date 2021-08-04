@@ -1,16 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../styles/ThemeSongs.css";
 
-function ThemeSongs({ src, pokemon }) {
+const ThemeSongs = ({ src }) => {
   const [isPlaying, setIsPlaying] = useState(true);
 
   const audioPlayer = useRef(); //reference for audio component
 
   const togglePlay = () => {
-    const prevValue = isPlaying;
-    setIsPlaying(!prevValue);
+    setIsPlaying(!isPlaying);
     if (audioPlayer.current) {
-      if (!prevValue) {
+      if (!isPlaying) {
         audioPlayer.current.play();
       } else {
         audioPlayer.current.pause();
@@ -23,12 +22,12 @@ function ThemeSongs({ src, pokemon }) {
       audioPlayer.current.volume = 0.08;
       audioPlayer.current.play();
     }
-  }, []);
+  }, [src]);
 
   return (
     <div>
       <audio ref={audioPlayer} loop src={src}></audio>
-      <button type="button" onClick={togglePlay} className={`muteButton ${isPlaying ? "" : "muteButton-pressed"}`} enabled>
+      <button type="button" onClick={togglePlay} className={`mute-button ${isPlaying ? "" : "pressed"}`} enabled>
       </button>
     </div>
   );

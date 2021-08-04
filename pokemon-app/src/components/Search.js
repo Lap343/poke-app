@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import fightSong from "../assets/sounds/fightSong.mp3";
+import homeSong from "../assets/sounds/homeSong.mp3";
+import ThemeSongs from "./ThemeSongs";
 
 const Search = ({
   getPokeByNameOrIdAPI,
@@ -17,6 +20,16 @@ const Search = ({
   // This is more on the UI functionalities like adding a className,
   // handling the onClick for buttons, and disabling buttons
   const [hasSelected, setHasSelected] = useState(false);
+  const [source, setSource] = useState("");
+
+  useEffect(() => {
+    if(pokemon && !enemyPokemon){
+      setSource(homeSong)
+    }
+    if(enemyPokemon){
+      setSource(fightSong)
+    }
+  }, [enemyPokemon, pokemon])
 
   const onChange = (e) => {
     const { value } = e.target;
@@ -37,79 +50,78 @@ const Search = ({
       getPokeByNameOrIdAPI(pokeLowerCase);
     }
   };
+
   const removePokemon = () => {
     if (enemyPokemon === null) {
       if (pokemon !== null) {
         setPokemon(null);
         setHasSelected(false);
         setIsPokeball(false);
+        setSource("")
       }
     } else {
       setIsVersus(false);
       setEnemyPokemon(null);
       setHasEnemySubmit(false);
       setIsEnemy(false);
+      setSource(homeSong)
     }
   };
 
   return (
-    <>
-      <div id="search" className="searchbar">
-        <div className="remove-poke-title">Remove Pokemon</div>
-        <button type="button" id="removeButton" onClick={() => removePokemon()}>
-          x
-        </button>
-        <input
-          type="text"
-          name="pokemonsearch"
-          placeholder="Search for a pokemon"
-          value={pokemonSearchValue}
-          onChange={onChange}
-        />
+    <div id="search" className="searchbar">
+      <div className="remove-poke-title">Remove<br/>Pokemon</div>
+      <button type="button" id="removeButton" onClick={() => removePokemon()}>
+        x
+      </button>
+      <input
+        type="text"
+        name="pokemonsearch"
+        placeholder="Search for a pokemon"
+        value={pokemonSearchValue}
+        onChange={onChange}
+      />
 
-        <button onClick={onSubmit} className="search-button">
-          Search
-        </button>
+      <button onClick={onSubmit} className="search-button">
+        Search
+      </button>
 
-        <div className="twosearch-pokemon">
-          <div className="twosearch-pokemon__friendly-enemy-container">
-            <div
-              className={`twosearch-pokemon__friendly ${
-                !isEnemy && hasSelected ? "picked" : ""
-              }`}
-            >
-              <button
-                type="button"
-                onClick={() => setIsEnemy(false)}
-                disabled={hasSelected && !isEnemy}
-              >
-                Search Your's
-              </button>
-            </div>
+      <div className="twosearch-pokemon">
+        <div className="twosearch-pokemon__friendly-enemy-container">
+          <div
+            className={`twosearch-pokemon__friendly ${
+              !isEnemy && hasSelected ? "picked" : ""
+            }`}
+          >
             <button
-              className={!pokemon ? "splashScreen-mute" : "user-poke-none"}
-            ></button>
-            <div
-              className={`twosearch-pokemon__enemy ${isEnemy ? "picked" : ""}`}
+              type="button"
+              onClick={() => setIsEnemy(false)}
+              disabled={hasSelected && !isEnemy}
             >
-              <button
-                type="button"
-                onClick={() => {
-                  // If the user has not began their initial selection,
-                  // then don't run
-                  if (hasSelected) {
-                    setIsEnemy(true);
-                  }
-                }}
-                disabled={!hasSelected || isEnemy || !pokemon}
-              >
-                Search Enemy
-              </button>
-            </div>
+              Search Your's
+            </button>
+          </div>
+          <div
+            className={`twosearch-pokemon__enemy ${isEnemy ? "picked" : ""}`}
+          >
+            <button
+              type="button"
+              onClick={() => {
+                // If the user has not began their initial selection,
+                // then don't run
+                if (hasSelected) {
+                  setIsEnemy(true);
+                }
+              }}
+              disabled={!hasSelected || isEnemy || !pokemon}
+            >
+              Search Enemy
+            </button>
           </div>
         </div>
       </div>
-    </>
+      {pokemon && <ThemeSongs src={source} />}
+    </div>
   );
 };
 

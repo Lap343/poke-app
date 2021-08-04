@@ -1,20 +1,12 @@
-.splashScreen-mute {
-    bottom: 110%;
-    right: 15%;
-    background-color: rgba(185, 10, 10, 1);
-}
-
-.muteButton {
-    bottom: -6%;
-    right: 5.25%;
-    background-color: rgba(225, 10, 10, 1);
-}
-.muteButton, .splashScreen-mute {
-    background-image: url(../assets/volIcon2.png);
-    height: 30px;
-    width: 30px;
+.mute-button {
     position: absolute;
-    z-index: 99;
+    top: -90%;
+    right: 5%;
+    background-color: rgba(225, 10, 10, 1);
+    background-image: url(../assets/volIcon2.png);
+    height: 2.2em;
+    width: 2.2em;
+    z-index: 1;
     border: 1px solid black;
     border-radius: 50%;
     font-family: myFirstFont;
@@ -23,15 +15,12 @@
     -webkit-box-shadow: .75px 1.25px 0px;
 }
 
-.muteButton:active, .splashScreen-mute:active {
-    height: 2.15em;
-    width: 2.15em;
+.mute-button:active{
+    height: 2.1em;
+    width: 2.1em;
     -webkit-box-shadow: 1px 2px 0px;
-  }
+}
 
-.muteButton-pressed {
-    background-image: url(../assets/volIcon2.png);
+.pressed {
     background-color: rgba(185, 10, 10, 1);
-    height: 29px;
-    width: 29px;
 }

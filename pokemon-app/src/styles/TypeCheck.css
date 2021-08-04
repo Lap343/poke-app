@@ -39,3 +39,15 @@
 .type-details-1{
     top: 92%;
 }
+.type-details-0::-webkit-scrollbar, .type-details-1::-webkit-scrollbar{
+    width: 8.6px;
+    height: 7.6px;
+}
+.type-details-0::-webkit-scrollbar-track, .type-details-1::-webkit-scrollbar-track{
+    background: transparent;
+}
+.type-details-0::-webkit-scrollbar-thumb, .type-details-1::-webkit-scrollbar-thumb{
+    background-color: rgba(0, 0, 0, 0.18);
+    border-radius: 50px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
