@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import fightPad from "../assets/fightpad.png";
-import "../styles/EnemyPokemon.css";
-import ThemeSongs from "./ThemeSongs";
-import fightSong from "../assets/fightSong.mp3";
-import Types from "./Types";
 import PokemonCry from "./PokemonCry";
 import MovesList from "./MovesList";
+import Types from "./Types";
+import "../styles/EnemyPokemon.css";
+import "../styles/EnemyPokemon-mobile.css";
 
 const EnemyPokemon = ({ enemyPokemon, hasEnemy, enemyPokeSoundUrl }) => {
   const [enemyStatsOnTop, setEnemyStatsOnTop] = useState(true);
@@ -87,7 +86,6 @@ const EnemyPokemon = ({ enemyPokemon, hasEnemy, enemyPokeSoundUrl }) => {
           </div>
 
           <PokemonCry pokeSoundUrl={enemyPokeSoundUrl} />
-          {hasEnemy && <ThemeSongs src={fightSong} />}
         </>
       )}
     </>

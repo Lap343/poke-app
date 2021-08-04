@@ -24,3 +24,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+@media screen and (max-width: 700px), (max-height: 820px){
+  body{
+    background-image: url("./assets/dex-left-mobile.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+}

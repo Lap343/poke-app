@@ -12,25 +12,26 @@
   z-index: 1;
 }
 .enemy-pokemon__display-name {
+  text-transform: capitalize;
   padding: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 15%;
   width: 135%;
+  font-size: 2em;
   border: 6px solid black;
   border-radius: 15px;
   background-color: #fdf0c4;
   box-shadow: 0.3em 0.3em rgba(0, 0, 0, 0.3);
 }
-.enemy-pokemon__display-name p {
-  font-size: 2em;
-  text-transform: capitalize;
-}
 
 .enemy-pokemon__display-image {
-  margin-left: 30%;
-  transform: scale(1.6);
+  position: absolute;
+  top: 25%;
+  left: 10%;
+  height: 15em;
+  width: 15em;
 }
 .enemy-pokemon__display-image img {
   width: 100%;
@@ -63,11 +64,11 @@
 .enemy-pokemon__stats-title {
   left: 27%;
   background-color: rgb(160, 212, 212);
-  z-index: 0;
+  z-index: 1;
 }
 
 .enemy-pokemon__stats {
-  z-index: 1;
+  z-index: 2;
   box-sizing: border-box;
   font-size: 1em;
   height: 32%;
@@ -84,7 +85,7 @@
 }
 .enemy-pokemon__stats {
   background-color: rgb(160, 212, 212);
-  z-index: 0;
+  z-index: 1;
 }
 .enemy-pokemon__stats::-webkit-scrollbar {
   width: 8.6px;

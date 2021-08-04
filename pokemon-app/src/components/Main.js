@@ -5,7 +5,6 @@ import SinglePokemon from "./SinglePokemon";
 import EnemyPokemon from "./EnemyPokemon";
 import Versus from "./Versus";
 import Pokeball from "./Pokeball";
-import "../styles/TypeCheck.css";
 
 const Main = ({
   pokemon,

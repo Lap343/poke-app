@@ -1,0 +1,19 @@
+@media screen and (max-width: 700px), (max-height: 820px){
+    .pokemon-versus {
+      position: fixed;
+      height: 70%;
+      width: 76%;
+    }
+    .pokemon-versus__left-main,
+    .pokemon-versus__right-main {
+        font-size: 6vw;
+    }
+    .pokemon-versus__middle-line {
+        height: 0.5%;
+        width: 1.2%;
+    }
+    .pokemon-versus__middle-line span {
+        height: 11vh;
+        width: 100%;
+    }
+}

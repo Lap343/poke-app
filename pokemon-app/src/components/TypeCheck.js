@@ -1,4 +1,6 @@
 import { typeJson } from "./typeMatchups";
+import "../styles/TypeCheck.css";
+
 
 const TypeCheck = ({ pokemon }) => {
     let type = []
