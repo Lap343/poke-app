@@ -19,6 +19,7 @@ const Main = ({
   pokeSoundUrl,
   enemyPokeSoundUrl,
   enemyPokeMoveTypes,
+  friendlyPokeType,
 }) => {
   return (
     <div className="main">
@@ -50,6 +51,7 @@ const Main = ({
               pokeSoundUrl={pokeSoundUrl}
               enemyPokeSoundUrl={enemyPokeSoundUrl}
               enemyPokeMoveTypes={enemyPokeMoveTypes}
+              friendlyPokeType={friendlyPokeType}
             />
           )}
         </>

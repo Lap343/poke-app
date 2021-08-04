@@ -17,6 +17,7 @@ import reactoadSound from "./assets/sounds/reactoad.mp3";
 
 function App() {
   const [pokemon, setPokemon] = useState(null);
+  const [friendlyPokeType, setFriendlyPokeType] = useState("");
   const [pokeSoundUrl, setPokeSoundUrl] = useState("");
   const [enemyPokeSoundUrl, setEnemyPokeSoundUrl] = useState("");
   const [evolutions, setEvolutions] = useState([]);
@@ -54,6 +55,7 @@ function App() {
 
       if (!isEnemy) {
         setPokemon(pokeData);
+        setFriendlyPokeType(pokeData.types);
         setPokeSoundUrl(getPokeSoundUrl(pokeData.name));
       }
 
@@ -108,6 +110,7 @@ function App() {
             pokeSoundUrl={pokeSoundUrl}
             enemyPokeSoundUrl={enemyPokeSoundUrl}
             enemyPokeMoveTypes={enemyPokeMoveTypes}
+            friendlyPokeType={friendlyPokeType}
           />
           <Search
             getPokeByNameOrIdAPI={getPokeByNameOrIdAPI}

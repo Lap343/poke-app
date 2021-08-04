@@ -2,7 +2,13 @@ import React from "react";
 import { useScroll } from "../hooks";
 import "../styles/MovesList.css";
 
-const MovesList = ({ pokemonMoves, hasEnemy, statsOnTop, isEnemyPokemon }) => {
+const MovesList = ({
+  pokemonMoves,
+  hasEnemy,
+  statsOnTop,
+  isEnemyPokemon,
+  effectivenessArray,
+}) => {
   const [isScrollBottom, onScroll, scrollRef, scrollTop] = useScroll();
 
   // This checks if the moves list length is less than or equal to 7.
@@ -47,7 +53,15 @@ const MovesList = ({ pokemonMoves, hasEnemy, statsOnTop, isEnemyPokemon }) => {
       >
         <ol id={`${isEnemyPokemon ? "enemy-" : ""}moves-list`}>
           {pokemonMoves.map((moveData, moveIndex) => (
-            <li key={moveIndex}>{moveData.move.name}</li>
+            <li key={moveIndex}>
+              {moveData.move.name}
+
+              {effectivenessArray && effectivenessArray.length && (
+                <span className="effective-label">
+                  {effectivenessArray[moveIndex]}
+                </span>
+              )}
+            </li>
           ))}
         </ol>
       </div>
