@@ -18,6 +18,27 @@ export const getPokeByNameOrId = async (pokemon) => {
   }
 };
 
+/**
+ * Calls the pokemon moves API, and gets the type object from that API.
+ * @async
+ * @returns {Promise.<[object]>} An array of objects.
+ */
+export const getPokeMoveType = async (pokeMovesArray) => {
+  try {
+    return await Promise.all(
+      pokeMovesArray.map(async (moveValue) => {
+        const { url } = moveValue.move;
+
+        const { type } = await fetchData(url);
+
+        return type;
+      })
+    );
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const getEvolutionChain = async (pokemonName) => {
   try {
     const pokemonData = await getPokeByNameOrId(pokemonName);

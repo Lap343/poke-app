@@ -18,6 +18,7 @@ const Main = ({
   getPokeByNameOrIdAPI,
   pokeSoundUrl,
   enemyPokeSoundUrl,
+  enemyPokeMoveTypes,
 }) => {
   return (
     <div className="main">
@@ -48,6 +49,7 @@ const Main = ({
               hasEnemy={hasEnemySubmit}
               pokeSoundUrl={pokeSoundUrl}
               enemyPokeSoundUrl={enemyPokeSoundUrl}
+              enemyPokeMoveTypes={enemyPokeMoveTypes}
             />
           )}
         </>

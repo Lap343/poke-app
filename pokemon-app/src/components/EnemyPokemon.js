@@ -6,13 +6,21 @@ import fightSong from "../assets/fightSong.mp3";
 import Types from "./Types";
 import PokemonCry from "./PokemonCry";
 import MovesList from "./MovesList";
+import { typeJson } from "./typeMatchups";
 
-const EnemyPokemon = ({ enemyPokemon, hasEnemy, enemyPokeSoundUrl }) => {
+const EnemyPokemon = ({
+  enemyPokemon,
+  hasEnemy,
+  enemyPokeSoundUrl,
+  enemyPokeMoveTypes,
+}) => {
   const [enemyStatsOnTop, setEnemyStatsOnTop] = useState(true);
 
   // This checks if the moves property exist in pokemon object.
   const checkDoesMovesKeyExistInObject = () =>
     Object.prototype.hasOwnProperty.call(enemyPokemon, "moves");
+
+  console.log("enemyPokeMoveTypes: ", enemyPokeMoveTypes);
 
   return (
     <>
