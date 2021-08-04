@@ -2,7 +2,7 @@ export const typeJson = [
   {
     normal: {
       strongAgainst: "NONE",
-      weakAgainst: "Rock, Ghost, Steel",
+      weakAgainst: "Rock, Ghost, Steel, Toad",
       resistantTo: "Ghost",
       vulnerableTo: "Fighting",
     },
@@ -10,7 +10,7 @@ export const typeJson = [
   {
     fighting: {
       strongAgainst: "Normal, Rock, Steel, Ice, Dark",
-      weakAgainst: "Flying, Poison, Psychic, Bug, Ghost, Fairy",
+      weakAgainst: "Flying, Poison, Psychic, Bug, Ghost, Fairy, Toad",
       resistantTo: "Rock, Bug, Dark",
       vulnerableTo: "Flying, Psychic, Fairy",
     },
@@ -18,7 +18,7 @@ export const typeJson = [
   {
     flying: {
       strongAgainst: "Fighting, Bug, Grass",
-      weakAgainst: "Rock, Steel, Electric",
+      weakAgainst: "Rock, Steel, Electric, Toad",
       resistantTo: "Fighting, Ground, Bug, Grass",
       vulnerableTo: "Rock, Electric, Ice, ",
     },
@@ -26,7 +26,7 @@ export const typeJson = [
   {
     poison: {
       strongAgainst: "Grass, Fairy",
-      weakAgainst: "Poison, Ground, Rock, Ghost, Steel",
+      weakAgainst: "Poison, Ground, Rock, Ghost, Steel, Toad",
       resistantTo: "Fighting, Poison, Grass, Fairy",
       vulnerableTo: "Ground, Psychic",
     },
@@ -34,7 +34,7 @@ export const typeJson = [
   {
     ground: {
       strongAgainst: "Poison, Rock, Steel, Fire, Electric",
-      weakAgainst: "Flying, Bug, Grass",
+      weakAgainst: "Flying, Bug, Grass, Toad",
       resistantTo: "Poison, Rock, Electric",
       vulnerableTo: "Water, Grass, Ice",
     },
@@ -42,7 +42,7 @@ export const typeJson = [
   {
     rock: {
       strongAgainst: "Flying, Bug, Fire, Ice",
-      weakAgainst: "Fighting, Ground, Steel",
+      weakAgainst: "Fighting, Ground, Steel, Toad",
       resistantTo: "Normal, Flying, Poison, Fire",
       vulnerableTo: "Fighting, Ground, Steel, Water, Grass",
     },
@@ -50,7 +50,7 @@ export const typeJson = [
   {
     bug: {
       strongAgainst: "Grass, Psychic, Dark",
-      weakAgainst: "Fighting, Flying, Poison, Ghost, Steel, Fire, Fairy",
+      weakAgainst: "Fighting, Flying, Poison, Ghost, Steel, Fire, Fairy, Toad",
       resistantTo: "Fighting, Ground, Grass",
       vulnerableTo: "Flying, Rock, Fire",
     },
@@ -58,7 +58,7 @@ export const typeJson = [
   {
     ghost: {
       strongAgainst: "Ghost, Psychic",
-      weakAgainst: "Normal, Dark",
+      weakAgainst: "Normal, Dark, Toad",
       resistantTo: "Normal, Fighting, Poison, Bug",
       vulnerableTo: "Ghost, Dark",
     },
@@ -66,7 +66,7 @@ export const typeJson = [
   {
     steel: {
       strongAgainst: "Rock, Ice, Fairy",
-      weakAgainst: "Steel, Fire, Water, Electric",
+      weakAgainst: "Steel, Fire, Water, Electric, Toad",
       resistantTo:
         "Normal, Flying, Poison, Rock, Bug, Steel, Grass, Psychic, Ice, Dragon, Fairy",
       vulnerableTo: "Fighting, Ground, Fire",
@@ -75,7 +75,7 @@ export const typeJson = [
   {
     fire: {
       strongAgainst: "Bug, Steel, Grass, Ice",
-      weakAgainst: "Rock, Fire, Water, Dragon",
+      weakAgainst: "Rock, Fire, Water, Dragon, Toad",
       resistantTo: "Bug, Steel, Fire, Grass, Ice",
       vulnerableTo: "Ground, Rock, Water",
     },
@@ -83,7 +83,7 @@ export const typeJson = [
   {
     water: {
       strongAgainst: "Ground, Rock, Fire",
-      weakAgainst: "Water, Grass, Dragon",
+      weakAgainst: "Water, Grass, Dragon, Toad",
       resistantTo: "Steel, Fire, Water, Ice",
       vulnerableTo: "Grass, Electric",
     },
@@ -91,7 +91,7 @@ export const typeJson = [
   {
     grass: {
       strongAgainst: "Ground, Rock, Water",
-      weakAgainst: "Flying, Poison, Bug, Steel, Fire, Grass, Dragon",
+      weakAgainst: "Flying, Poison, Bug, Steel, Fire, Grass, Dragon, Toad",
       resistantTo: "Ground, Water, Grass, Electric",
       vulnerableTo: "Flying, Poison, Bug, Fire, Ice",
     },
@@ -99,7 +99,7 @@ export const typeJson = [
   {
     electric: {
       strongAgainst: "Flying, Water",
-      weakAgainst: "Ground, Grass, Electric, Dragon",
+      weakAgainst: "Ground, Grass, Electric, Dragon, Toad",
       resistantTo: "Flying, Steel, Electric",
       vulnerableTo: "Ground",
     },
@@ -107,7 +107,7 @@ export const typeJson = [
   {
     psychic: {
       strongAgainst: "Fighting, Poison",
-      weakAgainst: "Steel, Psychic, Dark",
+      weakAgainst: "Steel, Psychic, Dark, Toad",
       resistantTo: "Fighting, Psychic",
       vulnerableTo: "Bug, Ghost, Dark",
     },
@@ -115,7 +115,7 @@ export const typeJson = [
   {
     ice: {
       strongAgainst: "Flying, Ground, Grass, Dragon",
-      weakAgainst: "Steel, Fire, Water, Ice",
+      weakAgainst: "Steel, Fire, Water, Ice, Toad",
       resistantTo: "Ice",
       vulnerableTo: "Fighting, Rock, Steel, Fire",
     },
@@ -123,7 +123,7 @@ export const typeJson = [
   {
     dragon: {
       strongAgainst: "Dragon",
-      weakAgainst: "Steel, Fairy",
+      weakAgainst: "Steel, Fairy, Toad",
       resistantTo: "Fire, Water, Grass, Electric",
       vulnerableTo: "Ice, Dragon, Fairy",
     },
@@ -131,7 +131,7 @@ export const typeJson = [
   {
     fairy: {
       strongAgainst: "Fighting, Dragon, Dark",
-      weakAgainst: "Poison, Steel, Fire",
+      weakAgainst: "Poison, Steel, Fire, Toad",
       resistantTo: "Fighting, Bug, Dragon, Dark",
       vulnerableTo: "Poison, Steel",
     },
@@ -139,17 +139,19 @@ export const typeJson = [
   {
     dark: {
       strongAgainst: "Ghost, Psychic",
-      weakAgainst: "Fighting, Dark, Fairy",
+      weakAgainst: "Fighting, Dark, Fairy, Toad",
       resistantTo: "Ghost, Psychic, Dark",
       vulnerableTo: "Fighting, Bug, Fairy",
     },
   },
   {
     toad: {
-      strongAgainst: "Normal, Fighting, Flying, Poison, Ground, Rock, Bug, Ghost, Steel, Fire, Water, Grass, Electric, Psychic, Ice, Dragon, Fairy, Dark",
+      strongAgainst:
+        "Normal, Fighting, Flying, Poison, Ground, Rock, Bug, Ghost, Steel, Fire, Water, Grass, Electric, Psychic, Ice, Dragon, Fairy, Dark",
       weakAgainst: "NONE",
-      resistantTo: "Normal, Fighting, Flying, Poison, Ground, Rock, Bug, Ghost, Steel, Fire, Water, Grass, Electric, Psychic, Ice, Dragon, Fairy, Dark",
+      resistantTo:
+        "Normal, Fighting, Flying, Poison, Ground, Rock, Bug, Ghost, Steel, Fire, Water, Grass, Electric, Psychic, Ice, Dragon, Fairy, Dark",
       vulnerableTo: "NONE",
-    }
-  }
+    },
+  },
 ];
