@@ -35,7 +35,7 @@ export const getPokeMoveType = async (pokeMovesArray) => {
       })
     );
   } catch (error) {
-    console.error(error);
+    return Toad.moves.map((moveValue) => moveValue.move.type);
   }
 };
 
