@@ -1,9 +1,7 @@
 import { useState } from "react";
 import mainBackground from "../assets/mainBackground.png";
 import PokemonEvolutions from "./PokemonEvolutions";
-import homeSong from "../assets/homeSong.mp3";
 import fightPad from "../assets/fightpad.png";
-import ThemeSongs from "./ThemeSongs";
 import PokemonCry from "./PokemonCry";
 import TypeCheck from "./TypeCheck";
 import MovesList from "./MovesList";
@@ -114,7 +112,6 @@ const SinglePokemon = ({
       {hasEnemy ? null : <TypeCheck pokemon={pokemon} />}
 
       {!isPokeballRendering && <PokemonCry pokeName={pokemon?.name} />}
-      {!hasEnemy && <ThemeSongs src={homeSong} />}
     </>
   );
 };

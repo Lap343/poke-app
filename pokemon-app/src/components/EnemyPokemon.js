@@ -1,21 +1,17 @@
 import React, { useState } from "react";
-import fightSong from "../assets/fightSong.mp3";
 import fightPad from "../assets/fightpad.png";
 import PokemonCry from "./PokemonCry";
-import ThemeSongs from "./ThemeSongs";
+import MovesList from "./MovesList";
 import Types from "./Types";
 import "../styles/EnemyPokemon.css";
 import "../styles/EnemyPokemon-mobile.css";
-import MovesList from "./MovesList";
 
-const EnemyPokemon = ({ enemyPokemon, hasEnemy }) => {
+const EnemyPokemon = ({ enemyPokemon }) => {
   const [enemyStatsOnTop, setEnemyStatsOnTop] = useState(false);
 
   // This checks if the moves property exist in pokemon object.
   const checkDoesMovesKeyExistInObject = () =>
     Object.prototype.hasOwnProperty.call(enemyPokemon, "moves");
-
-  console.log(enemyStatsOnTop)
 
   return (
     <>
@@ -90,7 +86,6 @@ const EnemyPokemon = ({ enemyPokemon, hasEnemy }) => {
           </div>
 
           <PokemonCry pokeName={enemyPokemon?.name} />
-          {hasEnemy && <ThemeSongs src={fightSong} />}
         </>
       )}
     </>

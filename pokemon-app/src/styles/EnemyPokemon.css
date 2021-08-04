@@ -12,20 +12,18 @@
   z-index: 1;
 }
 .enemy-pokemon__display-name {
+  text-transform: capitalize;
   padding: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 15%;
   width: 135%;
+  font-size: 2em;
   border: 6px solid black;
   border-radius: 15px;
   background-color: #fdf0c4;
   box-shadow: 0.3em 0.3em rgba(0, 0, 0, 0.3);
-}
-.enemy-pokemon__display-name p {
-  font-size: 2em;
-  text-transform: capitalize;
 }
 
 .enemy-pokemon__display-image {

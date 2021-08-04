@@ -3,10 +3,10 @@
   font-size: 1.8em;
   border: solid black 6px;
   border-radius: 15px;
-  padding: 0.1em;
+  padding: 0.2em;
   background-color: #fdf0c4;
-  right: 27%;
-  top: 4.5%;
+  right: 26.6%;
+  top: 4%;
   z-index: 2;
 }
 .enemy-moves-title {

@@ -329,4 +329,9 @@
     width: 7em;
     font-size: 0.7em;
   }
+  .mute-button{
+    position: absolute;
+    top: -20%;
+    right: 7%;
+  }
 }

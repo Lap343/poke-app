@@ -94,4 +94,15 @@
       height: 7.8vh;
       width: 10.8vw;
     }
+    .mute-button{
+      position: fixed;
+      top: 82%;
+      right: 13%;
+      height: 3vh;
+      width: 4.8vw;
+    }
+    .mute-button:active{
+      height: 2.8vh;
+      width: 4.4vw;
+    }
   }
