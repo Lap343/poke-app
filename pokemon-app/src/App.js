@@ -4,7 +4,11 @@ import dexRightOpen from "./assets/dex-right-open.png";
 import dexRightClose from "./assets/dex-right-close.png";
 import Main from "./components/Main";
 import Search from "./components/Search";
-import { getEvolutionChain, getPokeByNameOrId } from "./utils/api";
+import {
+  getEvolutionChain,
+  getPokeByNameOrId,
+  getPokeMoveType,
+} from "./utils/api";
 import "./App.css";
 import "./styles/Pokedex-model.css";
 import "./styles/Pokedex-model-mobile.css";
@@ -14,10 +18,12 @@ import reactoadSound from "./assets/sounds/reactoad.mp3";
 
 function App() {
   const [pokemon, setPokemon] = useState(null);
+  const [friendlyPokeType, setFriendlyPokeType] = useState("");
   const [pokeSoundUrl, setPokeSoundUrl] = useState("");
   const [enemyPokeSoundUrl, setEnemyPokeSoundUrl] = useState("");
   const [evolutions, setEvolutions] = useState([]);
   const [enemyPokemon, setEnemyPokemon] = useState(null);
+  const [enemyPokeMoveTypes, setEnemyPokeMoveTypes] = useState([]);
   const [isEnemy, setIsEnemy] = useState(false);
   const [hasEnemySubmit, setHasEnemySubmit] = useState(false);
   const [isVersus, setIsVersus] = useState(false);
@@ -34,16 +40,28 @@ function App() {
     return pokeSoundUrlPath;
   };
 
+  const getPokeMoveTypeAPI = async (pokeMovesArray) => {
+    try {
+      const dataArray = await getPokeMoveType(pokeMovesArray);
+
+      setEnemyPokeMoveTypes(dataArray);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const getPokeByNameOrIdAPI = async (pokemonAPI) => {
     try {
       const pokeData = await getPokeByNameOrId(pokemonAPI);
 
       if (!isEnemy) {
         setPokemon(pokeData);
+        setFriendlyPokeType(pokeData.types);
         setPokeSoundUrl(getPokeSoundUrl(pokeData.name));
       }
 
       if (isEnemy) {
+        getPokeMoveTypeAPI(pokeData.moves);
         setEnemyPokemon(pokeData);
         setEnemyPokeSoundUrl(getPokeSoundUrl(pokeData.name));
         setHasEnemySubmit(true);
@@ -92,6 +110,8 @@ function App() {
             getPokeByNameOrIdAPI={getPokeByNameOrIdAPI}
             pokeSoundUrl={pokeSoundUrl}
             enemyPokeSoundUrl={enemyPokeSoundUrl}
+            enemyPokeMoveTypes={enemyPokeMoveTypes}
+            friendlyPokeType={friendlyPokeType}
           />
           <Search
             getPokeByNameOrIdAPI={getPokeByNameOrIdAPI}
