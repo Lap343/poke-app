@@ -18,9 +18,10 @@
   left: 13em;
   z-index: 20;
   animation-name: open-left;
-  animation-duration: 1s;
+  animation-duration: 0.8s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-in;
+  animation-delay: 1s;
 }
 @keyframes open-left {
   from {
@@ -40,8 +41,8 @@
   height: 77.2em;
   width: 0em;
   animation-name: open-right;
-  animation-delay: 1s;
-  animation-duration: 1s;
+  animation-delay: 1.8s;
+  animation-duration: 0.8s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-out;
 }
@@ -65,9 +66,6 @@
   left: 14%;
   height: 46em;
   width: 43em;
-  animation-duration: 1.3s;
-  animation-fill-mode: forwards;
-  animation-name: hideSearch;
 }
 
 .splash-background {
@@ -79,14 +77,14 @@
   position: absolute;
   height: 0%;
   animation: pop 1s;
-  animation-delay: 1s;
+  animation-delay: 2s;
   animation-fill-mode: forwards;
 }
 .splash-title {
   position: absolute;
   height: 0%;
   animation: pop 1s;
-  animation-delay: 1.4s;
+  animation-delay: 2.4s;
   animation-fill-mode: forwards;
 }
 @keyframes pop {
