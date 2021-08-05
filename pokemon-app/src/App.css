@@ -18,3 +18,8 @@
         transform: scale(1);
     }
 }
+@media screen and (max-width: 700px), (max-height: 820px){
+    .App{
+        animation-name: none;
+    }
+}

@@ -292,10 +292,36 @@
   #dex-left{
     left: -6em;
   }
+  #dex-right-closed{
+    left: -6em;
+  }
+  @keyframes open-left {
+    from {
+      left: -6em;
+      width: 60.2em;
+    }
+    to {
+      left: 59em;
+      width: 0em;
+    }
+  }
 }
 @media screen and (max-width: 800px) {
   #dex-left{
     left: -9.4em;
+  }
+  #dex-right-closed{
+    left: -9.4em;
+  }
+  @keyframes open-left {
+    from {
+      left: -9.4em;
+      width: 60.2em;
+    }
+    to {
+      left: 59em;
+      width: 0em;
+    }
   }
 }
 @media screen and (max-height: 930px) {
