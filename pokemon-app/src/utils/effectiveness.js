@@ -5,8 +5,8 @@ import { typeJson } from "../components/typeMatchups";
  * Gets the pokemon's type(s); checks to see if that type is in typeJson
  * (and gets it if it exists); and transforms the values of strongAgainst,
  * weakAgainst, resistantTo, and vulnerableTo from a string to an array.
- * @param {[object]} pokeType
- * @returns {[object]} An array of objects.
+ * @param {[{}]} pokeType
+ * @returns {[{}]} An array of objects.
  */
 const typeMatchups = (pokeType) =>
   pokeType.map((typeValue) => {
@@ -32,8 +32,8 @@ const typeMatchups = (pokeType) =>
 
 /**
  * Creates a counter based on if the attacker is effective against the defender.
- * @param {[object]} defenderTypeMatchups
- * @param {object} attackerMoveType
+ * @param {[{}]} defenderTypeMatchups
+ * @param {{}} attackerMoveType
  * @returns {number} A number.
  */
 const effectivenessCounter = (defenderTypeMatchups, attackerMoveType) => {
@@ -72,8 +72,8 @@ const effectivenessCounterCheck = (effectiveCounter) =>
 
 /**
  * Checks to see the overall effectiveness of the attacker against the defender.
- * @param {[object]} defenderType
- * @param {[object]} attackerType
+ * @param {[{}]} defenderType
+ * @param {[{}]} attackerType
  * @returns {"Super Effective"|"Ineffective"|""} A string of "Super Effective",
  * "Ineffective", or an empty one.
  */
@@ -100,8 +100,8 @@ const overallEffectiveness = (defenderType, attackerType) => {
 
 /**
  * Checks to see if the attacker's moves are effective against the defender.
- * @param {[object]} defenderType
- * @param {[object]} attackerMoveTypes
+ * @param {[{}]} defenderType
+ * @param {[{}]} attackerMoveTypes
  * @returns {["Super Effective"|"Ineffective"|""]} An array of strings containing
  * "Super Effective", "Ineffective", or an empty one.
  */
