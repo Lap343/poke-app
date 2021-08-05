@@ -1,0 +1,25 @@
+.App{
+    position: fixed;
+    animation-name: zoomIn;
+    animation-timing-function: ease-out;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes zoomIn {
+    from{
+        bottom: 10%;
+        left: 40%;
+        transform: scale(0.10);
+    }
+    to{
+        bottom: 100%;
+        left: 0%;
+        transform: scale(1);
+    }
+}
+@media screen and (max-width: 700px), (max-height: 820px){
+    .App{
+        animation-name: none;
+    }
+}
