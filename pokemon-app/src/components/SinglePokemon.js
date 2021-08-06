@@ -115,7 +115,7 @@ const SinglePokemon = ({
                 </ol>
               </div>
               <div className={hasEnemy ? "user-poke" : "user-poke-none"}>
-                Your Pokemon
+                Attacker
               </div>
 
               {checkDoesMovesKeyExistInObject() && (
