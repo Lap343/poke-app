@@ -20,6 +20,7 @@ const Search = ({
   // This is more on the UI functionalities like adding a className,
   // handling the onClick for buttons, and disabling buttons
   const [hasSelected, setHasSelected] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
   const [source, setSource] = useState("");
 
   useEffect(() => {
@@ -120,7 +121,7 @@ const Search = ({
           </div>
         </div>
       </div>
-      {pokemon && <ThemeSongs src={source} />}
+      {pokemon && <ThemeSongs src={source} isPlaying={isPlaying} setIsPlaying={setIsPlaying} />}
     </div>
   );
 };

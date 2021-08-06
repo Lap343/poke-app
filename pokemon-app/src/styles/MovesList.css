@@ -244,3 +244,38 @@
     top: 38.4%;
   }
 }
+
+
+/* Styling for effectiveness label */
+.effective-label {
+  box-sizing: border-box;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-left: .25rem;
+  margin-top: .2rem;
+  padding: 3px;
+  text-align: center;
+  font-size: 7px;
+
+  display: inline-block;
+}
+
+.effective-label[data-value="Super Effective"] {
+  color: #fefefe;
+  width: 3.7rem;
+  background-color: #C00C0C;
+}
+
+.effective-label[data-value="Ineffective"] {
+  color: #fefefe;
+  width: 4.2rem;
+  background-color: rgb(65, 95, 165);
+}
+
+.list-spacing-moves {
+  margin: 8px !important;
+}
+
+.list-spacing-moves > span:empty {
+  display: none !important;
+}

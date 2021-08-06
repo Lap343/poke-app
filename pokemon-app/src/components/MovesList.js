@@ -53,11 +53,14 @@ const MovesList = ({
       >
         <ol id={`${isEnemyPokemon ? "enemy-" : ""}moves-list`}>
           {pokemonMoves.map((moveData, moveIndex) => (
-            <li key={moveIndex}>
+            <li className="list-spacing-moves" key={moveIndex}>
               {moveData.move.name}
 
-              {hasEnemy && effectivenessArray.length > 0 && (
-                <span className="effective-label">
+              {hasEnemy && effectivenessArray.length && (
+                <span
+                  className="effective-label"
+                  data-value={`${effectivenessArray[moveIndex]}`}
+                >
                   {effectivenessArray[moveIndex]}
                 </span>
               )}
