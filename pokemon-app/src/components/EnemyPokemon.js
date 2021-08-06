@@ -43,8 +43,6 @@ const EnemyPokemon = ({
     }
   }, [enemyPokeMoveTypes, friendlyPokeType, enemyPokeType]);
 
-  console.log(overallEffectivenessString);
-
   return (
     <>
       {!enemyPokemon ? null : (
@@ -61,6 +59,15 @@ const EnemyPokemon = ({
                   alt={`Front default of ${enemyPokemon?.name} sprite`}
                 />
               </div>
+
+              {hasEnemy && overallEffectivenessString.length > 0 && (
+                <span
+                  className="effective-label overall"
+                  data-value={`${overallEffectivenessString}`}
+                >
+                  {overallEffectivenessString}
+                </span>
+              )}
             </div>
 
             <div className="enemy-pokemon-types">

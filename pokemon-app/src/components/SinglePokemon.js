@@ -49,8 +49,6 @@ const SinglePokemon = ({
     }
   }, [friendlyPokeMoveTypes, friendlyPokeType, enemyPokeType]);
 
-  console.log(overallEffectivenessString);
-
   return (
     <>
       {!pokemon ? null : (
@@ -71,6 +69,15 @@ const SinglePokemon = ({
                   src={`${pokemon.sprites.front_default}`}
                   alt="pokemon"
                 />
+
+                {hasEnemy && overallEffectivenessString.length > 0 && (
+                  <span
+                    className="effective-label overall"
+                    data-value={`${overallEffectivenessString}`}
+                  >
+                    {overallEffectivenessString}
+                  </span>
+                )}
               </div>
 
               <div
