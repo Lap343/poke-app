@@ -119,7 +119,7 @@ const EnemyPokemon = ({
               />
             )}
 
-            <div className="enemy-poke">Enemy Pokemon</div>
+            <div className="enemy-poke">Defender</div>
           </div>
 
           <div className="poke-pad--enemy">
