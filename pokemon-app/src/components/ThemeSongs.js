@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import "../styles/ThemeSongs.css";
 
-const ThemeSongs = ({ src }) => {
-  const [isPlaying, setIsPlaying] = useState(true);
+const ThemeSongs = ({ src, isPlaying, setIsPlaying }) => {
 
   const audioPlayer = useRef(); //reference for audio component
 
@@ -18,11 +17,11 @@ const ThemeSongs = ({ src }) => {
   };
 
   useEffect(() => {
-    if (audioPlayer.current) {
+    if (isPlaying) {
       audioPlayer.current.volume = 0.08;
       audioPlayer.current.play();
     }
-  }, [src]);
+  }, [src, isPlaying]);
 
   return (
     <div>

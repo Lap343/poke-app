@@ -16,6 +16,12 @@
       height: 70%;
       width: 76%;
     }
+    .splash-star {
+      animation-delay: 1s;
+    }
+    .splash-title {
+      animation-delay: 1.4s
+    }
     .searchbar{
       position: fixed;
       top: 85%;
