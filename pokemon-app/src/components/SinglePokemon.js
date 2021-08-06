@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import mainBackground from "../assets/mainBackground.png";
 import PokemonEvolutions from "./PokemonEvolutions";
 import fightPad from "../assets/fightpad.png";
@@ -8,6 +8,10 @@ import MovesList from "./MovesList";
 import Types from "./Types";
 import "../styles/One-pokemon-page.css";
 import "../styles/One-pokemon-page-mobile.css";
+import {
+  moveEffectiveness,
+  overallEffectiveness,
+} from "../utils/effectiveness";
 
 const SinglePokemon = ({
   pokemon,
@@ -16,12 +20,34 @@ const SinglePokemon = ({
   getPokeByNameOrIdAPI,
   isPokeballRendering,
   pokeSoundUrl,
+  friendlyPokeMoveTypes,
+  friendlyPokeType,
+  enemyPokeType,
 }) => {
   const [statsOnTop, setStatsOnTop] = useState(false);
+  const [effectivenessArray, setEffectivenessArray] = useState([]);
+  const [overallEffectivenessString, setOverallEffectivenessString] =
+    useState("");
 
   // This checks if the moves property exist in pokemon object.
   const checkDoesMovesKeyExistInObject = () =>
     Object.prototype.hasOwnProperty.call(pokemon, "moves");
+
+  useEffect(() => {
+    if (
+      friendlyPokeMoveTypes.length &&
+      friendlyPokeType.length &&
+      enemyPokeType.length
+    ) {
+      setEffectivenessArray(
+        moveEffectiveness(enemyPokeType, friendlyPokeMoveTypes)
+      );
+
+      setOverallEffectivenessString(
+        overallEffectiveness(enemyPokeType, friendlyPokeType)
+      );
+    }
+  }, [friendlyPokeMoveTypes, friendlyPokeType, enemyPokeType]);
 
   return (
     <>
@@ -43,6 +69,15 @@ const SinglePokemon = ({
                   src={`${pokemon.sprites.front_default}`}
                   alt="pokemon"
                 />
+
+                {hasEnemy && overallEffectivenessString.length > 0 && (
+                  <span
+                    className="effective-label friendly-overall"
+                    data-value={`${overallEffectivenessString}`}
+                  >
+                    {overallEffectivenessString}
+                  </span>
+                )}
               </div>
 
               <div
@@ -88,6 +123,7 @@ const SinglePokemon = ({
                   pokemonMoves={pokemon?.moves}
                   hasEnemy={hasEnemy}
                   statsOnTop={statsOnTop}
+                  effectivenessArray={effectivenessArray}
                 />
               )}
             </div>

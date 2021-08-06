@@ -18,11 +18,13 @@ import reactoadSound from "./assets/sounds/reactoad.mp3";
 
 function App() {
   const [pokemon, setPokemon] = useState(null);
-  const [friendlyPokeType, setFriendlyPokeType] = useState("");
+  const [friendlyPokeType, setFriendlyPokeType] = useState([]);
+  const [friendlyPokeMoveTypes, setFriendlyPokeMoveTypes] = useState([]);
   const [pokeSoundUrl, setPokeSoundUrl] = useState("");
   const [enemyPokeSoundUrl, setEnemyPokeSoundUrl] = useState("");
   const [evolutions, setEvolutions] = useState([]);
   const [enemyPokemon, setEnemyPokemon] = useState(null);
+  const [enemyPokeType, setEnemyPokeType] = useState([]);
   const [enemyPokeMoveTypes, setEnemyPokeMoveTypes] = useState([]);
   const [isEnemy, setIsEnemy] = useState(false);
   const [hasEnemySubmit, setHasEnemySubmit] = useState(false);
@@ -44,7 +46,9 @@ function App() {
     try {
       const dataArray = await getPokeMoveType(pokeMovesArray);
 
-      setEnemyPokeMoveTypes(dataArray);
+      !isEnemy
+        ? setFriendlyPokeMoveTypes(dataArray)
+        : setEnemyPokeMoveTypes(dataArray);
     } catch (error) {
       console.error(error);
     }
@@ -54,6 +58,8 @@ function App() {
     try {
       const pokeData = await getPokeByNameOrId(pokemonAPI);
 
+      getPokeMoveTypeAPI(pokeData.moves);
+
       if (!isEnemy) {
         setPokemon(pokeData);
         setFriendlyPokeType(pokeData.types);
@@ -61,8 +67,8 @@ function App() {
       }
 
       if (isEnemy) {
-        getPokeMoveTypeAPI(pokeData.moves);
         setEnemyPokemon(pokeData);
+        setEnemyPokeType(pokeData.types);
         setEnemyPokeSoundUrl(getPokeSoundUrl(pokeData.name));
         setHasEnemySubmit(true);
         setIsVersus(true);
@@ -110,8 +116,10 @@ function App() {
             getPokeByNameOrIdAPI={getPokeByNameOrIdAPI}
             pokeSoundUrl={pokeSoundUrl}
             enemyPokeSoundUrl={enemyPokeSoundUrl}
+            friendlyPokeMoveTypes={friendlyPokeMoveTypes}
             enemyPokeMoveTypes={enemyPokeMoveTypes}
             friendlyPokeType={friendlyPokeType}
+            enemyPokeType={enemyPokeType}
           />
           <Search
             getPokeByNameOrIdAPI={getPokeByNameOrIdAPI}
