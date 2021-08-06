@@ -72,7 +72,7 @@ const SinglePokemon = ({
 
                 {hasEnemy && overallEffectivenessString.length > 0 && (
                   <span
-                    className="effective-label overall"
+                    className="effective-label friendly-overall"
                     data-value={`${overallEffectivenessString}`}
                   >
                     {overallEffectivenessString}

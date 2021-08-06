@@ -62,7 +62,7 @@ const EnemyPokemon = ({
 
               {hasEnemy && overallEffectivenessString.length > 0 && (
                 <span
-                  className="effective-label overall"
+                  className="effective-label enemy-overall"
                   data-value={`${overallEffectivenessString}`}
                 >
                   {overallEffectivenessString}

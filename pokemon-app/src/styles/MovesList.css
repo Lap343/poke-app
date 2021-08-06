@@ -245,14 +245,13 @@
   }
 }
 
-
 /* Styling for effectiveness label */
 .effective-label {
   box-sizing: border-box;
   border: 1px solid black;
   border-radius: 5px;
-  margin-left: .25rem;
-  margin-top: .2rem;
+  margin-left: 0.25rem;
+  margin-top: 0.2rem;
   padding: 3px;
   text-align: center;
   font-size: 7px;
@@ -263,13 +262,29 @@
 .effective-label[data-value="Super Effective"] {
   color: #fefefe;
   width: 3.7rem;
-  background-color: #C00C0C;
+  background-color: #c00c0c;
 }
 
 .effective-label[data-value="Ineffective"] {
   color: #fefefe;
   width: 4.2rem;
   background-color: rgb(65, 95, 165);
+}
+
+.effective-label.friendly-overall,
+.effective-label.enemy-overall {
+  position: absolute;
+  transform: skew(10deg, -20deg) scale(1.5);
+}
+
+.effective-label.friendly-overall {
+  bottom: 3%;
+  left: 95%;
+}
+
+.effective-label.enemy-overall {
+  top: 300%;
+  left: 100%;
 }
 
 .list-spacing-moves {
