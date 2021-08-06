@@ -19,6 +19,7 @@ import reactoadSound from "./assets/sounds/reactoad.mp3";
 function App() {
   const [pokemon, setPokemon] = useState(null);
   const [friendlyPokeType, setFriendlyPokeType] = useState([]);
+  const [friendlyPokeMoveTypes, setFriendlyPokeMoveTypes] = useState([]);
   const [pokeSoundUrl, setPokeSoundUrl] = useState("");
   const [enemyPokeSoundUrl, setEnemyPokeSoundUrl] = useState("");
   const [evolutions, setEvolutions] = useState([]);
@@ -45,7 +46,9 @@ function App() {
     try {
       const dataArray = await getPokeMoveType(pokeMovesArray);
 
-      setEnemyPokeMoveTypes(dataArray);
+      !isEnemy
+        ? setFriendlyPokeMoveTypes(dataArray)
+        : setEnemyPokeMoveTypes(dataArray);
     } catch (error) {
       console.error(error);
     }
@@ -55,6 +58,8 @@ function App() {
     try {
       const pokeData = await getPokeByNameOrId(pokemonAPI);
 
+      getPokeMoveTypeAPI(pokeData.moves);
+
       if (!isEnemy) {
         setPokemon(pokeData);
         setFriendlyPokeType(pokeData.types);
@@ -62,7 +67,6 @@ function App() {
       }
 
       if (isEnemy) {
-        getPokeMoveTypeAPI(pokeData.moves);
         setEnemyPokemon(pokeData);
         setEnemyPokeType(pokeData.types);
         setEnemyPokeSoundUrl(getPokeSoundUrl(pokeData.name));
@@ -112,6 +116,7 @@ function App() {
             getPokeByNameOrIdAPI={getPokeByNameOrIdAPI}
             pokeSoundUrl={pokeSoundUrl}
             enemyPokeSoundUrl={enemyPokeSoundUrl}
+            friendlyPokeMoveTypes={friendlyPokeMoveTypes}
             enemyPokeMoveTypes={enemyPokeMoveTypes}
             friendlyPokeType={friendlyPokeType}
             enemyPokeType={enemyPokeType}

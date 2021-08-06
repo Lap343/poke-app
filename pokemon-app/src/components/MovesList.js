@@ -46,7 +46,7 @@ const MovesList = ({
     <>
       <div
         className={`${isEnemyPokemon ? "enemy-" : ""}moves-box ${
-          hasEnemy ? "has-enemy" : ""
+          hasEnemy && !isEnemyPokemon ? "has-enemy" : ""
         } ${statsOnTop ? "" : "on-top"}`}
         ref={scrollRef}
         onScroll={onScroll}
@@ -56,7 +56,7 @@ const MovesList = ({
             <li key={moveIndex}>
               {moveData.move.name}
 
-              {effectivenessArray && effectivenessArray.length && (
+              {hasEnemy && effectivenessArray.length > 0 && (
                 <span className="effective-label">
                   {effectivenessArray[moveIndex]}
                 </span>
@@ -69,7 +69,7 @@ const MovesList = ({
       {renderMovesListTopArrow() && (
         <span
           className={`${isEnemyPokemon ? "enemy-" : ""}moves-list--up-arrow ${
-            hasEnemy ? "has-enemy" : ""
+            hasEnemy && !isEnemyPokemon ? "has-enemy" : ""
           }`}
         ></span>
       )}
@@ -77,7 +77,7 @@ const MovesList = ({
       {renderMovesListBottomArrow() && (
         <span
           className={`${isEnemyPokemon ? "enemy-" : ""}moves-list--down-arrow ${
-            hasEnemy ? "has-enemy" : ""
+            hasEnemy && !isEnemyPokemon ? "has-enemy" : ""
           }`}
         ></span>
       )}

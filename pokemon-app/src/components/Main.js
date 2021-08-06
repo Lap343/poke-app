@@ -17,6 +17,7 @@ const Main = ({
   getPokeByNameOrIdAPI,
   pokeSoundUrl,
   enemyPokeSoundUrl,
+  friendlyPokeMoveTypes,
   enemyPokeMoveTypes,
   friendlyPokeType,
   enemyPokeType,
@@ -40,6 +41,7 @@ const Main = ({
             getPokeByNameOrIdAPI={getPokeByNameOrIdAPI}
             isPokeballRendering={isPokeball}
             pokeSoundUrl={pokeSoundUrl}
+            friendlyPokeMoveTypes={friendlyPokeMoveTypes}
             friendlyPokeType={friendlyPokeType}
             enemyPokeType={enemyPokeType}
           />

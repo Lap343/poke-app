@@ -18,8 +18,10 @@ const EnemyPokemon = ({
   friendlyPokeType,
   enemyPokeType,
 }) => {
-  const [enemyStatsOnTop, setEnemyStatsOnTop] = useState(true);
+  const [enemyStatsOnTop, setEnemyStatsOnTop] = useState(false);
   const [effectivenessArray, setEffectivenessArray] = useState([]);
+  const [overallEffectivenessString, setOverallEffectivenessString] =
+    useState("");
 
   // This checks if the moves property exist in pokemon object.
   const checkDoesMovesKeyExistInObject = () =>
@@ -35,9 +37,13 @@ const EnemyPokemon = ({
         moveEffectiveness(friendlyPokeType, enemyPokeMoveTypes)
       );
 
-      console.log(overallEffectiveness(friendlyPokeType, enemyPokeType));
+      setOverallEffectivenessString(
+        overallEffectiveness(friendlyPokeType, enemyPokeType)
+      );
     }
   }, [enemyPokeMoveTypes, friendlyPokeType, enemyPokeType]);
+
+  console.log(overallEffectivenessString);
 
   return (
     <>
@@ -102,6 +108,7 @@ const EnemyPokemon = ({
                 statsOnTop={enemyStatsOnTop}
                 isEnemyPokemon
                 effectivenessArray={effectivenessArray}
+                hasEnemy={hasEnemy}
               />
             )}
 
