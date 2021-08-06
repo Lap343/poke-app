@@ -19,6 +19,7 @@ const Main = ({
   enemyPokeSoundUrl,
   enemyPokeMoveTypes,
   friendlyPokeType,
+  enemyPokeType,
 }) => {
   return (
     <div className="main">
@@ -39,6 +40,8 @@ const Main = ({
             getPokeByNameOrIdAPI={getPokeByNameOrIdAPI}
             isPokeballRendering={isPokeball}
             pokeSoundUrl={pokeSoundUrl}
+            friendlyPokeType={friendlyPokeType}
+            enemyPokeType={enemyPokeType}
           />
 
           <Versus isVersus={isVersus} />
@@ -51,6 +54,7 @@ const Main = ({
               enemyPokeSoundUrl={enemyPokeSoundUrl}
               enemyPokeMoveTypes={enemyPokeMoveTypes}
               friendlyPokeType={friendlyPokeType}
+              enemyPokeType={enemyPokeType}
             />
           )}
         </>

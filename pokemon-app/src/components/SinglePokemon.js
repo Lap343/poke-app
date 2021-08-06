@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import mainBackground from "../assets/mainBackground.png";
 import PokemonEvolutions from "./PokemonEvolutions";
 import fightPad from "../assets/fightpad.png";
@@ -8,6 +8,7 @@ import MovesList from "./MovesList";
 import Types from "./Types";
 import "../styles/One-pokemon-page.css";
 import "../styles/One-pokemon-page-mobile.css";
+import { overallEffectiveness } from "../utils/effectiveness";
 
 const SinglePokemon = ({
   pokemon,
@@ -16,12 +17,20 @@ const SinglePokemon = ({
   getPokeByNameOrIdAPI,
   isPokeballRendering,
   pokeSoundUrl,
+  friendlyPokeType,
+  enemyPokeType,
 }) => {
   const [statsOnTop, setStatsOnTop] = useState(false);
 
   // This checks if the moves property exist in pokemon object.
   const checkDoesMovesKeyExistInObject = () =>
     Object.prototype.hasOwnProperty.call(pokemon, "moves");
+
+  useEffect(() => {
+    if (friendlyPokeType.length && enemyPokeType.length) {
+      console.log(overallEffectiveness(enemyPokeType, friendlyPokeType));
+    }
+  }, [friendlyPokeType, enemyPokeType]);
 
   return (
     <>
