@@ -255,7 +255,6 @@
   padding: 3px;
   text-align: center;
   font-size: 7px;
-
   display: inline-block;
 }
 
@@ -293,4 +292,46 @@
 
 .list-spacing-moves > span:empty {
   display: none !important;
+}
+
+
+@media screen and (max-width: 700px), (max-height: 820px) {
+  .effective-label {
+    box-sizing: border-box;
+    margin-top: 0.2rem;
+    padding: 3px;
+    text-align: center;
+    display: flex;
+  }
+
+  .effective-label[data-value="Super Effective"] {
+    width: 11vw;
+    font-size: 1.2vw;
+  }
+
+  .effective-label[data-value="Ineffective"] {
+    width: 13vw;
+    font-size: 1.3vw;
+    margin-left: .25vw;
+  }
+
+  .list-spacing-moves {
+    margin-bottom: 4px;
+  }
+
+.effective-label.friendly-overall,
+.effective-label.enemy-overall {
+  position: absolute;
+  transform: skew(10deg, -20deg) scale(1.1);
+}
+ 
+.effective-label.friendly-overall {
+    bottom: -205PX;
+    left: 80%;
+  }
+  
+  .effective-label.enemy-overall {
+    top: 575%;
+    left: 75%;
+  }
 }
