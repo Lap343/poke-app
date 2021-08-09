@@ -1,3 +1,4 @@
+import useAudio from "./useAudio";
 import useScroll from "./useScroll";
 
-export { useScroll };
+export { useAudio, useScroll };

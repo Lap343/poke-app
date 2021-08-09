@@ -1,38 +1,26 @@
-import React, { useEffect, useRef } from "react";
-import { audioPlayAsync } from "../utils";
+import React, { useEffect } from "react";
+import { useAudio } from "../hooks";
 import "../styles/ThemeSongs.css";
 
 const ThemeSongs = ({ src, isPlaying, setIsPlaying }) => {
-  const audioPlayer = useRef(); //reference for audio component
-
-  const audioPlay = async (targetAudio) => {
-    try {
-      const { status, message } = await audioPlayAsync(targetAudio);
-
-      if (status === "error") {
-        throw new Error(message);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  const [audioRef, audioPlay] = useAudio();
 
   const togglePlay = () => {
     setIsPlaying(!isPlaying);
-    if (audioPlayer.current) {
+    if (audioRef.current) {
       if (!isPlaying) {
-        audioPlayer.current.play();
+        audioRef.current.play();
       } else {
-        audioPlayer.current.pause();
+        audioRef.current.pause();
       }
     }
   };
 
   useEffect(() => {
     if (isPlaying) {
-      if (audioPlayer.current) {
-        audioPlayer.current.volume = 0.08;
-        audioPlay(audioPlayer.current);
+      if (audioRef.current) {
+        audioRef.current.volume = 0.08;
+        audioPlay(audioRef.current);
       } else {
         console.error("audioPlayer.current not working...");
       }
@@ -41,7 +29,7 @@ const ThemeSongs = ({ src, isPlaying, setIsPlaying }) => {
 
   return (
     <div className="theme-song">
-      <audio ref={audioPlayer} loop src={src}></audio>
+      <audio ref={audioRef} loop src={src}></audio>
       <button
         type="button"
         onClick={togglePlay}
