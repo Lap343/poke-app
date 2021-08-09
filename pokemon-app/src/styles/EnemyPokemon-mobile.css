@@ -52,6 +52,11 @@
     .enemy-pokemon__stats-list{
         padding-left: 16%;
     }
+    .enemy-pokemon-types {
+        position: absolute;
+        top: 34%;
+        right: 17%;
+      }
     #enemy-moves-list{
         padding-left: 16%;
         margin: 0;
@@ -60,10 +65,11 @@
         margin: 0;
     }
     .enemy-poke{
+        padding-top: 3px;
         position: fixed;
-        top: 38%;
+        top: 37.5%;
         left: 52%;
-        height: 1%;
+        height: .75vh;
         width: 20%;
         font-size: 1.5vw;
     }
@@ -71,8 +77,9 @@
         position: fixed;
         top: 49%;
         left: 18%;
-        height: 1%;
+        height: .75vh;
         width: 20%;
         font-size: 1.5vw;
+        z-index: 99;
     }
 }
