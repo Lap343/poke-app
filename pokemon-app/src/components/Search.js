@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import fightSong from "../assets/sounds/fightSong.mp3";
 import homeSong from "../assets/sounds/homeSong.mp3";
-import ThemeSongs from "./ThemeSongs";
 
 const Search = ({
   getPokeByNameOrIdAPI,
@@ -15,22 +14,21 @@ const Search = ({
   setIsVersus,
   setIsPokeball,
   isVersus,
+  setSource,
 }) => {
   const [pokemonSearchValue, setPokemonSearchValue] = useState("");
   // This is more on the UI functionalities like adding a className,
   // handling the onClick for buttons, and disabling buttons
   const [hasSelected, setHasSelected] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [source, setSource] = useState("");
 
   useEffect(() => {
-    if(pokemon && !enemyPokemon){
-      setSource(homeSong)
+    if (pokemon && !enemyPokemon) {
+      setSource(homeSong);
     }
-    if(enemyPokemon){
-      setSource(fightSong)
+    if (enemyPokemon) {
+      setSource(fightSong);
     }
-  }, [enemyPokemon, pokemon])
+  }, [enemyPokemon, pokemon]);
 
   const onChange = (e) => {
     const { value } = e.target;
@@ -58,20 +56,24 @@ const Search = ({
         setPokemon(null);
         setHasSelected(false);
         setIsPokeball(false);
-        setSource("")
+        setSource("");
       }
     } else {
       setIsVersus(false);
       setEnemyPokemon(null);
       setHasEnemySubmit(false);
       setIsEnemy(false);
-      setSource(homeSong)
+      setSource(homeSong);
     }
   };
 
   return (
     <div id="search" className="searchbar">
-      <div className="remove-poke-title">Remove<br/>Pokemon</div>
+      <div className="remove-poke-title">
+        Remove
+        <br />
+        Pokemon
+      </div>
       <button type="button" id="removeButton" onClick={() => removePokemon()}>
         x
       </button>
@@ -121,7 +123,6 @@ const Search = ({
           </div>
         </div>
       </div>
-      {pokemon && <ThemeSongs src={source} isPlaying={isPlaying} setIsPlaying={setIsPlaying} />}
     </div>
   );
 };
