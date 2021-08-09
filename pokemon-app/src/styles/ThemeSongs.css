@@ -5,9 +5,6 @@
 }
 
 .mute-button {
-  /* position: absolute;
-  top: -90%;
-  right: 5%; */
   background-color: rgba(225, 10, 10, 1);
   background-image: url(../assets/volIcon2.png);
   height: 2.2em;
