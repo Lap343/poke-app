@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import "../styles/ThemeSongs.css";
 
 const ThemeSongs = ({ src, isPlaying, setIsPlaying }) => {
-
   const audioPlayer = useRef(); //reference for audio component
 
   const togglePlay = () => {
@@ -26,10 +25,13 @@ const ThemeSongs = ({ src, isPlaying, setIsPlaying }) => {
   return (
     <div>
       <audio ref={audioPlayer} loop src={src}></audio>
-      <button type="button" onClick={togglePlay} className={`mute-button ${isPlaying ? "" : "pressed"}`} enabled>
-      </button>
+      <button
+        type="button"
+        onClick={togglePlay}
+        className={`mute-button ${isPlaying ? "" : "pressed"}`}
+      ></button>
     </div>
   );
-}
+};
 
 export default ThemeSongs;
