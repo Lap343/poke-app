@@ -30,6 +30,7 @@ function App() {
   const [hasEnemySubmit, setHasEnemySubmit] = useState(false);
   const [isVersus, setIsVersus] = useState(false);
   const [isPokeball, setIsPokeball] = useState(false);
+  const [source, setSource] = useState("");
 
   const getPokeSoundUrl = (pokeName) => {
     let pokeSoundUrlPath = "";
@@ -120,6 +121,7 @@ function App() {
             enemyPokeMoveTypes={enemyPokeMoveTypes}
             friendlyPokeType={friendlyPokeType}
             enemyPokeType={enemyPokeType}
+            themeSongSource={source}
           />
           <Search
             getPokeByNameOrIdAPI={getPokeByNameOrIdAPI}
@@ -133,6 +135,7 @@ function App() {
             isVersus={isVersus}
             setIsVersus={setIsVersus}
             setIsPokeball={setIsPokeball}
+            setSource={setSource}
           />
         </div>
         <img id="dex-right-closed" src={dexRightClose} alt="" />

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import splashBackground from "../assets/splash-background.png";
 import splashStar from "../assets/splash-star.png";
 import splashTitle from "../assets/splash-title.png";
@@ -5,6 +6,7 @@ import SinglePokemon from "./SinglePokemon";
 import EnemyPokemon from "./EnemyPokemon";
 import Versus from "./Versus";
 import Pokeball from "./Pokeball";
+import ThemeSongs from "./ThemeSongs";
 
 const Main = ({
   pokemon,
@@ -21,7 +23,10 @@ const Main = ({
   enemyPokeMoveTypes,
   friendlyPokeType,
   enemyPokeType,
+  themeSongSource,
 }) => {
+  const [isPlaying, setIsPlaying] = useState(true);
+
   return (
     <div className="main">
       {pokemon === null ? (
@@ -57,6 +62,14 @@ const Main = ({
               enemyPokeMoveTypes={enemyPokeMoveTypes}
               friendlyPokeType={friendlyPokeType}
               enemyPokeType={enemyPokeType}
+            />
+          )}
+
+          {themeSongSource.length > 0 && (
+            <ThemeSongs
+              src={themeSongSource}
+              isPlaying={isPlaying}
+              setIsPlaying={setIsPlaying}
             />
           )}
         </>

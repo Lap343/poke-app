@@ -1,26 +1,32 @@
-.mute-button {
-    position: absolute;
-    top: -90%;
-    right: 5%;
-    background-color: rgba(225, 10, 10, 1);
-    background-image: url(../assets/volIcon2.png);
-    height: 2.2em;
-    width: 2.2em;
-    z-index: 1;
-    border: 1px solid black;
-    border-radius: 50%;
-    font-family: myFirstFont;
-    cursor: pointer;
-    background-size: cover;
-    -webkit-box-shadow: .75px 1.25px 0px;
+.theme-song {
+  position: absolute;
+  top: 102%;
+  right: 5%;
 }
 
-.mute-button:active{
-    height: 2.1em;
-    width: 2.1em;
-    -webkit-box-shadow: 1px 2px 0px;
+.mute-button {
+  /* position: absolute;
+  top: -90%;
+  right: 5%; */
+  background-color: rgba(225, 10, 10, 1);
+  background-image: url(../assets/volIcon2.png);
+  height: 2.2em;
+  width: 2.2em;
+  z-index: 1;
+  border: 1px solid black;
+  border-radius: 50%;
+  font-family: myFirstFont;
+  cursor: pointer;
+  background-size: cover;
+  -webkit-box-shadow: 0.75px 1.25px 0px;
+}
+
+.mute-button:active {
+  height: 2.1em;
+  width: 2.1em;
+  -webkit-box-shadow: 1px 2px 0px;
 }
 
 .pressed {
-    background-color: rgba(185, 10, 10, 1);
+  background-color: rgba(185, 10, 10, 1);
 }
