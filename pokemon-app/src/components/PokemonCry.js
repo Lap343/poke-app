@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useAudio } from "../hooks";
-// import { audioPlayAsync } from "../utils";
 
 const PokemonCry = ({ pokeSoundUrl, isPokeballRendering }) => {
   // Set the initial state for rendering the false.
