@@ -5,6 +5,7 @@ export const typeJson = [
       weakAgainst: "Rock, Ghost, Steel, Toad",
       resistantTo: "Ghost",
       vulnerableTo: "Fighting",
+      immuneTo: "Ghost",
     },
   },
   {
@@ -13,6 +14,7 @@ export const typeJson = [
       weakAgainst: "Flying, Poison, Psychic, Bug, Ghost, Fairy, Toad",
       resistantTo: "Rock, Bug, Dark",
       vulnerableTo: "Flying, Psychic, Fairy",
+      immuneTo: "Ghost",
     },
   },
   {
@@ -20,7 +22,8 @@ export const typeJson = [
       strongAgainst: "Fighting, Bug, Grass",
       weakAgainst: "Rock, Steel, Electric, Toad",
       resistantTo: "Fighting, Ground, Bug, Grass",
-      vulnerableTo: "Rock, Electric, Ice, ",
+      vulnerableTo: "Rock, Electric, Ice",
+      immuneTo: "Ground",
     },
   },
   {
@@ -29,6 +32,7 @@ export const typeJson = [
       weakAgainst: "Poison, Ground, Rock, Ghost, Steel, Toad",
       resistantTo: "Fighting, Poison, Grass, Fairy",
       vulnerableTo: "Ground, Psychic",
+      immuneTo: "NONE",
     },
   },
   {
@@ -37,6 +41,7 @@ export const typeJson = [
       weakAgainst: "Flying, Bug, Grass, Toad",
       resistantTo: "Poison, Rock, Electric",
       vulnerableTo: "Water, Grass, Ice",
+      immuneTo: "Electric",
     },
   },
   {
@@ -45,6 +50,7 @@ export const typeJson = [
       weakAgainst: "Fighting, Ground, Steel, Toad",
       resistantTo: "Normal, Flying, Poison, Fire",
       vulnerableTo: "Fighting, Ground, Steel, Water, Grass",
+      immuneTo: "NONE",
     },
   },
   {
@@ -53,6 +59,7 @@ export const typeJson = [
       weakAgainst: "Fighting, Flying, Poison, Ghost, Steel, Fire, Fairy, Toad",
       resistantTo: "Fighting, Ground, Grass",
       vulnerableTo: "Flying, Rock, Fire",
+      immuneTo: "NONE",
     },
   },
   {
@@ -61,6 +68,7 @@ export const typeJson = [
       weakAgainst: "Normal, Dark, Toad",
       resistantTo: "Normal, Fighting, Poison, Bug",
       vulnerableTo: "Ghost, Dark",
+      immuneTo: "Normal, Fighting",
     },
   },
   {
@@ -70,6 +78,7 @@ export const typeJson = [
       resistantTo:
         "Normal, Flying, Poison, Rock, Bug, Steel, Grass, Psychic, Ice, Dragon, Fairy",
       vulnerableTo: "Fighting, Ground, Fire",
+      immuneTo: "Poison",
     },
   },
   {
@@ -78,6 +87,7 @@ export const typeJson = [
       weakAgainst: "Rock, Fire, Water, Dragon, Toad",
       resistantTo: "Bug, Steel, Fire, Grass, Ice",
       vulnerableTo: "Ground, Rock, Water",
+      immuneTo: "NONE",
     },
   },
   {
@@ -86,6 +96,7 @@ export const typeJson = [
       weakAgainst: "Water, Grass, Dragon, Toad",
       resistantTo: "Steel, Fire, Water, Ice",
       vulnerableTo: "Grass, Electric",
+      immuneTo: "NONE",
     },
   },
   {
@@ -94,6 +105,7 @@ export const typeJson = [
       weakAgainst: "Flying, Poison, Bug, Steel, Fire, Grass, Dragon, Toad",
       resistantTo: "Ground, Water, Grass, Electric",
       vulnerableTo: "Flying, Poison, Bug, Fire, Ice",
+      immuneTo: "NONE",
     },
   },
   {
@@ -102,6 +114,7 @@ export const typeJson = [
       weakAgainst: "Ground, Grass, Electric, Dragon, Toad",
       resistantTo: "Flying, Steel, Electric",
       vulnerableTo: "Ground",
+      immuneTo: "NONE",
     },
   },
   {
@@ -110,6 +123,7 @@ export const typeJson = [
       weakAgainst: "Steel, Psychic, Dark, Toad",
       resistantTo: "Fighting, Psychic",
       vulnerableTo: "Bug, Ghost, Dark",
+      immuneTo: "NONE",
     },
   },
   {
@@ -118,6 +132,7 @@ export const typeJson = [
       weakAgainst: "Steel, Fire, Water, Ice, Toad",
       resistantTo: "Ice",
       vulnerableTo: "Fighting, Rock, Steel, Fire",
+      immuneTo: "NONE",
     },
   },
   {
@@ -126,6 +141,7 @@ export const typeJson = [
       weakAgainst: "Steel, Fairy, Toad",
       resistantTo: "Fire, Water, Grass, Electric",
       vulnerableTo: "Ice, Dragon, Fairy",
+      immuneTo: "NONE",
     },
   },
   {
@@ -134,6 +150,7 @@ export const typeJson = [
       weakAgainst: "Poison, Steel, Fire, Toad",
       resistantTo: "Fighting, Bug, Dragon, Dark",
       vulnerableTo: "Poison, Steel",
+      immuneTo: "Dragon",
     },
   },
   {
@@ -142,6 +159,7 @@ export const typeJson = [
       weakAgainst: "Fighting, Dark, Fairy, Toad",
       resistantTo: "Ghost, Psychic, Dark",
       vulnerableTo: "Fighting, Bug, Fairy",
+      immuneTo: "Psychic",
     },
   },
   {
@@ -152,6 +170,7 @@ export const typeJson = [
       resistantTo:
         "Normal, Fighting, Flying, Poison, Ground, Rock, Bug, Ghost, Steel, Fire, Water, Grass, Electric, Psychic, Ice, Dragon, Fairy, Dark",
       vulnerableTo: "NONE",
+      immuneTo: "NONE",
     },
   },
 ];
