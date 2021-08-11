@@ -11,7 +11,7 @@ import { typeJson } from "../components/typeMatchups";
 const typeMatchups = (pokeType) =>
   pokeType.map((typeValue) => {
     // Destructure these four properties.
-    const { strongAgainst, weakAgainst, resistantTo, vulnerableTo } =
+    const { strongAgainst, weakAgainst, resistantTo, vulnerableTo, immuneTo } =
       // Find that type in typeJson, it returns it as a single indexed array,
       // and so we care only to get the object in the pokemon's type property
       // which is in that single indexed (this is so we could destructure).
@@ -27,6 +27,7 @@ const typeMatchups = (pokeType) =>
       weakAgainst: weakAgainst.split(", "),
       resistantTo: resistantTo.split(", "),
       vulnerableTo: vulnerableTo.split(", "),
+      immuneTo: immuneTo.split(", "),
     };
   });
 
@@ -37,36 +38,45 @@ const typeMatchups = (pokeType) =>
  * @returns {number} A number.
  */
 const effectivenessCounter = (defenderTypeMatchups, attackerMoveType) => {
-  let effectiveCounter = 0;
+  let effectiveCounterTotal = 1;
+  let effectiveCounterArray = [0];
+  const attackerTypeName = capitalize(attackerMoveType.name);
 
-  defenderTypeMatchups.forEach((typeMatchup) => {
-    // If the enemy's move type is not effective against the friendly pokemon,
-    // then decrement.
-    if (typeMatchup.strongAgainst.includes(capitalize(attackerMoveType.name))) {
-      effectiveCounter -= 2;
+  defenderTypeMatchups.forEach((typeMatchup, typeIndex) => {
+    const { weakAgainst, resistantTo, immuneTo } = typeMatchup;
 
-      // If the enemy's move type is effective against the friendly pokemon,
-      // then increment.
-    } else if (
-      typeMatchup.weakAgainst.includes(capitalize(attackerMoveType.name))
-    ) {
-      effectiveCounter += 2;
-    }
+    const isWeakAgainst = weakAgainst.includes(attackerTypeName);
+    const isResistantTo = resistantTo.includes(attackerTypeName);
+    const isImmuneTo = immuneTo.includes(attackerTypeName);
+
+    effectiveCounterArray[typeIndex] = isImmuneTo
+      ? 0
+      : isResistantTo
+      ? 0.5
+      : isWeakAgainst
+      ? 2
+      : 1;
   });
 
-  return effectiveCounter;
+  effectiveCounterArray.forEach((counter) => {
+    effectiveCounterTotal *= counter;
+  });
+
+  return effectiveCounterTotal;
 };
 
 /**
  * Checks the effectiveness counter and gives it an associated word.
  * @param {number} effectiveCounter
- * @returns {"Super Effective"|"Ineffective"|""} A string of "Super Effective",
- * "Ineffective", or an empty one.
+ * @returns {"Super Effective"|"Ineffective"|"Half Damage"} A string of
+ * "Super Effective", "Ineffective", or "Half Damage".
  */
 const effectivenessCounterCheck = (effectiveCounter) =>
   effectiveCounter >= 2
     ? "Super Effective"
-    : effectiveCounter < 0
+    : effectiveCounter < 1 && effectiveCounter > 0
+    ? "Half Damage"
+    : effectiveCounter === 0
     ? "Ineffective"
     : "";
 
@@ -74,8 +84,8 @@ const effectivenessCounterCheck = (effectiveCounter) =>
  * Checks to see the overall effectiveness of the attacker against the defender.
  * @param {[{}]} defenderType
  * @param {[{}]} attackerType
- * @returns {"Super Effective"|"Ineffective"|""} A string of "Super Effective",
- * "Ineffective", or an empty one.
+ * @returns {"Super Effective"|"Ineffective"|"Half Damage"} A string of
+ * "Super Effective", "Ineffective", or "Half Damage".
  */
 const overallEffectiveness = (defenderType, attackerType) => {
   // Get the defender's type(s).
@@ -94,7 +104,8 @@ const overallEffectiveness = (defenderType, attackerType) => {
     );
   });
 
-  // Check the counter and return it as "Super Effective" or "Ineffective".
+  // Check the counter and return it as "Super Effective", "Ineffective", or
+  // "Half Damage".
   return effectivenessCounterCheck(overallEffectivenessCounter);
 };
 
@@ -102,8 +113,8 @@ const overallEffectiveness = (defenderType, attackerType) => {
  * Checks to see if the attacker's moves are effective against the defender.
  * @param {[{}]} defenderType
  * @param {[{}]} attackerMoveTypes
- * @returns {["Super Effective"|"Ineffective"|""]} An array of strings containing
- * "Super Effective", "Ineffective", or an empty one.
+ * @returns {["Super Effective"|"Ineffective"|"Half Damage"]} An array of strings
+ * containing "Super Effective", "Ineffective", or "Half Damage".
  */
 const moveEffectiveness = (defenderType, attackerMoveTypes) => {
   // Get the defender's type(s).
@@ -116,7 +127,7 @@ const moveEffectiveness = (defenderType, attackerMoveTypes) => {
   );
 
   // Check through each of the array of move counters, and return it as an array
-  // of "Super Effective" or "Ineffective".
+  // of "Super Effective", "Ineffective", or "Half Damage".
   return moveEffectivenessCounter.map((effectiveCounter) =>
     effectivenessCounterCheck(effectiveCounter)
   );
