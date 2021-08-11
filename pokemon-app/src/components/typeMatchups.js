@@ -167,10 +167,10 @@ export const typeJson = [
       strongAgainst:
         "Normal, Fighting, Flying, Poison, Ground, Rock, Bug, Ghost, Steel, Fire, Water, Grass, Electric, Psychic, Ice, Dragon, Fairy, Dark",
       weakAgainst: "NONE",
-      resistantTo:
-        "Normal, Fighting, Flying, Poison, Ground, Rock, Bug, Ghost, Steel, Fire, Water, Grass, Electric, Psychic, Ice, Dragon, Fairy, Dark",
+      resistantTo: "Toad",
       vulnerableTo: "NONE",
-      immuneTo: "NONE",
+      immuneTo:
+        "Normal, Fighting, Flying, Poison, Ground, Rock, Bug, Ghost, Steel, Fire, Water, Grass, Electric, Psychic, Ice, Dragon, Fairy, Dark",
     },
   },
 ];
