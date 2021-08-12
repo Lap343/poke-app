@@ -20,12 +20,14 @@ function App() {
   const [pokemon, setPokemon] = useState(null);
   const [friendlyPokeType, setFriendlyPokeType] = useState([]);
   const [friendlyPokeMoveTypes, setFriendlyPokeMoveTypes] = useState([]);
+  const [friendlyPokeStats, setFriendlyPokeStats] = useState([]);
   const [pokeSoundUrl, setPokeSoundUrl] = useState("");
   const [enemyPokeSoundUrl, setEnemyPokeSoundUrl] = useState("");
   const [evolutions, setEvolutions] = useState([]);
   const [enemyPokemon, setEnemyPokemon] = useState(null);
   const [enemyPokeType, setEnemyPokeType] = useState([]);
   const [enemyPokeMoveTypes, setEnemyPokeMoveTypes] = useState([]);
+  const [enemyPokeStats, setEnemyPokeStats] = useState([]);
   const [isEnemy, setIsEnemy] = useState(false);
   const [hasEnemySubmit, setHasEnemySubmit] = useState(false);
   const [isVersus, setIsVersus] = useState(false);
@@ -64,12 +66,14 @@ function App() {
       if (!isEnemy) {
         setPokemon(pokeData);
         setFriendlyPokeType(pokeData.types);
+        setFriendlyPokeStats(pokeData.stats);
         setPokeSoundUrl(getPokeSoundUrl(pokeData.name));
       }
 
       if (isEnemy) {
         setEnemyPokemon(pokeData);
         setEnemyPokeType(pokeData.types);
+        setEnemyPokeStats(pokeData.stats);
         setEnemyPokeSoundUrl(getPokeSoundUrl(pokeData.name));
         setHasEnemySubmit(true);
         setIsVersus(true);
@@ -121,6 +125,8 @@ function App() {
             enemyPokeMoveTypes={enemyPokeMoveTypes}
             friendlyPokeType={friendlyPokeType}
             enemyPokeType={enemyPokeType}
+            friendlyPokeStats={friendlyPokeStats}
+            enemyPokeStats={enemyPokeStats}
             themeSongSource={source}
           />
           <Search

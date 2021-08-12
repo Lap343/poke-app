@@ -23,6 +23,8 @@ const Main = ({
   enemyPokeMoveTypes,
   friendlyPokeType,
   enemyPokeType,
+  friendlyPokeStats,
+  enemyPokeStats,
   themeSongSource,
 }) => {
   const [isPlaying, setIsPlaying] = useState(true);
@@ -49,6 +51,8 @@ const Main = ({
             friendlyPokeMoveTypes={friendlyPokeMoveTypes}
             friendlyPokeType={friendlyPokeType}
             enemyPokeType={enemyPokeType}
+            friendlyPokeStats={friendlyPokeStats}
+            enemyPokeStats={enemyPokeStats}
           />
 
           <Versus isVersus={isVersus} />
