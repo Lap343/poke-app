@@ -35,7 +35,12 @@ export const getPokeMoveType = async (pokeMovesArray) => {
       })
     );
   } catch (error) {
-    return Toad.moves.map((moveValue) => moveValue.move.type);
+    return Toad.moves.map((moveValue) => ({
+      type: moveValue.move.type,
+      power: moveValue.move.power,
+      generation: moveValue.move.generation,
+      damageClass: moveValue.move.damage_class,
+    }));
   }
 };
 
