@@ -60,6 +60,11 @@ const SinglePokemon = ({
 
       if (clonedObject.stat.name === "hp") {
         clonedObject.base_stat -= damageOutcome;
+
+        // This is so there would be no negative values.
+        if (clonedObject.base_stat <= 0) {
+          clonedObject.base_stat = 0;
+        }
       }
       return clonedObject;
     });
@@ -146,9 +151,9 @@ const SinglePokemon = ({
                 }`}
               >
                 <ol id="stats-list">
-                  {!pokemon?.stats
+                  {!friendlyPokeStats
                     ? null
-                    : pokemon?.stats.map((statData, statIndex) => (
+                    : friendlyPokeStats.map((statData, statIndex) => (
                         <div key={statIndex}>
                           <li>{statData.stat.name}:</li>
                           <div>{statData.base_stat}</div>
