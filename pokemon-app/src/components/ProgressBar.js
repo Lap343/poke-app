@@ -5,16 +5,15 @@ const ProgressBar = ({ done }) => {
   const [style, setStyle] = useState({});
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      const newStyle = {
-        opacity: 1,
-        width: `${done}%`,
-      };
+    const hpColorStatus =
+      done > 50 ? "#00ae00" : done > 20 && done <= 50 ? "yellow" : "red";
 
-      setStyle(newStyle);
-    }, 20);
+    const newStyle = {
+      width: `${done}%`,
+      background: hpColorStatus,
+    };
 
-    return () => clearTimeout(timer);
+    setStyle(newStyle);
   }, [done]);
 
   return (
