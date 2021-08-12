@@ -9,6 +9,7 @@ const MovesList = ({
   isEnemyPokemon,
   effectivenessArrayString,
   handleDamageEffectiveness,
+  hasUserPickedMove,
 }) => {
   const [isScrollBottom, onScroll, scrollRef, scrollTop] = useScroll();
 
@@ -58,7 +59,8 @@ const MovesList = ({
               key={moveIndex}
               className="list-spacing-moves"
               {...(hasEnemy &&
-                !isEnemyPokemon && {
+                !isEnemyPokemon &&
+                !hasUserPickedMove && {
                   onClick: () => handleDamageEffectiveness(moveIndex),
                 })}
             >
