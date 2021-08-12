@@ -68,6 +68,7 @@ const Main = ({
               enemyPokeMoveTypes={enemyPokeMoveTypes}
               friendlyPokeType={friendlyPokeType}
               enemyPokeType={enemyPokeType}
+              enemyPokeStats={enemyPokeStats}
             />
           )}
 

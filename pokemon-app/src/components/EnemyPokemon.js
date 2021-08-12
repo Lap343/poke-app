@@ -17,6 +17,7 @@ const EnemyPokemon = ({
   enemyPokeMoveTypes,
   friendlyPokeType,
   enemyPokeType,
+  enemyPokeStats,
 }) => {
   const [enemyStatsOnTop, setEnemyStatsOnTop] = useState(false);
   const [effectivenessArrayString, setEffectivenessArrayString] = useState([]);
@@ -103,9 +104,9 @@ const EnemyPokemon = ({
               }`}
             >
               <ol className="enemy-pokemon__stats-list">
-                {!enemyPokemon?.stats
+                {!enemyPokeStats
                   ? null
-                  : enemyPokemon?.stats.map((statData, statIndex) => (
+                  : enemyPokeStats.map((statData, statIndex) => (
                       <div key={statIndex}>
                         <li>{statData.stat.name}:</li>
                         <div>{statData.base_stat}</div>
