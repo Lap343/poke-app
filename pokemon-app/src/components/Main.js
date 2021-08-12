@@ -29,6 +29,7 @@ const Main = ({
   setEnemyPokeStats,
   themeSongSource,
 }) => {
+  const [friendlyStatsOnTop, setFriendlyStatsOnTop] = useState(false);
   const [enemyStatsOnTop, setEnemyStatsOnTop] = useState(false);
   const [isPlaying, setIsPlaying] = useState(true);
 
@@ -57,6 +58,8 @@ const Main = ({
             friendlyPokeStats={friendlyPokeStats}
             enemyPokeStats={enemyPokeStats}
             setEnemyPokeStats={setEnemyPokeStats}
+            friendlyStatsOnTop={friendlyStatsOnTop}
+            setFriendlyStatsOnTop={setFriendlyStatsOnTop}
             setEnemyStatsOnTop={setEnemyStatsOnTop}
           />
 
@@ -76,6 +79,7 @@ const Main = ({
               setFriendlyPokeStats={setFriendlyPokeStats}
               enemyStatsOnTop={enemyStatsOnTop}
               setEnemyStatsOnTop={setEnemyStatsOnTop}
+              setFriendlyStatsOnTop={setFriendlyStatsOnTop}
             />
           )}
 

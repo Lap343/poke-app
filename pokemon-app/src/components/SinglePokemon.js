@@ -27,9 +27,10 @@ const SinglePokemon = ({
   friendlyPokeStats,
   enemyPokeStats,
   setEnemyPokeStats,
+  friendlyStatsOnTop,
+  setFriendlyStatsOnTop,
   setEnemyStatsOnTop,
 }) => {
-  const [statsOnTop, setStatsOnTop] = useState(false);
   const [effectivenessArrayString, setEffectivenessArrayString] = useState([]);
   const [effectivenessArrayInteger, setEffectivenessArrayInteger] = useState(
     []
@@ -120,26 +121,26 @@ const SinglePokemon = ({
               </div>
 
               <div
-                onClick={() => setStatsOnTop(true)}
+                onClick={() => setFriendlyStatsOnTop(true)}
                 className={`stats-title 
                   ${hasEnemy ? "has-enemy" : ""} 
-                  ${statsOnTop ? "on-tip-top" : ""}`}
+                  ${friendlyStatsOnTop ? "on-tip-top" : ""}`}
               >
                 Stats:
               </div>
 
               <div
-                onClick={() => setStatsOnTop(false)}
+                onClick={() => setFriendlyStatsOnTop(false)}
                 className={`moves-title 
                   ${hasEnemy ? "has-enemy" : ""} 
-                  ${statsOnTop ? "" : "on-tip-top"}`}
+                  ${friendlyStatsOnTop ? "" : "on-tip-top"}`}
               >
                 Moves:
               </div>
 
               <div
                 className={`stats-box ${hasEnemy ? "has-enemy" : ""} ${
-                  statsOnTop ? "on-top" : ""
+                  friendlyStatsOnTop ? "on-top" : ""
                 }`}
               >
                 <ol id="stats-list">
@@ -161,7 +162,7 @@ const SinglePokemon = ({
                 <MovesList
                   pokemonMoves={pokemon?.moves}
                   hasEnemy={hasEnemy}
-                  statsOnTop={statsOnTop}
+                  statsOnTop={friendlyStatsOnTop}
                   effectivenessArrayString={effectivenessArrayString}
                   handleDamageEffectiveness={handleDamageEffectiveness}
                 />
