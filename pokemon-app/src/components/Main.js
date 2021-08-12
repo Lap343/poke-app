@@ -25,6 +25,7 @@ const Main = ({
   enemyPokeType,
   friendlyPokeStats,
   enemyPokeStats,
+  setFriendlyPokeStats,
   setEnemyPokeStats,
   themeSongSource,
 }) => {
@@ -72,6 +73,8 @@ const Main = ({
               friendlyPokeType={friendlyPokeType}
               enemyPokeType={enemyPokeType}
               enemyPokeStats={enemyPokeStats}
+              friendlyPokeStats={friendlyPokeStats}
+              setFriendlyPokeStats={setFriendlyPokeStats}
               hasUserPickedMove={hasUserPickedMove}
               setHasUserPickedMove={setHasUserPickedMove}
             />
