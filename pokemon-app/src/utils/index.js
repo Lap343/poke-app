@@ -1,5 +1,13 @@
 import audioPlayAsync from "./audioPlayAsync";
 import capitalize from "./capitalize";
-import { randomGeneratorInclusive } from "./randomGenerator";
+import {
+  randomGeneratorExclusive,
+  randomGeneratorInclusive,
+} from "./randomGenerator";
 
-export { audioPlayAsync, capitalize, randomGeneratorInclusive };
+export {
+  audioPlayAsync,
+  capitalize,
+  randomGeneratorExclusive,
+  randomGeneratorInclusive,
+};

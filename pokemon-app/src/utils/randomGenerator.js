@@ -38,3 +38,20 @@ export const randomGeneratorInclusive = (min, max) => {
   // Math.floor(Math.random() * (max - min + 1) + min).
   return Math.floor(Math.random() * (maxBound - minBound + 1) + minBound);
 };
+
+/**
+ * Calculates a random number between the given minimum and maximum bounds where the
+ * minimum is inclusive while the maximum is exclusive.
+ * @param {number} min
+ * @param {number} max
+ * @returns {Number} A random integer between the bounds of minimum (inclusive)
+ * and maximum (exclusive).
+ */
+export const randomGeneratorExclusive = (min, max) => {
+  const minBound = Math.ceil(min);
+  const maxBound = Math.floor(max);
+
+  // A random number would not be a maximum (if by chance), but it would be a
+  // minimum.
+  return Math.floor(Math.random() * (maxBound - minBound) + minBound);
+};
