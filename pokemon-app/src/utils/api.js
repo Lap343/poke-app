@@ -32,7 +32,7 @@ export const getPokeByNameOrId = async (pokemon) => {
       originalHP,
     };
   } catch (error) {
-    return Toad;
+    return { ...Toad, originalHP: 1000 };
   }
 };
 
