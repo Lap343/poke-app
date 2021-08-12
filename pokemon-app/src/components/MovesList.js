@@ -57,10 +57,9 @@ const MovesList = ({
             <li
               key={moveIndex}
               className="list-spacing-moves"
-              {...(hasEnemy &&
-                !isEnemyPokemon && {
-                  onClick: () => handleDamageEffectiveness(moveIndex),
-                })}
+              {...(hasEnemy && {
+                onClick: () => handleDamageEffectiveness(moveIndex),
+              })}
             >
               {moveData.move.name}
 

@@ -3,6 +3,7 @@ import mainBackground from "../assets/mainBackground.png";
 import PokemonEvolutions from "./PokemonEvolutions";
 import fightPad from "../assets/fightpad.png";
 import PokemonCry from "./PokemonCry";
+import ProgressBar from "./ProgressBar";
 import TypeCheck from "./TypeCheck";
 import MovesList from "./MovesList";
 import Types from "./Types";
@@ -31,6 +32,8 @@ const SinglePokemon = ({
   setFriendlyStatsOnTop,
   setEnemyStatsOnTop,
   setIsEnemyProgressBar,
+  isFriendlyProgressBar,
+  friendlyOriginalHP,
 }) => {
   const [effectivenessArrayString, setEffectivenessArrayString] = useState([]);
   const [effectivenessArrayInteger, setEffectivenessArrayInteger] = useState(
@@ -157,6 +160,16 @@ const SinglePokemon = ({
                         <div key={statIndex}>
                           <li>{statData.stat.name}:</li>
                           <div>{statData.base_stat}</div>
+
+                          {isFriendlyProgressBar &&
+                            statData.stat.name === "hp" && (
+                              <ProgressBar
+                                done={
+                                  (statData.base_stat / friendlyOriginalHP) *
+                                  100
+                                }
+                              />
+                            )}
                         </div>
                       ))}
                 </ol>
