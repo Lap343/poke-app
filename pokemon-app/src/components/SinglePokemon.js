@@ -27,8 +27,6 @@ const SinglePokemon = ({
   friendlyPokeStats,
   enemyPokeStats,
   setEnemyPokeStats,
-  hasUserPickedMove,
-  setHasUserPickedMove,
 }) => {
   const [statsOnTop, setStatsOnTop] = useState(false);
   const [effectivenessArrayString, setEffectivenessArrayString] = useState([]);
@@ -164,7 +162,6 @@ const SinglePokemon = ({
                   statsOnTop={statsOnTop}
                   effectivenessArrayString={effectivenessArrayString}
                   handleDamageEffectiveness={handleDamageEffectiveness}
-                  hasUserPickedMove={hasUserPickedMove}
                 />
               )}
             </div>
