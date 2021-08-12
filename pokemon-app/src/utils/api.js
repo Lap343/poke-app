@@ -29,9 +29,9 @@ export const getPokeMoveType = async (pokeMovesArray) => {
       pokeMovesArray.map(async (moveValue) => {
         const { url } = moveValue.move;
 
-        const { type } = await fetchData(url);
+        const { type, power, generation, damage_class } = await fetchData(url);
 
-        return type;
+        return { type, power, generation, damageClass: damage_class };
       })
     );
   } catch (error) {
