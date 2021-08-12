@@ -9,6 +9,7 @@ import Types from "./Types";
 import "../styles/One-pokemon-page.css";
 import "../styles/One-pokemon-page-mobile.css";
 import {
+  damageEffectiveness,
   moveEffectiveness,
   overallEffectiveness,
 } from "../utils/effectiveness";
@@ -23,9 +24,15 @@ const SinglePokemon = ({
   friendlyPokeMoveTypes,
   friendlyPokeType,
   enemyPokeType,
+  friendlyPokeStats,
+  enemyPokeStats,
+  setEnemyPokeStats,
 }) => {
   const [statsOnTop, setStatsOnTop] = useState(false);
   const [effectivenessArrayString, setEffectivenessArrayString] = useState([]);
+  const [effectivenessArrayInteger, setEffectivenessArrayInteger] = useState(
+    []
+  );
   const [overallEffectivenessString, setOverallEffectivenessString] =
     useState("");
 
@@ -34,7 +41,27 @@ const SinglePokemon = ({
     Object.prototype.hasOwnProperty.call(pokemon, "moves");
 
   const handleDamageEffectiveness = (moveIndex) => {
-    console.log(moveIndex);
+    const damageOutcome = damageEffectiveness(
+      friendlyPokeStats,
+      friendlyPokeMoveTypes[moveIndex]?.power,
+      friendlyPokeMoveTypes[moveIndex]?.damageClass?.name,
+      effectivenessArrayInteger[moveIndex],
+      friendlyPokeMoveTypes[moveIndex]?.generation?.name,
+      friendlyPokeMoveTypes[moveIndex]?.type?.name,
+      friendlyPokeType,
+      enemyPokeStats
+    );
+
+    const updatedStats = enemyPokeStats.map((statsObject) => {
+      const clonedObject = { ...statsObject };
+
+      if (clonedObject.stat.name === "hp") {
+        clonedObject.base_stat -= damageOutcome;
+      }
+      return clonedObject;
+    });
+
+    setEnemyPokeStats(updatedStats);
   };
 
   useEffect(() => {
@@ -43,7 +70,7 @@ const SinglePokemon = ({
       friendlyPokeType.length &&
       enemyPokeType.length
     ) {
-      const { moveCounterString } = moveEffectiveness(
+      const { moveCounterString, moveCounterInteger } = moveEffectiveness(
         enemyPokeType,
         friendlyPokeMoveTypes
       );
@@ -53,8 +80,9 @@ const SinglePokemon = ({
       );
 
       setEffectivenessArrayString(moveCounterString);
-
       setOverallEffectivenessString(overallCounterString);
+
+      setEffectivenessArrayInteger(moveCounterInteger);
     }
   }, [friendlyPokeMoveTypes, friendlyPokeType, enemyPokeType]);
 
