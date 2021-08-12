@@ -114,9 +114,16 @@ const overallEffectiveness = (defenderType, attackerType) => {
     );
   });
 
+  const overallEffectivenessCounterString = effectivenessCounterCheck(
+    overallEffectivenessCounter
+  );
+
   // Check the counter and return it as "Super Effective", "Ineffective",
   // "Half Damage", or empty string.
-  return effectivenessCounterCheck(overallEffectivenessCounter);
+  return {
+    counterString: overallEffectivenessCounterString,
+    counterInteger: overallEffectivenessCounter,
+  };
 };
 
 /**
@@ -136,11 +143,16 @@ const moveEffectiveness = (defenderType, attackerMoveTypes) => {
     effectivenessCounter(defenderTypeMatchups, moveType.type)
   );
 
+  const moveEffectivenessCounterString = moveEffectivenessCounter.map(
+    (effectiveCounter) => effectivenessCounterCheck(effectiveCounter)
+  );
+
   // Check through each of the array of move counters, and return it as an array
   // of "Super Effective", "Ineffective", "Half Damage", or empty string.
-  return moveEffectivenessCounter.map((effectiveCounter) =>
-    effectivenessCounterCheck(effectiveCounter)
-  );
+  return {
+    counterString: moveEffectivenessCounterString,
+    counterInteger: moveEffectivenessCounter,
+  };
 };
 
 const damageEffectiveness = (
