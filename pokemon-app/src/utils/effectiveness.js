@@ -1,4 +1,4 @@
-import { capitalize } from ".";
+import { capitalize, randomGeneratorInclusive } from ".";
 import { typeJson } from "../components/typeMatchups";
 
 /**
@@ -133,7 +133,7 @@ const moveEffectiveness = (defenderType, attackerMoveTypes) => {
   // Go through each of the attacker's move type(s) while returning as an array...
   const moveEffectivenessCounter = attackerMoveTypes.map((moveType) =>
     // ...and check if the defender has a weak/strong type against the attacker.
-    effectivenessCounter(defenderTypeMatchups, moveType)
+    effectivenessCounter(defenderTypeMatchups, moveType.type)
   );
 
   // Check through each of the array of move counters, and return it as an array
@@ -143,4 +143,106 @@ const moveEffectiveness = (defenderType, attackerMoveTypes) => {
   );
 };
 
-export { overallEffectiveness, moveEffectiveness };
+const damageEffectiveness = (
+  attackerStatsArray,
+  attackerMovePower,
+  attackerMoveDamageClassName,
+  attackerMoveEffectiveness,
+  attackerMoveGenerationName,
+  attackerMoveType,
+  attackerOverallTypes,
+  defenderStatsArray
+) => {
+  // A pokemon's level would not have any effect on gameplay like in TCG.
+  const attackerLevel = 1;
+  // A pokemon's badge would not have any effect on gameplay.
+  const badge = 1;
+  const targets = 1;
+  const weather = 1;
+  // Possibly include this?
+  const burn = 1;
+  const other = 1;
+
+  const type = attackerMoveEffectiveness;
+
+  const power = !attackerMovePower ? 0 : attackerMovePower;
+
+  let stab = 1;
+
+  attackerOverallTypes.forEach((overallTypeObject) => {
+    if (attackerMoveType === overallTypeObject.type.name) {
+      stab = 1.5;
+      return;
+    }
+  });
+
+  const attackerStats = {};
+  const defenderStats = {};
+
+  attackerStatsArray.forEach((statsData) => {
+    attackerStats[statsData.stat.name] = statsData.base_stat;
+  });
+  defenderStatsArray.forEach((statsData) => {
+    defenderStats[statsData.stat.name] = statsData.base_stat;
+  });
+
+  const attackerEffectiveAttackStat =
+    attackerMoveDamageClassName === "physical"
+      ? attackerStats.attack
+      : attackerMoveDamageClassName === "special"
+      ? attackerStats["special-attack"]
+      : 0;
+
+  const defenderEffectiveDefendStat =
+    attackerMoveDamageClassName === "special"
+      ? defenderStats["special-defense"]
+      : defenderStats.defense;
+
+  const effectiveAttackStatRatio =
+    attackerEffectiveAttackStat / defenderEffectiveDefendStat;
+
+  const attackerMoveGeneration = attackerMoveGenerationName.split("-").pop();
+
+  const critical =
+    attackerMoveGeneration === "iii" ||
+    attackerMoveGeneration === "iv" ||
+    attackerMoveGeneration === "v"
+      ? 2
+      : attackerMoveGeneration === "vi" ||
+        attackerMoveGeneration === "vii" ||
+        attackerMoveGeneration === "viii"
+      ? 1.5
+      : 1;
+
+  const damage =
+    ((((2 * attackerLevel) / 5 + 2) * power * effectiveAttackStatRatio) / 50 +
+      2) *
+    targets *
+    weather *
+    badge *
+    critical *
+    stab *
+    type *
+    burn *
+    other;
+
+  const damageLowerLimit =
+    attackerMoveGeneration === "i" || attackerMoveGeneration === "ii"
+      ? 217 * damage
+      : 0.85 * damage;
+
+  const damageUpperLimit =
+    attackerMoveGeneration === "i" || attackerMoveGeneration === "ii"
+      ? 255 * damage
+      : 1 * damage;
+
+  const integerDivision =
+    attackerMoveGeneration === "i" || attackerMoveGeneration === "ii" ? 255 : 1;
+
+  return (
+    randomGeneratorInclusive(damageLowerLimit, damageUpperLimit) /
+    integerDivision
+  );
+};
+
+export { overallEffectiveness, moveEffectiveness, damageEffectiveness };
