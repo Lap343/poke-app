@@ -8,6 +8,7 @@ const MovesList = ({
   statsOnTop,
   isEnemyPokemon,
   effectivenessArrayString,
+  handleDamageEffectiveness,
 }) => {
   const [isScrollBottom, onScroll, scrollRef, scrollTop] = useScroll();
 
@@ -53,7 +54,14 @@ const MovesList = ({
       >
         <ol id={`${isEnemyPokemon ? "enemy-" : ""}moves-list`}>
           {pokemonMoves.map((moveData, moveIndex) => (
-            <li className="list-spacing-moves" key={moveIndex}>
+            <li
+              key={moveIndex}
+              className="list-spacing-moves"
+              {...(hasEnemy &&
+                !isEnemyPokemon && {
+                  onClick: () => handleDamageEffectiveness(moveIndex),
+                })}
+            >
               {moveData.move.name}
 
               {hasEnemy && effectivenessArrayString.length && (

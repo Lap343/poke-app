@@ -33,6 +33,10 @@ const SinglePokemon = ({
   const checkDoesMovesKeyExistInObject = () =>
     Object.prototype.hasOwnProperty.call(pokemon, "moves");
 
+  const handleDamageEffectiveness = (moveIndex) => {
+    console.log(moveIndex);
+  };
+
   useEffect(() => {
     if (
       friendlyPokeMoveTypes.length &&
@@ -124,6 +128,7 @@ const SinglePokemon = ({
                   hasEnemy={hasEnemy}
                   statsOnTop={statsOnTop}
                   effectivenessArrayString={effectivenessArrayString}
+                  handleDamageEffectiveness={handleDamageEffectiveness}
                 />
               )}
             </div>
