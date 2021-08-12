@@ -18,8 +18,9 @@ const EnemyPokemon = ({
   friendlyPokeType,
   enemyPokeType,
   enemyPokeStats,
+  enemyStatsOnTop,
+  setEnemyStatsOnTop,
 }) => {
-  const [enemyStatsOnTop, setEnemyStatsOnTop] = useState(false);
   const [effectivenessArrayString, setEffectivenessArrayString] = useState([]);
   const [overallEffectivenessString, setOverallEffectivenessString] =
     useState("");
