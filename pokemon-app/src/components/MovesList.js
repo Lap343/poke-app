@@ -7,7 +7,7 @@ const MovesList = ({
   hasEnemy,
   statsOnTop,
   isEnemyPokemon,
-  effectivenessArray,
+  effectivenessArrayString,
 }) => {
   const [isScrollBottom, onScroll, scrollRef, scrollTop] = useScroll();
 
@@ -56,12 +56,12 @@ const MovesList = ({
             <li className="list-spacing-moves" key={moveIndex}>
               {moveData.move.name}
 
-              {hasEnemy && effectivenessArray.length && (
+              {hasEnemy && effectivenessArrayString.length && (
                 <span
                   className="effective-label"
-                  data-value={`${effectivenessArray[moveIndex]}`}
+                  data-value={`${effectivenessArrayString[moveIndex]}`}
                 >
-                  {effectivenessArray[moveIndex]}
+                  {effectivenessArrayString[moveIndex]}
                 </span>
               )}
             </li>

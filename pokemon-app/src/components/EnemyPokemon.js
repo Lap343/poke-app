@@ -19,7 +19,7 @@ const EnemyPokemon = ({
   enemyPokeType,
 }) => {
   const [enemyStatsOnTop, setEnemyStatsOnTop] = useState(false);
-  const [effectivenessArray, setEffectivenessArray] = useState([]);
+  const [effectivenessArrayString, setEffectivenessArrayString] = useState([]);
   const [overallEffectivenessString, setOverallEffectivenessString] =
     useState("");
 
@@ -33,7 +33,7 @@ const EnemyPokemon = ({
       friendlyPokeType.length &&
       enemyPokeType.length
     ) {
-      setEffectivenessArray(
+      setEffectivenessArrayString(
         moveEffectiveness(friendlyPokeType, enemyPokeMoveTypes).counterString
       );
 
@@ -114,7 +114,7 @@ const EnemyPokemon = ({
                 pokemonMoves={enemyPokemon?.moves}
                 statsOnTop={enemyStatsOnTop}
                 isEnemyPokemon
-                effectivenessArray={effectivenessArray}
+                effectivenessArrayString={effectivenessArrayString}
                 hasEnemy={hasEnemy}
               />
             )}
