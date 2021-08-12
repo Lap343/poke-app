@@ -127,6 +127,7 @@ function App() {
             enemyPokeType={enemyPokeType}
             friendlyPokeStats={friendlyPokeStats}
             enemyPokeStats={enemyPokeStats}
+            setEnemyPokeStats={setEnemyPokeStats}
             themeSongSource={source}
           />
           <Search
