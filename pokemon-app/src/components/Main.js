@@ -29,6 +29,7 @@ const Main = ({
   themeSongSource,
 }) => {
   const [isPlaying, setIsPlaying] = useState(true);
+  const [hasUserPickedMove, setHasUserPickedMove] = useState(false);
 
   return (
     <div className="main">
@@ -55,6 +56,8 @@ const Main = ({
             friendlyPokeStats={friendlyPokeStats}
             enemyPokeStats={enemyPokeStats}
             setEnemyPokeStats={setEnemyPokeStats}
+            hasUserPickedMove={hasUserPickedMove}
+            setHasUserPickedMove={setHasUserPickedMove}
           />
 
           <Versus isVersus={isVersus} />
@@ -69,6 +72,8 @@ const Main = ({
               friendlyPokeType={friendlyPokeType}
               enemyPokeType={enemyPokeType}
               enemyPokeStats={enemyPokeStats}
+              hasUserPickedMove={hasUserPickedMove}
+              setHasUserPickedMove={setHasUserPickedMove}
             />
           )}
 
