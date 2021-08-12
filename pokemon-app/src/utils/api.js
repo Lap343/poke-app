@@ -12,7 +12,25 @@ export const getPokeByNameOrId = async (pokemon) => {
     const { id, name, weight, moves, sprites, stats, species, types } =
       await fetchData(url);
 
-    return { id, name, weight, moves, sprites, stats, species, types };
+    // This is so the original HP could be used for health progress calculations.
+    let originalHP = 0;
+    stats.forEach((statsObject) => {
+      if (statsObject.stat.name === "hp") {
+        originalHP = statsObject.base_stat;
+      }
+    });
+
+    return {
+      id,
+      name,
+      weight,
+      moves,
+      sprites,
+      stats,
+      species,
+      types,
+      originalHP,
+    };
   } catch (error) {
     return Toad;
   }
