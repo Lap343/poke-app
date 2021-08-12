@@ -248,9 +248,6 @@ const damageEffectiveness = (
       ? (255 * damage) / 255
       : 1 * damage;
 
-  // const integerDivision =
-  //   attackerMoveGeneration === "i" || attackerMoveGeneration === "ii" ? 255 : 1;
-
   return randomGeneratorInclusive(damageLowerLimit, damageUpperLimit);
 };
 
