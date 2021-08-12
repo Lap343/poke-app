@@ -33,13 +33,18 @@ const EnemyPokemon = ({
       friendlyPokeType.length &&
       enemyPokeType.length
     ) {
-      setEffectivenessArrayString(
-        moveEffectiveness(friendlyPokeType, enemyPokeMoveTypes).counterString
+      const { moveCounterString } = moveEffectiveness(
+        friendlyPokeType,
+        enemyPokeMoveTypes
+      );
+      const { overallCounterString } = overallEffectiveness(
+        friendlyPokeType,
+        enemyPokeType
       );
 
-      setOverallEffectivenessString(
-        overallEffectiveness(friendlyPokeType, enemyPokeType).counterString
-      );
+      setEffectivenessArrayString(moveCounterString);
+
+      setOverallEffectivenessString(overallCounterString);
     }
   }, [enemyPokeMoveTypes, friendlyPokeType, enemyPokeType]);
 

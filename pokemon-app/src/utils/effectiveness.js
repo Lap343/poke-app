@@ -121,8 +121,8 @@ const overallEffectiveness = (defenderType, attackerType) => {
   // Check the counter and return it as "Super Effective", "Ineffective",
   // "Half Damage", or empty string.
   return {
-    counterString: overallEffectivenessCounterString,
-    counterInteger: overallEffectivenessCounter,
+    overallCounterString: overallEffectivenessCounterString,
+    overallCounterInteger: overallEffectivenessCounter,
   };
 };
 
@@ -150,8 +150,8 @@ const moveEffectiveness = (defenderType, attackerMoveTypes) => {
   // Check through each of the array of move counters, and return it as an array
   // of "Super Effective", "Ineffective", "Half Damage", or empty string.
   return {
-    counterString: moveEffectivenessCounterString,
-    counterInteger: moveEffectivenessCounter,
+    moveCounterString: moveEffectivenessCounterString,
+    moveCounterInteger: moveEffectivenessCounter,
   };
 };
 
