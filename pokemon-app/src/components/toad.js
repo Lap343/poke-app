@@ -81,7 +81,7 @@ const Toad = {
     },
     {
       base_stat: 1000,
-      stat: { name: "defence" },
+      stat: { name: "defense" },
     },
     {
       base_stat: 1000,
@@ -89,7 +89,7 @@ const Toad = {
     },
     {
       base_stat: 1000,
-      stat: { name: "special-defence" },
+      stat: { name: "special-defense" },
     },
     {
       base_stat: 1000,
