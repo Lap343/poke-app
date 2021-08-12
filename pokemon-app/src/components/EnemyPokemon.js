@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import fightPad from "../assets/fightpad.png";
 import PokemonCry from "./PokemonCry";
+import ProgressBar from "./ProgressBar";
 import MovesList from "./MovesList";
 import Types from "./Types";
 import "../styles/EnemyPokemon.css";
@@ -20,6 +21,8 @@ const EnemyPokemon = ({
   enemyPokeStats,
   enemyStatsOnTop,
   setEnemyStatsOnTop,
+  isEnemyProgressBar,
+  enemyOriginalHP,
 }) => {
   const [effectivenessArrayString, setEffectivenessArrayString] = useState([]);
   const [overallEffectivenessString, setOverallEffectivenessString] =
@@ -111,6 +114,12 @@ const EnemyPokemon = ({
                       <div key={statIndex}>
                         <li>{statData.stat.name}:</li>
                         <div>{statData.base_stat}</div>
+
+                        {isEnemyProgressBar && statData.stat.name === "hp" && (
+                          <ProgressBar
+                            done={(statData.base_stat / enemyOriginalHP) * 100}
+                          />
+                        )}
                       </div>
                     ))}
               </ol>

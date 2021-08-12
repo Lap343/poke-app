@@ -27,11 +27,14 @@ const Main = ({
   enemyPokeStats,
   setFriendlyPokeStats,
   setEnemyPokeStats,
+  friendlyOriginalHP,
+  enemyOriginalHP,
   themeSongSource,
 }) => {
   const [friendlyStatsOnTop, setFriendlyStatsOnTop] = useState(false);
   const [enemyStatsOnTop, setEnemyStatsOnTop] = useState(false);
   const [isPlaying, setIsPlaying] = useState(true);
+  const [isEnemyProgressBar, setIsEnemyProgressBar] = useState(false);
 
   return (
     <div className="main">
@@ -61,6 +64,8 @@ const Main = ({
             friendlyStatsOnTop={friendlyStatsOnTop}
             setFriendlyStatsOnTop={setFriendlyStatsOnTop}
             setEnemyStatsOnTop={setEnemyStatsOnTop}
+            setIsEnemyProgressBar={setIsEnemyProgressBar}
+            friendlyOriginalHP={friendlyOriginalHP}
           />
 
           <Versus isVersus={isVersus} />
@@ -80,6 +85,8 @@ const Main = ({
               enemyStatsOnTop={enemyStatsOnTop}
               setEnemyStatsOnTop={setEnemyStatsOnTop}
               setFriendlyStatsOnTop={setFriendlyStatsOnTop}
+              isEnemyProgressBar={isEnemyProgressBar}
+              enemyOriginalHP={enemyOriginalHP}
             />
           )}
 
