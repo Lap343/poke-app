@@ -240,21 +240,18 @@ const damageEffectiveness = (
 
   const damageLowerLimit =
     attackerMoveGeneration === "i" || attackerMoveGeneration === "ii"
-      ? 217 * damage
+      ? (217 * damage) / 255
       : 0.85 * damage;
 
   const damageUpperLimit =
     attackerMoveGeneration === "i" || attackerMoveGeneration === "ii"
-      ? 255 * damage
+      ? (255 * damage) / 255
       : 1 * damage;
 
-  const integerDivision =
-    attackerMoveGeneration === "i" || attackerMoveGeneration === "ii" ? 255 : 1;
+  // const integerDivision =
+  //   attackerMoveGeneration === "i" || attackerMoveGeneration === "ii" ? 255 : 1;
 
-  return (
-    randomGeneratorInclusive(damageLowerLimit, damageUpperLimit) /
-    integerDivision
-  );
+  return randomGeneratorInclusive(damageLowerLimit, damageUpperLimit);
 };
 
 export { overallEffectiveness, moveEffectiveness, damageEffectiveness };
