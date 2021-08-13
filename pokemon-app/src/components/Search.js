@@ -54,6 +54,8 @@ const Search = ({
     }
   };
 
+  const onKeyDown = (e) => e.key === "Enter" && onSubmit();
+
   const removePokemon = () => {
     if (enemyPokemon === null) {
       if (pokemon !== null) {
@@ -92,6 +94,7 @@ const Search = ({
         placeholder="Search for a pokemon"
         value={pokemonSearchValue}
         onChange={onChange}
+        onKeyDown={onKeyDown}
       />
 
       <button onClick={onSubmit} className="search-button">
