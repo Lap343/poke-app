@@ -8,12 +8,13 @@ import {
   getEvolutionChain,
   getPokeByNameOrId,
   getPokeMoveType,
-} from "./utils/api";
+  pokeCries,
+  updateHPStats,
+} from "./utils";
 import "./App.css";
 import "./styles/Pokedex-model.css";
 import "./styles/Pokedex-model-mobile.css";
 import Toad from "./components/toad";
-import pokeCries from "./utils/pokeCries";
 import reactoadSound from "./assets/sounds/reactoad.mp3";
 
 function App() {
@@ -73,21 +74,9 @@ function App() {
         setPokeSoundUrl(getPokeSoundUrl(pokeData.name));
 
         if (hasEnemySubmit) {
-          const updatedStats = enemyPokeStats.map((statsObject) => {
-            const clonedObject = { ...statsObject };
-
-            if (clonedObject.stat.name === "hp") {
-              clonedObject.base_stat = enemyOriginalHP;
-
-              // This is so there would be no negative values.
-              if (clonedObject.base_stat <= 0) {
-                clonedObject.base_stat = 0;
-              }
-            }
-            return clonedObject;
-          });
-
-          setEnemyPokeStats(updatedStats);
+          setEnemyPokeStats(
+            updateHPStats(enemyPokeStats, enemyOriginalHP, true)
+          );
         }
       }
 
@@ -99,22 +88,9 @@ function App() {
         setEnemyPokeSoundUrl(getPokeSoundUrl(pokeData.name));
         setHasEnemySubmit(true);
         setIsVersus(true);
-
-        const updatedStats = friendlyPokeStats.map((statsObject) => {
-          const clonedObject = { ...statsObject };
-
-          if (clonedObject.stat.name === "hp") {
-            clonedObject.base_stat = friendlyOriginalHP;
-
-            // This is so there would be no negative values.
-            if (clonedObject.base_stat <= 0) {
-              clonedObject.base_stat = 0;
-            }
-          }
-          return clonedObject;
-        });
-
-        setFriendlyPokeStats(updatedStats);
+        setFriendlyPokeStats(
+          updateHPStats(friendlyPokeStats, friendlyOriginalHP, true)
+        );
       }
     } catch (error) {
       console.error(error);

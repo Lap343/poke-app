@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { updateHPStats } from "../utils";
 import fightSong from "../assets/sounds/fightSong.mp3";
 import homeSong from "../assets/sounds/homeSong.mp3";
 
@@ -69,21 +70,9 @@ const Search = ({
       setSource(homeSong);
     }
 
-    const updatedStats = friendlyPokeStats.map((statsObject) => {
-      const clonedObject = { ...statsObject };
-
-      if (clonedObject.stat.name === "hp") {
-        clonedObject.base_stat = friendlyOriginalHP;
-
-        // This is so there would be no negative values.
-        if (clonedObject.base_stat <= 0) {
-          clonedObject.base_stat = 0;
-        }
-      }
-      return clonedObject;
-    });
-
-    setFriendlyPokeStats(updatedStats);
+    setFriendlyPokeStats(
+      updateHPStats(friendlyPokeStats, friendlyOriginalHP, true)
+    );
   };
 
   return (

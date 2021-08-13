@@ -13,7 +13,8 @@ import {
   damageEffectiveness,
   moveEffectiveness,
   overallEffectiveness,
-} from "../utils/effectiveness";
+  updateHPStats,
+} from "../utils";
 
 const SinglePokemon = ({
   pokemon,
@@ -56,21 +57,7 @@ const SinglePokemon = ({
       enemyPokeStats
     );
 
-    const updatedStats = enemyPokeStats.map((statsObject) => {
-      const clonedObject = { ...statsObject };
-
-      if (clonedObject.stat.name === "hp") {
-        clonedObject.base_stat -= damageOutcome;
-
-        // This is so there would be no negative values.
-        if (clonedObject.base_stat <= 0) {
-          clonedObject.base_stat = 0;
-        }
-      }
-      return clonedObject;
-    });
-
-    setEnemyPokeStats(updatedStats);
+    setEnemyPokeStats(updateHPStats(enemyPokeStats, damageOutcome));
     setEnemyStatsOnTop(true);
   };
 
