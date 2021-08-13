@@ -161,15 +161,13 @@ const SinglePokemon = ({
                           <li>{statData.stat.name}:</li>
                           <div>{statData.base_stat}</div>
 
-                          {isFriendlyProgressBar &&
-                            statData.stat.name === "hp" && (
-                              <ProgressBar
-                                progress={
-                                  (statData.base_stat / friendlyOriginalHP) *
-                                  100
-                                }
-                              />
-                            )}
+                          {hasEnemy && statData.stat.name === "hp" && (
+                            <ProgressBar
+                              progress={
+                                (statData.base_stat / friendlyOriginalHP) * 100
+                              }
+                            />
+                          )}
                         </div>
                       ))}
                 </ol>
