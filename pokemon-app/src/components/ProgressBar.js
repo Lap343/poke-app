@@ -23,9 +23,9 @@ const ProgressBar = ({ progress }) => {
 
   return (
     <div className="progress-bar">
-      <div className="progress-bar__done" style={style}>
-        {Math.round(progress)}%
-      </div>
+      <span>{Math.round(progress)}%</span>
+
+      <div className="progress-bar__done" style={style}></div>
     </div>
   );
 };
