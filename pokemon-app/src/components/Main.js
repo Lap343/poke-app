@@ -34,8 +34,6 @@ const Main = ({
   const [friendlyStatsOnTop, setFriendlyStatsOnTop] = useState(false);
   const [enemyStatsOnTop, setEnemyStatsOnTop] = useState(false);
   const [isPlaying, setIsPlaying] = useState(true);
-  const [isEnemyProgressBar, setIsEnemyProgressBar] = useState(false);
-  const [isFriendlyProgressBar, setIsFriendlyProgressBar] = useState(false);
 
   return (
     <div className="main">
@@ -65,8 +63,6 @@ const Main = ({
             friendlyStatsOnTop={friendlyStatsOnTop}
             setFriendlyStatsOnTop={setFriendlyStatsOnTop}
             setEnemyStatsOnTop={setEnemyStatsOnTop}
-            setIsEnemyProgressBar={setIsEnemyProgressBar}
-            isFriendlyProgressBar={isFriendlyProgressBar}
             friendlyOriginalHP={friendlyOriginalHP}
           />
 
@@ -87,8 +83,6 @@ const Main = ({
               enemyStatsOnTop={enemyStatsOnTop}
               setEnemyStatsOnTop={setEnemyStatsOnTop}
               setFriendlyStatsOnTop={setFriendlyStatsOnTop}
-              setIsFriendlyProgressBar={setIsFriendlyProgressBar}
-              isEnemyProgressBar={isEnemyProgressBar}
               enemyOriginalHP={enemyOriginalHP}
             />
           )}

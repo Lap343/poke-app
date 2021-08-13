@@ -31,8 +31,6 @@ const SinglePokemon = ({
   friendlyStatsOnTop,
   setFriendlyStatsOnTop,
   setEnemyStatsOnTop,
-  setIsEnemyProgressBar,
-  isFriendlyProgressBar,
   friendlyOriginalHP,
 }) => {
   const [effectivenessArrayString, setEffectivenessArrayString] = useState([]);
@@ -74,7 +72,6 @@ const SinglePokemon = ({
 
     setEnemyPokeStats(updatedStats);
     setEnemyStatsOnTop(true);
-    setIsEnemyProgressBar(true);
   };
 
   useEffect(() => {
