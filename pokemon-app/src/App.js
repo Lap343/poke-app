@@ -71,6 +71,24 @@ function App() {
         setFriendlyPokeStats(pokeData.stats);
         setFriendlyOriginalHP(pokeData.originalHP);
         setPokeSoundUrl(getPokeSoundUrl(pokeData.name));
+
+        if (hasEnemySubmit) {
+          const updatedStats = enemyPokeStats.map((statsObject) => {
+            const clonedObject = { ...statsObject };
+
+            if (clonedObject.stat.name === "hp") {
+              clonedObject.base_stat = enemyOriginalHP;
+
+              // This is so there would be no negative values.
+              if (clonedObject.base_stat <= 0) {
+                clonedObject.base_stat = 0;
+              }
+            }
+            return clonedObject;
+          });
+
+          setEnemyPokeStats(updatedStats);
+        }
       }
 
       if (isEnemy) {
