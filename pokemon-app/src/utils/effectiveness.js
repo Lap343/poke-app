@@ -196,6 +196,7 @@ const damageEffectiveness = (
 
   const type = attackerMoveEffectiveness;
 
+  // This checks if there are values of null.
   const power = !attackerMovePower ? 0 : attackerMovePower;
 
   // This is equal to 1.5 if the attacker move's type matches any of its types, and
