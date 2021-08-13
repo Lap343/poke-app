@@ -56,12 +56,12 @@ const MovesList = ({
           {pokemonMoves.map((moveData, moveIndex) => (
             <li
               key={moveIndex}
-              className="list-spacing-moves"
+              className={`list-spacing-moves ${hasEnemy ? "vs" : ""}`}
               {...(hasEnemy && {
                 onClick: () => handleDamageEffectiveness(moveIndex),
               })}
             >
-              {moveData.move.name}
+              <span>{moveData.move.name}</span>
 
               {hasEnemy && effectivenessArrayString.length && (
                 <span
