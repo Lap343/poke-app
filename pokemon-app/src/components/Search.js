@@ -15,6 +15,9 @@ const Search = ({
   setIsPokeball,
   isVersus,
   setSource,
+  friendlyOriginalHP,
+  friendlyPokeStats,
+  setFriendlyPokeStats,
 }) => {
   const [pokemonSearchValue, setPokemonSearchValue] = useState("");
   // This is more on the UI functionalities like adding a className,
@@ -65,6 +68,22 @@ const Search = ({
       setIsEnemy(false);
       setSource(homeSong);
     }
+
+    const updatedStats = friendlyPokeStats.map((statsObject) => {
+      const clonedObject = { ...statsObject };
+
+      if (clonedObject.stat.name === "hp") {
+        clonedObject.base_stat = friendlyOriginalHP;
+
+        // This is so there would be no negative values.
+        if (clonedObject.base_stat <= 0) {
+          clonedObject.base_stat = 0;
+        }
+      }
+      return clonedObject;
+    });
+
+    setFriendlyPokeStats(updatedStats);
   };
 
   return (

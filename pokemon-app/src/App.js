@@ -81,6 +81,22 @@ function App() {
         setEnemyPokeSoundUrl(getPokeSoundUrl(pokeData.name));
         setHasEnemySubmit(true);
         setIsVersus(true);
+
+        const updatedStats = friendlyPokeStats.map((statsObject) => {
+          const clonedObject = { ...statsObject };
+
+          if (clonedObject.stat.name === "hp") {
+            clonedObject.base_stat = friendlyOriginalHP;
+
+            // This is so there would be no negative values.
+            if (clonedObject.base_stat <= 0) {
+              clonedObject.base_stat = 0;
+            }
+          }
+          return clonedObject;
+        });
+
+        setFriendlyPokeStats(updatedStats);
       }
     } catch (error) {
       console.error(error);
@@ -150,6 +166,9 @@ function App() {
             setIsVersus={setIsVersus}
             setIsPokeball={setIsPokeball}
             setSource={setSource}
+            friendlyOriginalHP={friendlyOriginalHP}
+            friendlyPokeStats={friendlyPokeStats}
+            setFriendlyPokeStats={setFriendlyPokeStats}
           />
         </div>
         <img id="dex-right-closed" src={dexRightClose} alt="" />
