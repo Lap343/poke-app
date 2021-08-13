@@ -5,6 +5,7 @@ import {
   moveEffectiveness,
   overallEffectiveness,
 } from "./effectiveness";
+import pokeCries from "./pokeCries";
 import {
   randomGeneratorExclusive,
   randomGeneratorInclusive,
@@ -17,6 +18,7 @@ export {
   damageEffectiveness,
   moveEffectiveness,
   overallEffectiveness,
+  pokeCries,
   randomGeneratorExclusive,
   randomGeneratorInclusive,
   updateHPStats,
