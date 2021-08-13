@@ -164,7 +164,7 @@ const SinglePokemon = ({
                           {isFriendlyProgressBar &&
                             statData.stat.name === "hp" && (
                               <ProgressBar
-                                done={
+                                progress={
                                   (statData.base_stat / friendlyOriginalHP) *
                                   100
                                 }

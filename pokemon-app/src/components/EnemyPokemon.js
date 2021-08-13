@@ -157,7 +157,9 @@ const EnemyPokemon = ({
 
                         {isEnemyProgressBar && statData.stat.name === "hp" && (
                           <ProgressBar
-                            done={(statData.base_stat / enemyOriginalHP) * 100}
+                            progress={
+                              (statData.base_stat / enemyOriginalHP) * 100
+                            }
                           />
                         )}
                       </div>
