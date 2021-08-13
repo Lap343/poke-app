@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
 import fightPad from "../assets/fightpad.png";
 import PokemonCry from "./PokemonCry";
+import ProgressBar from "./ProgressBar";
 import MovesList from "./MovesList";
 import Types from "./Types";
 import "../styles/EnemyPokemon.css";
 import "../styles/EnemyPokemon-mobile.css";
 import {
+  damageEffectiveness,
   moveEffectiveness,
   overallEffectiveness,
-} from "../utils/effectiveness";
+  updateHPStats,
+} from "../utils";
 
 const EnemyPokemon = ({
   enemyPokemon,
@@ -17,9 +20,18 @@ const EnemyPokemon = ({
   enemyPokeMoveTypes,
   friendlyPokeType,
   enemyPokeType,
+  enemyPokeStats,
+  friendlyPokeStats,
+  setFriendlyPokeStats,
+  enemyStatsOnTop,
+  setEnemyStatsOnTop,
+  setFriendlyStatsOnTop,
+  enemyOriginalHP,
 }) => {
-  const [enemyStatsOnTop, setEnemyStatsOnTop] = useState(false);
-  const [effectivenessArray, setEffectivenessArray] = useState([]);
+  const [effectivenessArrayString, setEffectivenessArrayString] = useState([]);
+  const [effectivenessArrayInteger, setEffectivenessArrayInteger] = useState(
+    []
+  );
   const [overallEffectivenessString, setOverallEffectivenessString] =
     useState("");
 
@@ -27,19 +39,41 @@ const EnemyPokemon = ({
   const checkDoesMovesKeyExistInObject = () =>
     Object.prototype.hasOwnProperty.call(enemyPokemon, "moves");
 
+  const handleDamageEffectiveness = (moveIndex) => {
+    const damageOutcome = damageEffectiveness(
+      enemyPokeStats,
+      enemyPokeMoveTypes[moveIndex]?.power,
+      enemyPokeMoveTypes[moveIndex]?.damageClass?.name,
+      effectivenessArrayInteger[moveIndex],
+      enemyPokeMoveTypes[moveIndex]?.generation?.name,
+      enemyPokeMoveTypes[moveIndex]?.type?.name,
+      enemyPokeType,
+      friendlyPokeStats
+    );
+
+    setFriendlyPokeStats(updateHPStats(friendlyPokeStats, damageOutcome));
+    setFriendlyStatsOnTop(true);
+  };
+
   useEffect(() => {
     if (
       enemyPokeMoveTypes.length &&
       friendlyPokeType.length &&
       enemyPokeType.length
     ) {
-      setEffectivenessArray(
-        moveEffectiveness(friendlyPokeType, enemyPokeMoveTypes)
+      const { moveCounterString, moveCounterInteger } = moveEffectiveness(
+        friendlyPokeType,
+        enemyPokeMoveTypes
+      );
+      const { overallCounterString } = overallEffectiveness(
+        friendlyPokeType,
+        enemyPokeType
       );
 
-      setOverallEffectivenessString(
-        overallEffectiveness(friendlyPokeType, enemyPokeType)
-      );
+      setEffectivenessArrayString(moveCounterString);
+      setOverallEffectivenessString(overallCounterString);
+
+      setEffectivenessArrayInteger(moveCounterInteger);
     }
   }, [enemyPokeMoveTypes, friendlyPokeType, enemyPokeType]);
 
@@ -98,12 +132,20 @@ const EnemyPokemon = ({
               }`}
             >
               <ol className="enemy-pokemon__stats-list">
-                {!enemyPokemon?.stats
+                {!enemyPokeStats
                   ? null
-                  : enemyPokemon?.stats.map((statData, statIndex) => (
+                  : enemyPokeStats.map((statData, statIndex) => (
                       <div key={statIndex}>
                         <li>{statData.stat.name}:</li>
                         <div>{statData.base_stat}</div>
+
+                        {statData.stat.name === "hp" && (
+                          <ProgressBar
+                            progress={
+                              (statData.base_stat / enemyOriginalHP) * 100
+                            }
+                          />
+                        )}
                       </div>
                     ))}
               </ol>
@@ -114,8 +156,9 @@ const EnemyPokemon = ({
                 pokemonMoves={enemyPokemon?.moves}
                 statsOnTop={enemyStatsOnTop}
                 isEnemyPokemon
-                effectivenessArray={effectivenessArray}
+                effectivenessArrayString={effectivenessArrayString}
                 hasEnemy={hasEnemy}
+                handleDamageEffectiveness={handleDamageEffectiveness}
               />
             )}
 

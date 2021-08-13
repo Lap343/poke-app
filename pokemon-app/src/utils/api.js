@@ -12,9 +12,27 @@ export const getPokeByNameOrId = async (pokemon) => {
     const { id, name, weight, moves, sprites, stats, species, types } =
       await fetchData(url);
 
-    return { id, name, weight, moves, sprites, stats, species, types };
+    // This is so the original HP could be used for health progress calculations.
+    let originalHP = 0;
+    stats.forEach((statsObject) => {
+      if (statsObject.stat.name === "hp") {
+        originalHP = statsObject.base_stat;
+      }
+    });
+
+    return {
+      id,
+      name,
+      weight,
+      moves,
+      sprites,
+      stats,
+      species,
+      types,
+      originalHP,
+    };
   } catch (error) {
-    return Toad;
+    return { ...Toad, originalHP: 1000 };
   }
 };
 
@@ -29,13 +47,18 @@ export const getPokeMoveType = async (pokeMovesArray) => {
       pokeMovesArray.map(async (moveValue) => {
         const { url } = moveValue.move;
 
-        const { type } = await fetchData(url);
+        const { type, power, generation, damage_class } = await fetchData(url);
 
-        return type;
+        return { type, power, generation, damageClass: damage_class };
       })
     );
   } catch (error) {
-    return Toad.moves.map((moveValue) => moveValue.move.type);
+    return Toad.moves.map((moveValue) => ({
+      type: moveValue.move.type,
+      power: moveValue.move.power,
+      generation: moveValue.move.generation,
+      damageClass: moveValue.move.damage_class,
+    }));
   }
 };
 

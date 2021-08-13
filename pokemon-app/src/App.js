@@ -8,12 +8,13 @@ import {
   getEvolutionChain,
   getPokeByNameOrId,
   getPokeMoveType,
-} from "./utils/api";
+  pokeCries,
+  updateHPStats,
+} from "./utils";
 import "./App.css";
 import "./styles/Pokedex-model.css";
 import "./styles/Pokedex-model-mobile.css";
 import Toad from "./components/toad";
-import pokeCries from "./utils/pokeCries";
 import reactoadSound from "./assets/sounds/reactoad.mp3";
 import CreditScreen from "./components/CreditScreen";
 
@@ -21,12 +22,16 @@ function App() {
   const [pokemon, setPokemon] = useState(null);
   const [friendlyPokeType, setFriendlyPokeType] = useState([]);
   const [friendlyPokeMoveTypes, setFriendlyPokeMoveTypes] = useState([]);
+  const [friendlyPokeStats, setFriendlyPokeStats] = useState([]);
+  const [friendlyOriginalHP, setFriendlyOriginalHP] = useState(0);
   const [pokeSoundUrl, setPokeSoundUrl] = useState("");
   const [enemyPokeSoundUrl, setEnemyPokeSoundUrl] = useState("");
   const [evolutions, setEvolutions] = useState([]);
   const [enemyPokemon, setEnemyPokemon] = useState(null);
   const [enemyPokeType, setEnemyPokeType] = useState([]);
   const [enemyPokeMoveTypes, setEnemyPokeMoveTypes] = useState([]);
+  const [enemyPokeStats, setEnemyPokeStats] = useState([]);
+  const [enemyOriginalHP, setEnemyOriginalHP] = useState(0);
   const [isEnemy, setIsEnemy] = useState(false);
   const [hasEnemySubmit, setHasEnemySubmit] = useState(false);
   const [isVersus, setIsVersus] = useState(false);
@@ -67,15 +72,30 @@ function App() {
       if (!isEnemy) {
         setPokemon(pokeData);
         setFriendlyPokeType(pokeData.types);
+        setFriendlyPokeStats(pokeData.stats);
+        setFriendlyOriginalHP(pokeData.originalHP);
         setPokeSoundUrl(getPokeSoundUrl(pokeData.name));
+
+        if (hasEnemySubmit) {
+          // Reset the enemy pokemon's HP.
+          setEnemyPokeStats(
+            updateHPStats(enemyPokeStats, enemyOriginalHP, true)
+          );
+        }
       }
 
       if (isEnemy) {
         setEnemyPokemon(pokeData);
         setEnemyPokeType(pokeData.types);
+        setEnemyPokeStats(pokeData.stats);
+        setEnemyOriginalHP(pokeData.originalHP);
         setEnemyPokeSoundUrl(getPokeSoundUrl(pokeData.name));
         setHasEnemySubmit(true);
         setIsVersus(true);
+        // Reset the user's pokemon HP.
+        setFriendlyPokeStats(
+          updateHPStats(friendlyPokeStats, friendlyOriginalHP, true)
+        );
       }
     } catch (error) {
       console.error(error);
@@ -133,6 +153,12 @@ function App() {
               enemyPokeMoveTypes={enemyPokeMoveTypes}
               friendlyPokeType={friendlyPokeType}
               enemyPokeType={enemyPokeType}
+              friendlyPokeStats={friendlyPokeStats}
+              enemyPokeStats={enemyPokeStats}
+              setEnemyPokeStats={setEnemyPokeStats}
+              setFriendlyPokeStats={setFriendlyPokeStats}
+              friendlyOriginalHP={friendlyOriginalHP}
+              enemyOriginalHP={enemyOriginalHP}
               themeSongSource={source}
             />
           )}
@@ -150,6 +176,9 @@ function App() {
             setIsPokeball={setIsPokeball}
             setSource={setSource}
             setIsCreditScreen={setIsCreditScreen}
+            friendlyOriginalHP={friendlyOriginalHP}
+            friendlyPokeStats={friendlyPokeStats}
+            setFriendlyPokeStats={setFriendlyPokeStats}
           />
         </div>
         <img id="dex-right-closed" src={dexRightClose} alt="" />

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { updateHPStats } from "../utils";
 import fightSong from "../assets/sounds/fightSong.mp3";
 import homeSong from "../assets/sounds/homeSong.mp3";
 
@@ -16,6 +17,9 @@ const Search = ({
   isVersus,
   setSource,
   setIsCreditScreen,
+  friendlyOriginalHP,
+  friendlyPokeStats,
+  setFriendlyPokeStats,
 }) => {
   const [pokemonSearchValue, setPokemonSearchValue] = useState("");
   // This is more on the UI functionalities like adding a className,
@@ -51,6 +55,8 @@ const Search = ({
     }
   };
 
+  const onKeyDown = (e) => e.key === "Enter" && onSubmit();
+
   const removePokemon = () => {
     setIsCreditScreen(false)
     if (enemyPokemon === null) {
@@ -67,6 +73,11 @@ const Search = ({
       setIsEnemy(false);
       setSource(homeSong);
     }
+
+    // Reset the user's pokemon HP.
+    setFriendlyPokeStats(
+      updateHPStats(friendlyPokeStats, friendlyOriginalHP, true)
+    );
   };
 
   return (
@@ -85,6 +96,7 @@ const Search = ({
         placeholder="Search for a pokemon"
         value={pokemonSearchValue}
         onChange={onChange}
+        onKeyDown={onKeyDown}
       />
 
       <button onClick={onSubmit} className="search-button">

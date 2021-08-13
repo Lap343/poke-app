@@ -5,13 +5,69 @@ const Toad = {
   name: "Reactoad",
   weight: 1000,
   moves: [
-    { move: { name: "Class Blast Components", type: { name: "toad" } } },
-    { move: { name: "Hooks Shot", type: { name: "toad" } } },
-    { move: { name: "Router to Hell", type: { name: "toad" } } },
-    { move: { name: "Annihilate PHP", type: { name: "toad" } } },
-    { move: { name: "Key Slay", type: { name: "toad" } } },
-    { move: { name: "Dellstruction", type: { name: "toad" } } },
-    { move: { name: "ALL THE MOVES", type: { name: "toad" } } },
+    {
+      move: {
+        name: "Class Blast Components",
+        type: { name: "toad" },
+        power: 9000,
+        generation: { name: "generation-viii" },
+        damage_class: { name: "special" },
+      },
+    },
+    {
+      move: {
+        name: "Hooks Shot",
+        type: { name: "toad" },
+        power: 9000,
+        generation: { name: "generation-viii" },
+        damage_class: { name: "special" },
+      },
+    },
+    {
+      move: {
+        name: "Router to Hell",
+        type: { name: "toad" },
+        power: 9000,
+        generation: { name: "generation-viii" },
+        damage_class: { name: "special" },
+      },
+    },
+    {
+      move: {
+        name: "Annihilate PHP",
+        type: { name: "toad" },
+        power: 9000,
+        generation: { name: "generation-viii" },
+        damage_class: { name: "special" },
+      },
+    },
+    {
+      move: {
+        name: "Key Slay",
+        type: { name: "toad" },
+        power: 9000,
+        generation: { name: "generation-viii" },
+        damage_class: { name: "special" },
+      },
+    },
+    {
+      move: {
+        name: "Dellstruction",
+        type: { name: "toad" },
+        power: 9000,
+        generation: { name: "generation-viii" },
+        damage_class: { name: "special" },
+      },
+    },
+    {
+      move: {
+        name: "ALL THE MOVES",
+        type: { name: "toad" },
+        power: 9000,
+        generation: { name: "generation-viii" },
+        damage_class: { name: "special" },
+      },
+    },
   ],
   sprites: { front_default: toad },
   stats: [
@@ -25,7 +81,7 @@ const Toad = {
     },
     {
       base_stat: 1000,
-      stat: { name: "defence" },
+      stat: { name: "defense" },
     },
     {
       base_stat: 1000,
@@ -33,7 +89,7 @@ const Toad = {
     },
     {
       base_stat: 1000,
-      stat: { name: "special-defence" },
+      stat: { name: "special-defense" },
     },
     {
       base_stat: 1000,
