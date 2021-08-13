@@ -1,4 +1,4 @@
-@media screen and (max-width: 700px), (max-height: 820px) {
+@media screen and (max-width: 700px) {
   .progress-bar {
     top: 12%;
     left: 40%;
@@ -7,5 +7,40 @@
 
   .progress-bar__done {
     font-size: 0.6em;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .progress-bar {
+    top: 10%;
+    width: 80px;
+    height: 8px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .progress-bar {
+    top: 7%;
+    width: 70px;
+    height: 7px;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .progress-bar {
+    top: 6%;
+    width: 60px;
+    height: 6px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .progress-bar {
+    top: 5%;
+    width: 55px;
+  }
+
+  .progress-bar__done {
+    font-size: 0.7em;
   }
 }
