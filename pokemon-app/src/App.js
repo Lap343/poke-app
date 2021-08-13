@@ -15,6 +15,7 @@ import "./styles/Pokedex-model-mobile.css";
 import Toad from "./components/toad";
 import pokeCries from "./utils/pokeCries";
 import reactoadSound from "./assets/sounds/reactoad.mp3";
+import CreditScreen from "./components/CreditScreen";
 
 function App() {
   const [pokemon, setPokemon] = useState(null);
@@ -31,6 +32,8 @@ function App() {
   const [isVersus, setIsVersus] = useState(false);
   const [isPokeball, setIsPokeball] = useState(false);
   const [source, setSource] = useState("");
+  const [isCreditScreen, setIsCreditScreen] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
 
   const getPokeSoundUrl = (pokeName) => {
     let pokeSoundUrlPath = "";
@@ -106,23 +109,33 @@ function App() {
           src={dexLeft}
           alt="classic pokedex from the Pokemon series"
         >
-          <Main
-            pokemon={pokemon}
-            evolutions={evolutions}
-            enemyPokemon={enemyPokemon}
-            hasEnemySubmit={hasEnemySubmit}
-            isVersus={isVersus}
-            isPokeball={isPokeball}
-            setIsPokeball={setIsPokeball}
-            getPokeByNameOrIdAPI={getPokeByNameOrIdAPI}
-            pokeSoundUrl={pokeSoundUrl}
-            enemyPokeSoundUrl={enemyPokeSoundUrl}
-            friendlyPokeMoveTypes={friendlyPokeMoveTypes}
-            enemyPokeMoveTypes={enemyPokeMoveTypes}
-            friendlyPokeType={friendlyPokeType}
-            enemyPokeType={enemyPokeType}
-            themeSongSource={source}
-          />
+          <button
+            className="credits-button"
+            onClick={() => setIsCreditScreen(!isCreditScreen)}>
+          </button>
+          {isCreditScreen ? (
+            <CreditScreen setIsPlaying={setIsPlaying} isPlaying={isPlaying} />
+          ) : (
+            <Main
+              setIsPlaying={setIsPlaying}
+              isPlaying={isPlaying}
+              pokemon={pokemon}
+              evolutions={evolutions}
+              enemyPokemon={enemyPokemon}
+              hasEnemySubmit={hasEnemySubmit}
+              isVersus={isVersus}
+              isPokeball={isPokeball}
+              setIsPokeball={setIsPokeball}
+              getPokeByNameOrIdAPI={getPokeByNameOrIdAPI}
+              pokeSoundUrl={pokeSoundUrl}
+              enemyPokeSoundUrl={enemyPokeSoundUrl}
+              friendlyPokeMoveTypes={friendlyPokeMoveTypes}
+              enemyPokeMoveTypes={enemyPokeMoveTypes}
+              friendlyPokeType={friendlyPokeType}
+              enemyPokeType={enemyPokeType}
+              themeSongSource={source}
+            />
+          )}
           <Search
             getPokeByNameOrIdAPI={getPokeByNameOrIdAPI}
             pokemon={pokemon}
@@ -136,6 +149,7 @@ function App() {
             setIsVersus={setIsVersus}
             setIsPokeball={setIsPokeball}
             setSource={setSource}
+            setIsCreditScreen={setIsCreditScreen}
           />
         </div>
         <img id="dex-right-closed" src={dexRightClose} alt="" />

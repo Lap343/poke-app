@@ -26,7 +26,7 @@ const Main = ({
   themeSongSource,
 }) => {
   const [isPlaying, setIsPlaying] = useState(true);
-
+  
   return (
     <div className="main">
       {pokemon === null ? (

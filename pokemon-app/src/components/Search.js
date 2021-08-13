@@ -15,6 +15,7 @@ const Search = ({
   setIsPokeball,
   isVersus,
   setSource,
+  setIsCreditScreen,
 }) => {
   const [pokemonSearchValue, setPokemonSearchValue] = useState("");
   // This is more on the UI functionalities like adding a className,
@@ -51,6 +52,7 @@ const Search = ({
   };
 
   const removePokemon = () => {
+    setIsCreditScreen(false)
     if (enemyPokemon === null) {
       if (pokemon !== null) {
         setPokemon(null);
