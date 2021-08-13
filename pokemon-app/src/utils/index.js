@@ -9,6 +9,7 @@ import {
   randomGeneratorExclusive,
   randomGeneratorInclusive,
 } from "./randomGenerator";
+import updateHPStats from "./updateHPStats";
 
 export {
   audioPlayAsync,
@@ -18,4 +19,5 @@ export {
   overallEffectiveness,
   randomGeneratorExclusive,
   randomGeneratorInclusive,
+  updateHPStats,
 };
