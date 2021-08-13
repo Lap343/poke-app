@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../styles/ProgressBar.css";
+import "../styles/ProgressBar-mobile.css";
 
 const ProgressBar = ({ progress }) => {
   const [style, setStyle] = useState({});
