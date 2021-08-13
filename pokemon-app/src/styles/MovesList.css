@@ -295,6 +295,9 @@
 .list-spacing-moves {
   margin: 8px !important;
 }
+.list-spacing-moves.vs span:first-child:hover {
+  cursor: pointer;
+}
 
 .list-spacing-moves > span:empty {
   display: none !important;

@@ -3,15 +3,18 @@ import mainBackground from "../assets/mainBackground.png";
 import PokemonEvolutions from "./PokemonEvolutions";
 import fightPad from "../assets/fightpad.png";
 import PokemonCry from "./PokemonCry";
+import ProgressBar from "./ProgressBar";
 import TypeCheck from "./TypeCheck";
 import MovesList from "./MovesList";
 import Types from "./Types";
 import "../styles/One-pokemon-page.css";
 import "../styles/One-pokemon-page-mobile.css";
 import {
+  damageEffectiveness,
   moveEffectiveness,
   overallEffectiveness,
-} from "../utils/effectiveness";
+  updateHPStats,
+} from "../utils";
 
 const SinglePokemon = ({
   pokemon,
@@ -23,9 +26,18 @@ const SinglePokemon = ({
   friendlyPokeMoveTypes,
   friendlyPokeType,
   enemyPokeType,
+  friendlyPokeStats,
+  enemyPokeStats,
+  setEnemyPokeStats,
+  friendlyStatsOnTop,
+  setFriendlyStatsOnTop,
+  setEnemyStatsOnTop,
+  friendlyOriginalHP,
 }) => {
-  const [statsOnTop, setStatsOnTop] = useState(false);
-  const [effectivenessArray, setEffectivenessArray] = useState([]);
+  const [effectivenessArrayString, setEffectivenessArrayString] = useState([]);
+  const [effectivenessArrayInteger, setEffectivenessArrayInteger] = useState(
+    []
+  );
   const [overallEffectivenessString, setOverallEffectivenessString] =
     useState("");
 
@@ -33,19 +45,41 @@ const SinglePokemon = ({
   const checkDoesMovesKeyExistInObject = () =>
     Object.prototype.hasOwnProperty.call(pokemon, "moves");
 
+  const handleDamageEffectiveness = (moveIndex) => {
+    const damageOutcome = damageEffectiveness(
+      friendlyPokeStats,
+      friendlyPokeMoveTypes[moveIndex]?.power,
+      friendlyPokeMoveTypes[moveIndex]?.damageClass?.name,
+      effectivenessArrayInteger[moveIndex],
+      friendlyPokeMoveTypes[moveIndex]?.generation?.name,
+      friendlyPokeMoveTypes[moveIndex]?.type?.name,
+      friendlyPokeType,
+      enemyPokeStats
+    );
+
+    setEnemyPokeStats(updateHPStats(enemyPokeStats, damageOutcome));
+    setEnemyStatsOnTop(true);
+  };
+
   useEffect(() => {
     if (
       friendlyPokeMoveTypes.length &&
       friendlyPokeType.length &&
       enemyPokeType.length
     ) {
-      setEffectivenessArray(
-        moveEffectiveness(enemyPokeType, friendlyPokeMoveTypes)
+      const { moveCounterString, moveCounterInteger } = moveEffectiveness(
+        enemyPokeType,
+        friendlyPokeMoveTypes
+      );
+      const { overallCounterString } = overallEffectiveness(
+        enemyPokeType,
+        friendlyPokeType
       );
 
-      setOverallEffectivenessString(
-        overallEffectiveness(enemyPokeType, friendlyPokeType)
-      );
+      setEffectivenessArrayString(moveCounterString);
+      setOverallEffectivenessString(overallCounterString);
+
+      setEffectivenessArrayInteger(moveCounterInteger);
     }
   }, [friendlyPokeMoveTypes, friendlyPokeType, enemyPokeType]);
 
@@ -81,35 +115,43 @@ const SinglePokemon = ({
               </div>
 
               <div
-                onClick={() => setStatsOnTop(true)}
+                onClick={() => setFriendlyStatsOnTop(true)}
                 className={`stats-title 
                   ${hasEnemy ? "has-enemy" : ""} 
-                  ${statsOnTop ? "on-tip-top" : ""}`}
+                  ${friendlyStatsOnTop ? "on-tip-top" : ""}`}
               >
                 Stats:
               </div>
 
               <div
-                onClick={() => setStatsOnTop(false)}
+                onClick={() => setFriendlyStatsOnTop(false)}
                 className={`moves-title 
                   ${hasEnemy ? "has-enemy" : ""} 
-                  ${statsOnTop ? "" : "on-tip-top"}`}
+                  ${friendlyStatsOnTop ? "" : "on-tip-top"}`}
               >
                 Moves:
               </div>
 
               <div
                 className={`stats-box ${hasEnemy ? "has-enemy" : ""} ${
-                  statsOnTop ? "on-top" : ""
+                  friendlyStatsOnTop ? "on-top" : ""
                 }`}
               >
                 <ol id="stats-list">
-                  {!pokemon?.stats
+                  {!friendlyPokeStats
                     ? null
-                    : pokemon?.stats.map((statData, statIndex) => (
+                    : friendlyPokeStats.map((statData, statIndex) => (
                         <div key={statIndex}>
                           <li>{statData.stat.name}:</li>
                           <div>{statData.base_stat}</div>
+
+                          {hasEnemy && statData.stat.name === "hp" && (
+                            <ProgressBar
+                              progress={
+                                (statData.base_stat / friendlyOriginalHP) * 100
+                              }
+                            />
+                          )}
                         </div>
                       ))}
                 </ol>
@@ -122,8 +164,9 @@ const SinglePokemon = ({
                 <MovesList
                   pokemonMoves={pokemon?.moves}
                   hasEnemy={hasEnemy}
-                  statsOnTop={statsOnTop}
-                  effectivenessArray={effectivenessArray}
+                  statsOnTop={friendlyStatsOnTop}
+                  effectivenessArrayString={effectivenessArrayString}
+                  handleDamageEffectiveness={handleDamageEffectiveness}
                 />
               )}
             </div>

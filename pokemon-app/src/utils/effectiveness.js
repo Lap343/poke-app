@@ -1,4 +1,4 @@
-import { capitalize } from ".";
+import { capitalize, randomGeneratorInclusive } from ".";
 import { typeJson } from "../components/typeMatchups";
 
 /**
@@ -114,9 +114,16 @@ const overallEffectiveness = (defenderType, attackerType) => {
     );
   });
 
+  const overallEffectivenessCounterString = effectivenessCounterCheck(
+    overallEffectivenessCounter
+  );
+
   // Check the counter and return it as "Super Effective", "Ineffective",
   // "Half Damage", or empty string.
-  return effectivenessCounterCheck(overallEffectivenessCounter);
+  return {
+    overallCounterString: overallEffectivenessCounterString,
+    overallCounterInteger: overallEffectivenessCounter,
+  };
 };
 
 /**
@@ -133,14 +140,149 @@ const moveEffectiveness = (defenderType, attackerMoveTypes) => {
   // Go through each of the attacker's move type(s) while returning as an array...
   const moveEffectivenessCounter = attackerMoveTypes.map((moveType) =>
     // ...and check if the defender has a weak/strong type against the attacker.
-    effectivenessCounter(defenderTypeMatchups, moveType)
+    effectivenessCounter(defenderTypeMatchups, moveType.type)
+  );
+
+  const moveEffectivenessCounterString = moveEffectivenessCounter.map(
+    (effectiveCounter) => effectivenessCounterCheck(effectiveCounter)
   );
 
   // Check through each of the array of move counters, and return it as an array
   // of "Super Effective", "Ineffective", "Half Damage", or empty string.
-  return moveEffectivenessCounter.map((effectiveCounter) =>
-    effectivenessCounterCheck(effectiveCounter)
-  );
+  return {
+    moveCounterString: moveEffectivenessCounterString,
+    moveCounterInteger: moveEffectivenessCounter,
+  };
 };
 
-export { overallEffectiveness, moveEffectiveness };
+/**
+ * Calculates damage dealt when an attacker uses a damaging move depending on its
+ * level, its effective Attack or Special Attack stat, the defender's effective
+ * Defense or Special Defense stat, and the move's effective power. In addition,
+ * various factors of damage modification may also affect the damage dealt.
+ * @param {Array} attackerStatsArray
+ * @param {Number} attackerMovePower
+ * @param {String} attackerMoveDamageClassName
+ * @param {Number} attackerMoveEffectiveness
+ * @param {String} attackerMoveGenerationName
+ * @param {String} attackerMoveType
+ * @param {Array} attackerOverallTypes
+ * @param {Array} defenderStatsArray
+ * @returns {Number} Returns a random number between the lower damage and upper
+ * damage, depending on luck.
+ */
+const damageEffectiveness = (
+  attackerStatsArray,
+  attackerMovePower,
+  attackerMoveDamageClassName,
+  attackerMoveEffectiveness,
+  attackerMoveGenerationName,
+  attackerMoveType,
+  attackerOverallTypes,
+  defenderStatsArray
+) => {
+  // A pokemon's level would not have any effect on gameplay like in TCG.
+  const attackerLevel = 1;
+  // A pokemon's badge would not have any effect on gameplay.
+  const badge = 1;
+  // There is only one target.
+  const targets = 1;
+  // No account for weather.
+  const weather = 1;
+  // No account for burn.
+  const burn = 1;
+  // No account for other cases.
+  const other = 1;
+
+  const type = attackerMoveEffectiveness;
+
+  // This checks if there are values of null.
+  const power = !attackerMovePower ? 0 : attackerMovePower;
+
+  // This is equal to 1.5 if the attacker move's type matches any of its types, and
+  // 1 if otherwise.
+  let stab = 1;
+  attackerOverallTypes.forEach((overallTypeObject) => {
+    if (attackerMoveType === overallTypeObject.type.name) {
+      stab = 1.5;
+      return;
+    }
+  });
+
+  // The effective Attack stat of the attacker if the used move is a physical move,
+  // or the effective Special Attack stat of the attacker if the used move is a
+  // special move.
+  const attackerStats = {};
+  attackerStatsArray.forEach((statsData) => {
+    attackerStats[statsData.stat.name] = statsData.base_stat;
+  });
+  const attackerEffectiveAttackStat =
+    attackerMoveDamageClassName === "physical"
+      ? attackerStats.attack
+      : attackerMoveDamageClassName === "special"
+      ? attackerStats["special-attack"]
+      : 0;
+
+  // The effective Defense stat of the defender if the used move is a physical move
+  // or a special move that uses the defender's Defense stat, or the effective
+  // Special Defense of the defender if the used move is an other special move.
+  const defenderStats = {};
+  defenderStatsArray.forEach((statsData) => {
+    defenderStats[statsData.stat.name] = statsData.base_stat;
+  });
+  const defenderEffectiveDefendStat =
+    attackerMoveDamageClassName === "special"
+      ? defenderStats["special-defense"]
+      : defenderStats.defense;
+
+  const effectiveAttackStatRatio =
+    attackerEffectiveAttackStat / defenderEffectiveDefendStat;
+
+  // Get the move's generation for further calculations.
+  const attackerMoveGeneration = attackerMoveGenerationName.split("-").pop();
+
+  // 2 for a critical hit in Generations III-V, 1.5 for a critical hit from
+  // Generation VI onward, and 1 otherwise.
+  const critical =
+    attackerMoveGeneration === "iii" ||
+    attackerMoveGeneration === "iv" ||
+    attackerMoveGeneration === "v"
+      ? 2
+      : attackerMoveGeneration === "vi" ||
+        attackerMoveGeneration === "vii" ||
+        attackerMoveGeneration === "viii"
+      ? 1.5
+      : 1;
+
+  // Calculate the damage.
+  const damage =
+    ((((2 * attackerLevel) / 5 + 2) * power * effectiveAttackStatRatio) / 50 +
+      2) *
+    targets *
+    weather *
+    badge *
+    critical *
+    stab *
+    type *
+    burn *
+    other;
+
+  // A random factor for the damage: From Generation III onward, it is a random
+  // integer percentage between 0.85 and 1.00 (inclusive). In Generations I and II,
+  // it is realized as a multiplication by a random uniformly distributed integer
+  // between 217 and 255 (inclusive), followed by an integer division by 255.
+  const damageLowerLimit =
+    attackerMoveGeneration === "i" || attackerMoveGeneration === "ii"
+      ? (217 * damage) / 255
+      : 0.85 * damage;
+
+  const damageUpperLimit =
+    attackerMoveGeneration === "i" || attackerMoveGeneration === "ii"
+      ? (255 * damage) / 255
+      : 1 * damage;
+
+  // Return the damage, based on luck.
+  return randomGeneratorInclusive(damageLowerLimit, damageUpperLimit);
+};
+
+export { overallEffectiveness, moveEffectiveness, damageEffectiveness };

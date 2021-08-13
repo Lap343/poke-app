@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { updateHPStats } from "../utils";
 import fightSong from "../assets/sounds/fightSong.mp3";
 import homeSong from "../assets/sounds/homeSong.mp3";
 
@@ -15,6 +16,9 @@ const Search = ({
   setIsPokeball,
   isVersus,
   setSource,
+  friendlyOriginalHP,
+  friendlyPokeStats,
+  setFriendlyPokeStats,
 }) => {
   const [pokemonSearchValue, setPokemonSearchValue] = useState("");
   // This is more on the UI functionalities like adding a className,
@@ -65,6 +69,11 @@ const Search = ({
       setIsEnemy(false);
       setSource(homeSong);
     }
+
+    // Reset the user's pokemon HP.
+    setFriendlyPokeStats(
+      updateHPStats(friendlyPokeStats, friendlyOriginalHP, true)
+    );
   };
 
   return (

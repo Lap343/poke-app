@@ -23,8 +23,16 @@ const Main = ({
   enemyPokeMoveTypes,
   friendlyPokeType,
   enemyPokeType,
+  friendlyPokeStats,
+  enemyPokeStats,
+  setFriendlyPokeStats,
+  setEnemyPokeStats,
+  friendlyOriginalHP,
+  enemyOriginalHP,
   themeSongSource,
 }) => {
+  const [friendlyStatsOnTop, setFriendlyStatsOnTop] = useState(false);
+  const [enemyStatsOnTop, setEnemyStatsOnTop] = useState(false);
   const [isPlaying, setIsPlaying] = useState(true);
 
   return (
@@ -49,6 +57,13 @@ const Main = ({
             friendlyPokeMoveTypes={friendlyPokeMoveTypes}
             friendlyPokeType={friendlyPokeType}
             enemyPokeType={enemyPokeType}
+            friendlyPokeStats={friendlyPokeStats}
+            enemyPokeStats={enemyPokeStats}
+            setEnemyPokeStats={setEnemyPokeStats}
+            friendlyStatsOnTop={friendlyStatsOnTop}
+            setFriendlyStatsOnTop={setFriendlyStatsOnTop}
+            setEnemyStatsOnTop={setEnemyStatsOnTop}
+            friendlyOriginalHP={friendlyOriginalHP}
           />
 
           <Versus isVersus={isVersus} />
@@ -62,6 +77,13 @@ const Main = ({
               enemyPokeMoveTypes={enemyPokeMoveTypes}
               friendlyPokeType={friendlyPokeType}
               enemyPokeType={enemyPokeType}
+              enemyPokeStats={enemyPokeStats}
+              friendlyPokeStats={friendlyPokeStats}
+              setFriendlyPokeStats={setFriendlyPokeStats}
+              enemyStatsOnTop={enemyStatsOnTop}
+              setEnemyStatsOnTop={setEnemyStatsOnTop}
+              setFriendlyStatsOnTop={setFriendlyStatsOnTop}
+              enemyOriginalHP={enemyOriginalHP}
             />
           )}
 
