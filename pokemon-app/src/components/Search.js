@@ -70,6 +70,7 @@ const Search = ({
       setSource(homeSong);
     }
 
+    // Reset the user's pokemon HP.
     setFriendlyPokeStats(
       updateHPStats(friendlyPokeStats, friendlyOriginalHP, true)
     );

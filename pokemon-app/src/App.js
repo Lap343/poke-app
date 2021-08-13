@@ -74,6 +74,7 @@ function App() {
         setPokeSoundUrl(getPokeSoundUrl(pokeData.name));
 
         if (hasEnemySubmit) {
+          // Reset the enemy pokemon's HP.
           setEnemyPokeStats(
             updateHPStats(enemyPokeStats, enemyOriginalHP, true)
           );
@@ -88,6 +89,7 @@ function App() {
         setEnemyPokeSoundUrl(getPokeSoundUrl(pokeData.name));
         setHasEnemySubmit(true);
         setIsVersus(true);
+        // Reset the user's pokemon HP.
         setFriendlyPokeStats(
           updateHPStats(friendlyPokeStats, friendlyOriginalHP, true)
         );
