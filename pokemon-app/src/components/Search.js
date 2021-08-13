@@ -16,6 +16,7 @@ const Search = ({
   setIsPokeball,
   isVersus,
   setSource,
+  setIsCreditScreen,
   friendlyOriginalHP,
   friendlyPokeStats,
   setFriendlyPokeStats,
@@ -57,6 +58,7 @@ const Search = ({
   const onKeyDown = (e) => e.key === "Enter" && onSubmit();
 
   const removePokemon = () => {
+    setIsCreditScreen(false)
     if (enemyPokemon === null) {
       if (pokemon !== null) {
         setPokemon(null);
