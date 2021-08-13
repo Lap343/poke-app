@@ -1,3 +1,4 @@
+import { getEvolutionChain, getPokeByNameOrId, getPokeMoveType } from "./api";
 import audioPlayAsync from "./audioPlayAsync";
 import capitalize from "./capitalize";
 import {
@@ -16,6 +17,9 @@ export {
   audioPlayAsync,
   capitalize,
   damageEffectiveness,
+  getEvolutionChain,
+  getPokeByNameOrId,
+  getPokeMoveType,
   moveEffectiveness,
   overallEffectiveness,
   pokeCries,
