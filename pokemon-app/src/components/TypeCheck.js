@@ -35,7 +35,7 @@ const TypeCheck = ({ pokemon }) => {
       <div className="type-title">
         <div>Type</div>
         <div>Srong Against</div>
-        <div>Week Against</div>
+        <div>Weak Against</div>
         <div>Resistant To</div>
         <div>Vulnerable To</div>
       </div>
