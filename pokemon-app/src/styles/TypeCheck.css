@@ -1,0 +1,58 @@
+.type-check {
+  position: absolute;
+  top: 75%;
+  height: 15%;
+  width: 98%;
+  font-size: 0.8em;
+}
+.type-title {
+  position: absolute;
+  background-color: #5d5d5d;
+  color: white;
+  height: 40%;
+  width: 98%;
+  left: 1%;
+  border: solid black 0.32em;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 15px;
+}
+.type-details-0,
+.type-details-1 {
+  position: absolute;
+  background-color: white;
+  height: 50%;
+  top: 41%;
+  left: 1%;
+  width: 98%;
+  border: solid black 0.32em;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow-y: auto;
+}
+.type-details-0 > div,
+.type-details-1 > div {
+  width: 20%;
+  text-align: center;
+}
+.type-details-1 {
+  top: 94%;
+}
+.type-details-0::-webkit-scrollbar,
+.type-details-1::-webkit-scrollbar {
+  width: 8.6px;
+  height: 7.6px;
+}
+.type-details-0::-webkit-scrollbar-track,
+.type-details-1::-webkit-scrollbar-track {
+  background: transparent;
+}
+.type-details-0::-webkit-scrollbar-thumb,
+.type-details-1::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.18);
+  border-radius: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}

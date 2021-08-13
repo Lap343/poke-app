@@ -1,0 +1,138 @@
+.mainBackground {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+.main-container {
+  display: flex;
+  flex-direction: row;
+}
+.Poke-display-container {
+  position: absolute;
+  width: 30%;
+  left: 5%;
+  top: -1%;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+.Poke-display-container.has-enemy {
+  top: 54%;
+}
+.poke-name {
+  text-transform: capitalize;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15%;
+  width: 135%;
+  font-size: 2em;
+  border: 6px solid black;
+  border-radius: 15px;
+  background-color: #fdf0c4;
+  box-shadow: 0.3em 0.3em rgba(0, 0, 0, 0.3);
+  font-weight: normal;
+}
+.poke-image {
+  margin-left: 30%;
+  transform: scale(1.6);
+}
+.Poke-display-container.has-enemy .poke-image {
+  transform: scale(1.6) rotateY(180deg);
+}
+.poke-pad {
+  height: 20%;
+  width: 50%;
+  top: 22%;
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 0;
+}
+.poke-pad.has-enemy {
+  top: 76%;
+}
+.stats-title {
+  position: absolute;
+  font-size: 1.8em;
+  border: solid black 6px;
+  border-radius: 15px;
+  padding: 0.2em;
+  background-color: #fdf0c4;
+  right: 27%;
+  top: 4%;
+  z-index: 2;
+}
+.stats-title {
+  right: 3%;
+  background-color: rgb(160, 212, 212);
+  z-index: 1;
+}
+.stats-title.has-enemy {
+  top: 55%;
+}
+.stats-title:hover {
+  cursor: pointer;
+}
+.stats-box {
+  z-index: 1;
+  box-sizing: border-box;
+  font-size: 1em;
+  height: 32%;
+  width: 47%;
+  top: 10%;
+  right: 3%;
+  border: 6px solid black;
+  border-radius: 15px;
+  background-color: #fdf0c4;
+  position: absolute;
+  overflow-y: auto;
+  padding-top: 2%;
+  box-shadow: 0.3em 0.3em rgba(0, 0, 0, 0.3);
+}
+.stats-box {
+  background-color: rgb(160, 212, 212);
+  z-index: 0;
+}
+.on-tip-top {
+  z-index: 4;
+}
+.on-top {
+  z-index: 3;
+}
+.stats-box.has-enemy {
+  top: 61%;
+}
+.stats-box::-webkit-scrollbar {
+  width: 8.6px;
+  height: 7.6px;
+}
+.stats-box::-webkit-scrollbar-track {
+  background: transparent;
+}
+.stats-box::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.18);
+  border-radius: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+#stats-list {
+  margin: 5px;
+}
+
+#stats-list > li {
+  font-size: 1em;
+  margin: 10px;
+}
+
+.pokemon-types {
+  z-index: 2;
+  position: absolute;
+  top: 35%;
+  left: 18%;
+  transform: scale(1.4);
+}
+.pokemon-types.has-enemy {
+  top: 90%;
+  left: 18%;
+}
