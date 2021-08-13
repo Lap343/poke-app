@@ -5,6 +5,7 @@ You have now entered the repository of an amazing app: **The Pokédex App.** Thi
 
 Imagine this scenario: You are playing a Pokémon game, and you know gym leader Brock is up next. You know that his Pokémon of choice are Geodude and Onix, and all you have is a Squirtle. Well, with this app you can check the type matchups of your Pokémon vs. any other Pokémon. Using this app you would find out that both of Brock's Pokémon are weak against Grass and/or Water Type Pokémon. You can also just search random Pokémon to see their stats, and the app will show you how that Pokémon would hold up against another Pokémon. With over 900 Pokémon in the [Pokémon API](https://pokeapi.co/) database, the combinations are almost endless.
 
+---
 ## Pokédex App Features
 ![Pokédex app search bar](./pokemon-app/src/assets/forReadMe/SearchBar.png)
 When loading the Pokédex app for the first time, a small opening animation will play showing you the main splash screen and the search bar (the image above). In the search bar, type the Pokémon you want to learn more about. After pressing the search button, the main screen will change to the **Single Pokémon Searched Screen** (the image below).
@@ -29,6 +30,7 @@ This section has the Pokemon's evolution tree. If the Pokémon does not have one
 ![Pokédex app Main screen showing the Pokémon's type weaknesses/strengths chart](./pokemon-app/src/assets/forReadMe/MainThreeThirds.png)
 This sections shows the Pokémon's type(s) and the types the Pokemon is strong against, weak against, resistant to, and vulnerable to. If the main Pokémon has more than one type, the chart will expand to show the extra type and its type matchup.
 
+---
 #### Search for Combatant Pokémon
 Before pressing the search button, type in the name of the Combatant Pokémon in the search bar, and then press the Search Enemy button (seen in the image below)..
 ![Pokédex app Main screen showing the Pokémon's type weaknesses/strengths chart](./pokemon-app/src/assets/forReadMe/Yours&EnemysPokemonButtons.png)
@@ -53,3 +55,25 @@ Another cool feature this app has is if you click on one of the moves, the other
 #### Going a page back or Changing a Pokémon
 To go to the previous page visited please hit the Remove Pokémon button. (seen in the image below)
 ![Pokédex app Vs screen health bar](./pokemon-app/src/assets/forReadMe/RemovePokemonButton.png)
+
+---
+## Running on you local machine
+What you need
+1. Computer terminal
+2. internet
+3. node updated to version 14.15.4
+4. npm updated to version 7.19.1
+5. brain
+
+To run this app locally, open a terminal and run
+`git clone https://github.com/Lap343/poke-app.git`
+to clone the repo on a local machine.
+
+Then
+`cd poke-app`
+and then
+`cd pokemon-app`
+and after that
+`npm install`
+and finally, after all those installs are done
+`npm start`
