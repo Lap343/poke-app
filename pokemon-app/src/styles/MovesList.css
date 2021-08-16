@@ -335,13 +335,15 @@
   }
 
   .effective-label.friendly-overall {
-    bottom: -205px;
-    left: 80%;
+    position: fixed;
+    bottom: 27%;
+    left: 32%;
   }
 
   .effective-label.enemy-overall {
-    top: 575%;
-    left: 75%;
+    position: fixed;
+    top: 30%;
+    left: 66%;
   }
 
   .moves-box::-webkit-scrollbar,
