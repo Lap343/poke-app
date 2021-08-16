@@ -112,3 +112,21 @@
     border-top: 5px solid #b11501;
   }
 }
+
+@media screen and (max-width: 380px) {
+  .moves-list--up-arrow,
+  .moves-list--down-arrow,
+  .moves-list--up-arrow.has-enemy,
+  .moves-list--down-arrow.has-enemy {
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+  }
+  .moves-list--up-arrow,
+  .moves-list--up-arrow.has-enemy {
+    border-bottom: 4px solid #b11501;
+  }
+  .moves-list--down-arrow,
+  .moves-list--down-arrow.has-enemy {
+    border-top: 4px solid #b11501;
+  }
+}
