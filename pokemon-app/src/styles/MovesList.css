@@ -334,7 +334,8 @@
     transform: skew(10deg, -20deg) scale(1.1);
   }
 
-  .effective-label.friendly-overall {position: fixed;
+  .effective-label.friendly-overall {
+    position: fixed;
     bottom: 27%;
     left: 32%;
   }
