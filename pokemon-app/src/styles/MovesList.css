@@ -345,6 +345,11 @@
     left: 66%;
   }
 
+  .moves-box::-webkit-scrollbar,
+  .enemy-moves-box::-webkit-scrollbar {
+    width: 6.6px;
+  }
+
   .moves-list--up-arrow,
   .moves-list--down-arrow,
   .moves-list--up-arrow.has-enemy,
