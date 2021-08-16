@@ -343,4 +343,80 @@
     top: 575%;
     left: 75%;
   }
+
+  .moves-list--up-arrow,
+  .moves-list--down-arrow,
+  .moves-list--up-arrow.has-enemy,
+  .moves-list--down-arrow.has-enemy {
+    right: 6.5%;
+  }
+
+  .enemy-moves-list--up-arrow,
+  .enemy-moves-list--down-arrow {
+    left: 42.5%;
+  }
+
+  .moves-list--up-arrow,
+  .moves-list--down-arrow,
+  .moves-list--up-arrow.has-enemy,
+  .moves-list--down-arrow.has-enemy,
+  .enemy-moves-list--up-arrow,
+  .enemy-moves-list--down-arrow {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+  }
+
+  .moves-list--up-arrow,
+  .moves-list--up-arrow.has-enemy,
+  .enemy-moves-list--up-arrow {
+    border-bottom: 5px solid #b11501;
+  }
+
+  .moves-list--down-arrow,
+  .moves-list--down-arrow.has-enemy,
+  .enemy-moves-list--down-arrow {
+    border-top: 5px solid #b11501;
+  }
+
+  /* .enemy-moves-list--up-arrow {
+    border-bottom: 5px solid #b11501;
+  } */
+  /* .enemy-moves-list--down-arrow {
+    border-top: 5px solid #b11501;
+  } */
+}
+
+@media screen and (max-width: 380px) {
+  .moves-list--up-arrow,
+  .moves-list--down-arrow,
+  .moves-list--up-arrow.has-enemy,
+  .moves-list--down-arrow.has-enemy,
+  .enemy-moves-list--up-arrow,
+  .enemy-moves-list--down-arrow {
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+  }
+
+  .moves-list--up-arrow,
+  .moves-list--up-arrow.has-enemy,
+  .enemy-moves-list--up-arrow {
+    border-bottom: 4px solid #b11501;
+  }
+  .moves-list--down-arrow,
+  .moves-list--down-arrow.has-enemy,
+  .enemy-moves-list--down-arrow {
+    border-top: 4px solid #b11501;
+  }
+
+  /* .enemy-moves-list--up-arrow,
+  .enemy-moves-list--down-arrow {
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+  } */
+  /* .enemy-moves-list--up-arrow {
+    border-bottom: 4px solid #b11501;
+  }
+  .enemy-moves-list--down-arrow {
+    border-top: 4px solid #b11501;
+  } */
 }

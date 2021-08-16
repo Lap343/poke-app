@@ -88,31 +88,4 @@
     font-size: 1.5vw;
     z-index: 99;
   }
-
-  .enemy-moves-list--up-arrow,
-  .enemy-moves-list--down-arrow {
-    left: 42.5%;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-  }
-  .enemy-moves-list--up-arrow {
-    border-bottom: 5px solid #b11501;
-  }
-  .enemy-moves-list--down-arrow {
-    border-top: 5px solid #b11501;
-  }
-}
-
-@media screen and (max-width: 380px) {
-  .enemy-moves-list--up-arrow,
-  .enemy-moves-list--down-arrow {
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-  }
-  .enemy-moves-list--up-arrow {
-    border-bottom: 4px solid #b11501;
-  }
-  .enemy-moves-list--down-arrow {
-    border-top: 4px solid #b11501;
-  }
 }
