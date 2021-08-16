@@ -334,13 +334,14 @@
     transform: skew(10deg, -20deg) scale(1.1);
   }
 
-  .effective-label.friendly-overall {
-    bottom: -205px;
-    left: 80%;
+  .effective-label.friendly-overall {position: fixed;
+    bottom: 27%;
+    left: 32%;
   }
 
   .effective-label.enemy-overall {
-    top: 575%;
-    left: 75%;
+    position: fixed;
+    top: 30%;
+    left: 66%;
   }
 }
