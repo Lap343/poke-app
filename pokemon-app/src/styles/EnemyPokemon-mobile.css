@@ -59,9 +59,9 @@
     padding-left: 16%;
   }
   .enemy-pokemon-types {
-    position: absolute;
-    top: 34%;
-    right: 17%;
+    position: fixed;
+    top: 33%;
+    right: 31%;
   }
   #enemy-moves-list {
     padding-left: 16%;
