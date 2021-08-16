@@ -62,8 +62,17 @@
         border: 2px solid black;
         border-radius: 10px;
     }
+    .pokemon-evolutions__card{
+        height: 19vh;
+    }
     .pokemon-evolutions__card-img {
         border: 2px solid white;
+        height: 11vh;
+        width: 17vw;
+    }
+    .pokemon-evolutions__card-img img {
+        height: 10vh;
+        width: 16vw;
     }
     .pokemon-evolutions__card:not(:last-child) {
       margin: 0 10%;
@@ -72,10 +81,10 @@
         padding: 0 4%;
     }
     .pokemon-evolutions__card:not(:last-child)::before {
-        top: -15%;
+        top: -25%;
     }
     .pokemon-evolutions__card:not(:last-child)::after {
-        top: -15%;
+        top: -25%;
     }
     .pokemon-evolutions__card.eevee-chain:not(:last-child)::before {
         top: -35%;
