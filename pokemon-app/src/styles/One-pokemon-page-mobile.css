@@ -2,11 +2,6 @@
   .type-name {
     font-size: 1.4vw;
   }
-  div.pokemon-types.has-enemy > .type-name {
-    position: absolute;
-    left: 50%;
-    top: 1vh;
-  }
   .poke-name {
     position: fixed;
     top: 11%;
@@ -23,6 +18,16 @@
     width: 18%;
     height: 13%;
     margin-left: 0;
+  }
+  .pokemon-types {
+    position: fixed;
+    top: 33%;
+    left: 22%;
+  }
+  .pokemon-types.has-enemy {
+    position: fixed;
+    top: 72%;
+    left: 22%;
   }
   .Poke-display-container.has-enemy .poke-image {
     top: 60%;
