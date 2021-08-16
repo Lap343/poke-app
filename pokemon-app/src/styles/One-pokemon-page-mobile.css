@@ -1,93 +1,106 @@
-@media screen and (max-width: 700px), (max-height: 820px){
-    .type-name{
-        font-size: 1.4vw;
-    }
-    div.pokemon-types.has-enemy > .type-name {
-        position: absolute;
-        left: 50%;
-        top: 1vh;
-    }
-    .poke-name {
-        position: fixed;
-        top: 11%;
-        left: 14%;
-        width: 25%;
-        height: 1vh;
-        font-size: 1.7vw;
-        border: solid black 3px;
-    }
-    .poke-image {
-        position: fixed;
-        top: 21%;
-        left: 19%;
-        width: 18%;
-        height: 13%;
-        margin-left: 0;
-    }
-    .Poke-display-container.has-enemy .poke-image {
-        top: 60%;
-    }
-    .Poke-display-container.has-enemy .poke-name {
-        top: 51%;
-    }
-    .moves-title, .stats-title{
-        font-size: 3vw;
-        padding: 1%;
-        border: solid black 4px;
-        border-radius: 10px;
-    }
-    .stats-box, .moves-box{
-        font-size: 2vw;
-        border: 4px solid black;
-        border-radius: 10px;
-    }
-    #stats-list, #moves-list{
-        padding-left: 16%;
-        margin: 0px;
-    }
-    #stats-list > li, #moves-list > li {
-        margin: 0px;
-    }
-    /* Pokemon Evolutions */
-    .pokemon-evolutions {
-        font-size: 2.4vw;
-    }
-    .pokemon-evolutions__title {
-        border: 2px solid black;
-    }
-    .pokemon-evolutions__card-wrapper {
-        position: fixed;
-        width: 72%;
-        height: 19%;
-        border: 2px solid black;
-        border-radius: 10px;
-    }
-    .pokemon-evolutions__card-img {
-        border: 2px solid white;
-    }
-    .pokemon-evolutions__card:not(:last-child) {
-      margin: 0 10%;
-    }
-    .pokemon-evolutions__card:last-child {
-        padding: 0 4%;
-    }
-    .pokemon-evolutions__card:not(:last-child)::before {
-        top: -15%;
-    }
-    .pokemon-evolutions__card:not(:last-child)::after {
-        top: -15%;
-    }
-    .pokemon-evolutions__card.eevee-chain:not(:last-child)::before {
-        top: -35%;
-    }
+@media screen and (max-width: 700px), (max-height: 820px) {
+  .type-name {
+    font-size: 1.4vw;
+  }
+  div.pokemon-types.has-enemy > .type-name {
+    position: absolute;
+    left: 50%;
+    top: 1vh;
+  }
+  .poke-name {
+    position: fixed;
+    top: 11%;
+    left: 14%;
+    width: 25%;
+    height: 1vh;
+    font-size: 1.7vw;
+    border: solid black 3px;
+  }
+  .poke-image {
+    position: fixed;
+    top: 21%;
+    left: 19%;
+    width: 18%;
+    height: 13%;
+    margin-left: 0;
+  }
+  .Poke-display-container.has-enemy .poke-image {
+    top: 60%;
+  }
+  .Poke-display-container.has-enemy .poke-name {
+    top: 51%;
+  }
+  .moves-title,
+  .stats-title {
+    font-size: 3vw;
+    padding: 1%;
+    border: solid black 4px;
+    border-radius: 10px;
+  }
+  .stats-box,
+  .moves-box {
+    font-size: 2vw;
+    border: 4px solid black;
+    border-radius: 10px;
+  }
+  #stats-list,
+  #moves-list {
+    padding-left: 16%;
+    margin: 0px;
+  }
+  #stats-list > li,
+  #moves-list > li {
+    margin: 0px;
+  }
+  /* Pokemon Evolutions */
+  .pokemon-evolutions {
+    font-size: 2.4vw;
+  }
+  .pokemon-evolutions__title {
+    border: 2px solid black;
+  }
+  .pokemon-evolutions__card-wrapper {
+    position: fixed;
+    width: 72%;
+    height: 19%;
+    border: 2px solid black;
+    border-radius: 10px;
+  }
+  .pokemon-evolutions__card {
+    height: 19vh;
+  }
+  .pokemon-evolutions__card-img {
+    border: 2px solid white;
+    height: 11vh;
+    width: 17vw;
+  }
+  .pokemon-evolutions__card-img img {
+    height: 10vh;
+    width: 16vw;
+  }
+  .pokemon-evolutions__card:not(:last-child) {
+    margin: 0 10%;
+  }
+  .pokemon-evolutions__card:last-child {
+    padding: 0 4%;
+  }
+  .pokemon-evolutions__card:not(:last-child)::before {
+    top: -25%;
+  }
+  .pokemon-evolutions__card:not(:last-child)::after {
+    top: -25%;
+  }
+  .pokemon-evolutions__card.eevee-chain:not(:last-child)::before {
+    top: -35%;
+  }
 
-    /*   Pokemon Type Matchup   */
-    .type-check{
-        position: fixed;
-        top: 64%;
-        left: 7%;
-        width: 76%;
-        height: 10%;
-        font-size: 1.6vw;
-    }
+  /*   Pokemon Type Matchup   */
+  .type-check {
+    position: fixed;
+    top: 64%;
+    left: 7%;
+    width: 76%;
+    height: 10%;
+    font-size: 1.6vw;
+  }
 }
