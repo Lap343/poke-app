@@ -343,4 +343,9 @@
     top: 575%;
     left: 75%;
   }
+
+  .moves-box::-webkit-scrollbar,
+  .enemy-moves-box::-webkit-scrollbar {
+    width: 6.6px;
+  }
 }
