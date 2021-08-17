@@ -335,12 +335,76 @@
   }
 
   .effective-label.friendly-overall {
-    bottom: -205px;
-    left: 80%;
+    position: fixed;
+    bottom: 27%;
+    left: 32%;
   }
 
   .effective-label.enemy-overall {
-    top: 575%;
-    left: 75%;
+    position: fixed;
+    top: 30%;
+    left: 66%;
+  }
+
+  .moves-box::-webkit-scrollbar,
+  .enemy-moves-box::-webkit-scrollbar {
+    width: 6.6px;
+  }
+
+  .moves-list--up-arrow,
+  .moves-list--down-arrow,
+  .moves-list--up-arrow.has-enemy,
+  .moves-list--down-arrow.has-enemy {
+    right: 6.5%;
+  }
+
+  .enemy-moves-list--up-arrow,
+  .enemy-moves-list--down-arrow {
+    left: 42.5%;
+  }
+
+  .moves-list--up-arrow,
+  .moves-list--down-arrow,
+  .moves-list--up-arrow.has-enemy,
+  .moves-list--down-arrow.has-enemy,
+  .enemy-moves-list--up-arrow,
+  .enemy-moves-list--down-arrow {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+  }
+
+  .moves-list--up-arrow,
+  .moves-list--up-arrow.has-enemy,
+  .enemy-moves-list--up-arrow {
+    border-bottom: 5px solid #b11501;
+  }
+
+  .moves-list--down-arrow,
+  .moves-list--down-arrow.has-enemy,
+  .enemy-moves-list--down-arrow {
+    border-top: 5px solid #b11501;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .moves-list--up-arrow,
+  .moves-list--down-arrow,
+  .moves-list--up-arrow.has-enemy,
+  .moves-list--down-arrow.has-enemy,
+  .enemy-moves-list--up-arrow,
+  .enemy-moves-list--down-arrow {
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+  }
+
+  .moves-list--up-arrow,
+  .moves-list--up-arrow.has-enemy,
+  .enemy-moves-list--up-arrow {
+    border-bottom: 4px solid #b11501;
+  }
+  .moves-list--down-arrow,
+  .moves-list--down-arrow.has-enemy,
+  .enemy-moves-list--down-arrow {
+    border-top: 4px solid #b11501;
   }
 }
