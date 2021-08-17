@@ -30,10 +30,11 @@ const Main = ({
   friendlyOriginalHP,
   enemyOriginalHP,
   themeSongSource,
+  isPlaying,
+  setIsPlaying
 }) => {
   const [friendlyStatsOnTop, setFriendlyStatsOnTop] = useState(false);
   const [enemyStatsOnTop, setEnemyStatsOnTop] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(true);
   
   return (
     <div className="main">
