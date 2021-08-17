@@ -108,4 +108,7 @@
     height: 10%;
     font-size: 1.6vw;
   }
+  .type-title, .type-details-0, .type-details-1 {
+    border-radius: 10px;
+  }
 }
